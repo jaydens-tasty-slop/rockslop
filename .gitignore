@@ -1,0 +1,11 @@
+/target/
+/dist/
+*.part
+# macOS SDK tarballs for make macos (not redistributable)
+/packaging/containers/sdk/*
+!/packaging/containers/sdk/.keep
+/.claude/
+# local reference material: the photos carry GPS EXIF, the rest isn't ours
+/*.heic
+/Clippit.webp
+/failure.har.json

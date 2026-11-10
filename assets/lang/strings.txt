@@ -1,0 +1,371 @@
+# rockslop: the English strings. Every assets/lang/<language>.txt translates
+# these keys. A key is one line; lines starting with # are notes for
+# translators (they apply to the keys below them). {0}, {1}, ... are values
+# filled in at run time: keep every one, in any order the language needs.
+#
+# Style: a hacker-movie flasher. UPPERCASE keys are display labels: keep them
+# uppercase in scripts that have case, and short (the space is tight; an
+# abbreviation is better than a long word). Lowercase keys are terminal-style
+# status lines: terse, lowercase start, no final full stop.
+# Technical terms stay as they are: USB, USB-C, SD, microSD, ROM, DFU, ADFU,
+# NOR, CPU, CRC32, SHA-256, sha256, MiB, KiB, hex numbers like 0x{0},
+# Rockbox, rockslop, YP3, TS17, udev, README, WinUSB, Zadig, sudo, macOS, tar.xz.
+
+## Top bar: the four steps of a flash
+TARGET
+LINK
+PAYLOAD
+EXECUTE
+# the USB bus has no player on it
+BUS IDLE
+# a player running its original (stock) firmware
+STOCK
+
+## Bottom-left prompt, after "> " (terminal style)
+awaiting target
+scanning usb
+awaiting payload
+executing
+session complete
+session aborted
+rolling credits
+
+## Sound badge (bottom right; tiny, 6 characters at most if you can)
+# "sound" (abbreviated)
+SND
+MUTED
+# "no sound device"
+NO SND
+audio muted
+audio on
+
+## Boot screen checklist (fake system checks: "[ OK ] neural uplink")
+neural uplink
+usb stack
+flash maps
+payloads
+glyph cache
+
+## Select screen
+SELECT TARGET
+# the player is in its boot ROM's download mode
+DOWNLOAD MODE
+STOCK FIRMWARE
+# shown as "[ ENGAGE ]" when the pointer is on a player
+ENGAGE
+CLICK TO ENGAGE
+# drag a player model with the mouse to turn it round
+DRAG TO SPIN
+# labels pointing at parts of the player model
+RESET
+HEADPHONE
+# the volume key
+VOL
+POWER
+
+## Download-mode instructions (YP3)
+# first step when the player is plugged in running its own firmware
+UNPLUG
+pull the USB cable out
+POWER OFF
+# the centre key of the click wheel; the player must not be on USB
+unplugged: hold the centre key
+# hold the Down key of the wheel
+HOLD DOWN
+bottom of the wheel
+CONNECT USB
+keep holding
+RELEASE
+once linked
+# alternative route: "OR  hold DOWN and tap RESET"
+OR
+hold DOWN and tap RESET
+
+## Download-mode instructions (TS17)
+POWER ON
+# where the POWER key is
+hold POWER, on the bottom edge
+# connect it while it runs its original firmware
+stock firmware
+# wait
+STAND BY
+it reboots into download mode
+# "Is Rockbox already on it?"
+ROCKBOX?
+switch it off, then hold POWER ~4 s while connecting
+# the TS17 steps when it runs Rockbox
+SWITCH OFF
+hold POWER until the screen goes dark
+HOLD POWER
+plug in while holding, ~4 s
+# "System > Debug" is the path to a menu on the player: use Rockbox's own
+# names for these menus in this language; {0} is the menu entry's English name
+on the player: System > Debug > {0}
+
+## Link status
+LINK FAILED
+SCANNING
+no player on the bus yet
+ACCESS DENIED
+no permission: install the udev rule (see README)
+macOS: run rockslop with sudo to take the device
+install the WinUSB driver for it (Zadig)
+LINK ESTABLISHED
+identity verified
+PROBING
+boot ROM online
+forcing download mode
+ROCKBOX RUNNING
+# the download-mode steps are listed above this status
+follow the steps above
+BACK
+RETRY
+
+## Payload (choosing the Rockbox package to install)
+# title of the file dialog, and its file-type filter
+Rockbox package
+SELECT IMAGE
+or drop it here
+# the chosen package file
+IMAGE
+# the package was refused
+REJECTED
+# the player model it is built for
+BUILD
+FLASH
+CARD
+# {0} = a number of files, {1} = a size such as "3.4 MiB"
+{0} files  ·  {1}
+every member verified
+BACKUP
+stock flash saved first
+CHANGE
+# {0} = a player name: the package built for that player
+THE {0} PACKAGE
+# a reminder beside the player's card slot: the player must have a card in
+NEEDS A MICROSD CARD
+INSERT SD CARD
+RETURN TO STOCK
+# {0}, {1} = player names, e.g. "built for TS17, not YP3"
+built for {0}, not {1}
+# the flash layout diagram
+LAYOUT
+LOCKED
+
+## Execute: the phases of a flash (short chips in a strip)
+PROBE
+VERIFY
+WRITE
+CHECKSUM
+CHECK
+REBOOT
+SD SYNC
+EJECT
+DONE
+
+## Execute: panels
+FLASH MAP
+# sector states in the flash map legend
+SAME
+READ
+ERASE
+WRITTEN
+BAD
+FILES
+# live view of data on the USB bus
+BUS TAP
+THEN PRESS RESET
+SD CARD
+NO CARD
+READ BACK
+MOUNT
+CHECKED
+DATA
+# transfer speed
+RATE
+# estimated time left
+ETA
+
+## Complete
+ACCESS GRANTED
+STOCK RESTORED
+the player boots stock firmware again
+rockbox is live on the player
+SESSION
+# {0} = a number of flash sectors
+{0} sectors rewritten, checksummed
+# {0} = a number of files, {1} = a size
+{0} files  ·  {1}  ·  read back OK
+not updated
+TIME
+UNPLUG TO FINISH
+EJECTED
+UNPLUG AND ROCK
+# start another flash
+AGAIN
+CREDITS
+
+## Fail
+the flash was partly rewritten: a backup is safe on disk
+nothing was written
+FAULT
+# a button: puts a bug report (the error and the log) on the clipboard
+COPY REPORT
+# the same button, just after it was pressed
+REPORT COPIED
+
+## Now playing (a pop-up naming the music track)
+NOW PLAYING
+
+## Credits screen
+# left pane: who made this flasher and what it is built from
+THIS FLASHER
+# right pane: the people in Rockbox's own credits list
+ROCKBOX CONTRIBUTORS
+# {0} = a number of people
+{0} contributors
+# the line at the top of Rockbox's credits list
+People that have contributed to the project, one way or another. Friends!
+links open in your browser
+# section headings
+Made by
+Device protocols and payloads
+Music
+Voice lines
+Sound effects
+Fonts
+Rust crates
+Reference photos
+
+## Clippy (an animated paperclip in sunglasses) pops up with a tip when
+## someone seems stuck. He speaks in friendly full sentences. His opening line
+## parodies the old Office assistant's "It looks like you're writing a
+## letter. Would you like help?": keep that joke in your language.
+It looks like you're trying to hack an MP3 player. Would you like help?
+# closes his tip
+GOT IT
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+Switch the player on first: hold POWER on its bottom edge.
+Still nothing? Try another cable: some only charge.
+Your computer won't let rockslop use the player.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+# {0} = a player name
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+Push a microSD card all the way into the player's slot, then press RESET.
+# "USB disk": the player showing up on the computer as a USB drive
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+# after the credits have rolled all the way through: he surfs the scroller
+It looks like you watched all the credits. Nobody does that. Respect.
+# the sunglasses meme, as he puts his shades back on; keep it in English
+# if your language uses the meme that way
+DEAL WITH IT
+
+## Language picker
+LANGUAGE
+# follow the operating system's language
+AUTOMATIC
+
+## Device log: lines the flasher prints while it works (terminal style).
+## {0}, {1}, ... are numbers, hex values, paths or names.
+stock firmware on the bus: asking it for download mode
+{0} acknowledged 0xCB: rebooting into ADFU
+attaching to {0}
+sector CRC32 scan on the player
+dumping {0} KiB
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+dumping {0} KiB of raw NOR cells
+second pass: comparing
+{0} sectors captured; two reads agree
+identical backup already on file: {0}
+backup -> {0}
+{0} of {1} sectors differ
+0x{0} erase / program / verify ok
+CRC32 of every writable sector, computed on the player
+reading the writable window back
+flash checksum OK  sha256 {0}..{1}
+rebooting into Rockbox
+rebooting into stock firmware
+firmware is up
+{0} image(s), {1} KiB, sha256 verified
+{0} sectors rewritten
+Rockbox did not show up as a USB disk; the card was not updated
+total {0} s
+{0} loaded, checksum OK
+backup is from another unit; its per-unit sectors are left alone
+waiting for Rockbox's USB disk
+# the menu path is the player's: use Rockbox's own names for these menus
+# and for "Mass Storage" in this language
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+no microSD card in the player: insert one, then press RESET
+card online: {0}
+removed {0} stale plugin/codec files
+removed {0}: the firmware is in flash, not on the card
+{0} files written
+reading every file back from the card
+{0} files read back: sha256 OK
+card ejected
+could not eject the card ({0}); eject it before unplugging
+stock firmware detected: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+opening {0} download mode
+reattaching to download mode
+dumping {0} KiB of stock flash
+re-reading CRC32 of every sector
+backup verified: {0}/{1} sectors match
+{0} sectors differ; writing
+sector 0x{0} erase/program/verify ok
+full flash CRC scan
+flash checksum OK
+waiting for Rockbox USB mass storage
+no media: insert a microSD card
+syncing and ejecting card
+
+## Device errors (shown when something goes wrong)
+another tool holds the player ({0})
+the player did not come back in download mode
+the YP3 enters download mode by hand: hold Down while connecting USB
+# {0} = a voltage such as "3.21 V"
+battery too low to flash safely ({0})
+the player came back in download mode: the new firmware did not start
+this package is for {0}, not {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+the package has no firmware image
+the card needs {0} MiB free; it has {1} MiB
+{0} did not read back correctly from the card
+could not mount the player's card: {0}
+the player's card did not appear
+the card is in use by another program
+cancelled
+checksum mismatch at 0x{0}
+sector 0x{0} reads inconsistently
+flash at 0x{0} reads inconsistently
+backup did not read back from disk
+{0} is damaged (checksum mismatch)
+{0} is {1} bytes; a full flash image is {2}
+not a tar.xz release: {0}
+# {0} = a number; {1} = rockslop's version, such as 0.1.0
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+this package (format {0}) is too old for rockslop {1}: get a newer release
+MANIFEST has no format
+MANIFEST names no target
+unsafe path in archive: {0}
+{0}: links and special files are not allowed
+{0}: checksum mismatch, the download is corrupt
+unexpected member {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+release contains no flash image
+{0}: checksum mismatch
+archive member too large
+internal error: {0}
+# USB errors. {0} = what was being done, e.g. "usb read". The three
+# "permission denied" hints are the {1} of that line, one per OS.
+{0}: permission denied. {1}
+Install the udev rule (see README) or run as root.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+The device needs the WinUSB driver (Zadig).
+{0}: the device is busy (another tool is using it?)
+{0}: the device went away
+{0}: timed out

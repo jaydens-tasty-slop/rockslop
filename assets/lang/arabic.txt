@@ -1,0 +1,522 @@
+# العربية: rockslop UI
+TARGET
+= الهدف
+LINK
+= الربط
+PAYLOAD
+= الحمولة
+EXECUTE
+= تنفيذ
+BUS IDLE
+= لا جهاز
+STOCK
+= أصلي
+awaiting target
+= بانتظار الهدف
+scanning usb
+= مسح usb
+awaiting payload
+= بانتظار الحمولة
+executing
+= جارٍ التنفيذ
+session complete
+= اكتملت الجلسة
+session aborted
+= أُجهضت الجلسة
+rolling credits
+= عرض الشكر
+SND
+= صوت
+MUTED
+= صامت
+NO SND
+= لا صوت
+audio muted
+= الصوت مكتوم
+audio on
+= الصوت يعمل
+neural uplink
+= الوصلة العصبية
+usb stack
+= حزمة usb
+flash maps
+= خرائط الفلاش
+payloads
+= الحمولات
+glyph cache
+= ذاكرة الحروف
+SELECT TARGET
+= اختر الهدف
+DOWNLOAD MODE
+= وضع التنزيل
+STOCK FIRMWARE
+= البرنامج الأصلي
+ENGAGE
+= تفعيل
+CLICK TO ENGAGE
+= انقر للتفعيل
+RESET
+= RESET
+HEADPHONE
+= سماعة
+VOL
+= الصوت
+POWER
+= الطاقة
+POWER OFF
+= أطفئ
+unplugged: hold the centre key
+= بلا كابل: اضغط مفتاح الوسط مطولًا
+HOLD DOWN
+= اضغط DOWN
+bottom of the wheel
+= أسفل العجلة
+CONNECT USB
+= وصّل USB
+keep holding
+= استمر بالضغط
+RELEASE
+= اترك
+once linked
+= عند الربط
+OR
+= أو
+hold DOWN and tap RESET
+= اضغط DOWN واضغط RESET
+STAND BY
+= انتظر
+it reboots into download mode
+= سيعيد التشغيل في وضع التنزيل
+ROCKBOX?
+= ROCKBOX؟
+switch it off, then hold POWER ~4 s while connecting
+= أطفئه، ثم اضغط POWER نحو 4 ث أثناء التوصيل
+LINK FAILED
+= فشل الربط
+SCANNING
+= مسح
+no player on the bus yet
+= لا مشغل على الناقل بعد
+ACCESS DENIED
+= تم رفض الوصول
+no permission: install the udev rule (see README)
+= لا إذن: ثبّت قاعدة udev (انظر README)
+macOS: run rockslop with sudo to take the device
+= macOS: شغّل rockslop مع sudo للسيطرة على الجهاز
+install the WinUSB driver for it (Zadig)
+= ثبّت له تعريف WinUSB (Zadig)
+LINK ESTABLISHED
+= تم الربط
+identity verified
+= تم التحقق من الهوية
+PROBING
+= فحص
+boot ROM online
+= boot ROM متصل
+forcing download mode
+= فرض وضع التنزيل
+ROCKBOX RUNNING
+= ROCKBOX يعمل
+BACK
+= رجوع
+RETRY
+= أعد
+Rockbox package
+= حزمة Rockbox
+SELECT IMAGE
+= اختر الصورة
+or drop it here
+= أو أسقطها هنا
+IMAGE
+= الصورة
+REJECTED
+= مرفوضة
+BUILD
+= البناء
+FLASH
+= فلاش
+CARD
+= البطاقة
+{0} files  ·  {1}
+= {0} ملفات  ·  {1}
+every member verified
+= تم فحص كل عنصر
+BACKUP
+= نسخة
+stock flash saved first
+= حُفظ الفلاش الأصلي أولًا
+CHANGE
+= تغيير
+INSERT SD CARD
+= أدخل بطاقة SD
+RETURN TO STOCK
+= العودة للأصلي
+built for {0}, not {1}
+= مبني لـ {0} لا لـ {1}
+LAYOUT
+= التخطيط
+LOCKED
+= مقفل
+PROBE
+= فحص
+VERIFY
+= تحقق
+WRITE
+= كتابة
+CHECKSUM
+= CRC
+CHECK
+= فحص
+REBOOT
+= إعادة
+SD SYNC
+= مزامنة SD
+EJECT
+= إخراج
+DONE
+= تم
+FLASH MAP
+= خريطة الفلاش
+SAME
+= مطابق
+READ
+= قراءة
+ERASE
+= مسح
+WRITTEN
+= مكتوب
+BAD
+= تالف
+FILES
+= الملفات
+BUS TAP
+= تنصت الناقل
+THEN PRESS RESET
+= ثم اضغط RESET
+SD CARD
+= بطاقة SD
+NO CARD
+= لا بطاقة
+READ BACK
+= إعادة قراءة
+MOUNT
+= تركيب
+CHECKED
+= مفحوص
+DATA
+= البيانات
+RATE
+= السرعة
+ETA
+= المتبقي
+ACCESS GRANTED
+= تم منح الوصول
+STOCK RESTORED
+= عاد الأصلي
+the player boots stock firmware again
+= المشغل يعمل بالبرنامج الأصلي مجددًا
+rockbox is live on the player
+= rockbox يعمل على المشغل
+SESSION
+= الجلسة
+{0} sectors rewritten, checksummed
+= أُعيدت كتابة {0} قطاعًا مع فحص المجموع
+{0} files  ·  {1}  ·  read back OK
+= {0} ملفات  ·  {1}  ·  القراءة سليمة
+not updated
+= لم يُحدَّث
+TIME
+= الوقت
+UNPLUG TO FINISH
+= افصل للإنهاء
+EJECTED
+= تم الإخراج
+UNPLUG AND ROCK
+= افصل وانطلق
+AGAIN
+= مرة أخرى
+CREDITS
+= الشكر
+the flash was partly rewritten: a backup is safe on disk
+= أُعيدت كتابة جزء من الفلاش: النسخة الاحتياطية آمنة على القرص
+nothing was written
+= لم يُكتب شيء
+FAULT
+= عطل
+COPY REPORT
+= انسخ التقرير
+REPORT COPIED
+= نُسخ التقرير
+NOW PLAYING
+= يعمل الآن
+THIS FLASHER
+= هذا المثبّت
+ROCKBOX CONTRIBUTORS
+= مساهمو ROCKBOX
+{0} contributors
+= {0} مساهمين
+People that have contributed to the project, one way or another. Friends!
+= الأشخاص الذين ساهموا في المشروع بشكل أو بآخر. أصدقاء!
+links open in your browser
+= الروابط تُفتح في المتصفح
+Made by
+= صنع
+Device protocols and payloads
+= بروتوكولات الجهاز والحمولات
+Music
+= الموسيقى
+Voice lines
+= الأصوات
+Sound effects
+= المؤثرات الصوتية
+Fonts
+= الخطوط
+Rust crates
+= حزم Rust
+Reference photos
+= صور مرجعية
+LANGUAGE
+= اللغة
+AUTOMATIC
+= تلقائي
+stock firmware on the bus: asking it for download mode
+= البرنامج الأصلي على الناقل: نطلب وضع التنزيل
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0} أقرّ 0xCB: إعادة تشغيل في ADFU
+attaching to {0}
+= الاتصال بـ {0}
+sector CRC32 scan on the player
+= مسح CRC32 للقطاعات على المشغل
+dumping {0} KiB
+= تفريغ {0} KiB
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= التُقط {0} قطاعًا ({1} مقروء، {2} معروف سابقًا)؛ تم فحص CRC32
+dumping {0} KiB of raw NOR cells
+= تفريغ {0} KiB من خلايا NOR الخام
+second pass: comparing
+= المرور الثاني: مقارنة
+{0} sectors captured; two reads agree
+= التُقط {0} قطاعًا؛ القراءتان متطابقتان
+identical backup already on file: {0}
+= نسخة مطابقة موجودة: {0}
+backup -> {0}
+= نسخة -> {0}
+{0} of {1} sectors differ
+= {0} من {1} قطاعًا مختلف
+0x{0} erase / program / verify ok
+= 0x{0} مسح / برمجة / تحقق: سليم
+CRC32 of every writable sector, computed on the player
+= CRC32 لكل قطاع قابل للكتابة، محسوب على المشغل
+reading the writable window back
+= إعادة قراءة نافذة الكتابة
+flash checksum OK  sha256 {0}..{1}
+= مجموع الفلاش سليم  sha256 {0}..{1}
+rebooting into Rockbox
+= إعادة التشغيل إلى Rockbox
+rebooting into stock firmware
+= إعادة التشغيل إلى البرنامج الأصلي
+firmware is up
+= البرنامج يعمل
+{0} image(s), {1} KiB, sha256 verified
+= صور: {0}، {1} KiB، تم فحص sha256
+{0} sectors rewritten
+= أُعيدت كتابة {0} قطاعًا
+Rockbox did not show up as a USB disk; the card was not updated
+= لم يظهر Rockbox كقرص USB؛ لم تُحدَّث البطاقة
+total {0} s
+= المجموع {0} ث
+{0} loaded, checksum OK
+= تم تحميل {0}، المجموع سليم
+backup is from another unit; its per-unit sectors are left alone
+= النسخة من وحدة أخرى؛ قطاعات الوحدة تُترك كما هي
+waiting for Rockbox's USB disk
+= بانتظار قرص USB لـ Rockbox
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= لا قرص USB من Rockbox بعد: إن كان مضبوطًا على الشحن فقط، افصل المشغل، واضغط أي زر وأعد توصيله (أو اضبط الإعدادات > الإعدادات العامة > النظام > USB > USB Mode على Mass Storage)
+no microSD card in the player: insert one, then press RESET
+= لا بطاقة microSD في المشغل: أدخل واحدة ثم اضغط RESET
+card online: {0}
+= البطاقة متصلة: {0}
+removed {0} stale plugin/codec files
+= حُذف {0} من ملفات plugin/codec القديمة
+removed {0}: the firmware is in flash, not on the card
+= حُذف {0}: البرنامج في ذاكرة الفلاش لا على البطاقة
+{0} files written
+= كُتب {0} من الملفات
+reading every file back from the card
+= إعادة قراءة كل ملف من البطاقة
+{0} files read back: sha256 OK
+= أُعيدت قراءة {0} من الملفات: sha256 سليم
+card ejected
+= أُخرجت البطاقة
+could not eject the card ({0}); eject it before unplugging
+= تعذّر إخراج البطاقة ({0})؛ أخرجها قبل الفصل
+stock firmware detected: ACTIONSUSBD
+= رُصد البرنامج الأصلي: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= حقن أمر المصنّع 0xCB -> ADFU
+opening {0} download mode
+= فتح وضع التنزيل {0}
+reattaching to download mode
+= إعادة الاتصال بوضع التنزيل
+dumping {0} KiB of stock flash
+= تفريغ {0} KiB من الفلاش الأصلي
+re-reading CRC32 of every sector
+= إعادة قراءة CRC32 لكل قطاع
+backup verified: {0}/{1} sectors match
+= تم فحص النسخة: تطابق {0}/{1} قطاعًا
+{0} sectors differ; writing
+= {0} قطاعًا مختلفًا؛ جارٍ الكتابة
+sector 0x{0} erase/program/verify ok
+= القطاع 0x{0} مسح/برمجة/تحقق: سليم
+full flash CRC scan
+= مسح CRC للفلاش كاملًا
+flash checksum OK
+= مجموع الفلاش سليم
+waiting for Rockbox USB mass storage
+= بانتظار تخزين USB لـ Rockbox
+no media: insert a microSD card
+= لا وسيط: أدخل بطاقة microSD
+syncing and ejecting card
+= مزامنة البطاقة وإخراجها
+another tool holds the player ({0})
+= أداة أخرى تستخدم المشغل ({0})
+the player did not come back in download mode
+= لم يعد المشغل في وضع التنزيل
+the YP3 enters download mode by hand: hold Down while connecting USB
+= يدخل YP3 وضع التنزيل يدويًا: اضغط Down أثناء توصيل USB
+battery too low to flash safely ({0})
+= البطارية ضعيفة جدًا للفلاش الآمن ({0})
+the player came back in download mode: the new firmware did not start
+= عاد المشغل في وضع التنزيل: لم يبدأ البرنامج الجديد
+this package is for {0}, not {1}
+= هذه الحزمة لـ {0} لا لـ {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= فلاش المشغل عند 0x{0} ليس ما بُنيت له الحزمة؛ لم يُكتب شيء
+the package has no firmware image
+= لا صورة برنامج في الحزمة
+the card needs {0} MiB free; it has {1} MiB
+= البطاقة تحتاج {0} MiB فارغة؛ المتاح {1} MiB
+{0} did not read back correctly from the card
+= {0} لم يُقرأ من البطاقة بشكل صحيح
+could not mount the player's card: {0}
+= تعذّر تركيب بطاقة المشغل: {0}
+the player's card did not appear
+= لم تظهر بطاقة المشغل
+the card is in use by another program
+= البطاقة قيد الاستخدام في برنامج آخر
+cancelled
+= أُلغي
+checksum mismatch at 0x{0}
+= عدم تطابق المجموع عند 0x{0}
+sector 0x{0} reads inconsistently
+= القطاع 0x{0} يُقرأ بشكل غير ثابت
+flash at 0x{0} reads inconsistently
+= الفلاش عند 0x{0} يُقرأ بشكل غير ثابت
+backup did not read back from disk
+= لم تُقرأ النسخة من القرص
+{0} is damaged (checksum mismatch)
+= {0} تالف (عدم تطابق المجموع)
+{0} is {1} bytes; a full flash image is {2}
+= {0} حجمه {1} بايت؛ صورة الفلاش الكاملة {2}
+not a tar.xz release: {0}
+= ليس إصدار tar.xz: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= هذه الحزمة (الصيغة {0}) تحتاج rockslop أحدث من {1}: حدّث rockslop
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= هذه الحزمة (الصيغة {0}) قديمة جدًا على rockslop {1}: احصل على إصدار أحدث
+MANIFEST has no format
+= MANIFEST بلا صيغة
+MANIFEST names no target
+= MANIFEST بلا هدف
+unsafe path in archive: {0}
+= مسار غير آمن في الأرشيف: {0}
+{0}: links and special files are not allowed
+= {0}: الروابط والملفات الخاصة غير مسموحة
+{0}: checksum mismatch, the download is corrupt
+= {0}: عدم تطابق المجموع، التنزيل تالف
+unexpected member {0}
+= عنصر غير متوقع {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= الأرشيف ينقصه {0} من الملفات المذكورة في SHA256SUMS
+release contains no flash image
+= الإصدار بلا صورة فلاش
+{0}: checksum mismatch
+= {0}: عدم تطابق المجموع
+archive member too large
+= عنصر الأرشيف كبير جدًا
+internal error: {0}
+= خطأ داخلي: {0}
+{0}: permission denied. {1}
+= {0}: تم رفض الإذن. {1}
+Install the udev rule (see README) or run as root.
+= ثبّت قاعدة udev (انظر README) أو شغّل البرنامج كـ root.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= يحتاج macOS إلى صلاحيات root لأخذ الجهاز من تعريف التخزين كبير السعة: شغّله من Terminal مع sudo.
+The device needs the WinUSB driver (Zadig).
+= يحتاج الجهاز إلى تعريف WinUSB (Zadig).
+{0}: the device is busy (another tool is using it?)
+= {0}: الجهاز مشغول (هل تستخدمه أداة أخرى؟)
+{0}: the device went away
+= {0}: اختفى الجهاز
+{0}: timed out
+= {0}: انتهت المهلة
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= اسحب للتدوير
+UNPLUG
+= افصل
+pull the USB cable out
+= انزع كابل USB
+POWER ON
+= شغّل
+hold POWER, on the bottom edge
+= اضغط زر الطاقة مطولًا، على الحافة السفلية
+stock firmware
+= البرنامج الأصلي
+SWITCH OFF
+= أطفئ
+hold POWER until the screen goes dark
+= اضغط زر الطاقة مطولًا حتى تنطفئ الشاشة
+HOLD POWER
+= اضغط زر الطاقة
+plug in while holding, ~4 s
+= وصّل مع الاستمرار بالضغط، نحو 4 ث
+on the player: System > Debug > {0}
+= على المشغل: النظام > التصحيح > {0}
+follow the steps above
+= اتبع الخطوات أعلاه
+THE {0} PACKAGE
+= حزمة {0}
+NEEDS A MICROSD CARD
+= يحتاج بطاقة microSD
+It looks like you're trying to hack an MP3 player. Would you like help?
+= يبدو أنك تحاول اختراق مشغل MP3. هل تريد المساعدة؟
+GOT IT
+= فهمت
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= لا يوجد رقم طراز على هذه المشغلات. قارن الرسوم السلكية بدلًا من ذلك: الأزرار والمنافذ مختلفة. اسحب مشغلًا لتدويره.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= أطفئ المشغل أولًا، ثم اضغط DOWN مطولًا قبل توصيل الكابل، واستمر بالضغط.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= اضغط زر الطاقة مطولًا أثناء توصيل الكابل، واستمر بالضغط نحو 4 ثوانٍ.
+Switch the player on first: hold POWER on its bottom edge.
+= شغّل المشغل أولًا: اضغط زر الطاقة مطولًا على حافته السفلية.
+Still nothing? Try another cable: some only charge.
+= لا شيء بعد؟ جرّب كابلًا آخر: بعض الكابلات للشحن فقط.
+Your computer won't let rockslop use the player.
+= حاسوبك لا يسمح لـ rockslop باستخدام المشغل.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= افصل الكابل أولًا: المشغل لا يستجيب إلا في وضع التنزيل. الخطوات تشرح الطريقة.
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= تحتاج إلى حزمة Rockbox المبنية لـ {0}: ملف بامتداد tar.xz. انقر «اختر الصورة»، أو أسقطه على اللوحة.
+Push a microSD card all the way into the player's slot, then press RESET.
+= أدخل بطاقة microSD حتى النهاية في فتحة المشغل، ثم اضغط RESET.
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= لم يُظهر Rockbox قرص USB الخاص به بعد. إن كان المشغل يشحن فقط، افصله، واضغط أي زر مطولًا ثم أعد توصيله.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= زر «أعد» يحل المشكلة عادةً. ما زلت عالقًا؟ زر «انسخ التقرير» يضع التفاصيل في الحافظة لتقرير الخطأ.
+It looks like you watched all the credits. Nobody does that. Respect.
+= يبدو أنك شاهدت قائمة الشكر كلها. لا أحد يفعل ذلك. احترامي.
+DEAL WITH IT
+= DEAL WITH IT

@@ -1,0 +1,522 @@
+# Íslenska: rockslop UI
+TARGET
+= MARKTÆKI
+LINK
+= TENGING
+PAYLOAD
+= HLEÐSLA
+EXECUTE
+= KEYRA
+BUS IDLE
+= BUS TÓMT
+STOCK
+= UPPHAF.
+awaiting target
+= bíð eftir marktæki
+scanning usb
+= leita á usb
+awaiting payload
+= bíð eftir hleðslu
+executing
+= keyri
+session complete
+= lotu lokið
+session aborted
+= lotu hætt
+rolling credits
+= kynni höfunda
+SND
+= HLJ
+MUTED
+= ÞÖGN
+NO SND
+= ENGIN HLJ
+audio muted
+= hljóð slökkt
+audio on
+= hljóð kveikt
+neural uplink
+= taugatenging
+usb stack
+= usb stafli
+flash maps
+= flash kort
+payloads
+= hleðslur
+glyph cache
+= tákn-skyndiminni
+SELECT TARGET
+= VELJA MARKTÆKI
+DOWNLOAD MODE
+= NIÐURHALSHAM
+STOCK FIRMWARE
+= UPPRUNA FIRMWARE
+ENGAGE
+= VIRKJA
+CLICK TO ENGAGE
+= SMELLA TIL AÐ VIRKJA
+RESET
+= RESET
+HEADPHONE
+= HEYRNARTÓL
+VOL
+= HLJ
+POWER
+= POWER
+POWER OFF
+= SLÖKKVA
+unplugged: hold the centre key
+= úr sambandi: haltu miðjutakkanum inni
+HOLD DOWN
+= HALDA DOWN
+bottom of the wheel
+= neðst á hjólinu
+CONNECT USB
+= TENGJA USB
+keep holding
+= haltu áfram
+RELEASE
+= SLEPPA
+once linked
+= þegar tengt
+OR
+= EÐA
+hold DOWN and tap RESET
+= haltu DOWN og ýttu á RESET
+STAND BY
+= BÍÐA
+it reboots into download mode
+= hann endurræsir í niðurhalsham
+ROCKBOX?
+= ROCKBOX?
+switch it off, then hold POWER ~4 s while connecting
+= slökktu á honum, haltu svo POWER ~4 s við tengingu
+LINK FAILED
+= TENGING MISTÓKST
+SCANNING
+= LEITA
+no player on the bus yet
+= enginn spilari á bus enn
+ACCESS DENIED
+= AÐGANGI HAFNAÐ
+no permission: install the udev rule (see README)
+= engin heimild: settu upp udev-regluna (sjá README)
+macOS: run rockslop with sudo to take the device
+= macOS: keyrðu rockslop með sudo til að ná tækinu
+install the WinUSB driver for it (Zadig)
+= settu upp WinUSB rekil fyrir það (Zadig)
+LINK ESTABLISHED
+= TENGING KOMIN
+identity verified
+= auðkenni staðfest
+PROBING
+= KANNA
+boot ROM online
+= ræsi-ROM virkt
+forcing download mode
+= þvinga niðurhalsham
+ROCKBOX RUNNING
+= ROCKBOX KEYRIR
+BACK
+= TIL BAKA
+RETRY
+= REYNA AFTUR
+Rockbox package
+= Rockbox pakki
+SELECT IMAGE
+= VELJA MYND
+or drop it here
+= eða slepptu henni hér
+IMAGE
+= MYND
+REJECTED
+= HAFNAÐ
+BUILD
+= ÚTGÁFA
+FLASH
+= FLASH
+CARD
+= KORT
+{0} files  ·  {1}
+= {0} skrár  ·  {1}
+every member verified
+= allir hlutar staðfestir
+BACKUP
+= AFRIT
+stock flash saved first
+= upprunalegt flash vistað fyrst
+CHANGE
+= BREYTA
+INSERT SD CARD
+= SETJA SD KORT Í
+RETURN TO STOCK
+= AFTUR Í UPPRUNA
+built for {0}, not {1}
+= smíðað fyrir {0}, ekki {1}
+LAYOUT
+= KORT
+LOCKED
+= LÆST
+PROBE
+= KÖNNUN
+VERIFY
+= STAÐFEST
+WRITE
+= SKRIFA
+CHECKSUM
+= TÉKKSUMMA
+CHECK
+= ATHUGA
+REBOOT
+= ENDURRÆSA
+SD SYNC
+= SD SAMST.
+EJECT
+= AFTENGJA
+DONE
+= LOKIÐ
+FLASH MAP
+= FLASH KORT
+SAME
+= SAMA
+READ
+= LESIÐ
+ERASE
+= EYTT
+WRITTEN
+= SKRIFAÐ
+BAD
+= SLÆMT
+FILES
+= SKRÁR
+BUS TAP
+= BUS HLERUN
+THEN PRESS RESET
+= SVO ÝTA Á RESET
+SD CARD
+= SD KORT
+NO CARD
+= ENGIN KORT
+READ BACK
+= LESIÐ AFTUR
+MOUNT
+= TENGJA
+CHECKED
+= ATHUGAÐ
+DATA
+= GÖGN
+RATE
+= HRAÐI
+ETA
+= EFTIR
+ACCESS GRANTED
+= AÐGANGUR VEITTUR
+STOCK RESTORED
+= UPPRUNI ENDURHEIMTUR
+the player boots stock firmware again
+= spilarinn ræsir upprunalega firmware aftur
+rockbox is live on the player
+= rockbox er í gangi á spilaranum
+SESSION
+= LOTA
+{0} sectors rewritten, checksummed
+= {0} geirar endurskrifaðir, tékksummaðir
+{0} files  ·  {1}  ·  read back OK
+= {0} skrár  ·  {1}  ·  endurlestur í lagi
+not updated
+= ekki uppfært
+TIME
+= TÍMI
+UNPLUG TO FINISH
+= TAKA ÚR SAMB.
+EJECTED
+= AFTENGT
+UNPLUG AND ROCK
+= TAKA ÚR OG ROKKA
+AGAIN
+= AFTUR
+CREDITS
+= HÖFUNDAR
+the flash was partly rewritten: a backup is safe on disk
+= flash var að hluta endurskrifað: afrit er öruggt á diskinum
+nothing was written
+= engu var skrifað
+FAULT
+= BILUN
+COPY REPORT
+= AFRITA SKÝRSLU
+REPORT COPIED
+= SKÝRSLA AFRITUÐ
+NOW PLAYING
+= SPILAR NÚNA
+THIS FLASHER
+= ÞETTA FORRIT
+ROCKBOX CONTRIBUTORS
+= ROCKBOX FRAMLAGSM.
+{0} contributors
+= {0} framlagsmenn
+People that have contributed to the project, one way or another. Friends!
+= Fólk sem hefur lagt verkefninu lið á einn eða annan hátt. Vinir!
+links open in your browser
+= tenglar opnast í vafranum
+Made by
+= Gert af
+Device protocols and payloads
+= Tækjasamskiptareglur og hleðslur
+Music
+= Tónlist
+Voice lines
+= Talsetning
+Sound effects
+= Hljóðbrellur
+Fonts
+= Letur
+Rust crates
+= Rust pakkar
+Reference photos
+= Myndir til viðmiðunar
+LANGUAGE
+= TUNGUMÁL
+AUTOMATIC
+= SJÁLFVIRKT
+stock firmware on the bus: asking it for download mode
+= upprunalegt firmware á bus: bið um niðurhalsham
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0} staðfesti 0xCB: endurræsi í ADFU
+attaching to {0}
+= tengist {0}
+sector CRC32 scan on the player
+= CRC32 leit í geirum á spilaranum
+dumping {0} KiB
+= afrita {0} KiB
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= {0} geirar teknir ({1} lesnir, {2} þegar þekktir); CRC32 staðfest
+dumping {0} KiB of raw NOR cells
+= afrita {0} KiB af hráum NOR hólfum
+second pass: comparing
+= önnur umferð: ber saman
+{0} sectors captured; two reads agree
+= {0} geirar teknir; báðir lestrar stemma
+identical backup already on file: {0}
+= eins afrit er þegar til: {0}
+backup -> {0}
+= afrit -> {0}
+{0} of {1} sectors differ
+= {0} af {1} geirum eru ólíkir
+0x{0} erase / program / verify ok
+= 0x{0} eyðing / forritun / staðfesting í lagi
+CRC32 of every writable sector, computed on the player
+= CRC32 allra skrifanlegra geira, reiknað á spilaranum
+reading the writable window back
+= les skrifanlega svæðið aftur
+flash checksum OK  sha256 {0}..{1}
+= flash tékksumma í lagi  sha256 {0}..{1}
+rebooting into Rockbox
+= endurræsi í Rockbox
+rebooting into stock firmware
+= endurræsi í upprunalegt firmware
+firmware is up
+= firmware er komið í gang
+{0} image(s), {1} KiB, sha256 verified
+= {0} mynd(ir), {1} KiB, sha256 staðfest
+{0} sectors rewritten
+= {0} geirar endurskrifaðir
+Rockbox did not show up as a USB disk; the card was not updated
+= Rockbox birtist ekki sem USB diskur; kortið var ekki uppfært
+total {0} s
+= alls {0} s
+{0} loaded, checksum OK
+= {0} hlaðið, tékksumma í lagi
+backup is from another unit; its per-unit sectors are left alone
+= afritið er úr öðru tæki; sérgeirar hvers tækis eru látnir í friði
+waiting for Rockbox's USB disk
+= bíð eftir USB diski Rockbox
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= enginn USB diskur frá Rockbox enn: ef hann er stilltur á hleðslu eingöngu, taktu spilarann úr sambandi, haltu hvaða takka sem er og tengdu hann aftur (eða stilltu Settings > Almennarstillingar > Kerfi > USB > USB Mode á Mass Storage)
+no microSD card in the player: insert one, then press RESET
+= ekkert microSD kort í spilaranum: settu eitt í og ýttu svo á RESET
+card online: {0}
+= kort tengt: {0}
+removed {0} stale plugin/codec files
+= fjarlægði {0} úrelt viðbóta/codec skrár
+removed {0}: the firmware is in flash, not on the card
+= fjarlægði {0}: firmware er í flash-minni, ekki á kortinu
+{0} files written
+= {0} skrám skrifað
+reading every file back from the card
+= les allar skrár af kortinu aftur
+{0} files read back: sha256 OK
+= {0} skrár lesnar aftur: sha256 í lagi
+card ejected
+= kort aftengt
+could not eject the card ({0}); eject it before unplugging
+= tókst ekki að aftengja kortið ({0}); aftengdu það áður en þú tekur úr sambandi
+stock firmware detected: ACTIONSUSBD
+= upprunalegt firmware fannst: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= sprauta framleiðsluskipun 0xCB -> ADFU
+opening {0} download mode
+= opna niðurhalsham {0}
+reattaching to download mode
+= tengist niðurhalsham aftur
+dumping {0} KiB of stock flash
+= afrita {0} KiB af upprunalegu flash
+re-reading CRC32 of every sector
+= les CRC32 allra geira aftur
+backup verified: {0}/{1} sectors match
+= afrit staðfest: {0}/{1} geirar stemma
+{0} sectors differ; writing
+= {0} geirar ólíkir; skrifa
+sector 0x{0} erase/program/verify ok
+= geiri 0x{0} eyðing/forritun/staðfesting í lagi
+full flash CRC scan
+= CRC leit í öllu flash
+flash checksum OK
+= flash tékksumma í lagi
+waiting for Rockbox USB mass storage
+= bíð eftir USB geymslu Rockbox
+no media: insert a microSD card
+= enginn miðill: settu microSD kort í
+syncing and ejecting card
+= samstilli og aftengi kort
+another tool holds the player ({0})
+= annað tól heldur spilaranum ({0})
+the player did not come back in download mode
+= spilarinn kom ekki aftur í niðurhalsham
+the YP3 enters download mode by hand: hold Down while connecting USB
+= YP3 fer í niðurhalsham handvirkt: haltu Down við USB tengingu
+battery too low to flash safely ({0})
+= of lítið á batteríi til að flasha örugglega ({0})
+the player came back in download mode: the new firmware did not start
+= spilarinn kom aftur í niðurhalsham: nýja firmware ræsti sig ekki
+this package is for {0}, not {1}
+= þessi pakki er fyrir {0}, ekki {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= flash þessa spilara á 0x{0} er ekki það sem pakkinn var smíðaður fyrir; engu var skrifað
+the package has no firmware image
+= pakkinn inniheldur enga firmware mynd
+the card needs {0} MiB free; it has {1} MiB
+= kortið þarf {0} MiB laust; það hefur {1} MiB
+{0} did not read back correctly from the card
+= {0} las sig ekki rétt aftur af kortinu
+could not mount the player's card: {0}
+= tókst ekki að tengja kort spilarans: {0}
+the player's card did not appear
+= kort spilarans birtist ekki
+the card is in use by another program
+= kortið er í notkun hjá öðru forriti
+cancelled
+= hætt við
+checksum mismatch at 0x{0}
+= tékksumma stemmir ekki á 0x{0}
+sector 0x{0} reads inconsistently
+= geiri 0x{0} les sig ósamkvæmt
+flash at 0x{0} reads inconsistently
+= flash á 0x{0} les sig ósamkvæmt
+backup did not read back from disk
+= afritið las sig ekki aftur af diski
+{0} is damaged (checksum mismatch)
+= {0} er skemmd (tékksumma stemmir ekki)
+{0} is {1} bytes; a full flash image is {2}
+= {0} er {1} bæti; full flash mynd er {2}
+not a tar.xz release: {0}
+= ekki tar.xz útgáfa: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= þessi pakki (snið {0}) þarf nýrra rockslop en {1}: uppfærðu rockslop
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= þessi pakki (snið {0}) er of gamall fyrir rockslop {1}: sæktu nýrri útgáfu
+MANIFEST has no format
+= MANIFEST hefur ekkert snið
+MANIFEST names no target
+= MANIFEST nefnir ekkert marktæki
+unsafe path in archive: {0}
+= óörugg slóð í safni: {0}
+{0}: links and special files are not allowed
+= {0}: tenglar og sérskrár eru ekki leyfð
+{0}: checksum mismatch, the download is corrupt
+= {0}: tékksumma stemmir ekki, niðurhalið er skemmt
+unexpected member {0}
+= óvæntur hluti {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= í safninu vantar {0} skrá(r) sem eru í SHA256SUMS
+release contains no flash image
+= útgáfan inniheldur enga flash mynd
+{0}: checksum mismatch
+= {0}: tékksumma stemmir ekki
+archive member too large
+= safnhluti of stór
+internal error: {0}
+= innri villa: {0}
+{0}: permission denied. {1}
+= {0}: aðgangi hafnað. {1}
+Install the udev rule (see README) or run as root.
+= Settu upp udev-regluna (sjá README) eða keyrðu sem root.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= macOS þarf root til að ná tækinu frá massageymslurekli þess: keyrðu úr Terminal með sudo.
+The device needs the WinUSB driver (Zadig).
+= Tækið þarf WinUSB rekilinn (Zadig).
+{0}: the device is busy (another tool is using it?)
+= {0}: tækið er upptekið (er annað tól að nota það?)
+{0}: the device went away
+= {0}: tækið hvarf
+{0}: timed out
+= {0}: tíminn rann út
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= DRAGÐU TIL AÐ SNÚA
+UNPLUG
+= AFTENGJA
+pull the USB cable out
+= taktu USB snúruna úr
+POWER ON
+= KVEIKJA
+hold POWER, on the bottom edge
+= haltu POWER, á neðri brúninni
+stock firmware
+= upprunalegt firmware
+SWITCH OFF
+= SLÖKKVA
+hold POWER until the screen goes dark
+= haltu POWER þar til skjárinn slokknar
+HOLD POWER
+= HALDA POWER
+plug in while holding, ~4 s
+= tengdu meðan þú heldur, ~4 s
+on the player: System > Debug > {0}
+= á spilaranum: Kerfi > Villuleit > {0}
+follow the steps above
+= fylgdu skrefunum hér að ofan
+THE {0} PACKAGE
+= {0} PAKKINN
+NEEDS A MICROSD CARD
+= ÞARF MICROSD KORT
+It looks like you're trying to hack an MP3 player. Would you like help?
+= Það lítur út fyrir að þú sért að reyna að hakka MP3 spilara. Viltu fá hjálp?
+GOT IT
+= SKILIÐ
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= Það er ekkert tegundarnúmer á þessum spilurum. Berðu frekar saman vírlíkönin: takkarnir og tengin eru ólík. Dragðu spilara til að snúa honum.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= Slökktu fyrst á spilaranum, haltu svo DOWN áður en snúran fer í, og haltu áfram.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= Haltu POWER meðan þú stingur snúrunni í, og haltu áfram í um 4 sekúndur.
+Switch the player on first: hold POWER on its bottom edge.
+= Kveiktu fyrst á spilaranum: haltu POWER á neðri brún hans.
+Still nothing? Try another cable: some only charge.
+= Enn ekkert? Prófaðu aðra snúru: sumar hlaða bara.
+Your computer won't let rockslop use the player.
+= Tölvan þín leyfir rockslop ekki að nota spilarann.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= Taktu snúruna fyrst úr sambandi: spilarinn hlustar bara í niðurhalsham. Skrefin segja hvernig.
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= Þú þarft Rockbox pakkann sem er gerður fyrir {0}: .tar.xz skrá. Smelltu á VELJA MYND, eða slepptu honum á spjaldið.
+Push a microSD card all the way into the player's slot, then press RESET.
+= Ýttu microSD korti alla leið inn í raufina á spilaranum og ýttu svo á RESET.
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Rockbox hefur ekki enn sýnt USB diskinn sinn. Ef spilarinn hleðst bara, taktu hann úr sambandi, haltu hvaða takka sem er og tengdu hann aftur.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= REYNA AFTUR leysir þetta yfirleitt. Enn fastur? AFRITA SKÝRSLU setur upplýsingarnar á klippiborðið fyrir villuskýrslu.
+It looks like you watched all the credits. Nobody does that. Respect.
+= Það lítur út fyrir að þú hafir horft á allan höfundalistann. Það gerir enginn. Virðing.
+DEAL WITH IT
+= DEAL WITH IT

@@ -1,0 +1,8 @@
+# English (US): rockslop UI
+# Overrides only: this file lists just the American spellings that differ
+# from the English (UK) keys in strings.txt. Any key not listed here falls
+# back to the key itself.
+unplugged: hold the centre key
+= unplugged: hold the center key
+cancelled
+= canceled

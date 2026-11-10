@@ -1,0 +1,522 @@
+# Română: rockslop UI
+TARGET
+= ȚINTĂ
+LINK
+= LEGĂTURĂ
+PAYLOAD
+= ÎNCĂRCĂTURĂ
+EXECUTE
+= EXECUTARE
+BUS IDLE
+= BUS LIBER
+STOCK
+= ORIGINAL
+awaiting target
+= se așteaptă ținta
+scanning usb
+= scanare usb
+awaiting payload
+= se așteaptă încărcătura
+executing
+= se execută
+session complete
+= sesiune încheiată
+session aborted
+= sesiune întreruptă
+rolling credits
+= se derulează creditele
+SND
+= SUN
+MUTED
+= FĂRĂ SUN
+NO SND
+= FĂRĂ SUN
+audio muted
+= audio dezactivat
+audio on
+= audio activat
+neural uplink
+= conexiune neurală
+usb stack
+= stivă usb
+flash maps
+= hărți flash
+payloads
+= încărcături
+glyph cache
+= cache de glife
+SELECT TARGET
+= ALEGE ȚINTA
+DOWNLOAD MODE
+= MOD DOWNLOAD
+STOCK FIRMWARE
+= FIRMWARE ORIGINAL
+ENGAGE
+= ACTIVEAZĂ
+CLICK TO ENGAGE
+= CLICK PT. ACTIVARE
+RESET
+= RESET
+HEADPHONE
+= CĂȘTI
+VOL
+= VOL
+POWER
+= POWER
+POWER OFF
+= OPREȘTE
+unplugged: hold the centre key
+= deconectat: ține apăsată tasta centrală
+HOLD DOWN
+= ȚINE DOWN
+bottom of the wheel
+= baza rotiței
+CONNECT USB
+= CONECTEAZĂ USB
+keep holding
+= ține apăsat
+RELEASE
+= ELIBEREAZĂ
+once linked
+= după conectare
+OR
+= SAU
+hold DOWN and tap RESET
+= ține DOWN și apasă RESET
+STAND BY
+= AȘTEAPTĂ
+it reboots into download mode
+= repornește în mod download
+ROCKBOX?
+= ROCKBOX?
+switch it off, then hold POWER ~4 s while connecting
+= oprește-l, apoi ține POWER ~4 s la conectare
+LINK FAILED
+= LEGĂTURĂ EȘUATĂ
+SCANNING
+= SCANARE
+no player on the bus yet
+= încă niciun player pe bus
+ACCESS DENIED
+= ACCES REFUZAT
+no permission: install the udev rule (see README)
+= fără permisiune: instalează regula udev (vezi README)
+macOS: run rockslop with sudo to take the device
+= macOS: rulează rockslop cu sudo pentru a prelua dispozitivul
+install the WinUSB driver for it (Zadig)
+= instalează driverul WinUSB pentru el (Zadig)
+LINK ESTABLISHED
+= LEGĂTURĂ STABILITĂ
+identity verified
+= identitate verificată
+PROBING
+= SONDARE
+boot ROM online
+= ROM de boot online
+forcing download mode
+= se forțează modul download
+ROCKBOX RUNNING
+= ROCKBOX PORNIT
+BACK
+= ÎNAPOI
+RETRY
+= REÎNCEARCĂ
+Rockbox package
+= Pachet Rockbox
+SELECT IMAGE
+= ALEGE IMAGINEA
+or drop it here
+= sau trage-l aici
+IMAGE
+= IMAGINE
+REJECTED
+= RESPINS
+BUILD
+= BUILD
+FLASH
+= FLASH
+CARD
+= CARD
+{0} files  ·  {1}
+= {0} fișiere  ·  {1}
+every member verified
+= toate componentele verificate
+BACKUP
+= COPIE
+stock flash saved first
+= flash-ul original salvat întâi
+CHANGE
+= SCHIMBĂ
+INSERT SD CARD
+= INTRODU CARD SD
+RETURN TO STOCK
+= ÎNAPOI LA ORIGINAL
+built for {0}, not {1}
+= construit pt. {0}, nu {1}
+LAYOUT
+= HARTĂ
+LOCKED
+= BLOCAT
+PROBE
+= SONDĂ
+VERIFY
+= VERIF.
+WRITE
+= SCRIE
+CHECKSUM
+= SUMĂ CTRL
+CHECK
+= VERIF.
+REBOOT
+= REPORNIRE
+SD SYNC
+= SINCR. SD
+EJECT
+= EJECTEAZĂ
+DONE
+= GATA
+FLASH MAP
+= HARTĂ FLASH
+SAME
+= IDENTIC
+READ
+= CITIT
+ERASE
+= ȘTERS
+WRITTEN
+= SCRIS
+BAD
+= DEFECT
+FILES
+= FIȘIERE
+BUS TAP
+= ASCULTARE BUS
+THEN PRESS RESET
+= APOI APASĂ RESET
+SD CARD
+= CARD SD
+NO CARD
+= FĂRĂ CARD
+READ BACK
+= RECITIRE
+MOUNT
+= MONTARE
+CHECKED
+= VERIFICAT
+DATA
+= DATE
+RATE
+= VITEZĂ
+ETA
+= RĂMAS
+ACCESS GRANTED
+= ACCES PERMIS
+STOCK RESTORED
+= ORIGINAL RESTAURAT
+the player boots stock firmware again
+= playerul pornește din nou cu firmware-ul original
+rockbox is live on the player
+= rockbox rulează pe player
+SESSION
+= SESIUNE
+{0} sectors rewritten, checksummed
+= {0} sectoare rescrise, cu sumă de control
+{0} files  ·  {1}  ·  read back OK
+= {0} fișiere  ·  {1}  ·  recitire OK
+not updated
+= neactualizat
+TIME
+= TIMP
+UNPLUG TO FINISH
+= DECONECTEAZĂ
+EJECTED
+= EJECTAT
+UNPLUG AND ROCK
+= DECONECTEAZĂ ȘI ROCK
+AGAIN
+= DIN NOU
+CREDITS
+= CREDITE
+the flash was partly rewritten: a backup is safe on disk
+= flash-ul a fost rescris parțial: o copie de siguranță e pe disc
+nothing was written
+= nu s-a scris nimic
+FAULT
+= EROARE
+COPY REPORT
+= COPIAZĂ RAPORT
+REPORT COPIED
+= RAPORT COPIAT
+NOW PLAYING
+= ACUM ÎN REDARE
+THIS FLASHER
+= ACEST FLASHER
+ROCKBOX CONTRIBUTORS
+= CONTRIBUITORI ROCKBOX
+{0} contributors
+= {0} contribuitori
+People that have contributed to the project, one way or another. Friends!
+= Oameni care au contribuit la proiect, într-un fel sau altul. Prieteni!
+links open in your browser
+= linkurile se deschid în browser
+Made by
+= Realizat de
+Device protocols and payloads
+= Protocoale de dispozitiv și încărcături
+Music
+= Muzică
+Voice lines
+= Replici vocale
+Sound effects
+= Efecte sonore
+Fonts
+= Fonturi
+Rust crates
+= Crate-uri Rust
+Reference photos
+= Fotografii de referință
+LANGUAGE
+= LIMBĂ
+AUTOMATIC
+= AUTOMAT
+stock firmware on the bus: asking it for download mode
+= firmware original pe bus: se cere modul download
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0} a confirmat 0xCB: repornire în ADFU
+attaching to {0}
+= conectare la {0}
+sector CRC32 scan on the player
+= scanare CRC32 a sectoarelor pe player
+dumping {0} KiB
+= se extrag {0} KiB
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= {0} sectoare capturate ({1} citite, {2} deja cunoscute); CRC32 verificat
+dumping {0} KiB of raw NOR cells
+= se extrag {0} KiB de celule NOR brute
+second pass: comparing
+= a doua trecere: comparare
+{0} sectors captured; two reads agree
+= {0} sectoare capturate; cele două citiri coincid
+identical backup already on file: {0}
+= copie identică deja existentă: {0}
+backup -> {0}
+= copie -> {0}
+{0} of {1} sectors differ
+= {0} din {1} sectoare diferă
+0x{0} erase / program / verify ok
+= 0x{0} ștergere / programare / verificare ok
+CRC32 of every writable sector, computed on the player
+= CRC32 pentru fiecare sector inscriptibil, calculat pe player
+reading the writable window back
+= se recitește fereastra inscriptibilă
+flash checksum OK  sha256 {0}..{1}
+= suma de control flash OK  sha256 {0}..{1}
+rebooting into Rockbox
+= repornire în Rockbox
+rebooting into stock firmware
+= repornire în firmware-ul original
+firmware is up
+= firmware-ul a pornit
+{0} image(s), {1} KiB, sha256 verified
+= {0} imagine/imagini, {1} KiB, sha256 verificat
+{0} sectors rewritten
+= {0} sectoare rescrise
+Rockbox did not show up as a USB disk; the card was not updated
+= Rockbox nu a apărut ca disc USB; cardul nu a fost actualizat
+total {0} s
+= total {0} s
+{0} loaded, checksum OK
+= {0} încărcat, suma de control OK
+backup is from another unit; its per-unit sectors are left alone
+= copia provine de la altă unitate; sectoarele specifice unității rămân neatinse
+waiting for Rockbox's USB disk
+= se așteaptă discul USB al Rockbox
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= încă niciun disc USB de la Rockbox: dacă e setat doar pe încărcare, deconectează playerul, ține orice tastă și conectează-l la loc (sau setează Setări > Generale > Sistem > USB > Mod USB pe Stocare în masă)
+no microSD card in the player: insert one, then press RESET
+= niciun card microSD în player: introdu unul, apoi apasă RESET
+card online: {0}
+= card online: {0}
+removed {0} stale plugin/codec files
+= șterse {0} fișiere plugin/codec învechite
+removed {0}: the firmware is in flash, not on the card
+= șters {0}: firmware-ul e în flash, nu pe card
+{0} files written
+= {0} fișiere scrise
+reading every file back from the card
+= se recitesc toate fișierele de pe card
+{0} files read back: sha256 OK
+= {0} fișiere recitite: sha256 OK
+card ejected
+= card ejectat
+could not eject the card ({0}); eject it before unplugging
+= cardul nu a putut fi ejectat ({0}); ejectează-l înainte de deconectare
+stock firmware detected: ACTIONSUSBD
+= firmware original detectat: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= se injectează comanda de producător 0xCB -> ADFU
+opening {0} download mode
+= se deschide modul download {0}
+reattaching to download mode
+= reconectare la modul download
+dumping {0} KiB of stock flash
+= se extrag {0} KiB din flash-ul original
+re-reading CRC32 of every sector
+= se recitește CRC32 al fiecărui sector
+backup verified: {0}/{1} sectors match
+= copie verificată: {0}/{1} sectoare coincid
+{0} sectors differ; writing
+= {0} sectoare diferă; se scrie
+sector 0x{0} erase/program/verify ok
+= sector 0x{0} ștergere/programare/verificare ok
+full flash CRC scan
+= scanare CRC a întregului flash
+flash checksum OK
+= suma de control flash OK
+waiting for Rockbox USB mass storage
+= se așteaptă stocarea în masă USB Rockbox
+no media: insert a microSD card
+= fără suport: introdu un card microSD
+syncing and ejecting card
+= sincronizare și ejectare card
+another tool holds the player ({0})
+= playerul e folosit de altă unealtă ({0})
+the player did not come back in download mode
+= playerul nu a revenit în mod download
+the YP3 enters download mode by hand: hold Down while connecting USB
+= YP3 intră manual în mod download: ține Down la conectarea USB
+battery too low to flash safely ({0})
+= baterie prea slabă pentru scriere sigură ({0})
+the player came back in download mode: the new firmware did not start
+= playerul a revenit în mod download: noul firmware nu a pornit
+this package is for {0}, not {1}
+= acest pachet e pentru {0}, nu pentru {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= flash-ul acestui player la 0x{0} nu e cel pentru care a fost construit pachetul; nu s-a scris nimic
+the package has no firmware image
+= pachetul nu conține imagine de firmware
+the card needs {0} MiB free; it has {1} MiB
+= cardul are nevoie de {0} MiB liberi; are {1} MiB
+{0} did not read back correctly from the card
+= {0} nu a fost recitit corect de pe card
+could not mount the player's card: {0}
+= cardul playerului nu a putut fi montat: {0}
+the player's card did not appear
+= cardul playerului nu a apărut
+the card is in use by another program
+= cardul este folosit de alt program
+cancelled
+= anulat
+checksum mismatch at 0x{0}
+= sumă de control diferită la 0x{0}
+sector 0x{0} reads inconsistently
+= sectorul 0x{0} se citește inconsistent
+flash at 0x{0} reads inconsistently
+= flash-ul la 0x{0} se citește inconsistent
+backup did not read back from disk
+= copia nu a putut fi recitită de pe disc
+{0} is damaged (checksum mismatch)
+= {0} este deteriorat (sumă de control diferită)
+{0} is {1} bytes; a full flash image is {2}
+= {0} are {1} octeți; o imagine flash completă are {2}
+not a tar.xz release: {0}
+= nu este o versiune tar.xz: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= acest pachet (format {0}) necesită un rockslop mai nou decât {1}: actualizează rockslop
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= acest pachet (format {0}) e prea vechi pentru rockslop {1}: ia o versiune mai nouă
+MANIFEST has no format
+= MANIFEST nu are format
+MANIFEST names no target
+= MANIFEST nu indică nicio țintă
+unsafe path in archive: {0}
+= cale nesigură în arhivă: {0}
+{0}: links and special files are not allowed
+= {0}: legăturile și fișierele speciale nu sunt permise
+{0}: checksum mismatch, the download is corrupt
+= {0}: sumă de control diferită, descărcarea este coruptă
+unexpected member {0}
+= membru neașteptat {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= arhivei îi lipsesc {0} fișier(e) listate în SHA256SUMS
+release contains no flash image
+= versiunea nu conține imagine flash
+{0}: checksum mismatch
+= {0}: sumă de control diferită
+archive member too large
+= membru de arhivă prea mare
+internal error: {0}
+= eroare internă: {0}
+{0}: permission denied. {1}
+= {0}: permisiune refuzată. {1}
+Install the udev rule (see README) or run as root.
+= Instalează regula udev (vezi README) sau rulează ca root.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= macOS are nevoie de root pentru a prelua dispozitivul de la driverul de stocare în masă: rulează din Terminal cu sudo.
+The device needs the WinUSB driver (Zadig).
+= Dispozitivul are nevoie de driverul WinUSB (Zadig).
+{0}: the device is busy (another tool is using it?)
+= {0}: dispozitivul e ocupat (îl folosește altă unealtă?)
+{0}: the device went away
+= {0}: dispozitivul a dispărut
+{0}: timed out
+= {0}: timpul a expirat
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= TRAGE ȘI ROTEȘTE
+UNPLUG
+= DECONECTEAZĂ
+pull the USB cable out
+= scoate cablul USB
+POWER ON
+= PORNEȘTE
+hold POWER, on the bottom edge
+= ține POWER, pe marginea de jos
+stock firmware
+= firmware original
+SWITCH OFF
+= OPREȘTE
+hold POWER until the screen goes dark
+= ține POWER până se stinge ecranul
+HOLD POWER
+= ȚINE POWER
+plug in while holding, ~4 s
+= conectează ținând apăsat, ~4 s
+on the player: System > Debug > {0}
+= pe player: Sistem > Depanare > {0}
+follow the steps above
+= urmează pașii de mai sus
+THE {0} PACKAGE
+= PACHETUL {0}
+NEEDS A MICROSD CARD
+= NECESITĂ UN CARD MICROSD
+It looks like you're trying to hack an MP3 player. Would you like help?
+= Se pare că încerci să hackuiești un player MP3. Vrei ajutor?
+GOT IT
+= AM ÎNȚELES
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= Aceste playere nu au număr de model. Compară în schimb modelele wireframe: butoanele și porturile diferă. Trage de un player ca să-l rotești.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= Mai întâi oprește playerul, apoi ține DOWN înainte să intre cablul și nu-l elibera.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= Ține POWER în timp ce conectezi cablul și continuă să-l ții cam 4 secunde.
+Switch the player on first: hold POWER on its bottom edge.
+= Mai întâi pornește playerul: ține POWER, pe marginea lui de jos.
+Still nothing? Try another cable: some only charge.
+= Tot nimic? Încearcă alt cablu: unele doar încarcă.
+Your computer won't let rockslop use the player.
+= Calculatorul tău nu-i permite lui rockslop să folosească playerul.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= Mai întâi deconectează cablul: playerul ascultă doar în mod download. Pașii îți arată cum.
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= Ai nevoie de pachetul Rockbox construit pentru {0}: un fișier .tar.xz. Apasă ALEGE IMAGINEA sau trage-l pe panou.
+Push a microSD card all the way into the player's slot, then press RESET.
+= Împinge un card microSD până la capăt în slotul playerului, apoi apasă RESET.
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Rockbox nu și-a arătat încă discul USB. Dacă playerul doar se încarcă, deconectează-l, ține orice tastă și conectează-l la loc.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= REÎNCEARCĂ rezolvă de obicei problema. Tot nu merge? COPIAZĂ RAPORT pune detaliile în clipboard pentru un raport de eroare.
+It looks like you watched all the credits. Nobody does that. Respect.
+= Se pare că te-ai uitat la toate creditele. Nimeni nu face asta. Respect.
+DEAL WITH IT
+= DEAL WITH IT

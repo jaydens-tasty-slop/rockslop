@@ -1,0 +1,8 @@
+[Desktop Entry]
+Type=Application
+Name=Rockslop Flasher
+Comment=Install Rockbox on the YP3 and TS17 MP3 players
+Exec=rockslop
+Icon=io.github.rockslop.Flasher
+Categories=Utility;
+Terminal=false

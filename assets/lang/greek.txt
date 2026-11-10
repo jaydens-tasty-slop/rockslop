@@ -1,0 +1,522 @@
+# Ελληνικά: rockslop UI
+TARGET
+= ΣΤΟΧΟΣ
+LINK
+= ΣΥΝΔΕΣΗ
+PAYLOAD
+= ΦΟΡΤΙΟ
+EXECUTE
+= ΕΚΤΕΛΕΣΗ
+BUS IDLE
+= ΔΙΑΥΛΟΣ ΑΔΕΙΟΣ
+STOCK
+= ΕΡΓΟΣΤ.
+awaiting target
+= αναμονή στόχου
+scanning usb
+= σάρωση usb
+awaiting payload
+= αναμονή φορτίου
+executing
+= εκτέλεση
+session complete
+= η συνεδρία ολοκληρώθηκε
+session aborted
+= η συνεδρία διακόπηκε
+rolling credits
+= τίτλοι τέλους
+SND
+= ΗΧΟΣ
+MUTED
+= ΣΙΓΑΣΗ
+NO SND
+= ΧΩΡΙΣ ΗΧΟ
+audio muted
+= ο ήχος σίγασε
+audio on
+= ο ήχος ενεργός
+neural uplink
+= νευρωνική σύνδεση
+usb stack
+= στοίβα usb
+flash maps
+= χάρτες flash
+payloads
+= φορτία
+glyph cache
+= κρυφή μνήμη γλυφών
+SELECT TARGET
+= ΕΠΙΛΟΓΗ ΣΤΟΧΟΥ
+DOWNLOAD MODE
+= ΛΕΙΤ. ΛΗΨΗΣ
+STOCK FIRMWARE
+= ΕΡΓΟΣΤ. FIRMWARE
+ENGAGE
+= ΕΝΕΡΓΟΠ.
+CLICK TO ENGAGE
+= ΚΛΙΚ ΕΝΕΡΓΟΠ.
+RESET
+= RESET
+HEADPHONE
+= ΑΚΟΥΣΤΙΚΑ
+VOL
+= ΕΝΤ.
+POWER
+= ΛΕΙΤΟΥΡΓΙΑ
+POWER OFF
+= ΣΒΗΣΕ
+unplugged: hold the centre key
+= αποσυνδεδεμένο: κράτα το κεντρικό πλήκτρο
+HOLD DOWN
+= ΚΡΑΤΑ DOWN
+bottom of the wheel
+= κάτω μέρος του τροχού
+CONNECT USB
+= ΣΥΝΔΕΣΕ USB
+keep holding
+= συνέχισε να κρατάς
+RELEASE
+= ΑΦΗΣΕ
+once linked
+= μόλις συνδεθεί
+OR
+= Η
+hold DOWN and tap RESET
+= κράτα DOWN και πάτα RESET
+STAND BY
+= ΠΕΡΙΜΕΝΕ
+it reboots into download mode
+= επανεκκινεί σε λειτουργία λήψης
+ROCKBOX?
+= ROCKBOX;
+switch it off, then hold POWER ~4 s while connecting
+= σβήσε τη συσκευή, μετά κράτα POWER ~4 s κατά τη σύνδεση
+LINK FAILED
+= ΑΠΟΤΥΧΙΑ ΣΥΝΔΕΣΗΣ
+SCANNING
+= ΣΑΡΩΣΗ
+no player on the bus yet
+= δεν υπάρχει ακόμα συσκευή στον δίαυλο
+ACCESS DENIED
+= ΠΡΟΣΒΑΣΗ ΑΡΝΗΘΗΚΕ
+no permission: install the udev rule (see README)
+= χωρίς άδεια: εγκατάστησε τον κανόνα udev (δες README)
+macOS: run rockslop with sudo to take the device
+= macOS: τρέξε το rockslop με sudo για να πάρεις τη συσκευή
+install the WinUSB driver for it (Zadig)
+= εγκατάστησε το πρόγραμμα οδήγησης WinUSB (Zadig)
+LINK ESTABLISHED
+= ΣΥΝΔΕΣΗ ΕΠΙΤΕΥΧΘΗΚΕ
+identity verified
+= ταυτότητα επαληθεύτηκε
+PROBING
+= ΔΙΕΡΕΥΝΗΣΗ
+boot ROM online
+= η ROM εκκίνησης είναι ενεργή
+forcing download mode
+= επιβολή λειτουργίας λήψης
+ROCKBOX RUNNING
+= ΤΟ ROCKBOX ΤΡΕΧΕΙ
+BACK
+= ΠΙΣΩ
+RETRY
+= ΞΑΝΑ
+Rockbox package
+= πακέτο Rockbox
+SELECT IMAGE
+= ΕΠΙΛΟΓΗ ΕΙΚΟΝΑΣ
+or drop it here
+= ή ρίξε το εδώ
+IMAGE
+= ΕΙΚΟΝΑ
+REJECTED
+= ΑΠΟΡΡΙΦΘΗΚΕ
+BUILD
+= ΕΚΔΟΣΗ
+FLASH
+= FLASH
+CARD
+= ΚΑΡΤΑ
+{0} files  ·  {1}
+= αρχεία: {0}  ·  {1}
+every member verified
+= όλα τα μέλη επαληθεύτηκαν
+BACKUP
+= ΑΝΤΙΓΡ.
+stock flash saved first
+= το εργοστασιακό flash αποθηκεύτηκε πρώτο
+CHANGE
+= ΑΛΛΑΓΗ
+INSERT SD CARD
+= ΒΑΛΕ ΚΑΡΤΑ SD
+RETURN TO STOCK
+= ΕΠΙΣΤΡΟΦΗ ΣΕ ΕΡΓΟΣΤ.
+built for {0}, not {1}
+= φτιαγμένο για {0}, όχι για {1}
+LAYOUT
+= ΔΙΑΜΟΡΦΩΣΗ
+LOCKED
+= ΚΛΕΙΔΩΜΕΝΟ
+PROBE
+= ΔΙΕΡΕΥΝ.
+VERIFY
+= ΕΠΑΛΗΘ.
+WRITE
+= ΕΓΓΡΑΦΗ
+CHECKSUM
+= ΑΘΡΟΙΣΜΑ
+CHECK
+= ΕΛΕΓΧΟΣ
+REBOOT
+= ΕΠΑΝΕΚΚ.
+SD SYNC
+= ΣΥΓΧΡ. SD
+EJECT
+= ΕΞΑΓΩΓΗ
+DONE
+= ΤΕΛΟΣ
+FLASH MAP
+= ΧΑΡΤΗΣ FLASH
+SAME
+= ΙΔΙΟ
+READ
+= ΑΝΑΓΝΩΣΗ
+ERASE
+= ΔΙΑΓΡΑΦΗ
+WRITTEN
+= ΓΡΑΜΜΕΝΟ
+BAD
+= ΧΑΛΑΣΜΕΝΟ
+FILES
+= ΑΡΧΕΙΑ
+BUS TAP
+= ΔΙΑΥΛΟΣ ΖΩΝΤΑΝΑ
+THEN PRESS RESET
+= ΜΕΤΑ ΠΑΤΑ RESET
+SD CARD
+= ΚΑΡΤΑ SD
+NO CARD
+= ΧΩΡΙΣ ΚΑΡΤΑ
+READ BACK
+= ΕΠΑΝΑΝΑΓΝ.
+MOUNT
+= ΕΝΣΩΜΑΤΩΣΗ
+CHECKED
+= ΕΛΕΓΜΕΝΟ
+DATA
+= ΔΕΔΟΜΕΝΑ
+RATE
+= ΡΥΘΜΟΣ
+ETA
+= ΥΠΟΛ.
+ACCESS GRANTED
+= ΠΡΟΣΒΑΣΗ ΕΓΚΡΙΘΗΚΕ
+STOCK RESTORED
+= ΕΡΓΟΣΤ. ΕΠΑΝΑΦΟΡΑ
+the player boots stock firmware again
+= η συσκευή ξαναξεκινά με εργοστασιακό firmware
+rockbox is live on the player
+= το rockbox τρέχει στη συσκευή
+SESSION
+= ΣΥΝΕΔΡΙΑ
+{0} sectors rewritten, checksummed
+= τομείς που ξαναγράφτηκαν: {0}, με άθροισμα ελέγχου
+{0} files  ·  {1}  ·  read back OK
+= αρχεία: {0}  ·  {1}  ·  επανανάγνωση OK
+not updated
+= δεν ενημερώθηκε
+TIME
+= ΧΡΟΝΟΣ
+UNPLUG TO FINISH
+= ΑΠΟΣΥΝΔΕΣΕ ΓΙΑ ΤΕΛΟΣ
+EJECTED
+= ΕΞΑΧΘΗΚΕ
+UNPLUG AND ROCK
+= ΑΠΟΣΥΝΔΕΣΕ ΚΑΙ ΡΟΚΑΡΕ
+AGAIN
+= ΞΑΝΑ
+CREDITS
+= ΣΥΝΤΕΛΕΣΤΕΣ
+the flash was partly rewritten: a backup is safe on disk
+= το flash ξαναγράφτηκε μερικώς: υπάρχει ασφαλές αντίγραφο στον δίσκο
+nothing was written
+= δεν γράφτηκε τίποτα
+FAULT
+= ΣΦΑΛΜΑ
+COPY REPORT
+= ΑΝΤΙΓΡΑΦΗ ΑΝΑΦΟΡΑΣ
+REPORT COPIED
+= ΑΝΑΦΟΡΑ ΑΝΤΙΓΡΑΦΗΚΕ
+NOW PLAYING
+= ΤΩΡΑ ΠΑΙΖΕΙ
+THIS FLASHER
+= ΑΥΤΟ ΤΟ FLASHER
+ROCKBOX CONTRIBUTORS
+= ΣΥΝΕΙΣΦΕΡΟΝΤΕΣ ROCKBOX
+{0} contributors
+= συντελεστές: {0}
+People that have contributed to the project, one way or another. Friends!
+= Άνθρωποι που συνέβαλαν στο έργο, με τον ένα ή τον άλλο τρόπο. Φίλοι!
+links open in your browser
+= οι σύνδεσμοι ανοίγουν στον περιηγητή
+Made by
+= Δημιουργός
+Device protocols and payloads
+= Πρωτόκολλα συσκευών και φορτία
+Music
+= Μουσική
+Voice lines
+= Φωνητικές γραμμές
+Sound effects
+= Ηχητικά εφέ
+Fonts
+= Γραμματοσειρές
+Rust crates
+= Βιβλιοθήκες Rust
+Reference photos
+= Φωτογραφίες αναφοράς
+LANGUAGE
+= ΓΛΩΣΣΑ
+AUTOMATIC
+= ΑΥΤΟΜΑΤΟ
+stock firmware on the bus: asking it for download mode
+= εργοστασιακό firmware στον δίαυλο: ζητείται λειτουργία λήψης
+{0} acknowledged 0xCB: rebooting into ADFU
+= το {0} επιβεβαίωσε 0xCB: επανεκκίνηση σε ADFU
+attaching to {0}
+= σύνδεση στο {0}
+sector CRC32 scan on the player
+= σάρωση CRC32 τομέων στη συσκευή
+dumping {0} KiB
+= ανάγνωση {0} KiB
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= τομείς που καταγράφηκαν: {0} ({1} διαβάστηκαν, {2} ήδη γνωστοί). CRC32 επαληθεύτηκε
+dumping {0} KiB of raw NOR cells
+= ανάγνωση {0} KiB ακατέργαστων κελιών NOR
+second pass: comparing
+= δεύτερο πέρασμα: σύγκριση
+{0} sectors captured; two reads agree
+= τομείς που καταγράφηκαν: {0}. οι δύο αναγνώσεις συμφωνούν
+identical backup already on file: {0}
+= πανομοιότυπο αντίγραφο υπάρχει ήδη: {0}
+backup -> {0}
+= αντίγραφο -> {0}
+{0} of {1} sectors differ
+= τομείς που διαφέρουν: {0} από {1}
+0x{0} erase / program / verify ok
+= 0x{0} διαγραφή / προγραμματισμός / επαλήθευση ok
+CRC32 of every writable sector, computed on the player
+= CRC32 κάθε εγγράψιμου τομέα, υπολογισμένο στη συσκευή
+reading the writable window back
+= επανανάγνωση του εγγράψιμου παραθύρου
+flash checksum OK  sha256 {0}..{1}
+= άθροισμα ελέγχου flash OK  sha256 {0}..{1}
+rebooting into Rockbox
+= επανεκκίνηση σε Rockbox
+rebooting into stock firmware
+= επανεκκίνηση σε εργοστασιακό firmware
+firmware is up
+= το firmware λειτουργεί
+{0} image(s), {1} KiB, sha256 verified
+= εικόνες: {0}, {1} KiB, sha256 επαληθεύτηκε
+{0} sectors rewritten
+= τομείς που ξαναγράφτηκαν: {0}
+Rockbox did not show up as a USB disk; the card was not updated
+= το Rockbox δεν εμφανίστηκε ως δίσκος USB. η κάρτα δεν ενημερώθηκε
+total {0} s
+= σύνολο {0} s
+{0} loaded, checksum OK
+= {0} φορτώθηκε, άθροισμα ελέγχου OK
+backup is from another unit; its per-unit sectors are left alone
+= το αντίγραφο είναι από άλλη μονάδα. οι τομείς της κάθε μονάδας μένουν ανέγγιχτοι
+waiting for Rockbox's USB disk
+= αναμονή για δίσκο USB του Rockbox
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= κανένας δίσκος USB από το Rockbox ακόμα: αν είναι ρυθμισμένο μόνο για φόρτιση, αποσύνδεσε τη συσκευή, κράτα οποιοδήποτε πλήκτρο και ξανασύνδεσέ τη (ή όρισε Ρυθμίσεις > Γενικές επιλογές > Σύστημα > USB > Λειτουργία USB σε Εσωτερική μνήμη)
+no microSD card in the player: insert one, then press RESET
+= δεν υπάρχει κάρτα microSD στη συσκευή: βάλε μία και πάτα RESET
+card online: {0}
+= κάρτα ενεργή: {0}
+removed {0} stale plugin/codec files
+= αφαιρέθηκαν παλιά αρχεία plugin/codec: {0}
+removed {0}: the firmware is in flash, not on the card
+= αφαιρέθηκε το {0}: το firmware είναι στη flash, όχι στην κάρτα
+{0} files written
+= αρχεία που γράφτηκαν: {0}
+reading every file back from the card
+= επανανάγνωση όλων των αρχείων από την κάρτα
+{0} files read back: sha256 OK
+= αρχεία που διαβάστηκαν: {0}: sha256 OK
+card ejected
+= η κάρτα εξήχθη
+could not eject the card ({0}); eject it before unplugging
+= αδυναμία εξαγωγής κάρτας ({0}). εξήγαγέ την πριν αποσυνδέσεις
+stock firmware detected: ACTIONSUSBD
+= εντοπίστηκε εργοστασιακό firmware: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= έγχυση εντολής κατασκευαστή 0xCB -> ADFU
+opening {0} download mode
+= άνοιγμα λειτουργίας λήψης {0}
+reattaching to download mode
+= επανασύνδεση σε λειτουργία λήψης
+dumping {0} KiB of stock flash
+= ανάγνωση {0} KiB εργοστασιακού flash
+re-reading CRC32 of every sector
+= επανανάγνωση CRC32 κάθε τομέα
+backup verified: {0}/{1} sectors match
+= αντίγραφο επαληθεύτηκε: ταιριάζουν {0}/{1} τομείς
+{0} sectors differ; writing
+= τομείς που διαφέρουν: {0}. εγγραφή
+sector 0x{0} erase/program/verify ok
+= τομέας 0x{0} διαγραφή/προγραμματισμός/επαλήθευση ok
+full flash CRC scan
+= πλήρης σάρωση CRC του flash
+flash checksum OK
+= άθροισμα ελέγχου flash OK
+waiting for Rockbox USB mass storage
+= αναμονή για μαζική αποθήκευση USB του Rockbox
+no media: insert a microSD card
+= χωρίς μέσο: βάλε κάρτα microSD
+syncing and ejecting card
+= συγχρονισμός και εξαγωγή κάρτας
+another tool holds the player ({0})
+= άλλο εργαλείο κρατά τη συσκευή ({0})
+the player did not come back in download mode
+= η συσκευή δεν επέστρεψε σε λειτουργία λήψης
+the YP3 enters download mode by hand: hold Down while connecting USB
+= το YP3 μπαίνει σε λειτουργία λήψης χειροκίνητα: κράτα Down κατά τη σύνδεση USB
+battery too low to flash safely ({0})
+= η μπαταρία είναι πολύ χαμηλή για ασφαλές flash ({0})
+the player came back in download mode: the new firmware did not start
+= η συσκευή επέστρεψε σε λειτουργία λήψης: το νέο firmware δεν ξεκίνησε
+this package is for {0}, not {1}
+= αυτό το πακέτο είναι για {0}, όχι για {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= το flash της συσκευής στο 0x{0} δεν ταιριάζει με το πακέτο. δεν γράφτηκε τίποτα
+the package has no firmware image
+= το πακέτο δεν έχει εικόνα firmware
+the card needs {0} MiB free; it has {1} MiB
+= η κάρτα χρειάζεται {0} MiB ελεύθερα. έχει {1} MiB
+{0} did not read back correctly from the card
+= το {0} δεν διαβάστηκε σωστά από την κάρτα
+could not mount the player's card: {0}
+= αδυναμία προσάρτησης κάρτας της συσκευής: {0}
+the player's card did not appear
+= η κάρτα της συσκευής δεν εμφανίστηκε
+the card is in use by another program
+= η κάρτα χρησιμοποιείται από άλλο πρόγραμμα
+cancelled
+= ακυρώθηκε
+checksum mismatch at 0x{0}
+= αναντιστοιχία αθροίσματος ελέγχου στο 0x{0}
+sector 0x{0} reads inconsistently
+= ο τομέας 0x{0} διαβάζεται ασυνεπώς
+flash at 0x{0} reads inconsistently
+= το flash στο 0x{0} διαβάζεται ασυνεπώς
+backup did not read back from disk
+= το αντίγραφο δεν διαβάστηκε από τον δίσκο
+{0} is damaged (checksum mismatch)
+= το {0} είναι κατεστραμμένο (αναντιστοιχία αθροίσματος ελέγχου)
+{0} is {1} bytes; a full flash image is {2}
+= το {0} είναι {1} byte. μια πλήρης εικόνα flash είναι {2}
+not a tar.xz release: {0}
+= δεν είναι έκδοση tar.xz: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= αυτό το πακέτο (μορφή {0}) θέλει νεότερο rockslop από το {1}: ενημέρωσε το rockslop
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= αυτό το πακέτο (μορφή {0}) είναι πολύ παλιό για το rockslop {1}: πάρε νεότερη έκδοση
+MANIFEST has no format
+= το MANIFEST δεν έχει μορφή
+MANIFEST names no target
+= το MANIFEST δεν ονομάζει στόχο
+unsafe path in archive: {0}
+= μη ασφαλής διαδρομή στο αρχείο: {0}
+{0}: links and special files are not allowed
+= {0}: οι σύνδεσμοι και τα ειδικά αρχεία δεν επιτρέπονται
+{0}: checksum mismatch, the download is corrupt
+= {0}: αναντιστοιχία αθροίσματος ελέγχου, η λήψη είναι κατεστραμμένη
+unexpected member {0}
+= μη αναμενόμενο μέλος {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= λείπουν από το αρχείο τα αρχεία που αναφέρονται στο SHA256SUMS: {0}
+release contains no flash image
+= η έκδοση δεν περιέχει εικόνα flash
+{0}: checksum mismatch
+= {0}: αναντιστοιχία αθροίσματος ελέγχου
+archive member too large
+= πολύ μεγάλο μέλος αρχείου
+internal error: {0}
+= εσωτερικό σφάλμα: {0}
+{0}: permission denied. {1}
+= {0}: άρνηση πρόσβασης. {1}
+Install the udev rule (see README) or run as root.
+= Εγκατάστησε τον κανόνα udev (δες README) ή τρέξε ως root.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= Το macOS χρειάζεται root για να πάρει τη συσκευή από το πρόγραμμα οδήγησης μαζικής αποθήκευσης: τρέξε από το Τερματικό με sudo.
+The device needs the WinUSB driver (Zadig).
+= Η συσκευή χρειάζεται το πρόγραμμα οδήγησης WinUSB (Zadig).
+{0}: the device is busy (another tool is using it?)
+= {0}: η συσκευή είναι απασχολημένη (τη χρησιμοποιεί άλλο εργαλείο;)
+{0}: the device went away
+= {0}: η συσκευή εξαφανίστηκε
+{0}: timed out
+= {0}: λήξη χρονικού ορίου
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= ΣΥΡΕ ΓΙΑ ΠΕΡΙΣΤΡΟΦΗ
+UNPLUG
+= ΑΠΟΣΥΝΔΕΣΕ
+pull the USB cable out
+= βγάλε το καλώδιο USB
+POWER ON
+= ΑΝΑΨΕ
+hold POWER, on the bottom edge
+= κράτα ΛΕΙΤΟΥΡΓΙΑ, στην κάτω πλευρά
+stock firmware
+= εργοστασιακό firmware
+SWITCH OFF
+= ΣΒΗΣΕ
+hold POWER until the screen goes dark
+= κράτα ΛΕΙΤΟΥΡΓΙΑ μέχρι να σβήσει η οθόνη
+HOLD POWER
+= ΚΡΑΤΑ ΛΕΙΤΟΥΡΓΙΑ
+plug in while holding, ~4 s
+= σύνδεσε κρατώντας το, ~4 s
+on the player: System > Debug > {0}
+= στη συσκευή: Σύστημα > Debug > {0}
+follow the steps above
+= ακολούθησε τα παραπάνω βήματα
+THE {0} PACKAGE
+= ΤΟ ΠΑΚΕΤΟ {0}
+NEEDS A MICROSD CARD
+= ΧΡΕΙΑΖΕΤΑΙ ΚΑΡΤΑ MICROSD
+It looks like you're trying to hack an MP3 player. Would you like help?
+= Φαίνεται ότι προσπαθείς να χακάρεις μια συσκευή MP3. Θέλεις βοήθεια;
+GOT IT
+= ΚΑΤΑΛΑΒΑ
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= Αυτές οι συσκευές δεν έχουν αριθμό μοντέλου. Σύγκρινε καλύτερα τα συρμάτινα μοντέλα: τα κουμπιά και οι θύρες διαφέρουν. Σύρε μια συσκευή για να την περιστρέψεις.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= Σβήσε πρώτα τη συσκευή, μετά κράτα DOWN πριν μπει το καλώδιο, και συνέχισε να κρατάς.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= Κράτα το πλήκτρο ΛΕΙΤΟΥΡΓΙΑ ενώ συνδέεις το καλώδιο, και συνέχισε να το κρατάς για περίπου 4 δευτερόλεπτα.
+Switch the player on first: hold POWER on its bottom edge.
+= Άναψε πρώτα τη συσκευή: κράτα το πλήκτρο ΛΕΙΤΟΥΡΓΙΑ στην κάτω πλευρά της.
+Still nothing? Try another cable: some only charge.
+= Ακόμα τίποτα; Δοκίμασε άλλο καλώδιο: κάποια κάνουν μόνο φόρτιση.
+Your computer won't let rockslop use the player.
+= Ο υπολογιστής σου δεν αφήνει το rockslop να χρησιμοποιήσει τη συσκευή.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= Αποσύνδεσε πρώτα το καλώδιο: η συσκευή ακούει μόνο σε λειτουργία λήψης. Τα βήματα λένε πώς.
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= Χρειάζεσαι το πακέτο Rockbox για το {0}: ένα αρχείο .tar.xz. Πάτα ΕΠΙΛΟΓΗ ΕΙΚΟΝΑΣ ή ρίξε το στο πάνελ.
+Push a microSD card all the way into the player's slot, then press RESET.
+= Σπρώξε μια κάρτα microSD μέχρι μέσα στην υποδοχή της συσκευής και μετά πάτα RESET.
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Το Rockbox δεν έχει δείξει ακόμα τον δίσκο USB του. Αν η συσκευή μόνο φορτίζει, αποσύνδεσέ τη, κράτα οποιοδήποτε πλήκτρο και ξανασύνδεσέ τη.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= Το ΞΑΝΑ συνήθως το λύνει. Ακόμα κολλημένος; Το ΑΝΤΙΓΡΑΦΗ ΑΝΑΦΟΡΑΣ βάζει τις λεπτομέρειες στο πρόχειρο για αναφορά σφάλματος.
+It looks like you watched all the credits. Nobody does that. Respect.
+= Φαίνεται ότι είδες όλους τους τίτλους τέλους. Κανείς δεν το κάνει αυτό. Σεβασμός.
+DEAL WITH IT
+= DEAL WITH IT

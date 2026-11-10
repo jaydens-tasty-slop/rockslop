@@ -1,0 +1,522 @@
+# Magyar: rockslop UI
+TARGET
+= CÉL
+LINK
+= LINK
+PAYLOAD
+= PAYLOAD
+EXECUTE
+= FUTTAT
+BUS IDLE
+= BUSZ ÜRES
+STOCK
+= GYÁRI
+awaiting target
+= várakozás célra
+scanning usb
+= usb keresése
+awaiting payload
+= várakozás payloadra
+executing
+= futtatás
+session complete
+= munkamenet kész
+session aborted
+= munkamenet megszakítva
+rolling credits
+= stáblista fut
+SND
+= HANG
+MUTED
+= NÉMA
+NO SND
+= NINCS H.
+audio muted
+= hang némítva
+audio on
+= hang be
+neural uplink
+= neurális kapcsolat
+usb stack
+= usb verem
+flash maps
+= flash térképek
+payloads
+= payloadok
+glyph cache
+= glifa gyorsítótár
+SELECT TARGET
+= CÉL VÁLASZTÁSA
+DOWNLOAD MODE
+= LETÖLTŐ MÓD
+STOCK FIRMWARE
+= GYÁRI FIRMWARE
+ENGAGE
+= INDÍT
+CLICK TO ENGAGE
+= KATT. INDÍTÁSHOZ
+RESET
+= RESET
+HEADPHONE
+= FEJHALLGATÓ
+VOL
+= VOL
+POWER
+= POWER
+POWER OFF
+= KIKAPCS.
+unplugged: hold the centre key
+= leválasztva: tartsd a középső gombot
+HOLD DOWN
+= TARTSD LENT
+bottom of the wheel
+= a kerék alja
+CONNECT USB
+= USB CSATL.
+keep holding
+= tartsd tovább
+RELEASE
+= ENGEDD EL
+once linked
+= kapcsolat után
+OR
+= VAGY
+hold DOWN and tap RESET
+= tartsd LENT és koppints RESET
+STAND BY
+= VÁRJ
+it reboots into download mode
+= letöltő módba indul újra
+ROCKBOX?
+= ROCKBOX?
+switch it off, then hold POWER ~4 s while connecting
+= kapcsold ki, majd tartsd a POWER-t ~4 s-ig csatlakoztatás közben
+LINK FAILED
+= KAPCS. HIBA
+SCANNING
+= KERESÉS
+no player on the bus yet
+= még nincs lejátszó a buszon
+ACCESS DENIED
+= HOZZÁFÉRÉS TILOS
+no permission: install the udev rule (see README)
+= nincs jogosultság: telepítsd az udev szabályt (lásd README)
+macOS: run rockslop with sudo to take the device
+= macOS: futtasd a rockslopot sudo-val az eszköz eléréséhez
+install the WinUSB driver for it (Zadig)
+= telepítsd hozzá a WinUSB illesztőt (Zadig)
+LINK ESTABLISHED
+= KAPCSOLAT KÉSZ
+identity verified
+= azonosság ellenőrizve
+PROBING
+= SZONDÁZÁS
+boot ROM online
+= boot ROM online
+forcing download mode
+= letöltő mód kényszerítése
+ROCKBOX RUNNING
+= ROCKBOX FUT
+BACK
+= VISSZA
+RETRY
+= ISMÉT
+Rockbox package
+= Rockbox csomag
+SELECT IMAGE
+= KÉPFÁJL KIV.
+or drop it here
+= vagy dobd ide
+IMAGE
+= KÉPFÁJL
+REJECTED
+= ELUTASÍTVA
+BUILD
+= BUILD
+FLASH
+= FLASH
+CARD
+= KÁRTYA
+{0} files  ·  {1}
+= fájlok: {0}  ·  {1}
+every member verified
+= minden elem ellenőrizve
+BACKUP
+= MENTÉS
+stock flash saved first
+= a gyári flash előbb elmentve
+CHANGE
+= VÁLTÁS
+INSERT SD CARD
+= SD KÁRTYÁT BE
+RETURN TO STOCK
+= VISSZA A GYÁRIRA
+built for {0}, not {1}
+= készült: {0}, nem: {1}
+LAYOUT
+= KIOSZTÁS
+LOCKED
+= ZÁROLT
+PROBE
+= SZONDA
+VERIFY
+= ELLENŐRZ.
+WRITE
+= ÍRÁS
+CHECKSUM
+= ÖSSZEG
+CHECK
+= TESZT
+REBOOT
+= REBOOT
+SD SYNC
+= SD SZINK
+EJECT
+= KIVESZ
+DONE
+= KÉSZ
+FLASH MAP
+= FLASH TÉRKÉP
+SAME
+= AZONOS
+READ
+= OLVASÁS
+ERASE
+= TÖRLÉS
+WRITTEN
+= ÍRVA
+BAD
+= HIBÁS
+FILES
+= FÁJLOK
+BUS TAP
+= BUSZ-LESŐ
+THEN PRESS RESET
+= MAJD RESET
+SD CARD
+= SD KÁRTYA
+NO CARD
+= NINCS KÁRTYA
+READ BACK
+= VISSZAOLV.
+MOUNT
+= CSATOL
+CHECKED
+= ELLENŐRZVE
+DATA
+= ADAT
+RATE
+= SEB.
+ETA
+= ETA
+ACCESS GRANTED
+= HOZZÁFÉRÉS ENGEDVE
+STOCK RESTORED
+= GYÁRI VISSZAÁLLÍTVA
+the player boots stock firmware again
+= a lejátszó újra a gyári firmware-t indítja
+rockbox is live on the player
+= a rockbox él a lejátszón
+SESSION
+= SESSZIÓ
+{0} sectors rewritten, checksummed
+= újraírt szektorok: {0}, ellenőrzőösszeg OK
+{0} files  ·  {1}  ·  read back OK
+= fájlok: {0}  ·  {1}  ·  visszaolvasás OK
+not updated
+= nincs frissítve
+TIME
+= IDŐ
+UNPLUG TO FINISH
+= HÚZD KI: KÉSZ
+EJECTED
+= KIVÉVE
+UNPLUG AND ROCK
+= HÚZD KI ÉS ROCKOLJ
+AGAIN
+= ÚJRA
+CREDITS
+= KÖSZÖNET
+the flash was partly rewritten: a backup is safe on disk
+= a flash részben újraíródott: biztonsági mentés van a lemezen
+nothing was written
+= semmi sem íródott
+FAULT
+= HIBA
+COPY REPORT
+= JELENTÉS MÁSOLÁSA
+REPORT COPIED
+= JELENTÉS MÁSOLVA
+NOW PLAYING
+= MOST JÁTSZIK
+THIS FLASHER
+= EZ A FLASHER
+ROCKBOX CONTRIBUTORS
+= ROCKBOX KÖZREMŰKÖDŐK
+{0} contributors
+= közreműködők: {0}
+People that have contributed to the project, one way or another. Friends!
+= Azok, akik így vagy úgy hozzájárultak a projekthez. Barátok!
+links open in your browser
+= a linkek böngészőben nyílnak
+Made by
+= Készítette
+Device protocols and payloads
+= Eszközprotokollok és payloadok
+Music
+= Zene
+Voice lines
+= Hangüzenetek
+Sound effects
+= Hangeffektek
+Fonts
+= Betűtípusok
+Rust crates
+= Rust crate-ek
+Reference photos
+= Referenciafotók
+LANGUAGE
+= NYELV
+AUTOMATIC
+= AUTOMATIKUS
+stock firmware on the bus: asking it for download mode
+= gyári firmware a buszon: letöltő módot kérek
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0} nyugtázta a 0xCB-t: újraindítás ADFU-ba
+attaching to {0}
+= csatlakozás: {0}
+sector CRC32 scan on the player
+= szektor CRC32 vizsgálat a lejátszón
+dumping {0} KiB
+= {0} KiB mentése
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= rögzített szektorok: {0} (olvasott {1}, már ismert {2}); CRC32 ellenőrizve
+dumping {0} KiB of raw NOR cells
+= {0} KiB nyers NOR cella mentése
+second pass: comparing
+= második menet: összehasonlítás
+{0} sectors captured; two reads agree
+= rögzített szektorok: {0}; a két olvasás egyezik
+identical backup already on file: {0}
+= azonos mentés már megvan: {0}
+backup -> {0}
+= mentés -> {0}
+{0} of {1} sectors differ
+= eltérő szektorok: {0} / {1}
+0x{0} erase / program / verify ok
+= 0x{0} törlés / programozás / ellenőrzés ok
+CRC32 of every writable sector, computed on the player
+= minden írható szektor CRC32-je, a lejátszón számolva
+reading the writable window back
+= az írható ablak visszaolvasása
+flash checksum OK  sha256 {0}..{1}
+= flash ellenőrzőösszeg OK  sha256 {0}..{1}
+rebooting into Rockbox
+= újraindítás: Rockbox
+rebooting into stock firmware
+= újraindítás: gyári firmware
+firmware is up
+= a firmware fut
+{0} image(s), {1} KiB, sha256 verified
+= képfájlok: {0}, {1} KiB, sha256 ellenőrizve
+{0} sectors rewritten
+= újraírt szektorok: {0}
+Rockbox did not show up as a USB disk; the card was not updated
+= a Rockbox nem jelent meg USB lemezként; a kártya nem frissült
+total {0} s
+= összesen {0} s
+{0} loaded, checksum OK
+= betöltve: {0}, ellenőrzőösszeg OK
+backup is from another unit; its per-unit sectors are left alone
+= a mentés másik egységről való; az egységspecifikus szektorok érintetlenek
+waiting for Rockbox's USB disk
+= várakozás a Rockbox USB lemezére
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= még nincs USB lemez a Rockboxtól: ha csak töltésre van állítva, húzd ki a lejátszót, tarts lenyomva egy gombot, és csatlakoztasd újra (vagy állítsd a Beállítások > Általános beállítások > Rendszer > USB > USB mód értékét erre: Cserélhető lemez mód)
+no microSD card in the player: insert one, then press RESET
+= nincs microSD kártya a lejátszóban: tedd be, majd nyomd meg a RESET-et
+card online: {0}
+= kártya online: {0}
+removed {0} stale plugin/codec files
+= elavult bővítmény/kodek fájlok törölve: {0}
+removed {0}: the firmware is in flash, not on the card
+= {0} törölve: a firmware a flashben van, nem a kártyán
+{0} files written
+= kiírt fájlok: {0}
+reading every file back from the card
+= minden fájl visszaolvasása a kártyáról
+{0} files read back: sha256 OK
+= visszaolvasott fájlok: {0}: sha256 OK
+card ejected
+= kártya kivéve
+could not eject the card ({0}); eject it before unplugging
+= a kártya nem vehető ki ({0}); vedd ki a kihúzás előtt
+stock firmware detected: ACTIONSUSBD
+= gyári firmware észlelve: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= gyártói parancs beadása 0xCB -> ADFU
+opening {0} download mode
+= {0} letöltő mód megnyitása
+reattaching to download mode
+= újracsatlakozás letöltő módba
+dumping {0} KiB of stock flash
+= {0} KiB gyári flash mentése
+re-reading CRC32 of every sector
+= minden szektor CRC32-jének újraolvasása
+backup verified: {0}/{1} sectors match
+= mentés ellenőrizve: egyező szektorok {0}/{1}
+{0} sectors differ; writing
+= eltérő szektorok: {0}; írás
+sector 0x{0} erase/program/verify ok
+= szektor 0x{0} törlés/programozás/ellenőrzés ok
+full flash CRC scan
+= teljes flash CRC vizsgálat
+flash checksum OK
+= flash ellenőrzőösszeg OK
+waiting for Rockbox USB mass storage
+= várakozás a Rockbox USB tárolójára
+no media: insert a microSD card
+= nincs adathordozó: tegyél be microSD kártyát
+syncing and ejecting card
+= szinkronizálás és a kártya kivétele
+another tool holds the player ({0})
+= a lejátszót másik eszköz használja ({0})
+the player did not come back in download mode
+= a lejátszó nem tért vissza letöltő módba
+the YP3 enters download mode by hand: hold Down while connecting USB
+= a YP3 kézzel lép letöltő módba: tartsd lenyomva a Le gombot USB csatlakoztatáskor
+battery too low to flash safely ({0})
+= az akku túl gyenge a biztonságos íráshoz ({0})
+the player came back in download mode: the new firmware did not start
+= a lejátszó letöltő módba tért vissza: az új firmware nem indult el
+this package is for {0}, not {1}
+= ez a csomag ide való: {0}, nem ide: {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= a lejátszó flashe a 0x{0} címen nem olyan, amilyenhez a csomag készült; semmi sem íródott
+the package has no firmware image
+= a csomagban nincs firmware képfájl
+the card needs {0} MiB free; it has {1} MiB
+= a kártyán {0} MiB szabad hely kell; van {1} MiB
+{0} did not read back correctly from the card
+= {0} nem olvasódott vissza helyesen a kártyáról
+could not mount the player's card: {0}
+= a lejátszó kártyája nem csatolható: {0}
+the player's card did not appear
+= a lejátszó kártyája nem jelent meg
+the card is in use by another program
+= a kártyát másik program használja
+cancelled
+= megszakítva
+checksum mismatch at 0x{0}
+= ellenőrzőösszeg eltérés: 0x{0}
+sector 0x{0} reads inconsistently
+= a 0x{0} szektor következetlenül olvasható
+flash at 0x{0} reads inconsistently
+= a flash a 0x{0} címen következetlenül olvasható
+backup did not read back from disk
+= a mentés nem olvasódott vissza a lemezről
+{0} is damaged (checksum mismatch)
+= {0} sérült (ellenőrzőösszeg eltérés)
+{0} is {1} bytes; a full flash image is {2}
+= {0} mérete {1} bájt; a teljes flash képfájl {2}
+not a tar.xz release: {0}
+= nem tar.xz kiadás: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= ehhez a csomaghoz (formátum: {0}) a(z) {1} verziónál újabb rockslop kell: frissítsd a rockslopot
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= ez a csomag (formátum: {0}) túl régi a rockslop {1} verzióhoz: tölts le újabb kiadást
+MANIFEST has no format
+= a MANIFEST nem tartalmaz formátumot
+MANIFEST names no target
+= a MANIFEST nem nevez meg célt
+unsafe path in archive: {0}
+= nem biztonságos útvonal az archívumban: {0}
+{0}: links and special files are not allowed
+= {0}: linkek és speciális fájlok nem engedélyezettek
+{0}: checksum mismatch, the download is corrupt
+= {0}: ellenőrzőösszeg eltérés, a letöltés sérült
+unexpected member {0}
+= váratlan elem: {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= az archívumból hiányzó SHA256SUMS-ban szereplő fájlok: {0}
+release contains no flash image
+= a kiadás nem tartalmaz flash képfájlt
+{0}: checksum mismatch
+= {0}: ellenőrzőösszeg eltérés
+archive member too large
+= az archívum eleme túl nagy
+internal error: {0}
+= belső hiba: {0}
+{0}: permission denied. {1}
+= {0}: hozzáférés megtagadva. {1}
+Install the udev rule (see README) or run as root.
+= Telepítsd az udev szabályt (lásd README), vagy futtasd rootként.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= A macOS-nek root jog kell ahhoz, hogy elvegye az eszközt a háttértár-illesztőtől: futtasd a Terminálból sudo-val.
+The device needs the WinUSB driver (Zadig).
+= Az eszköznek WinUSB illesztő kell (Zadig).
+{0}: the device is busy (another tool is using it?)
+= {0}: az eszköz foglalt (másik program használja?)
+{0}: the device went away
+= {0}: az eszköz eltűnt
+{0}: timed out
+= {0}: időtúllépés
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= HÚZD ÉS FORGASD
+UNPLUG
+= HÚZD KI
+pull the USB cable out
+= húzd ki az USB kábelt
+POWER ON
+= BEKAPCS.
+hold POWER, on the bottom edge
+= tartsd a POWER-t, az alsó élen
+stock firmware
+= gyári firmware
+SWITCH OFF
+= KAPCSOLD KI
+hold POWER until the screen goes dark
+= tartsd a POWER-t, amíg a kijelző elsötétül
+HOLD POWER
+= TARTSD A POWER-T
+plug in while holding, ~4 s
+= csatlakoztasd nyomva tartva, ~4 s
+on the player: System > Debug > {0}
+= a lejátszón: Rendszer > Hibakeresés > {0}
+follow the steps above
+= kövesd a fenti lépéseket
+THE {0} PACKAGE
+= {0} CSOMAG
+NEEDS A MICROSD CARD
+= MICROSD KÁRTYA KELL
+It looks like you're trying to hack an MP3 player. Would you like help?
+= Úgy tűnik, egy MP3-lejátszót próbálsz meghekkelni. Kérsz segítséget?
+GOT IT
+= ÉRTEM
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= Ezeken a lejátszókon nincs típusszám. Inkább hasonlítsd össze a drótvázakat: a gombok és a csatlakozók eltérnek. Egy lejátszót húzással meg is forgathatsz.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= Előbb kapcsold ki a lejátszót, aztán tartsd LENT, mielőtt bedugod a kábelt, és tartsd tovább.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= Tartsd a POWER-t, miközben bedugod a kábelt, és tartsd nyomva még nagyjából 4 másodpercig.
+Switch the player on first: hold POWER on its bottom edge.
+= Előbb kapcsold be a lejátszót: tartsd a POWER-t az alsó élén.
+Still nothing? Try another cable: some only charge.
+= Még mindig semmi? Próbálj másik kábelt: némelyik csak tölt.
+Your computer won't let rockslop use the player.
+= A számítógéped nem engedi, hogy a rockslop használja a lejátszót.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= Előbb húzd ki a kábelt: a lejátszó csak letöltő módban figyel. A lépések megmutatják, hogyan.
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= Kell egy Rockbox csomag, amely a(z) {0} lejátszóhoz készült: egy .tar.xz fájl. Kattints a KÉPFÁJL KIV. gombra, vagy dobd rá a panelre.
+Push a microSD card all the way into the player's slot, then press RESET.
+= Told be ütközésig a microSD kártyát a lejátszó nyílásába, majd nyomd meg a RESET-et.
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= A Rockbox még nem mutatta meg az USB lemezét. Ha a lejátszó csak töltődik, húzd ki, tarts lenyomva egy gombot, és csatlakoztasd újra.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= Az ISMÉT általában megoldja. Még mindig elakadtál? A JELENTÉS MÁSOLÁSA a vágólapra teszi a részleteket egy hibajelentéshez.
+It looks like you watched all the credits. Nobody does that. Respect.
+= Úgy tűnik, végignézted a teljes stáblistát. Ezt senki sem teszi. Le a kalappal.
+DEAL WITH IT
+= DEAL WITH IT

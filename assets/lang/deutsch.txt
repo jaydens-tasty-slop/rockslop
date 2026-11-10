@@ -1,0 +1,522 @@
+# Deutsch: rockslop UI
+TARGET
+= ZIEL
+LINK
+= LINK
+PAYLOAD
+= PAYLOAD
+EXECUTE
+= AUSFÜHREN
+BUS IDLE
+= BUS FREI
+STOCK
+= ORIGINAL
+awaiting target
+= warte auf Ziel
+scanning usb
+= scanne usb
+awaiting payload
+= warte auf Payload
+executing
+= führe aus
+session complete
+= Sitzung beendet
+session aborted
+= Sitzung abgebrochen
+rolling credits
+= Abspann läuft
+SND
+= TON
+MUTED
+= STUMM
+NO SND
+= KEIN TON
+audio muted
+= Ton aus
+audio on
+= Ton an
+neural uplink
+= neuronale Verbindung
+usb stack
+= USB-Stack
+flash maps
+= Flash-Karten
+payloads
+= Payloads
+glyph cache
+= Glyphen-Cache
+SELECT TARGET
+= ZIEL WÄHLEN
+DOWNLOAD MODE
+= DOWNLOAD-MODUS
+STOCK FIRMWARE
+= ORIGINAL-FIRMWARE
+ENGAGE
+= STARTEN
+CLICK TO ENGAGE
+= KLICK ZUM STARTEN
+RESET
+= RESET
+HEADPHONE
+= KOPFHÖRER
+VOL
+= LAUT
+POWER
+= POWER
+POWER OFF
+= AUSSCHALTEN
+unplugged: hold the centre key
+= abgesteckt: Mitteltaste halten
+HOLD DOWN
+= DOWN HALTEN
+bottom of the wheel
+= unten am Rad
+CONNECT USB
+= USB VERBINDEN
+keep holding
+= weiter halten
+RELEASE
+= LOSLASSEN
+once linked
+= sobald verbunden
+OR
+= ODER
+hold DOWN and tap RESET
+= DOWN halten und RESET tippen
+STAND BY
+= BEREIT
+it reboots into download mode
+= er startet in den Download-Modus neu
+ROCKBOX?
+= ROCKBOX?
+switch it off, then hold POWER ~4 s while connecting
+= ausschalten, dann POWER ~4 s halten beim Verbinden
+LINK FAILED
+= LINK FEHLER
+SCANNING
+= SUCHE
+no player on the bus yet
+= noch kein Player am Bus
+ACCESS DENIED
+= ZUGRIFF VERWEIGERT
+no permission: install the udev rule (see README)
+= keine Berechtigung: udev-Regel installieren (siehe README)
+macOS: run rockslop with sudo to take the device
+= macOS: rockslop mit sudo starten, um das Gerät zu übernehmen
+install the WinUSB driver for it (Zadig)
+= dafür den WinUSB-Treiber installieren (Zadig)
+LINK ESTABLISHED
+= LINK HERGESTELLT
+identity verified
+= Identität bestätigt
+PROBING
+= SONDIERE
+boot ROM online
+= Boot-ROM online
+forcing download mode
+= erzwinge Download-Modus
+ROCKBOX RUNNING
+= ROCKBOX LÄUFT
+BACK
+= ZURÜCK
+RETRY
+= NOCHMAL
+Rockbox package
+= Rockbox-Paket
+SELECT IMAGE
+= IMAGE WÄHLEN
+or drop it here
+= oder hier ablegen
+IMAGE
+= IMAGE
+REJECTED
+= ABGELEHNT
+BUILD
+= BUILD
+FLASH
+= FLASH
+CARD
+= KARTE
+{0} files  ·  {1}
+= {0} Dateien  ·  {1}
+every member verified
+= alle Mitglieder geprüft
+BACKUP
+= BACKUP
+stock flash saved first
+= Original-Flash zuerst gesichert
+CHANGE
+= ÄNDERN
+INSERT SD CARD
+= SD-KARTE EINLEGEN
+RETURN TO STOCK
+= ZURÜCK ZUM ORIGINAL
+built for {0}, not {1}
+= gebaut für {0}, nicht für {1}
+LAYOUT
+= LAYOUT
+LOCKED
+= GESPERRT
+PROBE
+= SONDE
+VERIFY
+= PRÜFEN
+WRITE
+= SCHREIBEN
+CHECKSUM
+= PRÜFSUMME
+CHECK
+= KONTROLLE
+REBOOT
+= NEUSTART
+SD SYNC
+= SD SYNC
+EJECT
+= AUSWERFEN
+DONE
+= FERTIG
+FLASH MAP
+= FLASH-MAP
+SAME
+= GLEICH
+READ
+= LESEN
+ERASE
+= LÖSCHEN
+WRITTEN
+= GESCHR.
+BAD
+= DEFEKT
+FILES
+= DATEIEN
+BUS TAP
+= BUS-TAP
+THEN PRESS RESET
+= DANN RESET DRÜCKEN
+SD CARD
+= SD-KARTE
+NO CARD
+= KEINE KARTE
+READ BACK
+= ZURÜCKLESEN
+MOUNT
+= EINHÄNGEN
+CHECKED
+= GEPRÜFT
+DATA
+= DATEN
+RATE
+= RATE
+ETA
+= ETA
+ACCESS GRANTED
+= ZUGRIFF GEWÄHRT
+STOCK RESTORED
+= ORIGINAL ZURÜCK
+the player boots stock firmware again
+= der Player startet wieder die Original-Firmware
+rockbox is live on the player
+= Rockbox läuft auf dem Player
+SESSION
+= SITZUNG
+{0} sectors rewritten, checksummed
+= {0} Sektoren neu geschrieben, Prüfsumme OK
+{0} files  ·  {1}  ·  read back OK
+= {0} Dateien  ·  {1}  ·  Rücklesen OK
+not updated
+= nicht aktualisiert
+TIME
+= ZEIT
+UNPLUG TO FINISH
+= ZUM ENDE ABSTECKEN
+EJECTED
+= AUSGEWORFEN
+UNPLUG AND ROCK
+= ABSTECKEN UND ROCKEN
+AGAIN
+= ERNEUT
+CREDITS
+= MITWIRKENDE
+the flash was partly rewritten: a backup is safe on disk
+= der Flash wurde teilweise überschrieben: ein Backup liegt sicher auf der Platte
+nothing was written
+= nichts geschrieben
+FAULT
+= FEHLER
+COPY REPORT
+= BERICHT KOPIEREN
+REPORT COPIED
+= BERICHT KOPIERT
+NOW PLAYING
+= JETZT LÄUFT
+THIS FLASHER
+= DIESER FLASHER
+ROCKBOX CONTRIBUTORS
+= ROCKBOX-MITWIRKENDE
+{0} contributors
+= {0} Mitwirkende
+People that have contributed to the project, one way or another. Friends!
+= Leute, die auf die eine oder andere Weise zum Projekt beigetragen haben. Freunde!
+links open in your browser
+= Links öffnen im Browser
+Made by
+= Gemacht von
+Device protocols and payloads
+= Geräteprotokolle und Payloads
+Music
+= Musik
+Voice lines
+= Sprachzeilen
+Sound effects
+= Soundeffekte
+Fonts
+= Schriften
+Rust crates
+= Rust-Crates
+Reference photos
+= Referenzfotos
+LANGUAGE
+= SPRACHE
+AUTOMATIC
+= AUTOMATISCH
+stock firmware on the bus: asking it for download mode
+= Original-Firmware am Bus: fordere Download-Modus an
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0} hat 0xCB bestätigt: Neustart in ADFU
+attaching to {0}
+= verbinde mit {0}
+sector CRC32 scan on the player
+= Sektor-CRC32-Scan auf dem Player
+dumping {0} KiB
+= lese {0} KiB aus
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= {0} Sektoren erfasst ({1} gelesen, {2} schon bekannt); CRC32 geprüft
+dumping {0} KiB of raw NOR cells
+= lese {0} KiB rohe NOR-Zellen aus
+second pass: comparing
+= zweiter Durchgang: Vergleich
+{0} sectors captured; two reads agree
+= {0} Sektoren erfasst; zwei Lesevorgänge stimmen überein
+identical backup already on file: {0}
+= identisches Backup schon vorhanden: {0}
+backup -> {0}
+= Backup -> {0}
+{0} of {1} sectors differ
+= {0} von {1} Sektoren weichen ab
+0x{0} erase / program / verify ok
+= 0x{0} löschen / programmieren / prüfen ok
+CRC32 of every writable sector, computed on the player
+= CRC32 jedes beschreibbaren Sektors, auf dem Player berechnet
+reading the writable window back
+= lese das beschreibbare Fenster zurück
+flash checksum OK  sha256 {0}..{1}
+= Flash-Prüfsumme OK  sha256 {0}..{1}
+rebooting into Rockbox
+= Neustart in Rockbox
+rebooting into stock firmware
+= Neustart in die Original-Firmware
+firmware is up
+= Firmware läuft
+{0} image(s), {1} KiB, sha256 verified
+= {0} Image(s), {1} KiB, sha256 geprüft
+{0} sectors rewritten
+= {0} Sektoren neu geschrieben
+Rockbox did not show up as a USB disk; the card was not updated
+= Rockbox ist nicht als USB-Laufwerk erschienen; die Karte wurde nicht aktualisiert
+total {0} s
+= gesamt {0} s
+{0} loaded, checksum OK
+= {0} geladen, Prüfsumme OK
+backup is from another unit; its per-unit sectors are left alone
+= Backup stammt von einem anderen Gerät; dessen gerätespezifische Sektoren bleiben unberührt
+waiting for Rockbox's USB disk
+= warte auf das USB-Laufwerk von Rockbox
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= noch kein USB-Laufwerk von Rockbox: ist nur Laden eingestellt, den Player abstecken, eine beliebige Taste halten und wieder anstecken (oder Einstellungen > Grundeinstellungen > System > USB > USB Modus auf Massenspeicher stellen)
+no microSD card in the player: insert one, then press RESET
+= keine microSD-Karte im Player: eine einlegen, dann RESET drücken
+card online: {0}
+= Karte online: {0}
+removed {0} stale plugin/codec files
+= {0} veraltete Plugin-/Codec-Dateien entfernt
+removed {0}: the firmware is in flash, not on the card
+= {0} entfernt: die Firmware liegt im Flash, nicht auf der Karte
+{0} files written
+= {0} Dateien geschrieben
+reading every file back from the card
+= lese jede Datei von der Karte zurück
+{0} files read back: sha256 OK
+= {0} Dateien zurückgelesen: sha256 OK
+card ejected
+= Karte ausgeworfen
+could not eject the card ({0}); eject it before unplugging
+= Karte konnte nicht ausgeworfen werden ({0}); vor dem Abstecken auswerfen
+stock firmware detected: ACTIONSUSBD
+= Original-Firmware erkannt: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= sende Herstellerbefehl 0xCB -> ADFU
+opening {0} download mode
+= öffne {0}-Download-Modus
+reattaching to download mode
+= verbinde neu mit Download-Modus
+dumping {0} KiB of stock flash
+= lese {0} KiB Original-Flash aus
+re-reading CRC32 of every sector
+= lese CRC32 aller Sektoren erneut
+backup verified: {0}/{1} sectors match
+= Backup geprüft: {0}/{1} Sektoren stimmen
+{0} sectors differ; writing
+= {0} Sektoren weichen ab; schreibe
+sector 0x{0} erase/program/verify ok
+= Sektor 0x{0} löschen/programmieren/prüfen ok
+full flash CRC scan
+= vollständiger Flash-CRC-Scan
+flash checksum OK
+= Flash-Prüfsumme OK
+waiting for Rockbox USB mass storage
+= warte auf Rockbox-USB-Massenspeicher
+no media: insert a microSD card
+= kein Medium: eine microSD-Karte einlegen
+syncing and ejecting card
+= synchronisiere und werfe Karte aus
+another tool holds the player ({0})
+= ein anderes Tool hält den Player ({0})
+the player did not come back in download mode
+= der Player kam nicht im Download-Modus zurück
+the YP3 enters download mode by hand: hold Down while connecting USB
+= der YP3 geht von Hand in den Download-Modus: DOWN halten und USB anstecken
+battery too low to flash safely ({0})
+= Akku zu schwach zum sicheren Flashen ({0})
+the player came back in download mode: the new firmware did not start
+= der Player kam im Download-Modus zurück: die neue Firmware startete nicht
+this package is for {0}, not {1}
+= dieses Paket ist für {0}, nicht für {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= der Flash dieses Players bei 0x{0} entspricht nicht dem Paket; nichts wurde geschrieben
+the package has no firmware image
+= das Paket enthält kein Firmware-Image
+the card needs {0} MiB free; it has {1} MiB
+= die Karte braucht {0} MiB frei; sie hat {1} MiB
+{0} did not read back correctly from the card
+= {0} wurde nicht korrekt von der Karte zurückgelesen
+could not mount the player's card: {0}
+= Karte des Players konnte nicht eingehängt werden: {0}
+the player's card did not appear
+= die Karte des Players ist nicht erschienen
+the card is in use by another program
+= die Karte wird von einem anderen Programm benutzt
+cancelled
+= abgebrochen
+checksum mismatch at 0x{0}
+= Prüfsummenfehler bei 0x{0}
+sector 0x{0} reads inconsistently
+= Sektor 0x{0} liest sich inkonsistent
+flash at 0x{0} reads inconsistently
+= Flash bei 0x{0} liest sich inkonsistent
+backup did not read back from disk
+= Backup ließ sich nicht von der Platte zurücklesen
+{0} is damaged (checksum mismatch)
+= {0} ist beschädigt (Prüfsummenfehler)
+{0} is {1} bytes; a full flash image is {2}
+= {0} hat {1} Bytes; ein vollständiges Flash-Image hat {2}
+not a tar.xz release: {0}
+= kein tar.xz-Release: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= dieses Paket (Format {0}) braucht ein neueres rockslop als {1}: rockslop aktualisieren
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= dieses Paket (Format {0}) ist zu alt für rockslop {1}: ein neueres Release holen
+MANIFEST has no format
+= MANIFEST enthält kein Format
+MANIFEST names no target
+= MANIFEST nennt kein Ziel
+unsafe path in archive: {0}
+= unsicherer Pfad im Archiv: {0}
+{0}: links and special files are not allowed
+= {0}: Links und Spezialdateien sind nicht erlaubt
+{0}: checksum mismatch, the download is corrupt
+= {0}: Prüfsummenfehler, der Download ist defekt
+unexpected member {0}
+= unerwartetes Mitglied {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= im Archiv fehlen {0} Datei(en) aus SHA256SUMS
+release contains no flash image
+= Release enthält kein Flash-Image
+{0}: checksum mismatch
+= {0}: Prüfsummenfehler
+archive member too large
+= Archivmitglied zu groß
+internal error: {0}
+= interner Fehler: {0}
+{0}: permission denied. {1}
+= {0}: Zugriff verweigert. {1}
+Install the udev rule (see README) or run as root.
+= Die udev-Regel installieren (siehe README) oder als root starten.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= macOS braucht root, um das Gerät seinem Massenspeicher-Treiber abzunehmen: im Terminal mit sudo starten.
+The device needs the WinUSB driver (Zadig).
+= Das Gerät braucht den WinUSB-Treiber (Zadig).
+{0}: the device is busy (another tool is using it?)
+= {0}: das Gerät ist belegt (benutzt es ein anderes Tool?)
+{0}: the device went away
+= {0}: das Gerät ist verschwunden
+{0}: timed out
+= {0}: Zeitüberschreitung
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= ZIEHEN ZUM DREHEN
+UNPLUG
+= ABSTECKEN
+pull the USB cable out
+= USB-Kabel abziehen
+POWER ON
+= EINSCHALTEN
+hold POWER, on the bottom edge
+= POWER halten, an der Unterkante
+stock firmware
+= Original-Firmware
+SWITCH OFF
+= AUSSCHALTEN
+hold POWER until the screen goes dark
+= POWER halten, bis der Bildschirm dunkel wird
+HOLD POWER
+= POWER HALTEN
+plug in while holding, ~4 s
+= halten und dabei anstecken, ~4 s
+on the player: System > Debug > {0}
+= am Player: System > Entwicklerbereich > {0}
+follow the steps above
+= den Schritten oben folgen
+THE {0} PACKAGE
+= DAS {0}-PAKET
+NEEDS A MICROSD CARD
+= BRAUCHT EINE MICROSD-KARTE
+It looks like you're trying to hack an MP3 player. Would you like help?
+= Es sieht so aus, als wollten Sie einen MP3-Player hacken. Möchten Sie Hilfe?
+GOT IT
+= ALLES KLAR
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= Auf diesen Playern steht keine Modellnummer. Vergleichen Sie stattdessen die Drahtgittermodelle: Tasten und Anschlüsse unterscheiden sich. Ziehen Sie an einem Player, um ihn zu drehen.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= Schalten Sie den Player zuerst aus, halten Sie dann DOWN, bevor das Kabel steckt, und halten Sie weiter.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= Halten Sie POWER, während Sie das Kabel anstecken, und halten Sie etwa 4 Sekunden weiter.
+Switch the player on first: hold POWER on its bottom edge.
+= Schalten Sie den Player zuerst ein: Halten Sie POWER an seiner Unterkante.
+Still nothing? Try another cable: some only charge.
+= Immer noch nichts? Probieren Sie ein anderes Kabel: Manche laden nur.
+Your computer won't let rockslop use the player.
+= Ihr Computer lässt rockslop nicht an den Player.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= Stecken Sie das Kabel zuerst ab: Der Player hört nur im Download-Modus zu. Die Schritte zeigen, wie.
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= Sie brauchen das Rockbox-Paket für den {0}: eine .tar.xz-Datei. Klicken Sie auf IMAGE WÄHLEN, oder legen Sie sie auf dem Panel ab.
+Push a microSD card all the way into the player's slot, then press RESET.
+= Schieben Sie eine microSD-Karte ganz in den Kartenschlitz des Players, und drücken Sie dann RESET.
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Rockbox hat sein USB-Laufwerk noch nicht gezeigt. Wenn der Player nur lädt, stecken Sie ihn ab, halten Sie eine beliebige Taste und stecken Sie ihn wieder an.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= NOCHMAL hilft meistens. Hängen Sie immer noch fest? BERICHT KOPIEREN legt die Details für einen Fehlerbericht in die Zwischenablage.
+It looks like you watched all the credits. Nobody does that. Respect.
+= Es sieht so aus, als hätten Sie den ganzen Abspann gesehen. Das macht niemand. Respekt.
+DEAL WITH IT
+= DEAL WITH IT

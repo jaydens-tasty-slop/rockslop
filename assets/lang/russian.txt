@@ -1,0 +1,522 @@
+# Русский: rockslop UI
+TARGET
+= ЦЕЛЬ
+LINK
+= СВЯЗЬ
+PAYLOAD
+= ПАКЕТ
+EXECUTE
+= ЗАПУСК
+BUS IDLE
+= ШИНА ПУСТА
+STOCK
+= ШТАТНАЯ
+awaiting target
+= ожидание цели
+scanning usb
+= сканирование usb
+awaiting payload
+= ожидание пакета
+executing
+= выполнение
+session complete
+= сеанс завершён
+session aborted
+= сеанс прерван
+rolling credits
+= титры пошли
+SND
+= ЗВУК
+MUTED
+= ТИХО
+NO SND
+= НЕТ ЗВ
+audio muted
+= звук выключен
+audio on
+= звук включён
+neural uplink
+= нейроканал
+usb stack
+= стек usb
+flash maps
+= карты флеш
+payloads
+= пакеты
+glyph cache
+= кэш глифов
+SELECT TARGET
+= ВЫБОР ЦЕЛИ
+DOWNLOAD MODE
+= РЕЖИМ ЗАГРУЗКИ
+STOCK FIRMWARE
+= ШТАТНАЯ ПРОШИВКА
+ENGAGE
+= ЗАПУСК
+CLICK TO ENGAGE
+= КЛИК: ЗАПУСК
+RESET
+= RESET
+HEADPHONE
+= НАУШНИКИ
+VOL
+= ГРОМК
+POWER
+= ПИТАНИЕ
+POWER OFF
+= ВЫКЛЮЧИ
+unplugged: hold the centre key
+= отключён: держи центральную клавишу
+HOLD DOWN
+= ДЕРЖИ ВНИЗ
+bottom of the wheel
+= низ колеса
+CONNECT USB
+= ПОДКЛЮЧИ USB
+keep holding
+= не отпускай
+RELEASE
+= ОТПУСТИ
+once linked
+= после связи
+OR
+= ИЛИ
+hold DOWN and tap RESET
+= держи ВНИЗ и нажми RESET
+STAND BY
+= ЖДИ
+it reboots into download mode
+= он перезагрузится в режим загрузки
+ROCKBOX?
+= ROCKBOX?
+switch it off, then hold POWER ~4 s while connecting
+= выключи его, затем держи ПИТАНИЕ ~4 с при подключении
+LINK FAILED
+= СБОЙ СВЯЗИ
+SCANNING
+= ПОИСК
+no player on the bus yet
+= плеера на шине пока нет
+ACCESS DENIED
+= ДОСТУП ЗАПРЕЩЁН
+no permission: install the udev rule (see README)
+= нет прав: установи правило udev (см. README)
+macOS: run rockslop with sudo to take the device
+= macOS: запусти rockslop через sudo, чтобы занять устройство
+install the WinUSB driver for it (Zadig)
+= установи для него драйвер WinUSB (Zadig)
+LINK ESTABLISHED
+= СВЯЗЬ УСТАНОВЛЕНА
+identity verified
+= личность подтверждена
+PROBING
+= ЗОНДИРОВАНИЕ
+boot ROM online
+= boot ROM на связи
+forcing download mode
+= принудительный режим загрузки
+ROCKBOX RUNNING
+= ROCKBOX ЗАПУЩЕН
+BACK
+= НАЗАД
+RETRY
+= ПОВТОР
+Rockbox package
+= Пакет Rockbox
+SELECT IMAGE
+= ВЫБРАТЬ ОБРАЗ
+or drop it here
+= или брось сюда
+IMAGE
+= ОБРАЗ
+REJECTED
+= ОТКЛОНЁН
+BUILD
+= СБОРКА
+FLASH
+= ФЛЕШ
+CARD
+= КАРТА
+{0} files  ·  {1}
+= файлов: {0}  ·  {1}
+every member verified
+= все элементы проверены
+BACKUP
+= КОПИЯ
+stock flash saved first
+= сначала сохранена штатная флеш-память
+CHANGE
+= СМЕНИТЬ
+INSERT SD CARD
+= ВСТАВЬ SD
+RETURN TO STOCK
+= ВЕРНУТЬ ШТАТНУЮ
+built for {0}, not {1}
+= собран для {0}, а не для {1}
+LAYOUT
+= РАЗМЕТКА
+LOCKED
+= ЗАКРЫТО
+PROBE
+= ЗОНД
+VERIFY
+= ПРОВЕРКА
+WRITE
+= ЗАПИСЬ
+CHECKSUM
+= СУММА
+CHECK
+= СВЕРКА
+REBOOT
+= ПЕРЕЗАГР
+SD SYNC
+= SD СИНХР
+EJECT
+= ИЗВЛЕЧЬ
+DONE
+= ГОТОВО
+FLASH MAP
+= КАРТА ФЛЕШ
+SAME
+= СОВПАЛО
+READ
+= ЧТЕНИЕ
+ERASE
+= СТИРАНИЕ
+WRITTEN
+= ЗАПИСАНО
+BAD
+= БРАК
+FILES
+= ФАЙЛЫ
+BUS TAP
+= ПЕРЕХВАТ
+THEN PRESS RESET
+= ЗАТЕМ RESET
+SD CARD
+= SD-КАРТА
+NO CARD
+= НЕТ КАРТЫ
+READ BACK
+= ПЕРЕЧИТКА
+MOUNT
+= МОНТАЖ
+CHECKED
+= ПРОВЕРЕНО
+DATA
+= ДАННЫЕ
+RATE
+= СКОР.
+ETA
+= ОСТ.
+ACCESS GRANTED
+= ДОСТУП РАЗРЕШЁН
+STOCK RESTORED
+= ШТАТНАЯ ВОЗВРАЩЕНА
+the player boots stock firmware again
+= плеер снова грузит штатную прошивку
+rockbox is live on the player
+= rockbox запущен на плеере
+SESSION
+= СЕАНС
+{0} sectors rewritten, checksummed
+= секторов перезаписано: {0}, суммы сверены
+{0} files  ·  {1}  ·  read back OK
+= файлов: {0}  ·  {1}  ·  перечитано OK
+not updated
+= не обновлена
+TIME
+= ВРЕМЯ
+UNPLUG TO FINISH
+= ОТКЛЮЧИ И ЗАВЕРШИ
+EJECTED
+= ИЗВЛЕЧЕНО
+UNPLUG AND ROCK
+= ОТКЛЮЧАЙ И РОКУЙ
+AGAIN
+= ЕЩЁ РАЗ
+CREDITS
+= ТИТРЫ
+the flash was partly rewritten: a backup is safe on disk
+= флеш перезаписана частично: копия сохранена на диске
+nothing was written
+= ничего не записано
+FAULT
+= СБОЙ
+COPY REPORT
+= КОПИРОВАТЬ ОТЧЁТ
+REPORT COPIED
+= ОТЧЁТ СКОПИРОВАН
+NOW PLAYING
+= ИГРАЕТ
+THIS FLASHER
+= ЭТОТ ПРОШИВАТОР
+ROCKBOX CONTRIBUTORS
+= АВТОРЫ ROCKBOX
+{0} contributors
+= участников: {0}
+People that have contributed to the project, one way or another. Friends!
+= Люди, так или иначе внёсшие вклад в проект. Друзья!
+links open in your browser
+= ссылки откроются в браузере
+Made by
+= Авторы
+Device protocols and payloads
+= Протоколы устройств и пакеты
+Music
+= Музыка
+Voice lines
+= Голосовые реплики
+Sound effects
+= Звуковые эффекты
+Fonts
+= Шрифты
+Rust crates
+= Крейты Rust
+Reference photos
+= Справочные фото
+LANGUAGE
+= ЯЗЫК
+AUTOMATIC
+= АВТО
+stock firmware on the bus: asking it for download mode
+= штатная прошивка на шине: запрос режима загрузки
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0} подтвердил 0xCB: перезагрузка в ADFU
+attaching to {0}
+= подключение к {0}
+sector CRC32 scan on the player
+= сканирование CRC32 секторов на плеере
+dumping {0} KiB
+= дамп {0} KiB
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= секторов получено: {0} (прочитано {1}, уже известно {2}); CRC32 сверен
+dumping {0} KiB of raw NOR cells
+= дамп {0} KiB сырых ячеек NOR
+second pass: comparing
+= второй проход: сравнение
+{0} sectors captured; two reads agree
+= секторов получено: {0}; два чтения совпали
+identical backup already on file: {0}
+= такая копия уже есть: {0}
+backup -> {0}
+= копия -> {0}
+{0} of {1} sectors differ
+= различаются секторы: {0} из {1}
+0x{0} erase / program / verify ok
+= 0x{0} стирание / запись / проверка ok
+CRC32 of every writable sector, computed on the player
+= CRC32 каждого записываемого сектора, посчитан на плеере
+reading the writable window back
+= обратное чтение записываемой области
+flash checksum OK  sha256 {0}..{1}
+= контрольная сумма флеш OK  sha256 {0}..{1}
+rebooting into Rockbox
+= перезагрузка в Rockbox
+rebooting into stock firmware
+= перезагрузка в штатную прошивку
+firmware is up
+= прошивка запущена
+{0} image(s), {1} KiB, sha256 verified
+= образов: {0}, {1} KiB, sha256 сверен
+{0} sectors rewritten
+= секторов перезаписано: {0}
+Rockbox did not show up as a USB disk; the card was not updated
+= Rockbox не появился как USB-диск; карта не обновлена
+total {0} s
+= всего {0} с
+{0} loaded, checksum OK
+= {0} загружен, контрольная сумма OK
+backup is from another unit; its per-unit sectors are left alone
+= копия снята с другого плеера; его индивидуальные секторы не тронуты
+waiting for Rockbox's USB disk
+= ожидание USB-диска Rockbox
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= USB-диска от Rockbox пока нет: если стоит режим только зарядки, отключи плеер, зажми любую кнопку и подключи снова (или выбери в Настройки > Главные настройки > Система > USB > Режим USB пункт Устройство хранения информации)
+no microSD card in the player: insert one, then press RESET
+= в плеере нет microSD: вставь карту и нажми RESET
+card online: {0}
+= карта на связи: {0}
+removed {0} stale plugin/codec files
+= удалено устаревших файлов плагинов/кодеков: {0}
+removed {0}: the firmware is in flash, not on the card
+= удалён {0}: прошивка во флеш-памяти, а не на карте
+{0} files written
+= файлов записано: {0}
+reading every file back from the card
+= чтение всех файлов обратно с карты
+{0} files read back: sha256 OK
+= файлов перечитано: {0}: sha256 OK
+card ejected
+= карта извлечена
+could not eject the card ({0}); eject it before unplugging
+= не удалось извлечь карту ({0}); извлеки её перед отключением
+stock firmware detected: ACTIONSUSBD
+= обнаружена штатная прошивка: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= отправка команды вендора 0xCB -> ADFU
+opening {0} download mode
+= открытие режима загрузки {0}
+reattaching to download mode
+= повторное подключение к режиму загрузки
+dumping {0} KiB of stock flash
+= дамп {0} KiB штатной флеш-памяти
+re-reading CRC32 of every sector
+= повторное чтение CRC32 каждого сектора
+backup verified: {0}/{1} sectors match
+= копия проверена: совпало секторов {0}/{1}
+{0} sectors differ; writing
+= секторов отличается: {0}; запись
+sector 0x{0} erase/program/verify ok
+= сектор 0x{0} стирание/запись/проверка ok
+full flash CRC scan
+= полное CRC-сканирование флеш
+flash checksum OK
+= контрольная сумма флеш OK
+waiting for Rockbox USB mass storage
+= ожидание USB-накопителя Rockbox
+no media: insert a microSD card
+= нет носителя: вставь карту microSD
+syncing and ejecting card
+= синхронизация и извлечение карты
+another tool holds the player ({0})
+= плеер занят другой программой ({0})
+the player did not come back in download mode
+= плеер не вернулся в режим загрузки
+the YP3 enters download mode by hand: hold Down while connecting USB
+= YP3 переходит в режим загрузки вручную: держи Вниз при подключении USB
+battery too low to flash safely ({0})
+= заряд батареи слишком мал для безопасной прошивки ({0})
+the player came back in download mode: the new firmware did not start
+= плеер вернулся в режим загрузки: новая прошивка не запустилась
+this package is for {0}, not {1}
+= этот пакет для {0}, а не для {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= флеш плеера по адресу 0x{0} не соответствует пакету; ничего не записано
+the package has no firmware image
+= в пакете нет образа прошивки
+the card needs {0} MiB free; it has {1} MiB
+= на карте нужно {0} MiB свободно; есть {1} MiB
+{0} did not read back correctly from the card
+= {0} неверно прочитан с карты
+could not mount the player's card: {0}
+= не удалось смонтировать карту плеера: {0}
+the player's card did not appear
+= карта плеера не появилась
+the card is in use by another program
+= карта занята другой программой
+cancelled
+= отменено
+checksum mismatch at 0x{0}
+= контрольная сумма не совпала по адресу 0x{0}
+sector 0x{0} reads inconsistently
+= сектор 0x{0} читается нестабильно
+flash at 0x{0} reads inconsistently
+= флеш по адресу 0x{0} читается нестабильно
+backup did not read back from disk
+= копия не прочиталась с диска
+{0} is damaged (checksum mismatch)
+= {0} повреждён (контрольная сумма не совпала)
+{0} is {1} bytes; a full flash image is {2}
+= {0}: {1} байт; полный образ флеш: {2}
+not a tar.xz release: {0}
+= не релиз tar.xz: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= этому пакету (формат {0}) нужен rockslop новее {1}: обнови rockslop
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= этот пакет (формат {0}) слишком стар для rockslop {1}: возьми релиз поновее
+MANIFEST has no format
+= в MANIFEST нет формата
+MANIFEST names no target
+= в MANIFEST не указана цель
+unsafe path in archive: {0}
+= небезопасный путь в архиве: {0}
+{0}: links and special files are not allowed
+= {0}: ссылки и специальные файлы не разрешены
+{0}: checksum mismatch, the download is corrupt
+= {0}: контрольная сумма не совпала, загрузка повреждена
+unexpected member {0}
+= неожиданный элемент {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= в архиве нет файлов из SHA256SUMS: {0}
+release contains no flash image
+= в релизе нет образа флеш
+{0}: checksum mismatch
+= {0}: контрольная сумма не совпала
+archive member too large
+= элемент архива слишком велик
+internal error: {0}
+= внутренняя ошибка: {0}
+{0}: permission denied. {1}
+= {0}: доступ запрещён. {1}
+Install the udev rule (see README) or run as root.
+= Установи правило udev (см. README) или запусти от root.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= macOS нужны права root, чтобы забрать устройство у драйвера накопителя: запусти из Терминала через sudo.
+The device needs the WinUSB driver (Zadig).
+= Устройству нужен драйвер WinUSB (Zadig).
+{0}: the device is busy (another tool is using it?)
+= {0}: устройство занято (его использует другая программа?)
+{0}: the device went away
+= {0}: устройство пропало
+{0}: timed out
+= {0}: время ожидания истекло
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= ТЯНИ И КРУТИ
+UNPLUG
+= ОТКЛЮЧИ
+pull the USB cable out
+= выдерни USB-кабель
+POWER ON
+= ВКЛЮЧИ
+hold POWER, on the bottom edge
+= держи ПИТАНИЕ, на нижнем торце
+stock firmware
+= штатная прошивка
+SWITCH OFF
+= ВЫКЛЮЧИ
+hold POWER until the screen goes dark
+= держи ПИТАНИЕ, пока экран не погаснет
+HOLD POWER
+= ДЕРЖИ ПИТАНИЕ
+plug in while holding, ~4 s
+= подключи, не отпуская, ~4 с
+on the player: System > Debug > {0}
+= на плеере: Система > Отладка > {0}
+follow the steps above
+= выполни шаги выше
+THE {0} PACKAGE
+= ПАКЕТ ДЛЯ {0}
+NEEDS A MICROSD CARD
+= НУЖНА КАРТА MICROSD
+It looks like you're trying to hack an MP3 player. Would you like help?
+= Похоже, ты пытаешься взломать MP3-плеер. Нужна помощь?
+GOT IT
+= ПОНЯТНО
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= У этих плееров нет номера модели. Лучше сравни каркасные модели: у них разные кнопки и разъёмы. Потяни плеер мышью, чтобы повернуть его.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= Сначала выключи плеер, потом держи ВНИЗ ещё до подключения кабеля и не отпускай.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= Держи ПИТАНИЕ, пока подключаешь кабель, и не отпускай примерно 4 секунды.
+Switch the player on first: hold POWER on its bottom edge.
+= Сначала включи плеер: держи ПИТАНИЕ на его нижнем торце.
+Still nothing? Try another cable: some only charge.
+= Всё ещё ничего? Попробуй другой кабель: некоторые только заряжают.
+Your computer won't let rockslop use the player.
+= Твой компьютер не даёт rockslop доступа к плееру.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= Сначала отключи кабель: плеер слушает только в режиме загрузки. Как это сделать, написано в шагах.
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= Нужен пакет Rockbox, собранный для {0}: файл .tar.xz. Нажми ВЫБРАТЬ ОБРАЗ или перетащи его на панель.
+Push a microSD card all the way into the player's slot, then press RESET.
+= Вставь карту microSD в слот плеера до конца, затем нажми RESET.
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Rockbox ещё не показал свой USB-диск. Если плеер только заряжается, отключи его, зажми любую кнопку и подключи снова.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= Обычно помогает ПОВТОР. Всё ещё не выходит? КОПИРОВАТЬ ОТЧЁТ скопирует подробности в буфер обмена для отчёта об ошибке.
+It looks like you watched all the credits. Nobody does that. Respect.
+= Похоже, все титры позади. Так никто не делает. Респект.
+DEAL WITH IT
+= DEAL WITH IT

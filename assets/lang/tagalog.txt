@@ -1,0 +1,522 @@
+# Tagalog: rockslop UI
+TARGET
+= TARGET
+LINK
+= KONEK
+PAYLOAD
+= PAYLOAD
+EXECUTE
+= PATAKBUHIN
+BUS IDLE
+= BUS WALANG LAMAN
+STOCK
+= STOCK
+awaiting target
+= naghihintay ng target
+scanning usb
+= sinusuri ang usb
+awaiting payload
+= naghihintay ng payload
+executing
+= isinasagawa
+session complete
+= tapos na ang session
+session aborted
+= na-abort ang session
+rolling credits
+= gumugulong ang credits
+SND
+= TUNOG
+MUTED
+= PATAY
+NO SND
+= WALANG TUNOG
+audio muted
+= naka-mute ang audio
+audio on
+= bukas ang audio
+neural uplink
+= neural uplink
+usb stack
+= usb stack
+flash maps
+= mga flash map
+payloads
+= mga payload
+glyph cache
+= glyph cache
+SELECT TARGET
+= PUMILI NG TARGET
+DOWNLOAD MODE
+= DOWNLOAD MODE
+STOCK FIRMWARE
+= STOCK FIRMWARE
+ENGAGE
+= SIMULAN
+CLICK TO ENGAGE
+= I-CLICK PARA SIMULAN
+RESET
+= RESET
+HEADPHONE
+= HEADPHONE
+VOL
+= VOL
+POWER
+= POWER
+POWER OFF
+= PATAYIN
+unplugged: hold the centre key
+= nakatanggal: hawakan ang gitnang key
+HOLD DOWN
+= HAWAKAN ANG DOWN
+bottom of the wheel
+= ibaba ng wheel
+CONNECT USB
+= IKABIT ANG USB
+keep holding
+= huwag bitawan
+RELEASE
+= BITAWAN
+once linked
+= kapag nakakonek na
+OR
+= O
+hold DOWN and tap RESET
+= hawakan ang DOWN at i-tap ang RESET
+STAND BY
+= HINTAY
+it reboots into download mode
+= magre-reboot ito sa download mode
+ROCKBOX?
+= ROCKBOX?
+switch it off, then hold POWER ~4 s while connecting
+= patayin ito, tapos hawakan ang POWER ~4 s habang kumokonekta
+LINK FAILED
+= NABIGO ANG KONEK
+SCANNING
+= SINUSURI
+no player on the bus yet
+= wala pang player sa bus
+ACCESS DENIED
+= TINANGGIHAN ANG ACCESS
+no permission: install the udev rule (see README)
+= walang pahintulot: i-install ang udev rule (tingnan ang README)
+macOS: run rockslop with sudo to take the device
+= macOS: patakbuhin ang rockslop gamit ang sudo para makuha ang device
+install the WinUSB driver for it (Zadig)
+= i-install ang WinUSB driver para dito (Zadig)
+LINK ESTABLISHED
+= NAKAKONEK NA
+identity verified
+= na-verify ang identidad
+PROBING
+= SINUSUBOK
+boot ROM online
+= online na ang boot ROM
+forcing download mode
+= pinipilit ang download mode
+ROCKBOX RUNNING
+= GUMAGANA ANG ROCKBOX
+BACK
+= BUMALIK
+RETRY
+= ULIT
+Rockbox package
+= Rockbox package
+SELECT IMAGE
+= PUMILI NG IMAGE
+or drop it here
+= o ihulog dito
+IMAGE
+= IMAGE
+REJECTED
+= TINANGGIHAN
+BUILD
+= BUILD
+FLASH
+= FLASH
+CARD
+= CARD
+{0} files  ·  {1}
+= mga file: {0}  ·  {1}
+every member verified
+= na-verify ang bawat miyembro
+BACKUP
+= BACKUP
+stock flash saved first
+= naka-save muna ang stock flash
+CHANGE
+= PALITAN
+INSERT SD CARD
+= ILAGAY ANG SD CARD
+RETURN TO STOCK
+= BUMALIK SA STOCK
+built for {0}, not {1}
+= ginawa para sa {0}, hindi sa {1}
+LAYOUT
+= LAYOUT
+LOCKED
+= NAKA-LOCK
+PROBE
+= SUBOK
+VERIFY
+= VERIFY
+WRITE
+= ISULAT
+CHECKSUM
+= CHECKSUM
+CHECK
+= SURI
+REBOOT
+= REBOOT
+SD SYNC
+= SD SYNC
+EJECT
+= I-EJECT
+DONE
+= TAPOS
+FLASH MAP
+= FLASH MAP
+SAME
+= PAREHO
+READ
+= BINASA
+ERASE
+= BINURA
+WRITTEN
+= NAISULAT
+BAD
+= SIRA
+FILES
+= MGA FILE
+BUS TAP
+= BUS TAP
+THEN PRESS RESET
+= TAPOS PINDUTIN ANG RESET
+SD CARD
+= SD CARD
+NO CARD
+= WALANG CARD
+READ BACK
+= BASAHIN ULIT
+MOUNT
+= I-MOUNT
+CHECKED
+= NASURI
+DATA
+= DATA
+RATE
+= BILIS
+ETA
+= ETA
+ACCESS GRANTED
+= NAPAGBIGYAN ANG ACCESS
+STOCK RESTORED
+= NABALIK ANG STOCK
+the player boots stock firmware again
+= nagbo-boot ulit ang player sa stock firmware
+rockbox is live on the player
+= buhay ang rockbox sa player
+SESSION
+= SESSION
+{0} sectors rewritten, checksummed
+= mga sektor na muling isinulat: {0}, may checksum
+{0} files  ·  {1}  ·  read back OK
+= mga file: {0}  ·  {1}  ·  nabasa muli OK
+not updated
+= hindi na-update
+TIME
+= ORAS
+UNPLUG TO FINISH
+= TANGGALIN PARA TAPUSIN
+EJECTED
+= NA-EJECT
+UNPLUG AND ROCK
+= TANGGALIN AT I-ROCK
+AGAIN
+= ULIT
+CREDITS
+= KREDITO
+the flash was partly rewritten: a backup is safe on disk
+= bahagyang naisulat muli ang flash: ligtas ang backup sa disk
+nothing was written
+= walang naisulat
+FAULT
+= ERROR
+COPY REPORT
+= KOPYAHIN ULAT
+REPORT COPIED
+= NAKOPYA ANG ULAT
+NOW PLAYING
+= NGAYON TUMUTUGTOG
+THIS FLASHER
+= ANG FLASHER NA ITO
+ROCKBOX CONTRIBUTORS
+= MGA NAG-AMBAG SA ROCKBOX
+{0} contributors
+= bilang ng mga nag-ambag: {0}
+People that have contributed to the project, one way or another. Friends!
+= Mga taong nag-ambag sa proyekto, sa isang paraan o iba pa. Mga kaibigan!
+links open in your browser
+= bumubukas ang mga link sa browser mo
+Made by
+= Gumawa
+Device protocols and payloads
+= Mga protocol ng device at payload
+Music
+= Musika
+Voice lines
+= Mga linya ng boses
+Sound effects
+= Mga sound effect
+Fonts
+= Mga font
+Rust crates
+= Mga Rust crate
+Reference photos
+= Mga reference na larawan
+LANGUAGE
+= WIKA
+AUTOMATIC
+= AWTOMATIKO
+stock firmware on the bus: asking it for download mode
+= stock firmware sa bus: humihingi ng download mode
+{0} acknowledged 0xCB: rebooting into ADFU
+= kinumpirma ng {0} ang 0xCB: nagre-reboot sa ADFU
+attaching to {0}
+= kumakabit sa {0}
+sector CRC32 scan on the player
+= sector CRC32 scan sa player
+dumping {0} KiB
+= dina-dump ang {0} KiB
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= nakuhang sektor: {0} ({1} binasa, {2} alam na); na-verify ang CRC32
+dumping {0} KiB of raw NOR cells
+= dina-dump ang {0} KiB ng raw na NOR cells
+second pass: comparing
+= ikalawang pass: nagkukumpara
+{0} sectors captured; two reads agree
+= nakuhang sektor: {0}; magkatugma ang dalawang basa
+identical backup already on file: {0}
+= may kaparehong backup na: {0}
+backup -> {0}
+= backup -> {0}
+{0} of {1} sectors differ
+= magkaiba ang sektor: {0} sa {1}
+0x{0} erase / program / verify ok
+= 0x{0} burahin / i-program / i-verify ok
+CRC32 of every writable sector, computed on the player
+= CRC32 ng bawat nasusulatang sektor, kinompyut sa player
+reading the writable window back
+= binabasa muli ang nasusulatang window
+flash checksum OK  sha256 {0}..{1}
+= tama ang flash checksum  sha256 {0}..{1}
+rebooting into Rockbox
+= nagre-reboot sa Rockbox
+rebooting into stock firmware
+= nagre-reboot sa stock firmware
+firmware is up
+= gising na ang firmware
+{0} image(s), {1} KiB, sha256 verified
+= mga image: {0}, {1} KiB, na-verify ang sha256
+{0} sectors rewritten
+= mga sektor na muling isinulat: {0}
+Rockbox did not show up as a USB disk; the card was not updated
+= hindi lumabas ang Rockbox bilang USB disk; hindi na-update ang card
+total {0} s
+= kabuuang {0} s
+{0} loaded, checksum OK
+= {0} na-load, tama ang checksum
+backup is from another unit; its per-unit sectors are left alone
+= galing sa ibang unit ang backup; hindi ginagalaw ang per-unit na sektor
+waiting for Rockbox's USB disk
+= naghihintay sa USB disk ng Rockbox
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= wala pang USB disk mula sa Rockbox: kung naka-set ito sa charge lang, tanggalin ang player, hawakan ang kahit anong key at ikonek muli (o itakda ang Ilagay > Heneral Tagpuan > Sistema > USB > USB Mode sa Mass Storage)
+no microSD card in the player: insert one, then press RESET
+= walang microSD card sa player: maglagay, tapos pindutin ang RESET
+card online: {0}
+= online ang card: {0}
+removed {0} stale plugin/codec files
+= tinanggal na lumang plugin/codec na file: {0}
+removed {0}: the firmware is in flash, not on the card
+= tinanggal ang {0}: nasa flash ang firmware, wala sa card
+{0} files written
+= naisulat na file: {0}
+reading every file back from the card
+= binabasa muli ang bawat file mula sa card
+{0} files read back: sha256 OK
+= nabasang file: {0}: sha256 OK
+card ejected
+= na-eject ang card
+could not eject the card ({0}); eject it before unplugging
+= hindi ma-eject ang card ({0}); i-eject bago tanggalin ang kable
+stock firmware detected: ACTIONSUSBD
+= natukoy ang stock firmware: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= nagtuturok ng vendor command 0xCB -> ADFU
+opening {0} download mode
+= binubuksan ang download mode ng {0}
+reattaching to download mode
+= kumakabit muli sa download mode
+dumping {0} KiB of stock flash
+= dina-dump ang {0} KiB ng stock flash
+re-reading CRC32 of every sector
+= binabasa muli ang CRC32 ng bawat sektor
+backup verified: {0}/{1} sectors match
+= na-verify ang backup: {0}/{1} sektor ang tugma
+{0} sectors differ; writing
+= magkaiba ang sektor: {0}; sumusulat
+sector 0x{0} erase/program/verify ok
+= sektor 0x{0} burahin/i-program/i-verify ok
+full flash CRC scan
+= buong flash CRC scan
+flash checksum OK
+= tama ang flash checksum
+waiting for Rockbox USB mass storage
+= naghihintay sa USB mass storage ng Rockbox
+no media: insert a microSD card
+= walang media: maglagay ng microSD card
+syncing and ejecting card
+= sini-sync at ine-eject ang card
+another tool holds the player ({0})
+= hawak ng ibang tool ang player ({0})
+the player did not come back in download mode
+= hindi bumalik ang player sa download mode
+the YP3 enters download mode by hand: hold Down while connecting USB
+= manu-manong pumapasok ang YP3 sa download mode: hawakan ang Down habang kumokonekta ang USB
+battery too low to flash safely ({0})
+= masyadong mahina ang batirya para ligtas mag-flash ({0})
+the player came back in download mode: the new firmware did not start
+= bumalik ang player sa download mode: hindi nag-start ang bagong firmware
+this package is for {0}, not {1}
+= para sa {0} ang package na ito, hindi sa {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= hindi tugma ang flash ng player sa 0x{0} sa pinaggawaan ng package; walang naisulat
+the package has no firmware image
+= walang firmware image ang package
+the card needs {0} MiB free; it has {1} MiB
+= kailangan ng card ng {0} MiB na libre; may {1} MiB
+{0} did not read back correctly from the card
+= hindi tama ang pagkabasa ng {0} mula sa card
+could not mount the player's card: {0}
+= hindi ma-mount ang card ng player: {0}
+the player's card did not appear
+= hindi lumabas ang card ng player
+the card is in use by another program
+= ginagamit ng ibang program ang card
+cancelled
+= kinansela
+checksum mismatch at 0x{0}
+= hindi tugma ang checksum sa 0x{0}
+sector 0x{0} reads inconsistently
+= hindi pare-pareho ang basa ng sektor 0x{0}
+flash at 0x{0} reads inconsistently
+= hindi pare-pareho ang basa ng flash sa 0x{0}
+backup did not read back from disk
+= hindi nabasa muli ang backup mula sa disk
+{0} is damaged (checksum mismatch)
+= sira ang {0} (hindi tugma ang checksum)
+{0} is {1} bytes; a full flash image is {2}
+= {0} ay {1} bytes; ang buong flash image ay {2}
+not a tar.xz release: {0}
+= hindi tar.xz na release: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= kailangan ng package na ito (format {0}) ng rockslop na mas bago sa {1}: i-update ang rockslop
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= masyadong luma ang package na ito (format {0}) para sa rockslop {1}: kumuha ng mas bagong release
+MANIFEST has no format
+= walang format ang MANIFEST
+MANIFEST names no target
+= walang pinangalanang target ang MANIFEST
+unsafe path in archive: {0}
+= di-ligtas na path sa archive: {0}
+{0}: links and special files are not allowed
+= {0}: bawal ang mga link at special na file
+{0}: checksum mismatch, the download is corrupt
+= {0}: hindi tugma ang checksum, sira ang download
+unexpected member {0}
+= hindi inaasahang miyembro {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= kulang ang archive ng mga file na nakalista sa SHA256SUMS: {0}
+release contains no flash image
+= walang flash image ang release
+{0}: checksum mismatch
+= {0}: hindi tugma ang checksum
+archive member too large
+= masyadong malaki ang miyembro ng archive
+internal error: {0}
+= panloob na error: {0}
+{0}: permission denied. {1}
+= {0}: tinanggihan ang pahintulot. {1}
+Install the udev rule (see README) or run as root.
+= I-install ang udev rule (tingnan ang README) o patakbuhin bilang root.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= Kailangan ng macOS ang root para makuha ang device mula sa mass storage driver nito: patakbuhin mula sa Terminal gamit ang sudo.
+The device needs the WinUSB driver (Zadig).
+= Kailangan ng device ang WinUSB driver (Zadig).
+{0}: the device is busy (another tool is using it?)
+= {0}: abala ang device (ginagamit ba ito ng ibang tool?)
+{0}: the device went away
+= {0}: nawala ang device
+{0}: timed out
+= {0}: nag-time out
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= I-DRAG PARA IKUTIN
+UNPLUG
+= TANGGALIN
+pull the USB cable out
+= hugutin ang USB cable
+POWER ON
+= BUKSAN
+hold POWER, on the bottom edge
+= hawakan ang POWER, nasa ibabang gilid
+stock firmware
+= stock firmware
+SWITCH OFF
+= PATAYIN
+hold POWER until the screen goes dark
+= hawakan ang POWER hanggang dumilim ang screen
+HOLD POWER
+= HAWAKAN ANG POWER
+plug in while holding, ~4 s
+= ikabit habang hawak, ~4 s
+on the player: System > Debug > {0}
+= sa player: Sistema > Debug > {0}
+follow the steps above
+= sundin ang mga hakbang sa itaas
+THE {0} PACKAGE
+= PACKAGE PARA SA {0}
+NEEDS A MICROSD CARD
+= KAILANGAN NG MICROSD CARD
+It looks like you're trying to hack an MP3 player. Would you like help?
+= Mukhang sinusubukan mong i-hack ang isang MP3 player. Gusto mo ba ng tulong?
+GOT IT
+= SIGE
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= Walang model number ang mga player na ito. Ikumpara na lang ang mga wireframe: magkaiba ang mga button at port. I-drag ang player para ikutin ito.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= Patayin muna ang player, tapos hawakan ang DOWN bago ikabit ang cable, at huwag bitawan.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= Hawakan ang POWER habang ikinakabit ang cable, at huwag bitawan nang mga 4 na segundo.
+Switch the player on first: hold POWER on its bottom edge.
+= Buksan muna ang player: hawakan ang POWER sa ibabang gilid nito.
+Still nothing? Try another cable: some only charge.
+= Wala pa rin? Subukan ang ibang cable: may mga pang-charge lang.
+Your computer won't let rockslop use the player.
+= Hindi pinapayagan ng computer mo na gamitin ng rockslop ang player.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= Tanggalin muna ang cable: sa download mode lang nakikinig ang player. Sinasabi ng mga hakbang kung paano.
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= Kailangan mo ang Rockbox package na ginawa para sa {0}: isang .tar.xz file. I-click ang PUMILI NG IMAGE, o ihulog ito sa panel.
+Push a microSD card all the way into the player's slot, then press RESET.
+= Itulak ang microSD card hanggang sa dulo ng slot ng player, tapos pindutin ang RESET.
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Hindi pa ipinapakita ng Rockbox ang USB disk nito. Kung nagcha-charge lang ang player, tanggalin ito, hawakan ang kahit anong key at ikabit muli.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= Kadalasang naaayos ito ng ULIT. Stuck pa rin? Inilalagay ng KOPYAHIN ULAT ang mga detalye sa clipboard para sa bug report.
+It looks like you watched all the credits. Nobody does that. Respect.
+= Mukhang pinanood mo ang lahat ng kredito. Walang gumagawa niyan. Respeto.
+DEAL WITH IT
+= DEAL WITH IT

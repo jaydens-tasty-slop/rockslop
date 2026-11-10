@@ -1,0 +1,522 @@
+# 한국어: rockslop UI
+TARGET
+= 대상
+LINK
+= 연결
+PAYLOAD
+= 페이로드
+EXECUTE
+= 실행
+BUS IDLE
+= 버스 유휴
+STOCK
+= 정품
+awaiting target
+= 대상 대기 중
+scanning usb
+= usb 검색 중
+awaiting payload
+= 페이로드 대기 중
+executing
+= 실행 중
+session complete
+= 세션 완료
+session aborted
+= 세션 중단
+rolling credits
+= 엔딩 크레딧 재생
+SND
+= 소리
+MUTED
+= 음소거
+NO SND
+= 소리 없음
+audio muted
+= 오디오 음소거
+audio on
+= 오디오 켜짐
+neural uplink
+= 신경 업링크
+usb stack
+= usb 스택
+flash maps
+= 플래시 맵
+payloads
+= 페이로드
+glyph cache
+= 글리프 캐시
+SELECT TARGET
+= 대상 선택
+DOWNLOAD MODE
+= 다운로드 모드
+STOCK FIRMWARE
+= 정품 펌웨어
+ENGAGE
+= 시작
+CLICK TO ENGAGE
+= 클릭하여 시작
+RESET
+= RESET
+HEADPHONE
+= 헤드폰
+VOL
+= 볼륨
+POWER
+= 전원
+POWER OFF
+= 전원 끄기
+unplugged: hold the centre key
+= 연결 해제: 가운데 키를 길게 누르기
+HOLD DOWN
+= 아래 키 길게
+bottom of the wheel
+= 휠 아래쪽
+CONNECT USB
+= USB 연결
+keep holding
+= 계속 누르기
+RELEASE
+= 놓기
+once linked
+= 연결되면
+OR
+= 또는
+hold DOWN and tap RESET
+= 아래 키를 누른 채 RESET 탭
+STAND BY
+= 대기
+it reboots into download mode
+= 다운로드 모드로 재부팅합니다
+ROCKBOX?
+= ROCKBOX 설치됨?
+switch it off, then hold POWER ~4 s while connecting
+= 전원을 끈 다음, 연결하는 동안 전원 키를 약 4초 누르기
+LINK FAILED
+= 연결 실패
+SCANNING
+= 검색 중
+no player on the bus yet
+= 버스에 플레이어 없음
+ACCESS DENIED
+= 접근 거부
+no permission: install the udev rule (see README)
+= 권한 없음: udev 규칙을 설치하세요 (README 참조)
+macOS: run rockslop with sudo to take the device
+= macOS: sudo로 rockslop을 실행해 장치를 확보하세요
+install the WinUSB driver for it (Zadig)
+= WinUSB 드라이버를 설치하세요 (Zadig)
+LINK ESTABLISHED
+= 연결 완료
+identity verified
+= 신원 확인됨
+PROBING
+= 탐색 중
+boot ROM online
+= 부트 ROM 온라인
+forcing download mode
+= 다운로드 모드 강제 진입
+ROCKBOX RUNNING
+= ROCKBOX 실행 중
+BACK
+= 뒤로
+RETRY
+= 재시도
+Rockbox package
+= Rockbox 패키지
+SELECT IMAGE
+= 이미지 선택
+or drop it here
+= 또는 여기에 놓기
+IMAGE
+= 이미지
+REJECTED
+= 거부됨
+BUILD
+= 모델
+FLASH
+= 플래시
+CARD
+= 카드
+{0} files  ·  {1}
+= 파일 {0}개  ·  {1}
+every member verified
+= 모든 구성 요소 검증됨
+BACKUP
+= 백업
+stock flash saved first
+= 정품 플래시 먼저 저장됨
+CHANGE
+= 변경
+INSERT SD CARD
+= SD 카드 삽입
+RETURN TO STOCK
+= 정품 복원
+built for {0}, not {1}
+= {0}용 빌드, {1}용 아님
+LAYOUT
+= 레이아웃
+LOCKED
+= 잠김
+PROBE
+= 탐색
+VERIFY
+= 검증
+WRITE
+= 쓰기
+CHECKSUM
+= 체크섬
+CHECK
+= 확인
+REBOOT
+= 재부팅
+SD SYNC
+= SD 동기화
+EJECT
+= 꺼내기
+DONE
+= 완료
+FLASH MAP
+= 플래시 맵
+SAME
+= 동일
+READ
+= 읽기
+ERASE
+= 지우기
+WRITTEN
+= 기록됨
+BAD
+= 불량
+FILES
+= 파일
+BUS TAP
+= 버스 탭
+THEN PRESS RESET
+= 그다음 RESET 누르기
+SD CARD
+= SD 카드
+NO CARD
+= 카드 없음
+READ BACK
+= 다시 읽기
+MOUNT
+= 마운트
+CHECKED
+= 확인됨
+DATA
+= 데이터
+RATE
+= 속도
+ETA
+= 남은 시간
+ACCESS GRANTED
+= 접근 허가
+STOCK RESTORED
+= 정품 복원됨
+the player boots stock firmware again
+= 플레이어가 다시 정품 펌웨어로 부팅합니다
+rockbox is live on the player
+= rockbox가 플레이어에서 실행 중
+SESSION
+= 세션
+{0} sectors rewritten, checksummed
+= 섹터 {0}개 다시 쓰기, 체크섬 확인됨
+{0} files  ·  {1}  ·  read back OK
+= 파일 {0}개  ·  {1}  ·  다시 읽기 OK
+not updated
+= 업데이트 안 됨
+TIME
+= 시간
+UNPLUG TO FINISH
+= 연결 해제하여 완료
+EJECTED
+= 꺼냄
+UNPLUG AND ROCK
+= 뽑고 락하자
+AGAIN
+= 다시
+CREDITS
+= 크레딧
+the flash was partly rewritten: a backup is safe on disk
+= 플래시가 일부 다시 쓰였습니다: 디스크에 백업이 안전하게 있습니다
+nothing was written
+= 아무것도 기록되지 않았습니다
+FAULT
+= 오류
+COPY REPORT
+= 보고서 복사
+REPORT COPIED
+= 보고서 복사됨
+NOW PLAYING
+= 재생 중
+THIS FLASHER
+= 이 플래셔
+ROCKBOX CONTRIBUTORS
+= ROCKBOX 기여자
+{0} contributors
+= 기여자 {0}명
+People that have contributed to the project, one way or another. Friends!
+= 어떤 식으로든 이 프로젝트에 기여한 사람들. 친구들!
+links open in your browser
+= 링크는 브라우저에서 열립니다
+Made by
+= 제작
+Device protocols and payloads
+= 장치 프로토콜 및 페이로드
+Music
+= 음악
+Voice lines
+= 음성
+Sound effects
+= 효과음
+Fonts
+= 글꼴
+Rust crates
+= Rust 크레이트
+Reference photos
+= 참고 사진
+LANGUAGE
+= 언어
+AUTOMATIC
+= 자동
+stock firmware on the bus: asking it for download mode
+= 정품 펌웨어가 버스에 있음: 다운로드 모드 요청 중
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0}이(가) 0xCB 확인: ADFU로 재부팅 중
+attaching to {0}
+= {0}에 연결 중
+sector CRC32 scan on the player
+= 플레이어에서 섹터 CRC32 검사
+dumping {0} KiB
+= {0} KiB 덤프 중
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= 섹터 {0}개 확보 (읽음 {1}, 이미 알려짐 {2}); CRC32 검증됨
+dumping {0} KiB of raw NOR cells
+= 원시 NOR 셀 {0} KiB 덤프 중
+second pass: comparing
+= 두 번째 패스: 비교 중
+{0} sectors captured; two reads agree
+= 섹터 {0}개 확보; 두 번 읽기 일치
+identical backup already on file: {0}
+= 동일한 백업이 이미 있음: {0}
+backup -> {0}
+= 백업 -> {0}
+{0} of {1} sectors differ
+= 섹터 {1}개 중 {0}개 다름
+0x{0} erase / program / verify ok
+= 0x{0} 지우기 / 프로그램 / 검증 ok
+CRC32 of every writable sector, computed on the player
+= 쓰기 가능한 모든 섹터의 CRC32를 플레이어에서 계산
+reading the writable window back
+= 쓰기 가능 영역 다시 읽는 중
+flash checksum OK  sha256 {0}..{1}
+= 플래시 체크섬 OK  sha256 {0}..{1}
+rebooting into Rockbox
+= Rockbox로 재부팅 중
+rebooting into stock firmware
+= 정품 펌웨어로 재부팅 중
+firmware is up
+= 펌웨어 실행됨
+{0} image(s), {1} KiB, sha256 verified
+= 이미지 {0}개, {1} KiB, sha256 검증됨
+{0} sectors rewritten
+= 섹터 {0}개 다시 씀
+Rockbox did not show up as a USB disk; the card was not updated
+= Rockbox가 USB 디스크로 나타나지 않음; 카드가 업데이트되지 않음
+total {0} s
+= 총 {0}초
+{0} loaded, checksum OK
+= {0} 로드됨, 체크섬 OK
+backup is from another unit; its per-unit sectors are left alone
+= 백업이 다른 기기의 것입니다; 기기별 섹터는 건드리지 않습니다
+waiting for Rockbox's USB disk
+= Rockbox의 USB 디스크 대기 중
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= 아직 Rockbox의 USB 디스크 없음: 충전만으로 설정된 경우 플레이어를 분리하고 아무 키나 누른 채 다시 연결하세요 (또는 설정 > 일반 설정 > 시스템 > USB > USB 모드를 대용량 저장 장치로 설정)
+no microSD card in the player: insert one, then press RESET
+= 플레이어에 microSD 카드 없음: 삽입한 뒤 RESET을 누르세요
+card online: {0}
+= 카드 온라인: {0}
+removed {0} stale plugin/codec files
+= 오래된 플러그인/코덱 파일 {0}개 삭제됨
+removed {0}: the firmware is in flash, not on the card
+= {0} 삭제됨: 펌웨어는 카드가 아니라 플래시에 있음
+{0} files written
+= 파일 {0}개 기록됨
+reading every file back from the card
+= 카드에서 모든 파일 다시 읽는 중
+{0} files read back: sha256 OK
+= 파일 {0}개 다시 읽음: sha256 OK
+card ejected
+= 카드 꺼냄
+could not eject the card ({0}); eject it before unplugging
+= 카드를 꺼낼 수 없음 ({0}); 연결 해제 전에 꺼내세요
+stock firmware detected: ACTIONSUSBD
+= 정품 펌웨어 감지: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= 공급업체 명령 0xCB 주입 중 -> ADFU
+opening {0} download mode
+= {0} 다운로드 모드 여는 중
+reattaching to download mode
+= 다운로드 모드에 다시 연결 중
+dumping {0} KiB of stock flash
+= 정품 플래시 {0} KiB 덤프 중
+re-reading CRC32 of every sector
+= 모든 섹터의 CRC32 다시 읽는 중
+backup verified: {0}/{1} sectors match
+= 백업 검증됨: 섹터 {0}/{1}개 일치
+{0} sectors differ; writing
+= 섹터 {0}개 다름; 쓰는 중
+sector 0x{0} erase/program/verify ok
+= 섹터 0x{0} 지우기/프로그램/검증 ok
+full flash CRC scan
+= 전체 플래시 CRC 검사
+flash checksum OK
+= 플래시 체크섬 OK
+waiting for Rockbox USB mass storage
+= Rockbox USB 대용량 저장소 대기 중
+no media: insert a microSD card
+= 미디어 없음: microSD 카드를 삽입하세요
+syncing and ejecting card
+= 카드 동기화 및 꺼내는 중
+another tool holds the player ({0})
+= 다른 도구가 플레이어를 사용 중 ({0})
+the player did not come back in download mode
+= 플레이어가 다운로드 모드로 돌아오지 않음
+the YP3 enters download mode by hand: hold Down while connecting USB
+= YP3는 수동으로 다운로드 모드에 진입: USB 연결 중 아래 키를 길게 누르세요
+battery too low to flash safely ({0})
+= 배터리가 부족하여 안전하게 플래시할 수 없음 ({0})
+the player came back in download mode: the new firmware did not start
+= 플레이어가 다운로드 모드로 돌아옴: 새 펌웨어가 시작되지 않음
+this package is for {0}, not {1}
+= 이 패키지는 {0}용이며 {1}용이 아닙니다
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= 이 플레이어의 0x{0} 플래시가 패키지 대상과 다릅니다; 아무것도 기록되지 않음
+the package has no firmware image
+= 패키지에 펌웨어 이미지가 없음
+the card needs {0} MiB free; it has {1} MiB
+= 카드에 {0} MiB 여유 공간이 필요합니다; 현재 {1} MiB
+{0} did not read back correctly from the card
+= {0}을(를) 카드에서 올바르게 다시 읽지 못함
+could not mount the player's card: {0}
+= 플레이어의 카드를 마운트할 수 없음: {0}
+the player's card did not appear
+= 플레이어의 카드가 나타나지 않음
+the card is in use by another program
+= 카드를 다른 프로그램이 사용 중
+cancelled
+= 취소됨
+checksum mismatch at 0x{0}
+= 0x{0}에서 체크섬 불일치
+sector 0x{0} reads inconsistently
+= 섹터 0x{0} 읽기가 일관되지 않음
+flash at 0x{0} reads inconsistently
+= 0x{0}의 플래시 읽기가 일관되지 않음
+backup did not read back from disk
+= 백업을 디스크에서 다시 읽지 못함
+{0} is damaged (checksum mismatch)
+= {0} 손상됨 (체크섬 불일치)
+{0} is {1} bytes; a full flash image is {2}
+= {0}은(는) {1}바이트; 전체 플래시 이미지는 {2}
+not a tar.xz release: {0}
+= tar.xz 릴리스가 아님: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= 이 패키지(형식 {0})에는 {1}보다 새로운 rockslop이 필요함: rockslop을 업데이트하세요
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= 이 패키지(형식 {0})는 rockslop {1}에는 너무 오래됨: 새 릴리스를 받으세요
+MANIFEST has no format
+= MANIFEST에 형식이 없음
+MANIFEST names no target
+= MANIFEST에 대상이 없음
+unsafe path in archive: {0}
+= 아카이브에 안전하지 않은 경로: {0}
+{0}: links and special files are not allowed
+= {0}: 링크와 특수 파일은 허용되지 않음
+{0}: checksum mismatch, the download is corrupt
+= {0}: 체크섬 불일치, 다운로드가 손상됨
+unexpected member {0}
+= 예기치 않은 구성 요소 {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= 아카이브에 SHA256SUMS에 나열된 파일 {0}개가 없음
+release contains no flash image
+= 릴리스에 플래시 이미지가 없음
+{0}: checksum mismatch
+= {0}: 체크섬 불일치
+archive member too large
+= 아카이브 구성 요소가 너무 큼
+internal error: {0}
+= 내부 오류: {0}
+{0}: permission denied. {1}
+= {0}: 권한 거부됨. {1}
+Install the udev rule (see README) or run as root.
+= udev 규칙을 설치하거나 (README 참조) root로 실행하세요.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= macOS에서 대용량 저장소 드라이버로부터 장치를 가져오려면 root가 필요합니다: 터미널에서 sudo로 실행하세요.
+The device needs the WinUSB driver (Zadig).
+= 장치에 WinUSB 드라이버가 필요합니다 (Zadig).
+{0}: the device is busy (another tool is using it?)
+= {0}: 장치가 사용 중 (다른 도구가 사용하고 있나요?)
+{0}: the device went away
+= {0}: 장치가 사라짐
+{0}: timed out
+= {0}: 시간 초과
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= 드래그하여 회전
+UNPLUG
+= 분리
+pull the USB cable out
+= USB 케이블 뽑기
+POWER ON
+= 전원 켜기
+hold POWER, on the bottom edge
+= 아래쪽 가장자리의 전원 키 길게 누르기
+stock firmware
+= 정품 펌웨어 상태
+SWITCH OFF
+= 전원 끄기
+hold POWER until the screen goes dark
+= 화면이 꺼질 때까지 전원 키 길게 누르기
+HOLD POWER
+= 전원 키 길게
+plug in while holding, ~4 s
+= 누른 채로 연결, 약 4초
+on the player: System > Debug > {0}
+= 플레이어에서: 시스템 > 디버깅 모드 > {0}
+follow the steps above
+= 위의 단계를 따르세요
+THE {0} PACKAGE
+= {0}용 패키지
+NEEDS A MICROSD CARD
+= microSD 카드 필요
+It looks like you're trying to hack an MP3 player. Would you like help?
+= MP3 플레이어를 해킹하려는 것 같군요. 도움이 필요하세요?
+GOT IT
+= 알겠어요
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= 이 플레이어들에는 모델 번호가 없어요. 대신 와이어프레임을 비교해 보세요: 버튼과 포트가 달라요. 플레이어를 드래그하면 돌려 볼 수 있어요.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= 먼저 플레이어 전원을 끈 다음, 케이블을 꽂기 전에 아래 키를 누르고 계속 누르고 있으세요.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= 케이블을 꽂는 동안 전원 키를 누르고, 약 4초 동안 계속 누르고 있으세요.
+Switch the player on first: hold POWER on its bottom edge.
+= 먼저 플레이어를 켜세요: 아래쪽 가장자리의 전원 키를 길게 누르세요.
+Still nothing? Try another cable: some only charge.
+= 아직도 안 되나요? 다른 케이블을 써 보세요: 충전만 되는 케이블도 있어요.
+Your computer won't let rockslop use the player.
+= 컴퓨터가 rockslop이 플레이어를 사용하도록 허락하지 않아요.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= 먼저 케이블을 뽑으세요: 플레이어는 다운로드 모드에서만 응답해요. 방법은 단계에 나와 있어요.
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= {0}용으로 빌드된 Rockbox 패키지가 필요해요: .tar.xz 파일이에요. '이미지 선택'을 클릭하거나 패널에 놓으세요.
+Push a microSD card all the way into the player's slot, then press RESET.
+= microSD 카드를 플레이어 슬롯에 끝까지 밀어 넣은 다음 RESET을 누르세요.
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Rockbox가 아직 USB 디스크를 보여 주지 않았어요. 플레이어가 충전만 된다면, 분리한 다음 아무 키나 누른 채 다시 연결하세요.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= 보통 '재시도'로 해결돼요. 그래도 안 되나요? '보고서 복사'를 누르면 버그 보고용 세부 정보가 클립보드에 복사돼요.
+It looks like you watched all the credits. Nobody does that. Respect.
+= 크레딧을 끝까지 다 본 것 같군요. 그런 사람은 없는데. 리스펙트.
+DEAL WITH IT
+= DEAL WITH IT

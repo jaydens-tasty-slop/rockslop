@@ -1,0 +1,522 @@
+# Euskara: rockslop UI
+TARGET
+= XEDEA
+LINK
+= ESTEKA
+PAYLOAD
+= KARGA
+EXECUTE
+= EXEKUTATU
+BUS IDLE
+= BUS LIBRE
+STOCK
+= JATORRIZ.
+awaiting target
+= xedearen zain
+scanning usb
+= usb miatzen
+awaiting payload
+= kargaren zain
+executing
+= exekutatzen
+session complete
+= saioa amaituta
+session aborted
+= saioa bertan behera
+rolling credits
+= kredituak martxan
+SND
+= SOIN
+MUTED
+= ISILIK
+NO SND
+= SOINIK EZ
+audio muted
+= audioa isilik
+audio on
+= audioa aktibo
+neural uplink
+= esteka neuronala
+usb stack
+= usb pila
+flash maps
+= flash mapak
+payloads
+= kargak
+glyph cache
+= glifo cachea
+SELECT TARGET
+= AUKERATU XEDEA
+DOWNLOAD MODE
+= DESKARGA MODUA
+STOCK FIRMWARE
+= FIRMWARE JATORR.
+ENGAGE
+= AKTIBATU
+CLICK TO ENGAGE
+= KLIK AKTIBATZEKO
+RESET
+= RESET
+HEADPHONE
+= AURIK.
+VOL
+= BOL
+POWER
+= POWER
+POWER OFF
+= ITZALI
+unplugged: hold the centre key
+= deskonektatuta: eutsi erdiko tekla
+HOLD DOWN
+= EUTSI DOWN
+bottom of the wheel
+= gurpilaren behealdea
+CONNECT USB
+= KONEKTATU USB
+keep holding
+= jarraitu estutzen
+RELEASE
+= ASKATU
+once linked
+= lotu ondoren
+OR
+= EDO
+hold DOWN and tap RESET
+= eutsi DOWN eta sakatu RESET
+STAND BY
+= ITXARON
+it reboots into download mode
+= deskarga moduan berrabiarazten da
+ROCKBOX?
+= ROCKBOX?
+switch it off, then hold POWER ~4 s while connecting
+= itzali, gero eutsi POWER ~4 s konektatzean
+LINK FAILED
+= ESTEKA HUTS
+SCANNING
+= MIATZEN
+no player on the bus yet
+= oraindik ez dago erreproduzitzailerik busean
+ACCESS DENIED
+= SARBIDEA UKATUA
+no permission: install the udev rule (see README)
+= baimenik ez: instalatu udev araua (ikus README)
+macOS: run rockslop with sudo to take the device
+= macOS: exekutatu rockslop sudo-rekin gailua hartzeko
+install the WinUSB driver for it (Zadig)
+= instalatu WinUSB driverra honetarako (Zadig)
+LINK ESTABLISHED
+= ESTEKA EZARRITA
+identity verified
+= identitatea egiaztatuta
+PROBING
+= PROBATZEN
+boot ROM online
+= abioko ROM martxan
+forcing download mode
+= deskarga modua behartzen
+ROCKBOX RUNNING
+= ROCKBOX MARTXAN
+BACK
+= ATZERA
+RETRY
+= SAIATU BERRIZ
+Rockbox package
+= Rockbox paketea
+SELECT IMAGE
+= AUKERATU IRUDIA
+or drop it here
+= edo jaregin hemen
+IMAGE
+= IRUDIA
+REJECTED
+= ARRAZATUA
+BUILD
+= BUILD
+FLASH
+= FLASH
+CARD
+= TXARTELA
+{0} files  ·  {1}
+= {0} fitxategi  ·  {1}
+every member verified
+= kide guztiak egiaztatuta
+BACKUP
+= BABESK.
+stock flash saved first
+= flash jatorrizkoa lehenik gordeta
+CHANGE
+= ALDATU
+INSERT SD CARD
+= SARTU SD TXARTELA
+RETURN TO STOCK
+= ITZULI JATORRIZKORA
+built for {0}, not {1}
+= {0}rentzat egina, ez {1}rentzat
+LAYOUT
+= MAPA
+LOCKED
+= BLOKEATUTA
+PROBE
+= PROBA
+VERIFY
+= EGIAZT.
+WRITE
+= IDATZI
+CHECKSUM
+= KONTROL-BATUKARIA
+CHECK
+= EGIAZT.
+REBOOT
+= BERRABIA.
+SD SYNC
+= SD SINK.
+EJECT
+= EXTRAKT.
+DONE
+= EGINDA
+FLASH MAP
+= FLASH MAPA
+SAME
+= BERDINA
+READ
+= IRAKURRI
+ERASE
+= EZABATU
+WRITTEN
+= IDATZIA
+BAD
+= GAIZKI
+FILES
+= FITXATEGIAK
+BUS TAP
+= BUS ENTZUN
+THEN PRESS RESET
+= GERO SAKATU RESET
+SD CARD
+= SD TXARTELA
+NO CARD
+= TXARTELIK EZ
+READ BACK
+= BERRIRAK.
+MOUNT
+= MUNTATU
+CHECKED
+= EGIAZTATUA
+DATA
+= DATUAK
+RATE
+= ABIAD.
+ETA
+= FALTA
+ACCESS GRANTED
+= SARBIDEA BAIMENDUA
+STOCK RESTORED
+= JATORRIZKOA BERRESKURATUA
+the player boots stock firmware again
+= erreproduzitzaileak firmware jatorrizkoa abiarazten du berriro
+rockbox is live on the player
+= rockbox martxan dago erreproduzitzailean
+SESSION
+= SAIOA
+{0} sectors rewritten, checksummed
+= {0} sektore berridatzita, batukariarekin
+{0} files  ·  {1}  ·  read back OK
+= {0} fitxategi  ·  {1}  ·  berrirakurketa OK
+not updated
+= eguneratu gabe
+TIME
+= DENBORA
+UNPLUG TO FINISH
+= DESKONEKTATU
+EJECTED
+= EXTRAKTATUA
+UNPLUG AND ROCK
+= DESKONEKTATU ETA ROCK
+AGAIN
+= BERRIZ
+CREDITS
+= KREDITUAK
+the flash was partly rewritten: a backup is safe on disk
+= flasha partzialki berridatzi da: babeskopia seguru dago diskoan
+nothing was written
+= ez da ezer idatzi
+FAULT
+= HUTSEGITEA
+COPY REPORT
+= KOPIATU TXOSTENA
+REPORT COPIED
+= TXOSTENA KOPIATUTA
+NOW PLAYING
+= ORAIN JOTZEN
+THIS FLASHER
+= FLASHER HAU
+ROCKBOX CONTRIBUTORS
+= ROCKBOX LAGUNTZAILEAK
+{0} contributors
+= {0} laguntzaile
+People that have contributed to the project, one way or another. Friends!
+= Proiektuan laguntzen aritu diren pertsonak, modu batera edo bestera. Lagunak!
+links open in your browser
+= estekak zure nabigatzailean irekitzen dira
+Made by
+= Egilea
+Device protocols and payloads
+= Gailuen protokoloak eta kargak
+Music
+= Musika
+Voice lines
+= Ahots lerroak
+Sound effects
+= Soinu-efektuak
+Fonts
+= Letra-tipoak
+Rust crates
+= Rust crateak
+Reference photos
+= Erreferentziazko argazkiak
+LANGUAGE
+= HIZKUNTZA
+AUTOMATIC
+= AUTOMATIKOA
+stock firmware on the bus: asking it for download mode
+= firmware jatorrizkoa busean: deskarga modua eskatzen
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0}(e)k 0xCB onartu du: ADFUra berrabiarazten
+attaching to {0}
+= {0}(e)ra atxikitzen
+sector CRC32 scan on the player
+= sektoreen CRC32 miaketa erreproduzitzailean
+dumping {0} KiB
+= {0} KiB iraultzen
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= {0} sektore harrapatuta ({1} irakurrita, {2} ezagunak jada); CRC32 egiaztatuta
+dumping {0} KiB of raw NOR cells
+= {0} KiB NOR gelaxka gordin iraultzen
+second pass: comparing
+= bigarren pasaldia: alderatzen
+{0} sectors captured; two reads agree
+= {0} sektore harrapatuta; bi irakurketak bat datoz
+identical backup already on file: {0}
+= babeskopia berdina badago jada: {0}
+backup -> {0}
+= babeskopia -> {0}
+{0} of {1} sectors differ
+= {1} sektoreetatik {0} desberdinak dira
+0x{0} erase / program / verify ok
+= 0x{0} ezabatu / programatu / egiaztatu ok
+CRC32 of every writable sector, computed on the player
+= idatz daitekeen sektore bakoitzaren CRC32, erreproduzitzailean kalkulatuta
+reading the writable window back
+= idatz daitekeen leihoa berrirakurtzen
+flash checksum OK  sha256 {0}..{1}
+= flash kontrol-batukaria OK  sha256 {0}..{1}
+rebooting into Rockbox
+= Rockboxen berrabiarazten
+rebooting into stock firmware
+= firmware jatorrizkoan berrabiarazten
+firmware is up
+= firmwarea martxan dago
+{0} image(s), {1} KiB, sha256 verified
+= {0} irudi, {1} KiB, sha256 egiaztatuta
+{0} sectors rewritten
+= {0} sektore berridatzita
+Rockbox did not show up as a USB disk; the card was not updated
+= Rockbox ez da USB disko gisa agertu; txartela ez da eguneratu
+total {0} s
+= guztira {0} s
+{0} loaded, checksum OK
+= {0} kargatuta, kontrol-batukaria OK
+backup is from another unit; its per-unit sectors are left alone
+= babeskopia beste unitate batekoa da; unitate bakoitzaren sektoreak ukitu gabe
+waiting for Rockbox's USB disk
+= Rockboxen USB diskoaren zain
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= oraindik ez dago Rockboxen USB diskorik: kargatu soilik moduan badago, deskonektatu erreproduzitzailea, eutsi edozein tekla eta konektatu berriro (edo jarri Aukerak > Aukera Orokorrak > Sistema > USB > USB Mode Mass Storage gisa)
+no microSD card in the player: insert one, then press RESET
+= ez dago microSD txartelik erreproduzitzailean: sartu bat, gero sakatu RESET
+card online: {0}
+= txartela martxan: {0}
+removed {0} stale plugin/codec files
+= {0} plugin/codec fitxategi zaharkitu kenduta
+removed {0}: the firmware is in flash, not on the card
+= {0} kenduta: firmwarea flashean dago, ez txartelean
+{0} files written
+= {0} fitxategi idatzita
+reading every file back from the card
+= txarteleko fitxategi guztiak berrirakurtzen
+{0} files read back: sha256 OK
+= {0} fitxategi berrirakurrita: sha256 OK
+card ejected
+= txartela extraktatuta
+could not eject the card ({0}); eject it before unplugging
+= ezin izan da txartela extraktatu ({0}); extraktatu deskonektatu aurretik
+stock firmware detected: ACTIONSUSBD
+= firmware jatorrizkoa detektatuta: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= fabrikatzailearen 0xCB komandoa injektatzen -> ADFU
+opening {0} download mode
+= {0} deskarga modua irekitzen
+reattaching to download mode
+= deskarga modura berratxikitzen
+dumping {0} KiB of stock flash
+= flash jatorrizkoaren {0} KiB iraultzen
+re-reading CRC32 of every sector
+= sektore bakoitzaren CRC32 berrirakurtzen
+backup verified: {0}/{1} sectors match
+= babeskopia egiaztatuta: {0}/{1} sektore bat datoz
+{0} sectors differ; writing
+= {0} sektore desberdinak; idazten
+sector 0x{0} erase/program/verify ok
+= 0x{0} sektorea ezabatu/programatu/egiaztatu ok
+full flash CRC scan
+= flash osoaren CRC miaketa
+flash checksum OK
+= flash kontrol-batukaria OK
+waiting for Rockbox USB mass storage
+= Rockboxen USB biltegiratze masiboaren zain
+no media: insert a microSD card
+= euskarririk ez: sartu microSD txartel bat
+syncing and ejecting card
+= txartela sinkronizatu eta extraktatzen
+another tool holds the player ({0})
+= beste tresna batek erabiltzen du erreproduzitzailea ({0})
+the player did not come back in download mode
+= erreproduzitzailea ez da itzuli deskarga moduan
+the YP3 enters download mode by hand: hold Down while connecting USB
+= YP3k eskuz sartzen da deskarga moduan: eutsi Down USBa konektatzean
+battery too low to flash safely ({0})
+= bateria baxuegia segurtasunez flasheatzeko ({0})
+the player came back in download mode: the new firmware did not start
+= erreproduzitzailea deskarga moduan itzuli da: firmware berria ez da abiatu
+this package is for {0}, not {1}
+= pakete hau {0}rentzat da, ez {1}rentzat
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= erreproduzitzaile honen flasha 0x{0}n ez da paketea egin zeneko hori; ez da ezer idatzi
+the package has no firmware image
+= paketeak ez du firmware irudirik
+the card needs {0} MiB free; it has {1} MiB
+= txartelak {0} MiB libre behar ditu; {1} MiB ditu
+{0} did not read back correctly from the card
+= {0} ez da ondo berrirakurri txartelean
+could not mount the player's card: {0}
+= ezin izan da erreproduzitzailearen txartela muntatu: {0}
+the player's card did not appear
+= erreproduzitzailearen txartela ez da agertu
+the card is in use by another program
+= txartela beste programa batek erabiltzen du
+cancelled
+= ezetsia
+checksum mismatch at 0x{0}
+= kontrol-batukariak ez datoz bat 0x{0}n
+sector 0x{0} reads inconsistently
+= 0x{0} sektorea inkoherenteki irakurtzen da
+flash at 0x{0} reads inconsistently
+= 0x{0}ko flasha inkoherenteki irakurtzen da
+backup did not read back from disk
+= babeskopia ez da diskotik berrirakurri
+{0} is damaged (checksum mismatch)
+= {0} hondatuta dago (kontrol-batukariak ez datoz bat)
+{0} is {1} bytes; a full flash image is {2}
+= {0}k {1} byte ditu; flash irudi oso batek {2}
+not a tar.xz release: {0}
+= ez da tar.xz bertsioa: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= pakete honek (formatua {0}) {1} baino rockslop berriagoa behar du: eguneratu rockslop
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= pakete hau (formatua {0}) zaharregia da rockslop {1} bertsioarentzat: lortu bertsio berriago bat
+MANIFEST has no format
+= MANIFEST-ek ez du formaturik
+MANIFEST names no target
+= MANIFEST-ek ez du xederik adierazten
+unsafe path in archive: {0}
+= bide ez-segurua artxiboan: {0}
+{0}: links and special files are not allowed
+= {0}: estekak eta fitxategi bereziak ez dira onartzen
+{0}: checksum mismatch, the download is corrupt
+= {0}: kontrol-batukariak ez datoz bat, deskarga hondatuta dago
+unexpected member {0}
+= ustekabeko kidea {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= artxiboan SHA256SUMS-en zerrendatutako {0} fitxategi falta dira
+release contains no flash image
+= bertsioak ez du flash irudirik
+{0}: checksum mismatch
+= {0}: kontrol-batukariak ez datoz bat
+archive member too large
+= artxiboko kidea handiegia
+internal error: {0}
+= barne errorea: {0}
+{0}: permission denied. {1}
+= {0}: baimena ukatua. {1}
+Install the udev rule (see README) or run as root.
+= Instalatu udev araua (ikus README) edo exekutatu root gisa.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= macOS-ek root behar du gailua bere biltegiratze masiboko driverrari kentzeko: exekutatu Terminal-etik sudo-rekin.
+The device needs the WinUSB driver (Zadig).
+= Gailuak WinUSB driverra behar du (Zadig).
+{0}: the device is busy (another tool is using it?)
+= {0}: gailua lanpetuta dago (beste tresna bat erabiltzen ari da?)
+{0}: the device went away
+= {0}: gailua desagertu da
+{0}: timed out
+= {0}: denbora-muga gainditu da
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= ARRASTATU BIRATZEKO
+UNPLUG
+= DESKONEKTATU
+pull the USB cable out
+= atera USB kablea
+POWER ON
+= PIZTU
+hold POWER, on the bottom edge
+= eutsi POWER, beheko ertzean
+stock firmware
+= firmware jatorrizkoa
+SWITCH OFF
+= ITZALI
+hold POWER until the screen goes dark
+= eutsi POWER pantaila itzali arte
+HOLD POWER
+= EUTSI POWER
+plug in while holding, ~4 s
+= konektatu eutsi bitartean, ~4 s
+on the player: System > Debug > {0}
+= erreproduzitzailean: Sistema > Arazketa > {0}
+follow the steps above
+= jarraitu goiko urratsak
+THE {0} PACKAGE
+= {0} PAKETEA
+NEEDS A MICROSD CARD
+= MICROSD TXARTELA BEHAR DU
+It looks like you're trying to hack an MP3 player. Would you like help?
+= Badirudi MP3 erreproduzitzaile bat hackeatu nahian zabiltzala. Laguntzarik nahi duzu?
+GOT IT
+= ULERTUTA
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= Erreproduzitzaile hauek ez dute modelo-zenbakirik. Konparatu alanbre-ereduak horren ordez: botoiak eta atakak desberdinak dira. Arrastatu erreproduzitzaile bat biratzeko.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= Itzali erreproduzitzailea lehenik, gero eutsi DOWN kablea sartu aurretik, eta jarraitu estutzen.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= Eutsi POWER kablea konektatzen duzun bitartean, eta jarraitu estutzen 4 segundoz gutxi gorabehera.
+Switch the player on first: hold POWER on its bottom edge.
+= Piztu erreproduzitzailea lehenik: eutsi POWER bere beheko ertzean.
+Still nothing? Try another cable: some only charge.
+= Ezer ez oraindik? Probatu beste kable bat: batzuek kargatu besterik ez dute egiten.
+Your computer won't let rockslop use the player.
+= Zure ordenagailuak ez dio rockslop-i erreproduzitzailea erabiltzen uzten.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= Deskonektatu kablea lehenik: erreproduzitzaileak deskarga moduan bakarrik entzuten du. Urratsek esaten dute nola.
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= {0} erreproduzitzailerako egindako Rockbox paketea behar duzu: .tar.xz fitxategi bat. Egin klik AUKERATU IRUDIA botoian, edo jaregin panelean.
+Push a microSD card all the way into the player's slot, then press RESET.
+= Sartu microSD txartel bat erreproduzitzailearen zirrikituan guztiz barruraino, gero sakatu RESET.
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Rockboxek ez du oraindik bere USB diskoa erakutsi. Erreproduzitzaileak kargatu besterik egiten ez badu, deskonektatu, eutsi edozein tekla eta konektatu berriro.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= SAIATU BERRIZ botoiak normalean konpontzen du. Oraindik trabatuta? KOPIATU TXOSTENA botoiak xehetasunak arbelean jartzen ditu akats-txosten baterako.
+It looks like you watched all the credits. Nobody does that. Respect.
+= Badirudi kreditu guztiak ikusi dituzula. Inork ez du hori egiten. Errespetua.
+DEAL WITH IT
+= DEAL WITH IT

@@ -1,0 +1,4 @@
+# Headless renderer for screenshot tests: Xvfb + Mesa llvmpipe.
+# Same glibc as an Arch host, so a host-built binary runs as-is.
+FROM docker.io/library/archlinux:latest
+RUN pacman -Syu --noconfirm --needed xorg-server-xvfb mesa libxi libxcursor libxrandr libglvnd libxkbcommon libxkbcommon-x11 alsa-lib && pacman -Scc --noconfirm

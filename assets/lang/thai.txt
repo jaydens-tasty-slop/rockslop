@@ -1,0 +1,522 @@
+# ไทย: rockslop UI
+TARGET
+= เป้าหมาย
+LINK
+= เชื่อมต่อ
+PAYLOAD
+= เพย์โหลด
+EXECUTE
+= รัน
+BUS IDLE
+= ไม่มีอุปกรณ์
+STOCK
+= ต้นฉบับ
+awaiting target
+= รอเป้าหมาย
+scanning usb
+= สแกน usb
+awaiting payload
+= รอเพย์โหลด
+executing
+= กำลังรัน
+session complete
+= เซสชันเสร็จสิ้น
+session aborted
+= เซสชันถูกยกเลิก
+rolling credits
+= กำลังเลื่อนเครดิต
+SND
+= เสียง
+MUTED
+= ปิดเสียง
+NO SND
+= ไม่มีเสียง
+audio muted
+= ปิดเสียงแล้ว
+audio on
+= เปิดเสียงแล้ว
+neural uplink
+= ลิงก์ประสาท
+usb stack
+= สแตก usb
+flash maps
+= แผนที่แฟลช
+payloads
+= เพย์โหลด
+glyph cache
+= แคชกลิฟ
+SELECT TARGET
+= เลือกเป้าหมาย
+DOWNLOAD MODE
+= โหมดดาวน์โหลด
+STOCK FIRMWARE
+= เฟิร์มแวร์ต้นฉบับ
+ENGAGE
+= เริ่ม
+CLICK TO ENGAGE
+= คลิกเพื่อเริ่ม
+RESET
+= RESET
+HEADPHONE
+= หูฟัง
+VOL
+= เสียง
+POWER
+= POWER
+POWER OFF
+= ปิดเครื่อง
+unplugged: hold the centre key
+= ถอดสาย: กดปุ่มกลางค้างไว้
+HOLD DOWN
+= กด DOWN ค้าง
+bottom of the wheel
+= ด้านล่างของวงล้อ
+CONNECT USB
+= เสียบ USB
+keep holding
+= กดค้างไว้
+RELEASE
+= ปล่อย
+once linked
+= เมื่อเชื่อมต่อแล้ว
+OR
+= หรือ
+hold DOWN and tap RESET
+= กด DOWN ค้างแล้วกด RESET
+STAND BY
+= รอสักครู่
+it reboots into download mode
+= เครื่องจะรีบูตเข้าโหมดดาวน์โหลด
+ROCKBOX?
+= ROCKBOX?
+switch it off, then hold POWER ~4 s while connecting
+= ปิดเครื่องก่อน แล้วกด POWER ค้าง ~4 วินาทีขณะเสียบสาย
+LINK FAILED
+= เชื่อมต่อล้มเหลว
+SCANNING
+= กำลังสแกน
+no player on the bus yet
+= ยังไม่พบเครื่องบนบัส
+ACCESS DENIED
+= ปฏิเสธการเข้าถึง
+no permission: install the udev rule (see README)
+= ไม่มีสิทธิ์: ติดตั้งกฎ udev (ดู README)
+macOS: run rockslop with sudo to take the device
+= macOS: รัน rockslop ด้วย sudo เพื่อยึดอุปกรณ์
+install the WinUSB driver for it (Zadig)
+= ติดตั้งไดรเวอร์ WinUSB ให้มัน (Zadig)
+LINK ESTABLISHED
+= เชื่อมต่อสำเร็จ
+identity verified
+= ยืนยันตัวตนแล้ว
+PROBING
+= กำลังตรวจ
+boot ROM online
+= boot ROM ออนไลน์
+forcing download mode
+= บังคับเข้าโหมดดาวน์โหลด
+ROCKBOX RUNNING
+= ROCKBOX ทำงานอยู่
+BACK
+= กลับ
+RETRY
+= ลองใหม่
+Rockbox package
+= แพ็กเกจ Rockbox
+SELECT IMAGE
+= เลือกอิมเมจ
+or drop it here
+= หรือวางไฟล์ที่นี่
+IMAGE
+= อิมเมจ
+REJECTED
+= ถูกปฏิเสธ
+BUILD
+= รุ่นที่สร้าง
+FLASH
+= แฟลช
+CARD
+= การ์ด
+{0} files  ·  {1}
+= {0} ไฟล์  ·  {1}
+every member verified
+= ตรวจทุกรายการแล้ว
+BACKUP
+= สำรอง
+stock flash saved first
+= บันทึกแฟลชต้นฉบับไว้ก่อน
+CHANGE
+= เปลี่ยน
+INSERT SD CARD
+= ใส่การ์ด SD
+RETURN TO STOCK
+= กลับเป็นต้นฉบับ
+built for {0}, not {1}
+= สร้างสำหรับ {0} ไม่ใช่ {1}
+LAYOUT
+= โครงแฟลช
+LOCKED
+= ล็อก
+PROBE
+= ตรวจ
+VERIFY
+= ยืนยัน
+WRITE
+= เขียน
+CHECKSUM
+= เช็กซัม
+CHECK
+= ตรวจสอบ
+REBOOT
+= รีบูต
+SD SYNC
+= ซิงก์ SD
+EJECT
+= นำออก
+DONE
+= เสร็จ
+FLASH MAP
+= แผนที่แฟลช
+SAME
+= เหมือนเดิม
+READ
+= อ่าน
+ERASE
+= ลบ
+WRITTEN
+= เขียนแล้ว
+BAD
+= เสีย
+FILES
+= ไฟล์
+BUS TAP
+= ดักบัส
+THEN PRESS RESET
+= แล้วกด RESET
+SD CARD
+= การ์ด SD
+NO CARD
+= ไม่มีการ์ด
+READ BACK
+= อ่านกลับ
+MOUNT
+= เมานต์
+CHECKED
+= ตรวจแล้ว
+DATA
+= ข้อมูล
+RATE
+= ความเร็ว
+ETA
+= เหลือ
+ACCESS GRANTED
+= อนุญาตการเข้าถึง
+STOCK RESTORED
+= คืนค่าต้นฉบับแล้ว
+the player boots stock firmware again
+= เครื่องบูตด้วยเฟิร์มแวร์ต้นฉบับอีกครั้ง
+rockbox is live on the player
+= rockbox ทำงานบนเครื่องแล้ว
+SESSION
+= เซสชัน
+{0} sectors rewritten, checksummed
+= เขียนเซกเตอร์ใหม่ {0} ตรวจเช็กซัมแล้ว
+{0} files  ·  {1}  ·  read back OK
+= {0} ไฟล์  ·  {1}  ·  อ่านกลับ OK
+not updated
+= ไม่ได้อัปเดต
+TIME
+= เวลา
+UNPLUG TO FINISH
+= ถอดสายเพื่อจบ
+EJECTED
+= นำออกแล้ว
+UNPLUG AND ROCK
+= ถอดสายแล้วร็อกเลย
+AGAIN
+= อีกครั้ง
+CREDITS
+= เครดิต
+the flash was partly rewritten: a backup is safe on disk
+= แฟลชถูกเขียนใหม่บางส่วน: ไฟล์สำรองปลอดภัยอยู่ในดิสก์
+nothing was written
+= ยังไม่ได้เขียนอะไร
+FAULT
+= ข้อผิดพลาด
+COPY REPORT
+= คัดลอกรายงาน
+REPORT COPIED
+= คัดลอกรายงานแล้ว
+NOW PLAYING
+= กำลังเล่น
+THIS FLASHER
+= โปรแกรมแฟลชนี้
+ROCKBOX CONTRIBUTORS
+= ผู้ร่วมพัฒนา ROCKBOX
+{0} contributors
+= ผู้ร่วมพัฒนา {0} คน
+People that have contributed to the project, one way or another. Friends!
+= ผู้ที่ร่วมสนับสนุนโครงการไม่ทางใดก็ทางหนึ่ง เพื่อนๆ!
+links open in your browser
+= ลิงก์เปิดในเบราว์เซอร์
+Made by
+= สร้างโดย
+Device protocols and payloads
+= โปรโตคอลอุปกรณ์และเพย์โหลด
+Music
+= เพลง
+Voice lines
+= บทพูดเสียง
+Sound effects
+= เอฟเฟกต์เสียง
+Fonts
+= ฟอนต์
+Rust crates
+= เครต Rust
+Reference photos
+= ภาพอ้างอิง
+LANGUAGE
+= ภาษา
+AUTOMATIC
+= อัตโนมัติ
+stock firmware on the bus: asking it for download mode
+= พบเฟิร์มแวร์ต้นฉบับบนบัส: ขอให้เข้าโหมดดาวน์โหลด
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0} รับคำสั่ง 0xCB: รีบูตเข้า ADFU
+attaching to {0}
+= กำลังเชื่อมต่อ {0}
+sector CRC32 scan on the player
+= สแกน CRC32 ของเซกเตอร์บนเครื่อง
+dumping {0} KiB
+= กำลังดัมพ์ {0} KiB
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= จับได้ {0} เซกเตอร์ (อ่าน {1}, รู้แล้ว {2}); ตรวจ CRC32 แล้ว
+dumping {0} KiB of raw NOR cells
+= กำลังดัมพ์เซลล์ NOR ดิบ {0} KiB
+second pass: comparing
+= รอบสอง: กำลังเปรียบเทียบ
+{0} sectors captured; two reads agree
+= จับได้ {0} เซกเตอร์; อ่านสองครั้งตรงกัน
+identical backup already on file: {0}
+= มีไฟล์สำรองที่เหมือนกันอยู่แล้ว: {0}
+backup -> {0}
+= สำรอง -> {0}
+{0} of {1} sectors differ
+= ต่างกัน {0} จาก {1} เซกเตอร์
+0x{0} erase / program / verify ok
+= 0x{0} ลบ / เขียน / ตรวจสอบ ok
+CRC32 of every writable sector, computed on the player
+= CRC32 ของทุกเซกเตอร์ที่เขียนได้ คำนวณบนเครื่อง
+reading the writable window back
+= กำลังอ่านช่วงที่เขียนได้กลับมา
+flash checksum OK  sha256 {0}..{1}
+= เช็กซัมแฟลช OK  sha256 {0}..{1}
+rebooting into Rockbox
+= กำลังรีบูตเข้า Rockbox
+rebooting into stock firmware
+= กำลังรีบูตเข้าเฟิร์มแวร์ต้นฉบับ
+firmware is up
+= เฟิร์มแวร์ทำงานแล้ว
+{0} image(s), {1} KiB, sha256 verified
+= อิมเมจ {0}, {1} KiB, ตรวจ sha256 แล้ว
+{0} sectors rewritten
+= เขียนใหม่ {0} เซกเตอร์
+Rockbox did not show up as a USB disk; the card was not updated
+= Rockbox ไม่ปรากฏเป็นดิสก์ USB; ไม่ได้อัปเดตการ์ด
+total {0} s
+= รวม {0} วินาที
+{0} loaded, checksum OK
+= โหลด {0} แล้ว เช็กซัม OK
+backup is from another unit; its per-unit sectors are left alone
+= ไฟล์สำรองมาจากเครื่องอื่น; เซกเตอร์เฉพาะเครื่องจึงไม่ถูกแตะ
+waiting for Rockbox's USB disk
+= รอดิสก์ USB ของ Rockbox
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= ยังไม่มีดิสก์ USB จาก Rockbox: หากตั้งไว้เป็นชาร์จอย่างเดียว ให้ถอดสายเครื่อง กดปุ่มใดก็ได้ค้างไว้แล้วเสียบกลับ (หรือตั้ง ตั้งค่า > ตั้งค่าทั่วไป > ระบบ > USB > USB Mode เป็น Mass Storage)
+no microSD card in the player: insert one, then press RESET
+= ไม่มีการ์ด microSD ในเครื่อง: ใส่การ์ดแล้วกด RESET
+card online: {0}
+= การ์ดออนไลน์: {0}
+removed {0} stale plugin/codec files
+= ลบไฟล์ plugin/codec เก่า {0} ไฟล์
+removed {0}: the firmware is in flash, not on the card
+= ลบ {0} แล้ว: เฟิร์มแวร์อยู่ในแฟลช ไม่ได้อยู่บนการ์ด
+{0} files written
+= เขียน {0} ไฟล์แล้ว
+reading every file back from the card
+= กำลังอ่านทุกไฟล์กลับจากการ์ด
+{0} files read back: sha256 OK
+= อ่านกลับ {0} ไฟล์: sha256 OK
+card ejected
+= นำการ์ดออกแล้ว
+could not eject the card ({0}); eject it before unplugging
+= นำการ์ดออกไม่ได้ ({0}); นำออกก่อนถอดสาย
+stock firmware detected: ACTIONSUSBD
+= พบเฟิร์มแวร์ต้นฉบับ: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= ส่งคำสั่งผู้ผลิต 0xCB -> ADFU
+opening {0} download mode
+= กำลังเปิดโหมดดาวน์โหลดของ {0}
+reattaching to download mode
+= กำลังเชื่อมต่อโหมดดาวน์โหลดใหม่
+dumping {0} KiB of stock flash
+= กำลังดัมพ์แฟลชต้นฉบับ {0} KiB
+re-reading CRC32 of every sector
+= กำลังอ่าน CRC32 ของทุกเซกเตอร์ซ้ำ
+backup verified: {0}/{1} sectors match
+= ตรวจไฟล์สำรองแล้ว: ตรงกัน {0}/{1} เซกเตอร์
+{0} sectors differ; writing
+= ต่างกัน {0} เซกเตอร์; กำลังเขียน
+sector 0x{0} erase/program/verify ok
+= เซกเตอร์ 0x{0} ลบ/เขียน/ตรวจสอบ ok
+full flash CRC scan
+= สแกน CRC ทั้งแฟลช
+flash checksum OK
+= เช็กซัมแฟลช OK
+waiting for Rockbox USB mass storage
+= รอ USB mass storage ของ Rockbox
+no media: insert a microSD card
+= ไม่มีสื่อบันทึก: ใส่การ์ด microSD
+syncing and ejecting card
+= กำลังซิงก์และนำการ์ดออก
+another tool holds the player ({0})
+= เครื่องมืออื่นใช้เครื่องเล่นอยู่ ({0})
+the player did not come back in download mode
+= เครื่องไม่กลับมาในโหมดดาวน์โหลด
+the YP3 enters download mode by hand: hold Down while connecting USB
+= YP3 เข้าโหมดดาวน์โหลดด้วยมือ: กด Down ค้างขณะเสียบ USB
+battery too low to flash safely ({0})
+= แบตเตอรี่ต่ำเกินกว่าจะแฟลชอย่างปลอดภัย ({0})
+the player came back in download mode: the new firmware did not start
+= เครื่องกลับมาในโหมดดาวน์โหลด: เฟิร์มแวร์ใหม่ไม่ทำงาน
+this package is for {0}, not {1}
+= แพ็กเกจนี้สำหรับ {0} ไม่ใช่ {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= แฟลชของเครื่องที่ 0x{0} ไม่ตรงกับที่แพ็กเกจสร้างไว้; ยังไม่ได้เขียนอะไร
+the package has no firmware image
+= แพ็กเกจไม่มีอิมเมจเฟิร์มแวร์
+the card needs {0} MiB free; it has {1} MiB
+= การ์ดต้องว่าง {0} MiB; มีเพียง {1} MiB
+{0} did not read back correctly from the card
+= อ่าน {0} กลับจากการ์ดไม่ถูกต้อง
+could not mount the player's card: {0}
+= เมานต์การ์ดของเครื่องไม่ได้: {0}
+the player's card did not appear
+= ไม่พบการ์ดของเครื่อง
+the card is in use by another program
+= โปรแกรมอื่นกำลังใช้การ์ดอยู่
+cancelled
+= ยกเลิกแล้ว
+checksum mismatch at 0x{0}
+= เช็กซัมไม่ตรงที่ 0x{0}
+sector 0x{0} reads inconsistently
+= เซกเตอร์ 0x{0} อ่านได้ไม่คงที่
+flash at 0x{0} reads inconsistently
+= แฟลชที่ 0x{0} อ่านได้ไม่คงที่
+backup did not read back from disk
+= อ่านไฟล์สำรองกลับจากดิสก์ไม่ได้
+{0} is damaged (checksum mismatch)
+= {0} เสียหาย (เช็กซัมไม่ตรง)
+{0} is {1} bytes; a full flash image is {2}
+= {0} ขนาด {1} ไบต์; อิมเมจแฟลชเต็มคือ {2}
+not a tar.xz release: {0}
+= ไม่ใช่รีลีส tar.xz: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= แพ็กเกจนี้ (รูปแบบ {0}) ต้องใช้ rockslop ที่ใหม่กว่า {1}: อัปเดต rockslop
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= แพ็กเกจนี้ (รูปแบบ {0}) เก่าเกินไปสำหรับ rockslop {1}: ดาวน์โหลดรีลีสที่ใหม่กว่า
+MANIFEST has no format
+= MANIFEST ไม่มีรูปแบบ
+MANIFEST names no target
+= MANIFEST ไม่ระบุเป้าหมาย
+unsafe path in archive: {0}
+= พาธไม่ปลอดภัยในไฟล์เก็บถาวร: {0}
+{0}: links and special files are not allowed
+= {0}: ไม่อนุญาตลิงก์และไฟล์พิเศษ
+{0}: checksum mismatch, the download is corrupt
+= {0}: เช็กซัมไม่ตรง ไฟล์ที่ดาวน์โหลดเสียหาย
+unexpected member {0}
+= พบรายการที่ไม่คาดคิด {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= ไฟล์เก็บถาวรขาดไฟล์ตามรายการ SHA256SUMS จำนวน {0}
+release contains no flash image
+= รีลีสไม่มีอิมเมจแฟลช
+{0}: checksum mismatch
+= {0}: เช็กซัมไม่ตรง
+archive member too large
+= รายการในไฟล์เก็บถาวรใหญ่เกินไป
+internal error: {0}
+= ข้อผิดพลาดภายใน: {0}
+{0}: permission denied. {1}
+= {0}: ไม่มีสิทธิ์เข้าถึง {1}
+Install the udev rule (see README) or run as root.
+= ติดตั้งกฎ udev (ดู README) หรือรันในฐานะ root
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= macOS ต้องใช้ root เพื่อยึดอุปกรณ์จากไดรเวอร์ mass storage: รันจากเทอร์มินัลด้วย sudo
+The device needs the WinUSB driver (Zadig).
+= อุปกรณ์ต้องใช้ไดรเวอร์ WinUSB (Zadig)
+{0}: the device is busy (another tool is using it?)
+= {0}: อุปกรณ์ไม่ว่าง (มีเครื่องมืออื่นใช้อยู่หรือไม่?)
+{0}: the device went away
+= {0}: อุปกรณ์หายไป
+{0}: timed out
+= {0}: หมดเวลา
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= ลากเพื่อหมุน
+UNPLUG
+= ถอดสาย
+pull the USB cable out
+= ดึงสาย USB ออก
+POWER ON
+= เปิดเครื่อง
+hold POWER, on the bottom edge
+= กด POWER ค้างไว้ ปุ่มอยู่ที่ขอบล่าง
+stock firmware
+= เฟิร์มแวร์ต้นฉบับ
+SWITCH OFF
+= ปิดเครื่อง
+hold POWER until the screen goes dark
+= กด POWER ค้างจนหน้าจอดับ
+HOLD POWER
+= กด POWER ค้าง
+plug in while holding, ~4 s
+= เสียบสายขณะกดค้าง ~4 วินาที
+on the player: System > Debug > {0}
+= บนเครื่อง: ระบบ > ดีบัก > {0}
+follow the steps above
+= ทำตามขั้นตอนด้านบน
+THE {0} PACKAGE
+= แพ็กเกจสำหรับ {0}
+NEEDS A MICROSD CARD
+= ต้องมีการ์ด microSD
+It looks like you're trying to hack an MP3 player. Would you like help?
+= ดูเหมือนว่าคุณกำลังพยายามแฮ็กเครื่องเล่น MP3 อยู่ ต้องการความช่วยเหลือไหม
+GOT IT
+= เข้าใจแล้ว
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= เครื่องพวกนี้ไม่มีหมายเลขรุ่น ให้เทียบโมเดลโครงลวดแทน: ปุ่มและพอร์ตไม่เหมือนกัน ลากเครื่องเพื่อหมุนดูได้เลย
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= ปิดเครื่องก่อน แล้วกด DOWN ค้างไว้ตั้งแต่ก่อนเสียบสาย และกดค้างไว้ต่อ
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= กด POWER ค้างไว้ขณะเสียบสาย และกดค้างไว้ประมาณ 4 วินาที
+Switch the player on first: hold POWER on its bottom edge.
+= เปิดเครื่องก่อน: กด POWER ค้างไว้ ปุ่มอยู่ที่ขอบล่างของเครื่อง
+Still nothing? Try another cable: some only charge.
+= ยังไม่ได้อีกเหรอ ลองเปลี่ยนสายดู: บางเส้นชาร์จไฟได้อย่างเดียว
+Your computer won't let rockslop use the player.
+= คอมพิวเตอร์ของคุณไม่ยอมให้ rockslop ใช้เครื่องนี้
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= ถอดสายก่อน: เครื่องจะฟังคำสั่งเฉพาะในโหมดดาวน์โหลด ขั้นตอนบนจอบอกวิธีไว้แล้ว
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= คุณต้องใช้แพ็กเกจ Rockbox ที่สร้างสำหรับ {0}: ไฟล์ .tar.xz คลิก "เลือกอิมเมจ" หรือลากไฟล์มาวางบนแผงนี้
+Push a microSD card all the way into the player's slot, then press RESET.
+= ดันการ์ด microSD เข้าไปในช่องของเครื่องจนสุด แล้วกด RESET
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Rockbox ยังไม่แสดงดิสก์ USB ถ้าเครื่องแค่ชาร์จไฟ ให้ถอดสาย กดปุ่มใดก็ได้ค้างไว้แล้วเสียบกลับ
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= ปุ่ม "ลองใหม่" มักช่วยได้ ยังติดอยู่อีกเหรอ ปุ่ม "คัดลอกรายงาน" จะคัดลอกรายละเอียดไปไว้ในคลิปบอร์ดสำหรับแจ้งบั๊ก
+It looks like you watched all the credits. Nobody does that. Respect.
+= ดูเหมือนว่าคุณดูเครดิตจนจบ ไม่มีใครทำแบบนั้นหรอก นับถือเลย
+DEAL WITH IT
+= DEAL WITH IT

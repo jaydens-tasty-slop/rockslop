@@ -1,0 +1,35 @@
+# Flatpak around the portable Linux build (make linux first; make flatpak
+# does both). USB access needs --device=all; the card is mounted and
+# ejected with the host's udisksctl through flatpak-spawn.
+app-id: io.github.rockslop.Flasher
+runtime: org.freedesktop.Platform
+runtime-version: '25.08'
+sdk: org.freedesktop.Sdk
+command: rockslop
+finish-args:
+  - --socket=x11
+  - --share=ipc
+  - --device=all
+  - --socket=pulseaudio
+  - --filesystem=/run/media
+  - --filesystem=/media
+  - --talk-name=org.freedesktop.Flatpak
+modules:
+  - name: rockslop
+    buildsystem: simple
+    build-commands:
+      - install -Dm755 rockslop /app/bin/rockslop
+      - install -Dm755 rockslop-cli /app/bin/rockslop-cli
+      - install -Dm644 io.github.rockslop.Flasher.desktop /app/share/applications/io.github.rockslop.Flasher.desktop
+      - install -Dm644 io.github.rockslop.Flasher.svg /app/share/icons/hicolor/scalable/apps/io.github.rockslop.Flasher.svg
+    sources:
+      - type: file
+        path: ../../dist/rockslop-linux-x86_64
+        dest-filename: rockslop
+      - type: file
+        path: ../../dist/rockslop-cli-linux-x86_64
+        dest-filename: rockslop-cli
+      - type: file
+        path: io.github.rockslop.Flasher.desktop
+      - type: file
+        path: ../icon/io.github.rockslop.Flasher.svg

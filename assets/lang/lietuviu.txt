@@ -1,0 +1,522 @@
+# Lietuvių: rockslop UI
+TARGET
+= TIKSLAS
+LINK
+= RYŠYS
+PAYLOAD
+= KROVINYS
+EXECUTE
+= VYKDYTI
+BUS IDLE
+= MAGISTRALĖ TUŠČIA
+STOCK
+= GAMYKL.
+awaiting target
+= laukiama tikslo
+scanning usb
+= skenuojama usb
+awaiting payload
+= laukiama krovinio
+executing
+= vykdoma
+session complete
+= seansas baigtas
+session aborted
+= seansas nutrauktas
+rolling credits
+= ritasi titrai
+SND
+= GARSAS
+MUTED
+= NUTILDYTA
+NO SND
+= NĖRA GARSO
+audio muted
+= garsas išjungtas
+audio on
+= garsas įjungtas
+neural uplink
+= neuroninis ryšys
+usb stack
+= usb magistralė
+flash maps
+= flash žemėlapiai
+payloads
+= kroviniai
+glyph cache
+= glifų talpykla
+SELECT TARGET
+= PASIRINK TIKSLĄ
+DOWNLOAD MODE
+= ATSIS. REŽIMAS
+STOCK FIRMWARE
+= GAMYKL. FIRMWARE
+ENGAGE
+= AKTYVUOTI
+CLICK TO ENGAGE
+= SPAUSK AKTYVUOTI
+RESET
+= RESET
+HEADPHONE
+= AUSINĖS
+VOL
+= GARS.
+POWER
+= MAITINIMAS
+POWER OFF
+= IŠJUNK
+unplugged: hold the centre key
+= atjungta: laikyk centrinį mygtuką
+HOLD DOWN
+= LAIKYK DOWN
+bottom of the wheel
+= ratuko apačia
+CONNECT USB
+= JUNK USB
+keep holding
+= laikyk toliau
+RELEASE
+= ATLEISK
+once linked
+= kai ryšys užmegztas
+OR
+= ARBA
+hold DOWN and tap RESET
+= laikyk DOWN ir spustelėk RESET
+STAND BY
+= PALAUK
+it reboots into download mode
+= jis persikrauna į atsisiuntimo režimą
+ROCKBOX?
+= ROCKBOX?
+switch it off, then hold POWER ~4 s while connecting
+= išjunk jį, tada laikyk POWER ~4 s jungdamas
+LINK FAILED
+= RYŠYS NEPAVYKO
+SCANNING
+= SKENUOJA
+no player on the bus yet
+= grotuvo magistralėje dar nėra
+ACCESS DENIED
+= PRIEIGA UŽDRAUSTA
+no permission: install the udev rule (see README)
+= nėra leidimo: įdiek udev taisyklę (žr. README)
+macOS: run rockslop with sudo to take the device
+= macOS: paleisk rockslop su sudo, kad perimtum įrenginį
+install the WinUSB driver for it (Zadig)
+= įdiek jam WinUSB tvarkyklę (Zadig)
+LINK ESTABLISHED
+= RYŠYS UŽMEGZTAS
+identity verified
+= tapatybė patvirtinta
+PROBING
+= ZONDUOJA
+boot ROM online
+= ROM veikia
+forcing download mode
+= priverčiamas atsisiuntimo režimas
+ROCKBOX RUNNING
+= ROCKBOX VEIKIA
+BACK
+= ATGAL
+RETRY
+= BANDYTI
+Rockbox package
+= Rockbox paketas
+SELECT IMAGE
+= PASIRINK PAKETĄ
+or drop it here
+= arba numesk čia
+IMAGE
+= PAKETAS
+REJECTED
+= ATMESTA
+BUILD
+= VERSIJA
+FLASH
+= FLASH
+CARD
+= KORTELĖ
+{0} files  ·  {1}
+= failai: {0}  ·  {1}
+every member verified
+= visi elementai patikrinti
+BACKUP
+= ATSARGINĖ
+stock flash saved first
+= gamyklinis flash pirma išsaugotas
+CHANGE
+= KEISTI
+INSERT SD CARD
+= ĮDĖK SD KORTELĘ
+RETURN TO STOCK
+= GRĮŽTI Į GAMYKL.
+built for {0}, not {1}
+= sukurta {0}, o ne {1}
+LAYOUT
+= IŠDĖSTYMAS
+LOCKED
+= UŽRAKINTA
+PROBE
+= ZONDAS
+VERIFY
+= PATIKRA
+WRITE
+= RAŠYMAS
+CHECKSUM
+= KONTR. SUMA
+CHECK
+= TIKRINIMAS
+REBOOT
+= PERKROVIMAS
+SD SYNC
+= SD SINCH.
+EJECT
+= ATSKIRTI
+DONE
+= BAIGTA
+FLASH MAP
+= FLASH ŽEMĖL.
+SAME
+= TOKS PAT
+READ
+= SKAITYTA
+ERASE
+= IŠTRINTA
+WRITTEN
+= UŽRAŠYTA
+BAD
+= SUGEDĘS
+FILES
+= FAILAI
+BUS TAP
+= MAGISTR. SRAUTAS
+THEN PRESS RESET
+= TADA SPAUSK RESET
+SD CARD
+= SD KORTELĖ
+NO CARD
+= NĖRA KORTELĖS
+READ BACK
+= PERSKAITYTA
+MOUNT
+= PRIJUNGTI
+CHECKED
+= PATIKRINTA
+DATA
+= DUOMENYS
+RATE
+= GREITIS
+ETA
+= LIKO
+ACCESS GRANTED
+= PRIEIGA SUTEIKTA
+STOCK RESTORED
+= GAMYKL. ATSTATYTA
+the player boots stock firmware again
+= grotuvas vėl kraunasi su gamykliniu firmware
+rockbox is live on the player
+= rockbox veikia grotuve
+SESSION
+= SEANSAS
+{0} sectors rewritten, checksummed
+= perrašyti sektoriai: {0}, kontrolinė suma sutampa
+{0} files  ·  {1}  ·  read back OK
+= failai: {0}  ·  {1}  ·  perskaityta OK
+not updated
+= neatnaujinta
+TIME
+= LAIKAS
+UNPLUG TO FINISH
+= ATJUNK BAIGTI
+EJECTED
+= ATSKIRTA
+UNPLUG AND ROCK
+= ATJUNK IR ROKUOK
+AGAIN
+= DAR KARTĄ
+CREDITS
+= PADĖKOS
+the flash was partly rewritten: a backup is safe on disk
+= flash iš dalies perrašytas: atsarginė kopija saugi diske
+nothing was written
+= nieko neįrašyta
+FAULT
+= KLAIDA
+COPY REPORT
+= KOPIJUOTI ATASKAITĄ
+REPORT COPIED
+= ATASKAITA NUKOPIJUOTA
+NOW PLAYING
+= DABAR GROJA
+THIS FLASHER
+= ŠI PROGRAMA
+ROCKBOX CONTRIBUTORS
+= ROCKBOX AUTORIAI
+{0} contributors
+= autorių skaičius: {0}
+People that have contributed to the project, one way or another. Friends!
+= Žmonės, vienaip ar kitaip prisidėję prie projekto. Draugai!
+links open in your browser
+= nuorodos atsidaro naršyklėje
+Made by
+= Sukūrė
+Device protocols and payloads
+= Įrenginių protokolai ir kroviniai
+Music
+= Muzika
+Voice lines
+= Balso įrašai
+Sound effects
+= Garso efektai
+Fonts
+= Šriftai
+Rust crates
+= Rust bibliotekos
+Reference photos
+= Nuotraukos pavyzdžiui
+LANGUAGE
+= KALBA
+AUTOMATIC
+= AUTOMATIŠKAI
+stock firmware on the bus: asking it for download mode
+= gamyklinis firmware magistralėje: prašoma atsisiuntimo režimo
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0} patvirtino 0xCB: persikrauna į ADFU
+attaching to {0}
+= jungiamasi prie {0}
+sector CRC32 scan on the player
+= sektorių CRC32 skenavimas grotuve
+dumping {0} KiB
+= skaitoma {0} KiB
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= užfiksuota sektorių: {0} ({1} perskaityta, {2} jau žinoma); CRC32 patikrintas
+dumping {0} KiB of raw NOR cells
+= skaitoma {0} KiB neapdorotų NOR ląstelių
+second pass: comparing
+= antras praėjimas: lyginama
+{0} sectors captured; two reads agree
+= užfiksuota sektorių: {0}; abu skaitymai sutampa
+identical backup already on file: {0}
+= tokia pati atsarginė kopija jau yra: {0}
+backup -> {0}
+= atsarginė kopija -> {0}
+{0} of {1} sectors differ
+= skiriasi sektoriai: {0} iš {1}
+0x{0} erase / program / verify ok
+= 0x{0} trynimas / programavimas / patikra ok
+CRC32 of every writable sector, computed on the player
+= visų įrašomų sektorių CRC32, apskaičiuotas grotuve
+reading the writable window back
+= įrašomas langas skaitomas atgal
+flash checksum OK  sha256 {0}..{1}
+= flash kontrolinė suma OK  sha256 {0}..{1}
+rebooting into Rockbox
+= persikrauna į Rockbox
+rebooting into stock firmware
+= persikrauna į gamyklinį firmware
+firmware is up
+= firmware veikia
+{0} image(s), {1} KiB, sha256 verified
+= vaizdai: {0}, {1} KiB, sha256 patikrintas
+{0} sectors rewritten
+= perrašyti sektoriai: {0}
+Rockbox did not show up as a USB disk; the card was not updated
+= Rockbox neatsirado kaip USB diskas; kortelė neatnaujinta
+total {0} s
+= iš viso {0} s
+{0} loaded, checksum OK
+= {0} įkelta, kontrolinė suma OK
+backup is from another unit; its per-unit sectors are left alone
+= atsarginė kopija iš kito įrenginio; jo individualūs sektoriai paliekami
+waiting for Rockbox's USB disk
+= laukiama Rockbox USB disko
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= Rockbox USB disko dar nėra: jei nustatytas tik įkrovimas, atjunk grotuvą, laikyk bet kurį klavišą ir vėl prijunk (arba nustatyk Nuostatos > Bendros nuostatos > Systema > USB > USB Mode į Mass Storage)
+no microSD card in the player: insert one, then press RESET
+= grotuve nėra microSD kortelės: įdėk ir spausk RESET
+card online: {0}
+= kortelė prisijungusi: {0}
+removed {0} stale plugin/codec files
+= pašalinta pasenusių įskiepių/kodekų: {0}
+removed {0}: the firmware is in flash, not on the card
+= pašalinta {0}: firmware yra flash atmintyje, ne kortelėje
+{0} files written
+= įrašyta failų: {0}
+reading every file back from the card
+= visi failai skaitomi atgal iš kortelės
+{0} files read back: sha256 OK
+= perskaityta failų: {0}: sha256 OK
+card ejected
+= kortelė atjungta
+could not eject the card ({0}); eject it before unplugging
+= nepavyko atjungti kortelės ({0}); atjunk ją prieš ištraukdamas
+stock firmware detected: ACTIONSUSBD
+= aptiktas gamyklinis firmware: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= siunčiama gamintojo komanda 0xCB -> ADFU
+opening {0} download mode
+= atidaromas {0} atsisiuntimo režimas
+reattaching to download mode
+= iš naujo jungiamasi prie atsisiuntimo režimo
+dumping {0} KiB of stock flash
+= skaitoma {0} KiB gamyklinio flash
+re-reading CRC32 of every sector
+= iš naujo skaitomas kiekvieno sektoriaus CRC32
+backup verified: {0}/{1} sectors match
+= atsarginė kopija patikrinta: sutampa {0}/{1} sektorių
+{0} sectors differ; writing
+= skiriasi sektoriai: {0}; rašoma
+sector 0x{0} erase/program/verify ok
+= sektorius 0x{0} trynimas/programavimas/patikra ok
+full flash CRC scan
+= pilnas flash CRC skenavimas
+flash checksum OK
+= flash kontrolinė suma OK
+waiting for Rockbox USB mass storage
+= laukiama Rockbox USB masinės atminties
+no media: insert a microSD card
+= nėra laikmenos: įdėk microSD kortelę
+syncing and ejecting card
+= sinchronizuojama ir atjungiama kortelė
+another tool holds the player ({0})
+= kitas įrankis laiko grotuvą ({0})
+the player did not come back in download mode
+= grotuvas negrįžo į atsisiuntimo režimą
+the YP3 enters download mode by hand: hold Down while connecting USB
+= YP3 į atsisiuntimo režimą pereina rankiniu būdu: jungdamas USB laikyk Down
+battery too low to flash safely ({0})
+= baterija per silpna saugiam įrašymui ({0})
+the player came back in download mode: the new firmware did not start
+= grotuvas grįžo į atsisiuntimo režimą: naujas firmware nepasileido
+this package is for {0}, not {1}
+= šis paketas skirtas {0}, o ne {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= grotuvo flash ties 0x{0} neatitinka to, kam paketas sukurtas; nieko neįrašyta
+the package has no firmware image
+= pakete nėra firmware vaizdo
+the card needs {0} MiB free; it has {1} MiB
+= kortelei reikia {0} MiB laisvos vietos; yra {1} MiB
+{0} did not read back correctly from the card
+= {0} iš kortelės perskaitytas neteisingai
+could not mount the player's card: {0}
+= nepavyko prijungti grotuvo kortelės: {0}
+the player's card did not appear
+= grotuvo kortelė neatsirado
+the card is in use by another program
+= kortelę naudoja kita programa
+cancelled
+= atšaukta
+checksum mismatch at 0x{0}
+= kontrolinės sumos klaida ties 0x{0}
+sector 0x{0} reads inconsistently
+= sektorius 0x{0} skaitomas nenuosekliai
+flash at 0x{0} reads inconsistently
+= flash ties 0x{0} skaitomas nenuosekliai
+backup did not read back from disk
+= atsarginė kopija neperskaityta iš disko
+{0} is damaged (checksum mismatch)
+= {0} sugadintas (kontrolinė suma nesutampa)
+{0} is {1} bytes; a full flash image is {2}
+= {0} yra {1} baitų; pilnas flash vaizdas yra {2}
+not a tar.xz release: {0}
+= ne tar.xz leidimas: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= šiam paketui (formatas {0}) reikia naujesnio rockslop nei {1}: atnaujink rockslop
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= šis paketas (formatas {0}) per senas rockslop {1}: gauk naujesnį leidimą
+MANIFEST has no format
+= MANIFEST neturi formato
+MANIFEST names no target
+= MANIFEST nenurodo tikslo
+unsafe path in archive: {0}
+= nesaugus kelias archyve: {0}
+{0}: links and special files are not allowed
+= {0}: nuorodos ir specialūs failai neleidžiami
+{0}: checksum mismatch, the download is corrupt
+= {0}: kontrolinė suma nesutampa, atsisiuntimas sugadintas
+unexpected member {0}
+= netikėtas elementas {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= archyve trūksta failų, nurodytų SHA256SUMS: {0}
+release contains no flash image
+= leidime nėra flash vaizdo
+{0}: checksum mismatch
+= {0}: kontrolinė suma nesutampa
+archive member too large
+= archyvo elementas per didelis
+internal error: {0}
+= vidinė klaida: {0}
+{0}: permission denied. {1}
+= {0}: prieiga uždrausta. {1}
+Install the udev rule (see README) or run as root.
+= Įdiek udev taisyklę (žr. README) arba paleisk kaip root.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= macOS reikia root teisių, kad perimtų įrenginį iš masinės atminties tvarkyklės: paleisk iš Terminal su sudo.
+The device needs the WinUSB driver (Zadig).
+= Įrenginiui reikia WinUSB tvarkyklės (Zadig).
+{0}: the device is busy (another tool is using it?)
+= {0}: įrenginys užimtas (gal jį naudoja kitas įrankis?)
+{0}: the device went away
+= {0}: įrenginys dingo
+{0}: timed out
+= {0}: baigėsi laikas
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= VILK IR SUK
+UNPLUG
+= ATJUNK
+pull the USB cable out
+= ištrauk USB kabelį
+POWER ON
+= ĮJUNK
+hold POWER, on the bottom edge
+= laikyk MAITINIMĄ, apatiniame krašte
+stock firmware
+= gamyklinis firmware
+SWITCH OFF
+= IŠJUNK
+hold POWER until the screen goes dark
+= laikyk MAITINIMĄ, kol ekranas užges
+HOLD POWER
+= LAIKYK MAITINIMĄ
+plug in while holding, ~4 s
+= prijunk laikydamas, ~4 s
+on the player: System > Debug > {0}
+= grotuve: Systema > Debug > {0}
+follow the steps above
+= atlik aukščiau nurodytus žingsnius
+THE {0} PACKAGE
+= {0} PAKETAS
+NEEDS A MICROSD CARD
+= REIKIA MICROSD KORTELĖS
+It looks like you're trying to hack an MP3 player. Would you like help?
+= Atrodo, kad bandai nulaužti MP3 grotuvą. Ar reikia pagalbos?
+GOT IT
+= SUPRATAU
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= Šie grotuvai neturi modelio numerio. Verčiau palygink karkasinius modelius: skiriasi mygtukai ir jungtys. Patempk grotuvą, kad jį pasuktum.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= Pirmiausia išjunk grotuvą, tada laikyk DOWN dar prieš įkišdamas kabelį ir neatleisk.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= Laikyk mygtuką MAITINIMAS, kol jungi kabelį, ir neatleisk maždaug 4 sekundes.
+Switch the player on first: hold POWER on its bottom edge.
+= Pirmiausia įjunk grotuvą: laikyk mygtuką MAITINIMAS jo apatiniame krašte.
+Still nothing? Try another cable: some only charge.
+= Vis dar nieko? Pabandyk kitą kabelį: kai kurie tik įkrauna.
+Your computer won't let rockslop use the player.
+= Tavo kompiuteris neleidžia rockslop naudotis grotuvu.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= Pirmiausia atjunk kabelį: grotuvas klauso tik atsisiuntimo režime. Žingsniai parodo, kaip.
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= Tau reikia {0} skirto Rockbox paketo: .tar.xz failo. Spausk PASIRINK PAKETĄ arba numesk jį ant skydelio.
+Push a microSD card all the way into the player's slot, then press RESET.
+= Įstumk microSD kortelę iki galo į grotuvo lizdą, tada spausk RESET.
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Rockbox dar neparodė savo USB disko. Jei grotuvas tik kraunasi, atjunk jį, laikyk bet kurį klavišą ir vėl prijunk.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= BANDYTI dažniausiai padeda. Vis dar nesiseka? KOPIJUOTI ATASKAITĄ nukopijuoja detales į iškarpinę klaidos pranešimui.
+It looks like you watched all the credits. Nobody does that. Respect.
+= Atrodo, kad pažiūrėjai visus titrus iki galo. Niekas to nedaro. Pagarba.
+DEAL WITH IT
+= DEAL WITH IT

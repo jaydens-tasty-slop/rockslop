@@ -1,0 +1,26 @@
+# macOS cross build with osxcross. Apple's SDK cannot be redistributed:
+# put MacOSX<ver>.sdk.tar.xz (packed from Xcode, see osxcross's README)
+# in packaging/containers/sdk/ before building this image.
+FROM docker.io/library/rust:1-bookworm
+# A new SDK's libc++ needs a new clang (SDK 27's: clang 20.1 or later), newer
+# than Debian's, so clang comes from LLVM's own repository.
+ARG LLVM=21
+RUN apt-get update && apt-get install -y --no-install-recommends ca-certificates curl gnupg \
+    && curl -fsSL https://apt.llvm.org/llvm-snapshot.gpg.key | gpg --dearmor -o /usr/share/keyrings/llvm.gpg \
+    && echo "deb [signed-by=/usr/share/keyrings/llvm.gpg] https://apt.llvm.org/bookworm/ llvm-toolchain-bookworm-$LLVM main" \
+        > /etc/apt/sources.list.d/llvm.list \
+    && apt-get update && apt-get install -y --no-install-recommends \
+        clang-$LLVM lld-$LLVM llvm-$LLVM cmake git patch python3 xz-utils bzip2 cpio libxml2-dev libssl-dev zlib1g-dev zip \
+    && rm -rf /var/lib/apt/lists/*
+ENV PATH=/usr/lib/llvm-$LLVM/bin:$PATH
+RUN git clone --depth 1 https://github.com/tpoechtrager/osxcross /osxcross
+COPY sdk/ /osxcross/tarballs/
+# parallel jobs for the toolchain build (podman build --build-arg JOBS=N)
+ARG JOBS=
+RUN cd /osxcross && UNATTENDED=1 ./build.sh && rm -rf /osxcross/build /osxcross/tarballs
+ENV PATH=/osxcross/target/bin:$PATH
+RUN rustup target add x86_64-apple-darwin aarch64-apple-darwin
+# rcodesign signs the app (ad hoc: no Apple account) without a Mac
+RUN cargo install ${JOBS:+-j $JOBS} --locked --version 0.29.0 apple-codesign --bin rcodesign \
+    && rm -rf /usr/local/cargo/registry
+WORKDIR /src

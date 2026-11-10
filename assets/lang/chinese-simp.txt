@@ -1,0 +1,522 @@
+# 简体中文: rockslop UI
+TARGET
+= 目标
+LINK
+= 连接
+PAYLOAD
+= 载荷
+EXECUTE
+= 执行
+BUS IDLE
+= 总线空闲
+STOCK
+= 原厂
+awaiting target
+= 等待目标
+scanning usb
+= 扫描 usb
+awaiting payload
+= 等待载荷
+executing
+= 执行中
+session complete
+= 会话完成
+session aborted
+= 会话中止
+rolling credits
+= 片尾字幕滚动
+SND
+= 音效
+MUTED
+= 静音
+NO SND
+= 无音效
+audio muted
+= 音频已静音
+audio on
+= 音频已开启
+neural uplink
+= 神经上行链路
+usb stack
+= usb 协议栈
+flash maps
+= 闪存映射
+payloads
+= 载荷
+glyph cache
+= 字形缓存
+SELECT TARGET
+= 选择目标
+DOWNLOAD MODE
+= 下载模式
+STOCK FIRMWARE
+= 原厂固件
+ENGAGE
+= 启动
+CLICK TO ENGAGE
+= 点击启动
+RESET
+= RESET
+HEADPHONE
+= 耳机
+VOL
+= 音量
+POWER
+= 电源
+POWER OFF
+= 关机
+unplugged: hold the centre key
+= 未接 USB：按住中心键
+HOLD DOWN
+= 按住 下键
+bottom of the wheel
+= 滚轮底部
+CONNECT USB
+= 连接 USB
+keep holding
+= 继续按住
+RELEASE
+= 松开
+once linked
+= 连接后
+OR
+= 或
+hold DOWN and tap RESET
+= 按住 下键 并点按 RESET
+STAND BY
+= 稍候
+it reboots into download mode
+= 将重启进入下载模式
+ROCKBOX?
+= ROCKBOX 已装？
+switch it off, then hold POWER ~4 s while connecting
+= 先关机，然后在连接时按住 电源键 约 4 秒
+LINK FAILED
+= 连接失败
+SCANNING
+= 扫描中
+no player on the bus yet
+= 总线上暂无播放器
+ACCESS DENIED
+= 访问被拒绝
+no permission: install the udev rule (see README)
+= 无权限：请安装 udev 规则（见 README）
+macOS: run rockslop with sudo to take the device
+= macOS：请用 sudo 运行 rockslop 以接管设备
+install the WinUSB driver for it (Zadig)
+= 请为其安装 WinUSB 驱动（Zadig）
+LINK ESTABLISHED
+= 连接已建立
+identity verified
+= 身份已验证
+PROBING
+= 探测中
+boot ROM online
+= ROM 已上线
+forcing download mode
+= 强制进入下载模式
+ROCKBOX RUNNING
+= ROCKBOX 运行中
+BACK
+= 返回
+RETRY
+= 重试
+Rockbox package
+= Rockbox 安装包
+SELECT IMAGE
+= 选择镜像
+or drop it here
+= 或拖放到此处
+IMAGE
+= 镜像
+REJECTED
+= 已拒绝
+BUILD
+= 机型
+FLASH
+= 闪存
+CARD
+= 存储卡
+{0} files  ·  {1}
+= {0} 个文件  ·  {1}
+every member verified
+= 所有成员已验证
+BACKUP
+= 备份
+stock flash saved first
+= 已先保存原厂闪存
+CHANGE
+= 更改
+INSERT SD CARD
+= 插入 SD 卡
+RETURN TO STOCK
+= 恢复原厂
+built for {0}, not {1}
+= 为 {0} 构建，并非 {1}
+LAYOUT
+= 布局
+LOCKED
+= 已锁定
+PROBE
+= 探测
+VERIFY
+= 校验
+WRITE
+= 写入
+CHECKSUM
+= 校验和
+CHECK
+= 检查
+REBOOT
+= 重启
+SD SYNC
+= SD 同步
+EJECT
+= 弹出
+DONE
+= 完成
+FLASH MAP
+= 闪存映射
+SAME
+= 相同
+READ
+= 读取
+ERASE
+= 擦除
+WRITTEN
+= 已写入
+BAD
+= 损坏
+FILES
+= 文件
+BUS TAP
+= 总线监听
+THEN PRESS RESET
+= 然后按 RESET
+SD CARD
+= SD 卡
+NO CARD
+= 无卡
+READ BACK
+= 回读
+MOUNT
+= 挂载
+CHECKED
+= 已检查
+DATA
+= 数据
+RATE
+= 速率
+ETA
+= 剩余
+ACCESS GRANTED
+= 访问已授权
+STOCK RESTORED
+= 原厂已恢复
+the player boots stock firmware again
+= 播放器将再次启动原厂固件
+rockbox is live on the player
+= rockbox 已在播放器上运行
+SESSION
+= 会话
+{0} sectors rewritten, checksummed
+= 已重写 {0} 个扇区，已校验
+{0} files  ·  {1}  ·  read back OK
+= {0} 个文件  ·  {1}  ·  回读正常
+not updated
+= 未更新
+TIME
+= 用时
+UNPLUG TO FINISH
+= 拔下以完成
+EJECTED
+= 已弹出
+UNPLUG AND ROCK
+= 拔下，开摇
+AGAIN
+= 再来
+CREDITS
+= 制作人员
+the flash was partly rewritten: a backup is safe on disk
+= 闪存已被部分重写：磁盘上有安全备份
+nothing was written
+= 未写入任何数据
+FAULT
+= 故障
+COPY REPORT
+= 复制报告
+REPORT COPIED
+= 报告已复制
+NOW PLAYING
+= 正在播放
+THIS FLASHER
+= 本刷机工具
+ROCKBOX CONTRIBUTORS
+= ROCKBOX 贡献者
+{0} contributors
+= {0} 位贡献者
+People that have contributed to the project, one way or another. Friends!
+= 以各种方式为本项目做出贡献的人。朋友们！
+links open in your browser
+= 链接将在浏览器中打开
+Made by
+= 制作
+Device protocols and payloads
+= 设备协议与载荷
+Music
+= 音乐
+Voice lines
+= 语音
+Sound effects
+= 音效
+Fonts
+= 字体
+Rust crates
+= Rust 库
+Reference photos
+= 参考照片
+LANGUAGE
+= 语言
+AUTOMATIC
+= 自动
+stock firmware on the bus: asking it for download mode
+= 原厂固件在总线上：请求进入下载模式
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0} 已确认 0xCB：正在重启进入 ADFU
+attaching to {0}
+= 正在连接 {0}
+sector CRC32 scan on the player
+= 播放器上进行扇区 CRC32 扫描
+dumping {0} KiB
+= 正在转储 {0} KiB
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= 已捕获 {0} 个扇区（读取 {1}，已知 {2}）；CRC32 已验证
+dumping {0} KiB of raw NOR cells
+= 正在转储 {0} KiB 原始 NOR 单元
+second pass: comparing
+= 第二遍：比对中
+{0} sectors captured; two reads agree
+= 已捕获 {0} 个扇区；两次读取一致
+identical backup already on file: {0}
+= 相同的备份已存在：{0}
+backup -> {0}
+= 备份 -> {0}
+{0} of {1} sectors differ
+= {1} 个扇区中有 {0} 个不同
+0x{0} erase / program / verify ok
+= 0x{0} 擦除 / 编程 / 验证完成
+CRC32 of every writable sector, computed on the player
+= 播放器上计算每个可写扇区的 CRC32
+reading the writable window back
+= 正在回读可写区域
+flash checksum OK  sha256 {0}..{1}
+= 闪存校验和正常  sha256 {0}..{1}
+rebooting into Rockbox
+= 正在重启进入 Rockbox
+rebooting into stock firmware
+= 正在重启进入原厂固件
+firmware is up
+= 固件已启动
+{0} image(s), {1} KiB, sha256 verified
+= {0} 个镜像，{1} KiB，sha256 已验证
+{0} sectors rewritten
+= 已重写 {0} 个扇区
+Rockbox did not show up as a USB disk; the card was not updated
+= Rockbox 未显示为 USB 磁盘；存储卡未更新
+total {0} s
+= 共 {0} 秒
+{0} loaded, checksum OK
+= 已加载 {0}，校验和正常
+backup is from another unit; its per-unit sectors are left alone
+= 备份来自另一台设备；其单机专属扇区保持不动
+waiting for Rockbox's USB disk
+= 等待 Rockbox 的 USB 磁盘
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= 尚未出现 Rockbox 的 USB 磁盘：若设为仅充电，请拔下播放器，按住任意键再重新插上（或将 设置 > 常规设置 > 系统 > USB > USB模式 设为 大容量存储）
+no microSD card in the player: insert one, then press RESET
+= 播放器中没有 microSD 卡：请插入一张，然后按 RESET
+card online: {0}
+= 存储卡在线：{0}
+removed {0} stale plugin/codec files
+= 已删除 {0} 个过期的插件/编解码器文件
+removed {0}: the firmware is in flash, not on the card
+= 已删除 {0}：固件位于闪存中，而非存储卡上
+{0} files written
+= 已写入 {0} 个文件
+reading every file back from the card
+= 正在从存储卡回读所有文件
+{0} files read back: sha256 OK
+= 已回读 {0} 个文件：sha256 正常
+card ejected
+= 存储卡已弹出
+could not eject the card ({0}); eject it before unplugging
+= 无法弹出存储卡（{0}）；拔下前请先弹出
+stock firmware detected: ACTIONSUSBD
+= 检测到原厂固件：ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= 正在注入厂商命令 0xCB -> ADFU
+opening {0} download mode
+= 正在打开 {0} 下载模式
+reattaching to download mode
+= 正在重新连接下载模式
+dumping {0} KiB of stock flash
+= 正在转储 {0} KiB 原厂闪存
+re-reading CRC32 of every sector
+= 重新读取每个扇区的 CRC32
+backup verified: {0}/{1} sectors match
+= 备份已验证：{0}/{1} 个扇区匹配
+{0} sectors differ; writing
+= {0} 个扇区不同；写入中
+sector 0x{0} erase/program/verify ok
+= 扇区 0x{0} 擦除/编程/验证完成
+full flash CRC scan
+= 完整闪存 CRC 扫描
+flash checksum OK
+= 闪存校验和正常
+waiting for Rockbox USB mass storage
+= 等待 Rockbox USB 大容量存储
+no media: insert a microSD card
+= 无介质：请插入 microSD 卡
+syncing and ejecting card
+= 正在同步并弹出存储卡
+another tool holds the player ({0})
+= 另一个工具占用了播放器（{0}）
+the player did not come back in download mode
+= 播放器未能以下载模式重新出现
+the YP3 enters download mode by hand: hold Down while connecting USB
+= YP3 需手动进入下载模式：连接 USB 时按住 下键
+battery too low to flash safely ({0})
+= 电量过低，无法安全刷写（{0}）
+the player came back in download mode: the new firmware did not start
+= 播放器已回到下载模式：新固件未能启动
+this package is for {0}, not {1}
+= 此安装包适用于 {0}，而非 {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= 此播放器位于 0x{0} 的闪存与安装包的目标不符；未写入任何数据
+the package has no firmware image
+= 安装包中没有固件镜像
+the card needs {0} MiB free; it has {1} MiB
+= 存储卡需要 {0} MiB 可用空间；现有 {1} MiB
+{0} did not read back correctly from the card
+= {0} 未能从存储卡正确回读
+could not mount the player's card: {0}
+= 无法挂载播放器的存储卡：{0}
+the player's card did not appear
+= 播放器的存储卡未出现
+the card is in use by another program
+= 存储卡正被其他程序占用
+cancelled
+= 已取消
+checksum mismatch at 0x{0}
+= 0x{0} 处校验和不匹配
+sector 0x{0} reads inconsistently
+= 扇区 0x{0} 读取不一致
+flash at 0x{0} reads inconsistently
+= 0x{0} 处的闪存读取不一致
+backup did not read back from disk
+= 备份未能从磁盘回读
+{0} is damaged (checksum mismatch)
+= {0} 已损坏（校验和不匹配）
+{0} is {1} bytes; a full flash image is {2}
+= {0} 为 {1} 字节；完整闪存镜像为 {2}
+not a tar.xz release: {0}
+= 不是 tar.xz 发行包：{0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= 此安装包（格式 {0}）需要比 {1} 更新的 rockslop：请更新 rockslop
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= 此安装包（格式 {0}）对 rockslop {1} 来说太旧：请获取更新的发行包
+MANIFEST has no format
+= MANIFEST 没有格式
+MANIFEST names no target
+= MANIFEST 未指定目标
+unsafe path in archive: {0}
+= 压缩包中存在不安全路径：{0}
+{0}: links and special files are not allowed
+= {0}：不允许链接和特殊文件
+{0}: checksum mismatch, the download is corrupt
+= {0}：校验和不匹配，下载已损坏
+unexpected member {0}
+= 意外的成员 {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= 压缩包缺少 SHA256SUMS 中列出的 {0} 个文件
+release contains no flash image
+= 发行包不含闪存镜像
+{0}: checksum mismatch
+= {0}：校验和不匹配
+archive member too large
+= 压缩包成员过大
+internal error: {0}
+= 内部错误：{0}
+{0}: permission denied. {1}
+= {0}：权限被拒绝。{1}
+Install the udev rule (see README) or run as root.
+= 请安装 udev 规则（见 README），或以 root 身份运行。
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= macOS 需要 root 权限才能从大容量存储驱动手中接管设备：请在“终端”中用 sudo 运行。
+The device needs the WinUSB driver (Zadig).
+= 该设备需要 WinUSB 驱动（Zadig）。
+{0}: the device is busy (another tool is using it?)
+= {0}：设备忙（是否有其他工具正在使用？）
+{0}: the device went away
+= {0}：设备已断开
+{0}: timed out
+= {0}：超时
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= 拖动旋转
+UNPLUG
+= 拔下
+pull the USB cable out
+= 拔下 USB 数据线
+POWER ON
+= 开机
+hold POWER, on the bottom edge
+= 按住底边的 电源键
+stock firmware
+= 原厂固件
+SWITCH OFF
+= 关机
+hold POWER until the screen goes dark
+= 按住 电源键 直到屏幕熄灭
+HOLD POWER
+= 按住 电源键
+plug in while holding, ~4 s
+= 按住的同时插上，约 4 秒
+on the player: System > Debug > {0}
+= 在播放器上：系统 > 调试 > {0}
+follow the steps above
+= 按上面的步骤操作
+THE {0} PACKAGE
+= {0} 安装包
+NEEDS A MICROSD CARD
+= 需要 microSD 卡
+It looks like you're trying to hack an MP3 player. Would you like help?
+= 看起来您正在尝试破解一台 MP3 播放器。需要帮助吗？
+GOT IT
+= 知道了
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= 这些播放器上没有型号。请改为比较线框图：按键和接口各不相同。拖动播放器即可旋转。
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= 请先关闭播放器，然后在插入数据线之前按住 下键，并一直按住。
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= 插入数据线时按住 电源键，并保持按住约 4 秒。
+Switch the player on first: hold POWER on its bottom edge.
+= 请先打开播放器：按住底边的 电源键。
+Still nothing? Try another cable: some only charge.
+= 还是没反应？换一根数据线试试：有些线只能充电。
+Your computer won't let rockslop use the player.
+= 您的电脑不允许 rockslop 使用这台播放器。
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= 请先拔下数据线：播放器只在下载模式下响应。上面的步骤会告诉您怎么做。
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= 您需要为 {0} 构建的 Rockbox 安装包：一个 .tar.xz 文件。点击“选择镜像”，或将其拖放到面板上。
+Push a microSD card all the way into the player's slot, then press RESET.
+= 把 microSD 卡完全插入播放器的卡槽，然后按 RESET。
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Rockbox 还没有出现 USB 磁盘。如果播放器只在充电，请拔下它，按住任意键再重新插上。
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= 点“重试”通常就能解决。还是不行？“复制报告”会把详细信息放到剪贴板，方便提交错误报告。
+It looks like you watched all the credits. Nobody does that. Respect.
+= 看起来您把制作人员名单全看完了。没人会这么做。佩服。
+DEAL WITH IT
+= DEAL WITH IT

@@ -1,0 +1,522 @@
+# Slovenščina: rockslop UI
+TARGET
+= CILJ
+LINK
+= LINK
+PAYLOAD
+= VSEBINA
+EXECUTE
+= ZAŽENI
+BUS IDLE
+= BUS PRAZEN
+STOCK
+= TOVARN.
+awaiting target
+= čakam na cilj
+scanning usb
+= iščem usb
+awaiting payload
+= čakam na payload
+executing
+= izvajam
+session complete
+= seja končana
+session aborted
+= seja prekinjena
+rolling credits
+= teče špica
+SND
+= ZVOK
+MUTED
+= UTIŠAN
+NO SND
+= BREZ ZV.
+audio muted
+= zvok utišan
+audio on
+= zvok vklopljen
+neural uplink
+= nevronska povezava
+usb stack
+= sklad usb
+flash maps
+= zemljevidi flash
+payloads
+= payloadi
+glyph cache
+= predpomnilnik glifov
+SELECT TARGET
+= IZBERI CILJ
+DOWNLOAD MODE
+= NAČIN PRENOSA
+STOCK FIRMWARE
+= TOVARNIŠKI FIRMWARE
+ENGAGE
+= VKLOPI
+CLICK TO ENGAGE
+= KLIKNI ZA VKLOP
+RESET
+= RESET
+HEADPHONE
+= SLUŠALKE
+VOL
+= GLAS
+POWER
+= POWER
+POWER OFF
+= IZKLOPI
+unplugged: hold the centre key
+= odklopljeno: drži sredinsko tipko
+HOLD DOWN
+= DRŽI DOL
+bottom of the wheel
+= spodnji del kolesca
+CONNECT USB
+= PRIKLOPI USB
+keep holding
+= drži naprej
+RELEASE
+= SPUSTI
+once linked
+= ko se poveže
+OR
+= ALI
+hold DOWN and tap RESET
+= drži DOL in tapni RESET
+STAND BY
+= POČAKAJ
+it reboots into download mode
+= znova se zažene v načinu prenosa
+ROCKBOX?
+= ROCKBOX?
+switch it off, then hold POWER ~4 s while connecting
+= izklopi ga, nato drži POWER ~4 s med priklopom
+LINK FAILED
+= LINK NI USPEL
+SCANNING
+= ISKANJE
+no player on the bus yet
+= na vodilu še ni predvajalnika
+ACCESS DENIED
+= DOSTOP ZAVRNJEN
+no permission: install the udev rule (see README)
+= ni dovoljenja: namesti pravilo udev (glej README)
+macOS: run rockslop with sudo to take the device
+= macOS: zaženi rockslop s sudo, da prevzameš napravo
+install the WinUSB driver for it (Zadig)
+= zanjo namesti gonilnik WinUSB (Zadig)
+LINK ESTABLISHED
+= LINK VZPOSTAVLJEN
+identity verified
+= identiteta preverjena
+PROBING
+= SONDIRANJE
+boot ROM online
+= boot ROM na zvezi
+forcing download mode
+= vsiljujem način prenosa
+ROCKBOX RUNNING
+= ROCKBOX TEČE
+BACK
+= NAZAJ
+RETRY
+= ZNOVA
+Rockbox package
+= paket Rockbox
+SELECT IMAGE
+= IZBERI SLIKO
+or drop it here
+= ali ga spusti sem
+IMAGE
+= SLIKA
+REJECTED
+= ZAVRNJENO
+BUILD
+= BUILD
+FLASH
+= FLASH
+CARD
+= KARTICA
+{0} files  ·  {1}
+= datoteke: {0}  ·  {1}
+every member verified
+= vsi členi preverjeni
+BACKUP
+= KOPIJA
+stock flash saved first
+= tovarniški flash najprej shranjen
+CHANGE
+= SPREMENI
+INSERT SD CARD
+= VSTAVI SD KARTICO
+RETURN TO STOCK
+= NAZAJ NA TOVARNIŠKO
+built for {0}, not {1}
+= narejeno za {0}, ne za {1}
+LAYOUT
+= RAZPORED
+LOCKED
+= ZAKLENJENO
+PROBE
+= SONDA
+VERIFY
+= PREVERI
+WRITE
+= ZAPIS
+CHECKSUM
+= VSOTA
+CHECK
+= PREGLED
+REBOOT
+= RESTART
+SD SYNC
+= SD SINH.
+EJECT
+= IZVRZI
+DONE
+= KONEC
+FLASH MAP
+= MAPA FLASH
+SAME
+= ENAKO
+READ
+= BRANJE
+ERASE
+= BRISANJE
+WRITTEN
+= ZAPISANO
+BAD
+= SLABO
+FILES
+= DATOTEKE
+BUS TAP
+= PODSLUŠ
+THEN PRESS RESET
+= NATO PRITISNI RESET
+SD CARD
+= SD KARTICA
+NO CARD
+= BREZ KARTICE
+READ BACK
+= PREBERI NAZAJ
+MOUNT
+= MOUNT
+CHECKED
+= PREVERJENO
+DATA
+= PODATKI
+RATE
+= HITR.
+ETA
+= ETA
+ACCESS GRANTED
+= DOSTOP ODOBREN
+STOCK RESTORED
+= OBNOVLJENO
+the player boots stock firmware again
+= predvajalnik spet zaganja tovarniški firmware
+rockbox is live on the player
+= rockbox teče na predvajalniku
+SESSION
+= SEJA
+{0} sectors rewritten, checksummed
+= prepisanih sektorjev: {0}, kontrolna vsota OK
+{0} files  ·  {1}  ·  read back OK
+= datoteke: {0}  ·  {1}  ·  branje nazaj OK
+not updated
+= ni posodobljeno
+TIME
+= ČAS
+UNPLUG TO FINISH
+= ODKLOPI ZA KONEC
+EJECTED
+= IZVRŽENO
+UNPLUG AND ROCK
+= ODKLOPI IN ROCKAJ
+AGAIN
+= ZNOVA
+CREDITS
+= ŠPICA
+the flash was partly rewritten: a backup is safe on disk
+= flash je bil delno prepisan: varnostna kopija je shranjena na disku
+nothing was written
+= nič ni bilo zapisano
+FAULT
+= NAPAKA
+COPY REPORT
+= KOPIRAJ POROČILO
+REPORT COPIED
+= POROČILO KOPIRANO
+NOW PLAYING
+= ZDAJ PREDVAJA
+THIS FLASHER
+= TA FLASHER
+ROCKBOX CONTRIBUTORS
+= SODELAVCI ROCKBOX
+{0} contributors
+= sodelavcev: {0}
+People that have contributed to the project, one way or another. Friends!
+= Ljudje, ki so na kakršen koli način prispevali k projektu. Prijatelji!
+links open in your browser
+= povezave se odprejo v brskalniku
+Made by
+= Avtor
+Device protocols and payloads
+= Protokoli naprav in payloadi
+Music
+= Glasba
+Voice lines
+= Glasovne vrstice
+Sound effects
+= Zvočni učinki
+Fonts
+= Pisave
+Rust crates
+= Rust crates
+Reference photos
+= Referenčne fotografije
+LANGUAGE
+= JEZIK
+AUTOMATIC
+= SAMODEJNO
+stock firmware on the bus: asking it for download mode
+= tovarniški firmware na vodilu: prosim ga za način prenosa
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0} je potrdil 0xCB: ponovni zagon v ADFU
+attaching to {0}
+= povezujem se z {0}
+sector CRC32 scan on the player
+= pregled CRC32 sektorjev na predvajalniku
+dumping {0} KiB
+= odlagam {0} KiB
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= zajetih sektorjev: {0} (prebranih {1}, že znanih {2}); CRC32 preverjen
+dumping {0} KiB of raw NOR cells
+= odlagam {0} KiB surovih celic NOR
+second pass: comparing
+= drugi prehod: primerjam
+{0} sectors captured; two reads agree
+= zajetih sektorjev: {0}; obe branji se ujemata
+identical backup already on file: {0}
+= enaka varnostna kopija že obstaja: {0}
+backup -> {0}
+= kopija -> {0}
+{0} of {1} sectors differ
+= sektorjev se razlikuje: {0} od {1}
+0x{0} erase / program / verify ok
+= 0x{0} brisanje / programiranje / preverjanje ok
+CRC32 of every writable sector, computed on the player
+= CRC32 vsakega zapisljivega sektorja, izračunan na predvajalniku
+reading the writable window back
+= berem zapisljivo okno nazaj
+flash checksum OK  sha256 {0}..{1}
+= kontrolna vsota flasha OK  sha256 {0}..{1}
+rebooting into Rockbox
+= ponovni zagon v Rockbox
+rebooting into stock firmware
+= ponovni zagon v tovarniški firmware
+firmware is up
+= firmware teče
+{0} image(s), {1} KiB, sha256 verified
+= slik: {0}, {1} KiB, sha256 preverjen
+{0} sectors rewritten
+= prepisanih sektorjev: {0}
+Rockbox did not show up as a USB disk; the card was not updated
+= Rockbox se ni pojavil kot USB disk; kartica ni bila posodobljena
+total {0} s
+= skupaj {0} s
+{0} loaded, checksum OK
+= naloženo: {0}, kontrolna vsota OK
+backup is from another unit; its per-unit sectors are left alone
+= kopija je z druge enote; sektorji, specifični za enoto, ostanejo nedotaknjeni
+waiting for Rockbox's USB disk
+= čakam na USB disk Rockbox
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= USB diska od Rockboxa še ni: če je nastavljen samo na polnjenje, odklopi predvajalnik, drži katero koli tipko in ga znova priklopi (ali nastavi Settings > Splosne nastavitve > Sistem > USB > USB Mode na Mass Storage)
+no microSD card in the player: insert one, then press RESET
+= v predvajalniku ni kartice microSD: vstavi jo in pritisni RESET
+card online: {0}
+= kartica na zvezi: {0}
+removed {0} stale plugin/codec files
+= odstranjenih zastarelih datotek vtičnikov/kodekov: {0}
+removed {0}: the firmware is in flash, not on the card
+= odstranjeno {0}: firmware je v pomnilniku flash, ne na kartici
+{0} files written
+= zapisanih datotek: {0}
+reading every file back from the card
+= berem vsako datoteko s kartice nazaj
+{0} files read back: sha256 OK
+= datotek prebranih nazaj: {0}: sha256 OK
+card ejected
+= kartica izvržena
+could not eject the card ({0}); eject it before unplugging
+= kartice ni bilo mogoče izvreči ({0}); izvrzi jo pred odklopom
+stock firmware detected: ACTIONSUSBD
+= zaznan tovarniški firmware: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= vbrizgavam ukaz proizvajalca 0xCB -> ADFU
+opening {0} download mode
+= odpiram način prenosa {0}
+reattaching to download mode
+= znova se povezujem z načinom prenosa
+dumping {0} KiB of stock flash
+= odlagam {0} KiB tovarniškega flasha
+re-reading CRC32 of every sector
+= ponovno berem CRC32 vsakega sektorja
+backup verified: {0}/{1} sectors match
+= kopija preverjena: ujemajočih sektorjev {0}/{1}
+{0} sectors differ; writing
+= sektorjev se razlikuje: {0}; pišem
+sector 0x{0} erase/program/verify ok
+= sektor 0x{0} brisanje/programiranje/preverjanje ok
+full flash CRC scan
+= popoln pregled CRC flasha
+flash checksum OK
+= kontrolna vsota flasha OK
+waiting for Rockbox USB mass storage
+= čakam na USB pomnilnik Rockbox
+no media: insert a microSD card
+= ni medija: vstavi kartico microSD
+syncing and ejecting card
+= sinhroniziram in izvržem kartico
+another tool holds the player ({0})
+= predvajalnik drži drugo orodje ({0})
+the player did not come back in download mode
+= predvajalnik se ni vrnil v način prenosa
+the YP3 enters download mode by hand: hold Down while connecting USB
+= YP3 v način prenosa vstopi ročno: drži Dol med priklopom USB
+battery too low to flash safely ({0})
+= baterija je prešibka za varno pisanje ({0})
+the player came back in download mode: the new firmware did not start
+= predvajalnik se je vrnil v način prenosa: novi firmware se ni zagnal
+this package is for {0}, not {1}
+= ta paket je za {0}, ne za {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= flash predvajalnika na 0x{0} ni tak, za kakršnega je bil paket narejen; nič ni bilo zapisano
+the package has no firmware image
+= paket nima slike firmwara
+the card needs {0} MiB free; it has {1} MiB
+= kartica potrebuje {0} MiB prostora; ima {1} MiB
+{0} did not read back correctly from the card
+= {0} se s kartice ni pravilno prebral
+could not mount the player's card: {0}
+= kartice predvajalnika ni bilo mogoče priklopiti: {0}
+the player's card did not appear
+= kartica predvajalnika se ni pojavila
+the card is in use by another program
+= kartico uporablja drug program
+cancelled
+= preklicano
+checksum mismatch at 0x{0}
+= neujemanje kontrolne vsote na 0x{0}
+sector 0x{0} reads inconsistently
+= sektor 0x{0} se bere nedosledno
+flash at 0x{0} reads inconsistently
+= flash na 0x{0} se bere nedosledno
+backup did not read back from disk
+= kopija se z diska ni prebrala nazaj
+{0} is damaged (checksum mismatch)
+= {0} je poškodovan (neujemanje kontrolne vsote)
+{0} is {1} bytes; a full flash image is {2}
+= {0} ima {1} bajtov; popolna slika flasha ima {2}
+not a tar.xz release: {0}
+= ni izdaja tar.xz: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= ta paket (format {0}) zahteva novejši rockslop od {1}: posodobi rockslop
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= ta paket (format {0}) je prestar za rockslop {1}: prenesi novejšo izdajo
+MANIFEST has no format
+= MANIFEST nima formata
+MANIFEST names no target
+= MANIFEST ne navaja cilja
+unsafe path in archive: {0}
+= nevarna pot v arhivu: {0}
+{0}: links and special files are not allowed
+= {0}: povezave in posebne datoteke niso dovoljene
+{0}: checksum mismatch, the download is corrupt
+= {0}: neujemanje kontrolne vsote, prenos je pokvarjen
+unexpected member {0}
+= nepričakovan člen {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= v arhivu manjka datotek, navedenih v SHA256SUMS: {0}
+release contains no flash image
+= izdaja ne vsebuje slike flasha
+{0}: checksum mismatch
+= {0}: neujemanje kontrolne vsote
+archive member too large
+= člen arhiva je prevelik
+internal error: {0}
+= notranja napaka: {0}
+{0}: permission denied. {1}
+= {0}: dostop zavrnjen. {1}
+Install the udev rule (see README) or run as root.
+= Namesti pravilo udev (glej README) ali zaženi kot root.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= macOS potrebuje root, da prevzame napravo od gonilnika za masovni pomnilnik: zaženi iz Terminala s sudo.
+The device needs the WinUSB driver (Zadig).
+= Naprava potrebuje gonilnik WinUSB (Zadig).
+{0}: the device is busy (another tool is using it?)
+= {0}: naprava je zasedena (jo uporablja drugo orodje?)
+{0}: the device went away
+= {0}: naprava je izginila
+{0}: timed out
+= {0}: čas je potekel
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= POVLECI IN ZAVRTI
+UNPLUG
+= ODKLOPI
+pull the USB cable out
+= izvleci kabel USB
+POWER ON
+= VKLOPI
+hold POWER, on the bottom edge
+= drži POWER na spodnjem robu
+stock firmware
+= tovarniški firmware
+SWITCH OFF
+= IZKLOPI
+hold POWER until the screen goes dark
+= drži POWER, dokler zaslon ne ugasne
+HOLD POWER
+= DRŽI POWER
+plug in while holding, ~4 s
+= priklopi med držanjem, ~4 s
+on the player: System > Debug > {0}
+= na predvajalniku: Sistem > Debug > {0}
+follow the steps above
+= sledi korakom zgoraj
+THE {0} PACKAGE
+= PAKET ZA {0}
+NEEDS A MICROSD CARD
+= ZAHTEVA KARTICO MICROSD
+It looks like you're trying to hack an MP3 player. Would you like help?
+= Videti je, da poskušaš vdreti v predvajalnik MP3. Želiš pomoč?
+GOT IT
+= RAZUMEM
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= Ti predvajalniki nimajo številke modela. Raje primerjaj žične modele: tipke in priključki se razlikujejo. Povleci predvajalnik, da ga zavrtiš.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= Najprej izklopi predvajalnik, nato drži DOL, še preden priklopiš kabel, in drži naprej.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= Drži POWER, medtem ko priklapljaš kabel, in ga drži približno 4 sekunde.
+Switch the player on first: hold POWER on its bottom edge.
+= Najprej vklopi predvajalnik: drži POWER na njegovem spodnjem robu.
+Still nothing? Try another cable: some only charge.
+= Še vedno nič? Poskusi drug kabel: nekateri samo polnijo.
+Your computer won't let rockslop use the player.
+= Tvoj računalnik ne pusti, da bi rockslop uporabljal predvajalnik.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= Najprej odklopi kabel: predvajalnik posluša samo v načinu prenosa. Koraki povedo, kako.
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= Potrebuješ paket Rockbox, zgrajen za {0}: datoteko .tar.xz. Klikni IZBERI SLIKO ali ga spusti na ploščo.
+Push a microSD card all the way into the player's slot, then press RESET.
+= Kartico microSD potisni do konca v režo predvajalnika, nato pritisni RESET.
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Rockbox še ni pokazal svojega USB diska. Če se predvajalnik samo polni, ga odklopi, drži katero koli tipko in ga znova priklopi.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= ZNOVA običajno pomaga. Še vedno ne gre? KOPIRAJ POROČILO skopira podrobnosti v odložišče za poročilo o napaki.
+It looks like you watched all the credits. Nobody does that. Respect.
+= Videti je, da te je špica zadržala do konca. Tega nihče ne počne. Respekt.
+DEAL WITH IT
+= DEAL WITH IT

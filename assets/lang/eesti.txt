@@ -1,0 +1,522 @@
+# Eesti: rockslop UI
+TARGET
+= SIHTMÄRK
+LINK
+= LINK
+PAYLOAD
+= PAYLOAD
+EXECUTE
+= TÄIDA
+BUS IDLE
+= BUSS TÜHI
+STOCK
+= TEHAS
+awaiting target
+= ootan sihtmärki
+scanning usb
+= otsin usb
+awaiting payload
+= ootan payloadi
+executing
+= täidan
+session complete
+= seanss lõppenud
+session aborted
+= seanss katkestatud
+rolling credits
+= tiitrid veerevad
+SND
+= HELI
+MUTED
+= VAIKNE
+NO SND
+= EI HELI
+audio muted
+= heli vaigistatud
+audio on
+= heli sees
+neural uplink
+= neuraalühendus
+usb stack
+= usb-pinu
+flash maps
+= flashi kaardid
+payloads
+= payloadid
+glyph cache
+= glüüfimälu
+SELECT TARGET
+= VALI SIHTMÄRK
+DOWNLOAD MODE
+= LAADIMISREŽIIM
+STOCK FIRMWARE
+= TEHASE FIRMWARE
+ENGAGE
+= ALUSTA
+CLICK TO ENGAGE
+= KLÕPSA: ALUSTA
+RESET
+= RESET
+HEADPHONE
+= KÕRVAKLAPID
+VOL
+= VOL
+POWER
+= TOIDE
+POWER OFF
+= TOIDE VÄLJA
+unplugged: hold the centre key
+= lahti ühendatud: hoia keskmist nuppu all
+HOLD DOWN
+= HOIA ALL
+bottom of the wheel
+= ratta alumine osa
+CONNECT USB
+= ÜHENDA USB
+keep holding
+= hoia edasi
+RELEASE
+= LASE LAHTI
+once linked
+= pärast ühendumist
+OR
+= VÕI
+hold DOWN and tap RESET
+= hoia ALL ja puuduta RESET
+STAND BY
+= OODA
+it reboots into download mode
+= taaskäivitub laadimisrežiimi
+ROCKBOX?
+= ROCKBOX?
+switch it off, then hold POWER ~4 s while connecting
+= lülita välja, siis hoia TOIDE ~4 s ühendamisel
+LINK FAILED
+= LINGI VIGA
+SCANNING
+= SKANNIN
+no player on the bus yet
+= siini peal pole veel mängijat
+ACCESS DENIED
+= JUURDEP. KEELATUD
+no permission: install the udev rule (see README)
+= luba puudub: paigalda udev-reegel (vt README)
+macOS: run rockslop with sudo to take the device
+= macOS: käivita rockslop sudo-ga, et seade haarata
+install the WinUSB driver for it (Zadig)
+= paigalda selle jaoks WinUSB draiver (Zadig)
+LINK ESTABLISHED
+= LINK LOODUD
+identity verified
+= identiteet kinnitatud
+PROBING
+= SONDEERIN
+boot ROM online
+= boot ROM võrgus
+forcing download mode
+= sunnin laadimisrežiimi
+ROCKBOX RUNNING
+= ROCKBOX TÖÖTAB
+BACK
+= TAGASI
+RETRY
+= PROOVI
+Rockbox package
+= Rockboxi pakett
+SELECT IMAGE
+= VALI PILT
+or drop it here
+= või pillu siia
+IMAGE
+= PILT
+REJECTED
+= KEELATUD
+BUILD
+= BUILD
+FLASH
+= FLASH
+CARD
+= KAART
+{0} files  ·  {1}
+= failid: {0}  ·  {1}
+every member verified
+= kõik osad kontrollitud
+BACKUP
+= VARU
+stock flash saved first
+= tehase flash salvestati esmalt
+CHANGE
+= VAHETA
+INSERT SD CARD
+= SISESTA SD-KAART
+RETURN TO STOCK
+= TAGASI TEHASESSE
+built for {0}, not {1}
+= ehitatud: {0}, mitte: {1}
+LAYOUT
+= SKEEM
+LOCKED
+= LUKUS
+PROBE
+= SOND
+VERIFY
+= KONTROLL
+WRITE
+= KIRJUTA
+CHECKSUM
+= SUMMA
+CHECK
+= TEST
+REBOOT
+= REBOOT
+SD SYNC
+= SD SÜNK
+EJECT
+= VÄLJA
+DONE
+= VALMIS
+FLASH MAP
+= FLASHI KAART
+SAME
+= SAMA
+READ
+= LUGE
+ERASE
+= KUSTUTA
+WRITTEN
+= KIRJUTATUD
+BAD
+= VIGA
+FILES
+= FAILID
+BUS TAP
+= KUULAN
+THEN PRESS RESET
+= SIIS VAJUTA RESET
+SD CARD
+= SD-KAART
+NO CARD
+= KAARTI POLE
+READ BACK
+= LOE TAGASI
+MOUNT
+= MOUNT
+CHECKED
+= KONTR.
+DATA
+= ANDMED
+RATE
+= KIIRUS
+ETA
+= ETA
+ACCESS GRANTED
+= JUURDEP. LUBATUD
+STOCK RESTORED
+= TEHAS TAASTATUD
+the player boots stock firmware again
+= mängija käivitab jälle tehase firmware'i
+rockbox is live on the player
+= rockbox töötab mängijal
+SESSION
+= SEANSS
+{0} sectors rewritten, checksummed
+= ümberkirjutatud sektoreid: {0}, kontrollsumma OK
+{0} files  ·  {1}  ·  read back OK
+= failid: {0}  ·  {1}  ·  tagasilugemine OK
+not updated
+= uuendamata
+TIME
+= AEG
+UNPLUG TO FINISH
+= ÜHENDA LAHTI: VALMIS
+EJECTED
+= EEMALDATUD
+UNPLUG AND ROCK
+= ÜHENDA LAHTI JA ROKI
+AGAIN
+= UUESTI
+CREDITS
+= TÄNUSÕNAD
+the flash was partly rewritten: a backup is safe on disk
+= flashi kirjutati osaliselt üle: varukoopia on kettal turvas
+nothing was written
+= midagi ei kirjutatud
+FAULT
+= RIKE
+COPY REPORT
+= KOPEERI RAPORT
+REPORT COPIED
+= RAPORT KOPEERITUD
+NOW PLAYING
+= PRAEGU MÄNGIB
+THIS FLASHER
+= SEE FLASHER
+ROCKBOX CONTRIBUTORS
+= ROCKBOXI AUTORID
+{0} contributors
+= kaasautoreid: {0}
+People that have contributed to the project, one way or another. Friends!
+= Inimesed, kes on projekti ühel või teisel viisil panustanud. Sõbrad!
+links open in your browser
+= lingid avanevad brauseris
+Made by
+= Autor
+Device protocols and payloads
+= Seadme protokollid ja payloadid
+Music
+= Muusika
+Voice lines
+= Hääleread
+Sound effects
+= Heliefektid
+Fonts
+= Fondid
+Rust crates
+= Rusti paketid
+Reference photos
+= Viitefotod
+LANGUAGE
+= KEEL
+AUTOMATIC
+= AUTOMAATNE
+stock firmware on the bus: asking it for download mode
+= tehase firmware siinil: küsin laadimisrežiimi
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0} kinnitas 0xCB: taaskäivitus ADFU-sse
+attaching to {0}
+= ühendun: {0}
+sector CRC32 scan on the player
+= sektorite CRC32 skaneerimine mängijas
+dumping {0} KiB
+= tõmban {0} KiB
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= sektoreid haaratud: {0} (loetud {1}, juba teada {2}); CRC32 kontrollitud
+dumping {0} KiB of raw NOR cells
+= tõmban {0} KiB toorest NOR-rakku
+second pass: comparing
+= teine läbimine: võrdlen
+{0} sectors captured; two reads agree
+= sektoreid haaratud: {0}; kaks lugemist klapivad
+identical backup already on file: {0}
+= identne varukoopia on juba olemas: {0}
+backup -> {0}
+= varukoopia -> {0}
+{0} of {1} sectors differ
+= erinevaid sektoreid: {0} / {1}
+0x{0} erase / program / verify ok
+= 0x{0} kustutus / programmeerimine / kontroll ok
+CRC32 of every writable sector, computed on the player
+= iga kirjutatava sektori CRC32, arvutatud mängijas
+reading the writable window back
+= loen kirjutatavat akent tagasi
+flash checksum OK  sha256 {0}..{1}
+= flashi kontrollsumma OK  sha256 {0}..{1}
+rebooting into Rockbox
+= taaskäivitus Rockboxi
+rebooting into stock firmware
+= taaskäivitus tehase firmware'i
+firmware is up
+= firmware töötab
+{0} image(s), {1} KiB, sha256 verified
+= pilte: {0}, {1} KiB, sha256 kontrollitud
+{0} sectors rewritten
+= ümberkirjutatud sektoreid: {0}
+Rockbox did not show up as a USB disk; the card was not updated
+= Rockbox ei ilmunud USB-kettana nähtavale; kaarti ei uuendatud
+total {0} s
+= kokku {0} s
+{0} loaded, checksum OK
+= laaditud: {0}, kontrollsumma OK
+backup is from another unit; its per-unit sectors are left alone
+= varukoopia on teisest seadmest; selle seadmespetsiifilisi sektoreid ei puututa
+waiting for Rockbox's USB disk
+= ootan Rockboxi USB-ketast
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= Rockboxi USB-ketast veel pole: kui see on seatud ainult laadima, ühenda mängija lahti, hoia mõnda klahvi all ja ühenda uuesti (või sea Settings > Üldseaded > Süsteem > USB > USB Mode väärtuseks Mass Storage)
+no microSD card in the player: insert one, then press RESET
+= mängijas pole microSD-kaarti: sisesta kaart ja vajuta RESET
+card online: {0}
+= kaart võrgus: {0}
+removed {0} stale plugin/codec files
+= eemaldatud aegunud pluginate/koodekite faile: {0}
+removed {0}: the firmware is in flash, not on the card
+= eemaldatud {0}: firmware on välkmälus, mitte kaardil
+{0} files written
+= faile kirjutatud: {0}
+reading every file back from the card
+= loen iga faili kaardilt tagasi
+{0} files read back: sha256 OK
+= faile tagasi loetud: {0}: sha256 OK
+card ejected
+= kaart eemaldatud
+could not eject the card ({0}); eject it before unplugging
+= kaarti ei saanud eemaldada ({0}); eemalda see enne lahtiühendamist
+stock firmware detected: ACTIONSUSBD
+= tehase firmware tuvastatud: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= süstin tootja käsu 0xCB -> ADFU
+opening {0} download mode
+= avan {0} laadimisrežiimi
+reattaching to download mode
+= ühendun uuesti laadimisrežiimi
+dumping {0} KiB of stock flash
+= tõmban {0} KiB tehase flashi
+re-reading CRC32 of every sector
+= loen iga sektori CRC32 uuesti
+backup verified: {0}/{1} sectors match
+= varukoopia kontrollitud: kattuvaid sektoreid {0}/{1}
+{0} sectors differ; writing
+= erinevaid sektoreid: {0}; kirjutan
+sector 0x{0} erase/program/verify ok
+= sektor 0x{0} kustutus/programmeerimine/kontroll ok
+full flash CRC scan
+= kogu flashi CRC skaneerimine
+flash checksum OK
+= flashi kontrollsumma OK
+waiting for Rockbox USB mass storage
+= ootan Rockboxi USB-massmälu
+no media: insert a microSD card
+= andmekandjat pole: sisesta microSD-kaart
+syncing and ejecting card
+= sünkroonin ja eemaldan kaarti
+another tool holds the player ({0})
+= mängijat kasutab teine tööriist ({0})
+the player did not come back in download mode
+= mängija ei naasnud laadimisrežiimi
+the YP3 enters download mode by hand: hold Down while connecting USB
+= YP3 siseneb laadimisrežiimi käsitsi: hoia USB ühendamisel all nuppu Alla
+battery too low to flash safely ({0})
+= aku on turvaliseks kirjutamiseks liiga tühi ({0})
+the player came back in download mode: the new firmware did not start
+= mängija naasis laadimisrežiimi: uus firmware ei käivitunud
+this package is for {0}, not {1}
+= see pakett on mõeldud: {0}, mitte: {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= mängija flash aadressil 0x{0} pole selline, mille jaoks pakett ehitati; midagi ei kirjutatud
+the package has no firmware image
+= paketis pole firmware'i pilti
+the card needs {0} MiB free; it has {1} MiB
+= kaardil peab olema {0} MiB vaba; on {1} MiB
+{0} did not read back correctly from the card
+= {0} ei lugenud kaardilt õigesti tagasi
+could not mount the player's card: {0}
+= mängija kaarti ei saanud ühendada: {0}
+the player's card did not appear
+= mängija kaart ei ilmunud nähtavale
+the card is in use by another program
+= kaarti kasutab teine programm
+cancelled
+= tühistatud
+checksum mismatch at 0x{0}
+= kontrollsumma ei klapi aadressil 0x{0}
+sector 0x{0} reads inconsistently
+= sektor 0x{0} loeb ebajärjekindlalt
+flash at 0x{0} reads inconsistently
+= flash aadressil 0x{0} loeb ebajärjekindlalt
+backup did not read back from disk
+= varukoopia ei lugenud kettalt tagasi
+{0} is damaged (checksum mismatch)
+= {0} on rikutud (kontrollsumma ei klapi)
+{0} is {1} bytes; a full flash image is {2}
+= {0} on {1} baiti; täielik flashi pilt on {2}
+not a tar.xz release: {0}
+= pole tar.xz väljalase: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= see pakett (vorming {0}) vajab uuemat rockslopi kui {1}: uuenda rockslopi
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= see pakett (vorming {0}) on rockslop {1} jaoks liiga vana: hangi uuem väljalase
+MANIFEST has no format
+= MANIFESTil pole vormingut
+MANIFEST names no target
+= MANIFEST ei nimeta sihtmärki
+unsafe path in archive: {0}
+= ohtlik tee arhiivis: {0}
+{0}: links and special files are not allowed
+= {0}: lingid ja erifailid pole lubatud
+{0}: checksum mismatch, the download is corrupt
+= {0}: kontrollsumma ei klapi, allalaadimine on rikutud
+unexpected member {0}
+= ootamatu liige {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= arhiivist puudub SHA256SUMS-is loetletud faile: {0}
+release contains no flash image
+= väljalase ei sisalda flashi pilti
+{0}: checksum mismatch
+= {0}: kontrollsumma ei klapi
+archive member too large
+= arhiivi liige on liiga suur
+internal error: {0}
+= sisemine viga: {0}
+{0}: permission denied. {1}
+= {0}: juurdepääs keelatud. {1}
+Install the udev rule (see README) or run as root.
+= Paigalda udev-reegel (vt README) või käivita root-kasutajana.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= macOS vajab root-õigusi, et seade massmäludraiverilt üle võtta: käivita Terminalist sudo-ga.
+The device needs the WinUSB driver (Zadig).
+= Seade vajab WinUSB draiverit (Zadig).
+{0}: the device is busy (another tool is using it?)
+= {0}: seade on hõivatud (kas mõni teine tööriist kasutab seda?)
+{0}: the device went away
+= {0}: seade kadus
+{0}: timed out
+= {0}: aeg sai otsa
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= LOHISTA PÖÖRAMISEKS
+UNPLUG
+= ÜHENDA LAHTI
+pull the USB cable out
+= tõmba USB-kaabel välja
+POWER ON
+= LÜLITA SISSE
+hold POWER, on the bottom edge
+= hoia TOIDE, alumisel serval
+stock firmware
+= tehase firmware
+SWITCH OFF
+= LÜLITA VÄLJA
+hold POWER until the screen goes dark
+= hoia TOIDE, kuni ekraan kustub
+HOLD POWER
+= HOIA TOIDE
+plug in while holding, ~4 s
+= ühenda hoides, ~4 s
+on the player: System > Debug > {0}
+= mängijas: Süsteem > Debug > {0}
+follow the steps above
+= järgi ülal olevaid samme
+THE {0} PACKAGE
+= {0} PAKETT
+NEEDS A MICROSD CARD
+= VAJAB MICROSD-KAARTI
+It looks like you're trying to hack an MP3 player. Would you like help?
+= Tundub, et üritad MP3-mängijat häkkida. Kas soovid abi?
+GOT IT
+= SELGE
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= Neil mängijatel pole mudelinumbrit. Võrdle hoopis traatmudeleid: nupud ja pordid on erinevad. Lohista mängijat, et seda pöörata.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= Lülita mängija kõigepealt välja, siis hoia ALL enne kaabli ühendamist ja hoia edasi.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= Hoia TOIDE kaabli ühendamise ajal ja hoia edasi umbes 4 sekundit.
+Switch the player on first: hold POWER on its bottom edge.
+= Lülita mängija kõigepealt sisse: hoia TOIDE selle alumisel serval.
+Still nothing? Try another cable: some only charge.
+= Ikka mitte midagi? Proovi teist kaablit: mõned ainult laadivad.
+Your computer won't let rockslop use the player.
+= Su arvuti ei luba rockslopil mängijat kasutada.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= Ühenda kõigepealt kaabel lahti: mängija kuulab ainult laadimisrežiimis. Sammud näitavad, kuidas.
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= Sul on vaja {0} jaoks ehitatud Rockboxi paketti: .tar.xz-faili. Klõpsa VALI PILT või pillu see paneelile.
+Push a microSD card all the way into the player's slot, then press RESET.
+= Lükka microSD-kaart lõpuni mängija pessa, siis vajuta RESET.
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Rockbox pole veel oma USB-ketast näidanud. Kui mängija ainult laeb, ühenda see lahti, hoia mõnda klahvi all ja ühenda uuesti.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= PROOVI aitab tavaliselt. Ikka ummikus? KOPEERI RAPORT paneb üksikasjad lõikelauale veateate jaoks.
+It looks like you watched all the credits. Nobody does that. Respect.
+= Tundub, et vaatasid kõik tänusõnad läbi. Keegi ei tee seda. Austus.
+DEAL WITH IT
+= DEAL WITH IT

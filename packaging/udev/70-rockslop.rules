@@ -1,0 +1,11 @@
+# rockslop: let the logged-in user open the players over USB without root.
+# Install: sudo cp 70-rockslop.rules /etc/udev/rules.d/ && sudo udevadm control --reload
+# then reconnect the player. (Must sort before systemd's 73-seat-late.rules,
+# which turns TAG+="uaccess" into an ACL for the active session.)
+#
+# YP3 (SmartLink SL6801): boot ROM download mode, stock firmware's disk
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="301a", ATTR{idProduct}=="2800", MODE="0660", TAG+="uaccess"
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="301a", ATTR{idProduct}=="2801", MODE="0660", TAG+="uaccess"
+# TS17 (Actions Lark): boot ROM download mode (10d6:10d6), stock firmware (10d6:b00b)
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="10d6", ATTR{idProduct}=="10d6", MODE="0660", TAG+="uaccess"
+SUBSYSTEM=="usb", ENV{DEVTYPE}=="usb_device", ATTR{idVendor}=="10d6", ATTR{idProduct}=="b00b", MODE="0660", TAG+="uaccess"

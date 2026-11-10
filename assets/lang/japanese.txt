@@ -1,0 +1,522 @@
+# 日本語: rockslop UI
+TARGET
+= ターゲット
+LINK
+= リンク
+PAYLOAD
+= ペイロード
+EXECUTE
+= 実行
+BUS IDLE
+= バス空き
+STOCK
+= 標準
+awaiting target
+= ターゲット待機中
+scanning usb
+= usb スキャン中
+awaiting payload
+= ペイロード待機中
+executing
+= 実行中
+session complete
+= セッション完了
+session aborted
+= セッション中断
+rolling credits
+= エンドロール再生中
+SND
+= 音
+MUTED
+= ミュート
+NO SND
+= 音声なし
+audio muted
+= オーディオ ミュート
+audio on
+= オーディオ オン
+neural uplink
+= ニューラル アップリンク
+usb stack
+= usb スタック
+flash maps
+= フラッシュ マップ
+payloads
+= ペイロード
+glyph cache
+= グリフ キャッシュ
+SELECT TARGET
+= ターゲット選択
+DOWNLOAD MODE
+= ダウンロード モード
+STOCK FIRMWARE
+= 標準ファームウェア
+ENGAGE
+= 起動
+CLICK TO ENGAGE
+= クリックで起動
+RESET
+= RESET
+HEADPHONE
+= ヘッドホン
+VOL
+= 音量
+POWER
+= 電源
+POWER OFF
+= 電源オフ
+unplugged: hold the centre key
+= 未接続：中央キーを長押し
+HOLD DOWN
+= 下キーを長押し
+bottom of the wheel
+= ホイール下部
+CONNECT USB
+= USB 接続
+keep holding
+= そのまま長押し
+RELEASE
+= 離す
+once linked
+= リンク後
+OR
+= または
+hold DOWN and tap RESET
+= 下キーを押しながら RESET をタップ
+STAND BY
+= 待機
+it reboots into download mode
+= ダウンロード モードで再起動します
+ROCKBOX?
+= ROCKBOX 導入済み？
+switch it off, then hold POWER ~4 s while connecting
+= 電源を切ってから、接続中に 電源キーを約 4 秒長押し
+LINK FAILED
+= リンク失敗
+SCANNING
+= スキャン中
+no player on the bus yet
+= バスにプレーヤーなし
+ACCESS DENIED
+= アクセス拒否
+no permission: install the udev rule (see README)
+= 権限なし：udev ルールをインストール（README 参照）
+macOS: run rockslop with sudo to take the device
+= macOS：sudo で rockslop を実行してデバイスを取得
+install the WinUSB driver for it (Zadig)
+= WinUSB ドライバをインストールしてください（Zadig）
+LINK ESTABLISHED
+= リンク確立
+identity verified
+= 識別確認済み
+PROBING
+= プローブ中
+boot ROM online
+= ブート ROM オンライン
+forcing download mode
+= ダウンロード モードを強制中
+ROCKBOX RUNNING
+= ROCKBOX 動作中
+BACK
+= 戻る
+RETRY
+= 再試行
+Rockbox package
+= Rockbox パッケージ
+SELECT IMAGE
+= イメージ選択
+or drop it here
+= またはここにドロップ
+IMAGE
+= イメージ
+REJECTED
+= 拒否
+BUILD
+= 機種
+FLASH
+= フラッシュ
+CARD
+= カード
+{0} files  ·  {1}
+= {0} ファイル  ·  {1}
+every member verified
+= 全メンバー検証済み
+BACKUP
+= バックアップ
+stock flash saved first
+= 標準フラッシュを先に保存済み
+CHANGE
+= 変更
+INSERT SD CARD
+= SD カード挿入
+RETURN TO STOCK
+= 標準に戻す
+built for {0}, not {1}
+= {0} 用のビルドで、{1} 用ではありません
+LAYOUT
+= レイアウト
+LOCKED
+= ロック
+PROBE
+= プローブ
+VERIFY
+= 検証
+WRITE
+= 書込
+CHECKSUM
+= チェックサム
+CHECK
+= 確認
+REBOOT
+= 再起動
+SD SYNC
+= SD 同期
+EJECT
+= 取り出し
+DONE
+= 完了
+FLASH MAP
+= フラッシュ マップ
+SAME
+= 同一
+READ
+= 読込
+ERASE
+= 消去
+WRITTEN
+= 書込済
+BAD
+= 不良
+FILES
+= ファイル
+BUS TAP
+= バス タップ
+THEN PRESS RESET
+= 次に RESET を押す
+SD CARD
+= SD カード
+NO CARD
+= カードなし
+READ BACK
+= 読み戻し
+MOUNT
+= マウント
+CHECKED
+= 確認済
+DATA
+= データ
+RATE
+= 速度
+ETA
+= 残り
+ACCESS GRANTED
+= アクセス許可
+STOCK RESTORED
+= 標準に復元
+the player boots stock firmware again
+= プレーヤーは再び標準ファームウェアで起動します
+rockbox is live on the player
+= rockbox がプレーヤーで稼働中
+SESSION
+= セッション
+{0} sectors rewritten, checksummed
+= {0} セクタを書き換え、チェックサム確認済み
+{0} files  ·  {1}  ·  read back OK
+= {0} ファイル  ·  {1}  ·  読み戻し OK
+not updated
+= 未更新
+TIME
+= 時間
+UNPLUG TO FINISH
+= 取り外して完了
+EJECTED
+= 取り出し済
+UNPLUG AND ROCK
+= 抜いてロックンロール
+AGAIN
+= もう一度
+CREDITS
+= クレジット
+the flash was partly rewritten: a backup is safe on disk
+= フラッシュは一部書き換え済み：バックアップはディスクに安全に保存されています
+nothing was written
+= 何も書き込まれていません
+FAULT
+= 障害
+COPY REPORT
+= レポートをコピー
+REPORT COPIED
+= コピー済み
+NOW PLAYING
+= 再生中
+THIS FLASHER
+= このフラッシャー
+ROCKBOX CONTRIBUTORS
+= ROCKBOX コントリビューター
+{0} contributors
+= {0} 人のコントリビューター
+People that have contributed to the project, one way or another. Friends!
+= 何らかの形でこのプロジェクトに貢献してくれた人たち。友よ！
+links open in your browser
+= リンクはブラウザで開きます
+Made by
+= 制作
+Device protocols and payloads
+= デバイス プロトコルとペイロード
+Music
+= 音楽
+Voice lines
+= ボイス
+Sound effects
+= 効果音
+Fonts
+= フォント
+Rust crates
+= Rust クレート
+Reference photos
+= 参考写真
+LANGUAGE
+= 言語
+AUTOMATIC
+= 自動
+stock firmware on the bus: asking it for download mode
+= 標準ファームウェアがバス上に：ダウンロード モードを要求中
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0} が 0xCB を受理：ADFU で再起動中
+attaching to {0}
+= {0} に接続中
+sector CRC32 scan on the player
+= プレーヤー上でセクタ CRC32 スキャン
+dumping {0} KiB
+= {0} KiB をダンプ中
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= {0} セクタ取得（読込 {1}、既知 {2}）；CRC32 検証済み
+dumping {0} KiB of raw NOR cells
+= 生の NOR セル {0} KiB をダンプ中
+second pass: comparing
+= 2 回目：比較中
+{0} sectors captured; two reads agree
+= {0} セクタ取得；2 回の読み取りが一致
+identical backup already on file: {0}
+= 同一のバックアップが既にあります：{0}
+backup -> {0}
+= バックアップ -> {0}
+{0} of {1} sectors differ
+= {1} セクタ中 {0} セクタが相違
+0x{0} erase / program / verify ok
+= 0x{0} 消去 / プログラム / 検証 OK
+CRC32 of every writable sector, computed on the player
+= 書き込み可能な全セクタの CRC32 をプレーヤー上で計算
+reading the writable window back
+= 書き込み可能領域を読み戻し中
+flash checksum OK  sha256 {0}..{1}
+= フラッシュ チェックサム OK  sha256 {0}..{1}
+rebooting into Rockbox
+= Rockbox で再起動中
+rebooting into stock firmware
+= 標準ファームウェアで再起動中
+firmware is up
+= ファームウェア起動
+{0} image(s), {1} KiB, sha256 verified
+= {0} イメージ、{1} KiB、sha256 検証済み
+{0} sectors rewritten
+= {0} セクタを書き換え
+Rockbox did not show up as a USB disk; the card was not updated
+= Rockbox が USB ディスクとして現れませんでした；カードは更新されていません
+total {0} s
+= 合計 {0} 秒
+{0} loaded, checksum OK
+= {0} を読み込み、チェックサム OK
+backup is from another unit; its per-unit sectors are left alone
+= バックアップは別の個体のものです；個体固有のセクタは触れません
+waiting for Rockbox's USB disk
+= Rockbox の USB ディスクを待機中
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= Rockbox の USB ディスクがまだありません：充電のみに設定されている場合は、プレーヤーを取り外し、いずれかのキーを押したまま再接続してください（または 設定 > 一般設定 > システム設定 > USB > USBモード を マス・ストレージ に設定）
+no microSD card in the player: insert one, then press RESET
+= プレーヤーに microSD カードがありません：挿入して RESET を押してください
+card online: {0}
+= カード オンライン：{0}
+removed {0} stale plugin/codec files
+= 古いプラグイン/コーデック {0} ファイルを削除
+removed {0}: the firmware is in flash, not on the card
+= {0} を削除：ファームウェアはカードではなくフラッシュにあります
+{0} files written
+= {0} ファイルを書き込み
+reading every file back from the card
+= カードから全ファイルを読み戻し中
+{0} files read back: sha256 OK
+= {0} ファイルを読み戻し：sha256 OK
+card ejected
+= カードを取り出しました
+could not eject the card ({0}); eject it before unplugging
+= カードを取り出せません（{0}）；取り外す前に取り出してください
+stock firmware detected: ACTIONSUSBD
+= 標準ファームウェアを検出：ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= ベンダー コマンド 0xCB を注入中 -> ADFU
+opening {0} download mode
+= {0} のダウンロード モードを開いています
+reattaching to download mode
+= ダウンロード モードに再接続中
+dumping {0} KiB of stock flash
+= 標準フラッシュ {0} KiB をダンプ中
+re-reading CRC32 of every sector
+= 全セクタの CRC32 を再読込中
+backup verified: {0}/{1} sectors match
+= バックアップ検証済み：{0}/{1} セクタ一致
+{0} sectors differ; writing
+= {0} セクタが相違；書き込み中
+sector 0x{0} erase/program/verify ok
+= セクタ 0x{0} 消去/プログラム/検証 OK
+full flash CRC scan
+= フラッシュ全体の CRC スキャン
+flash checksum OK
+= フラッシュ チェックサム OK
+waiting for Rockbox USB mass storage
+= Rockbox USB マス ストレージを待機中
+no media: insert a microSD card
+= メディアなし：microSD カードを挿入してください
+syncing and ejecting card
+= カードを同期して取り出し中
+another tool holds the player ({0})
+= 別のツールがプレーヤーを使用中です（{0}）
+the player did not come back in download mode
+= プレーヤーがダウンロード モードで戻りませんでした
+the YP3 enters download mode by hand: hold Down while connecting USB
+= YP3 は手動でダウンロード モードに入ります：USB 接続中に下キーを長押し
+battery too low to flash safely ({0})
+= バッテリー残量が少なく安全に書き込めません（{0}）
+the player came back in download mode: the new firmware did not start
+= プレーヤーがダウンロード モードで戻りました：新しいファームウェアが起動しませんでした
+this package is for {0}, not {1}
+= このパッケージは {0} 用で、{1} 用ではありません
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= このプレーヤーの 0x{0} のフラッシュはパッケージの対象と異なります；何も書き込まれていません
+the package has no firmware image
+= パッケージにファームウェア イメージがありません
+the card needs {0} MiB free; it has {1} MiB
+= カードには {0} MiB の空きが必要です；現在 {1} MiB
+{0} did not read back correctly from the card
+= {0} をカードから正しく読み戻せませんでした
+could not mount the player's card: {0}
+= プレーヤーのカードをマウントできません：{0}
+the player's card did not appear
+= プレーヤーのカードが現れませんでした
+the card is in use by another program
+= カードは別のプログラムが使用中です
+cancelled
+= 取り消しました
+checksum mismatch at 0x{0}
+= 0x{0} でチェックサム不一致
+sector 0x{0} reads inconsistently
+= セクタ 0x{0} の読み取りが一貫しません
+flash at 0x{0} reads inconsistently
+= 0x{0} のフラッシュの読み取りが一貫しません
+backup did not read back from disk
+= バックアップをディスクから読み戻せませんでした
+{0} is damaged (checksum mismatch)
+= {0} が破損しています（チェックサム不一致）
+{0} is {1} bytes; a full flash image is {2}
+= {0} は {1} バイトです；完全なフラッシュ イメージは {2} です
+not a tar.xz release: {0}
+= tar.xz リリースではありません：{0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= このパッケージ（形式 {0}）には {1} より新しい rockslop が必要です：rockslop を更新してください
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= このパッケージ（形式 {0}）は rockslop {1} には古すぎます：新しいリリースを入手してください
+MANIFEST has no format
+= MANIFEST に形式がありません
+MANIFEST names no target
+= MANIFEST にターゲットがありません
+unsafe path in archive: {0}
+= アーカイブ内に安全でないパス：{0}
+{0}: links and special files are not allowed
+= {0}：リンクと特殊ファイルは使用できません
+{0}: checksum mismatch, the download is corrupt
+= {0}：チェックサム不一致、ダウンロードが破損しています
+unexpected member {0}
+= 予期しないメンバー {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= アーカイブに SHA256SUMS 記載のファイルが {0} 個不足
+release contains no flash image
+= リリースにフラッシュ イメージがありません
+{0}: checksum mismatch
+= {0}：チェックサム不一致
+archive member too large
+= アーカイブ メンバーが大きすぎます
+internal error: {0}
+= 内部エラー：{0}
+{0}: permission denied. {1}
+= {0}：権限がありません。{1}
+Install the udev rule (see README) or run as root.
+= udev ルールをインストールする（README 参照）か、root で実行してください。
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= macOS がマス ストレージ ドライバからデバイスを取得するには root が必要です：「ターミナル」から sudo で実行してください。
+The device needs the WinUSB driver (Zadig).
+= デバイスには WinUSB ドライバが必要です（Zadig）。
+{0}: the device is busy (another tool is using it?)
+= {0}：デバイスが使用中です（別のツールが使用していませんか？）
+{0}: the device went away
+= {0}：デバイスが切断されました
+{0}: timed out
+= {0}：タイムアウトしました
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= ドラッグで回転
+UNPLUG
+= 取り外す
+pull the USB cable out
+= USB ケーブルを抜く
+POWER ON
+= 電源オン
+hold POWER, on the bottom edge
+= 下端の電源キーを長押し
+stock firmware
+= 標準ファームウェアのまま
+SWITCH OFF
+= 電源オフ
+hold POWER until the screen goes dark
+= 画面が消えるまで電源キーを長押し
+HOLD POWER
+= 電源キーを長押し
+plug in while holding, ~4 s
+= 押したまま接続、約 4 秒
+on the player: System > Debug > {0}
+= プレーヤーで：システム設定 > デバッグ情報 > {0}
+follow the steps above
+= 上の手順に従ってください
+THE {0} PACKAGE
+= {0} 用パッケージ
+NEEDS A MICROSD CARD
+= microSD カードが必要
+It looks like you're trying to hack an MP3 player. Would you like help?
+= MP3 プレーヤーをハッキングしようとしているようですね。お手伝いしましょうか？
+GOT IT
+= 了解
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= これらのプレーヤーには型番がありません。代わりにワイヤーフレームを見比べてください：ボタンと端子が違います。プレーヤーをドラッグすると回転できます。
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= まずプレーヤーの電源を切ってから、ケーブルを挿す前に下キーを押し、そのまま押し続けてください。
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= ケーブルを挿しながら電源キーを押し、そのまま約 4 秒押し続けてください。
+Switch the player on first: hold POWER on its bottom edge.
+= まずプレーヤーの電源を入れてください：下端の電源キーを長押しします。
+Still nothing? Try another cable: some only charge.
+= まだ反応なし？別のケーブルを試してください：充電専用のケーブルもあります。
+Your computer won't let rockslop use the player.
+= お使いのコンピューターが rockslop にプレーヤーの使用を許可していません。
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= まずケーブルを抜いてください：プレーヤーはダウンロード モードでしか応答しません。やり方は手順に書いてあります。
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= {0} 用にビルドされた Rockbox パッケージが必要です：.tar.xz ファイルです。「イメージ選択」をクリックするか、パネルにドロップしてください。
+Push a microSD card all the way into the player's slot, then press RESET.
+= microSD カードをプレーヤーのスロットに奥まで差し込み、RESET を押してください。
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Rockbox がまだ USB ディスクを表示していません。プレーヤーが充電しかしない場合は、取り外して、いずれかのキーを押したまま再接続してください。
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= たいていは「再試行」で解決します。それでもダメなら、「レポートをコピー」でバグ報告用の詳細をクリップボードにコピーできます。
+It looks like you watched all the credits. Nobody does that. Respect.
+= クレジットを最後まで見たようですね。そんな人はいません。リスペクト。
+DEAL WITH IT
+= DEAL WITH IT

@@ -1,0 +1,522 @@
+# Slovenčina: rockslop UI
+TARGET
+= CIEĽ
+LINK
+= LINK
+PAYLOAD
+= NÁPLŇ
+EXECUTE
+= SPUSTIŤ
+BUS IDLE
+= BUS VOĽNÝ
+STOCK
+= PÔVODNÝ
+awaiting target
+= čakám na cieľ
+scanning usb
+= skenujem usb
+awaiting payload
+= čakám na payload
+executing
+= spúšťam
+session complete
+= relácia dokončená
+session aborted
+= relácia prerušená
+rolling credits
+= idú titulky
+SND
+= ZVUK
+MUTED
+= TICHO
+NO SND
+= NIET ZV.
+audio muted
+= zvuk stlmený
+audio on
+= zvuk zapnutý
+neural uplink
+= neurálne spojenie
+usb stack
+= zásobník usb
+flash maps
+= mapy flash
+payloads
+= payloady
+glyph cache
+= cache glyfov
+SELECT TARGET
+= VYBERTE CIEĽ
+DOWNLOAD MODE
+= REŽIM SŤAHOVANIA
+STOCK FIRMWARE
+= PÔVODNÝ FIRMWARE
+ENGAGE
+= SPUSTIŤ
+CLICK TO ENGAGE
+= KLIKNI A SPUSTI
+RESET
+= RESET
+HEADPHONE
+= SLÚCHADLÁ
+VOL
+= HLAS
+POWER
+= POWER
+POWER OFF
+= VYPNI
+unplugged: hold the centre key
+= odpojené: podrž stredné tlačidlo
+HOLD DOWN
+= PODRŽ DOLE
+bottom of the wheel
+= spodok kolieska
+CONNECT USB
+= PRIPOJ USB
+keep holding
+= drž ďalej
+RELEASE
+= PUSTI
+once linked
+= po spojení
+OR
+= ALEBO
+hold DOWN and tap RESET
+= podrž DOLE a klepni RESET
+STAND BY
+= POČKAJ
+it reboots into download mode
+= reštartuje sa do režimu sťahovania
+ROCKBOX?
+= ROCKBOX?
+switch it off, then hold POWER ~4 s while connecting
+= vypni ho, potom podrž POWER ~4 s pri pripájaní
+LINK FAILED
+= LINK ZLYHAL
+SCANNING
+= SKENUJEM
+no player on the bus yet
+= na zbernici zatiaľ nie je prehrávač
+ACCESS DENIED
+= PRÍSTUP ZAMIETNUTÝ
+no permission: install the udev rule (see README)
+= žiadne oprávnenie: nainštaluj pravidlo udev (pozri README)
+macOS: run rockslop with sudo to take the device
+= macOS: spusti rockslop cez sudo, aby si získal zariadenie
+install the WinUSB driver for it (Zadig)
+= nainštaluj preň ovládač WinUSB (Zadig)
+LINK ESTABLISHED
+= LINK NADVIAZANÝ
+identity verified
+= identita overená
+PROBING
+= SONDUJEM
+boot ROM online
+= boot ROM online
+forcing download mode
+= vynucujem režim sťahovania
+ROCKBOX RUNNING
+= ROCKBOX BEŽÍ
+BACK
+= SPÄŤ
+RETRY
+= ZNOVA
+Rockbox package
+= balík Rockbox
+SELECT IMAGE
+= VYBRAŤ OBRAZ
+or drop it here
+= alebo ho pusť sem
+IMAGE
+= OBRAZ
+REJECTED
+= ODMIETNUTÉ
+BUILD
+= BUILD
+FLASH
+= FLASH
+CARD
+= KARTA
+{0} files  ·  {1}
+= súbory: {0}  ·  {1}
+every member verified
+= všetky položky overené
+BACKUP
+= ZÁLOHA
+stock flash saved first
+= pôvodný flash najprv uložený
+CHANGE
+= ZMENIŤ
+INSERT SD CARD
+= VLOŽ SD KARTU
+RETURN TO STOCK
+= SPÄŤ NA PÔVODNÝ
+built for {0}, not {1}
+= zostavené pre {0}, nie pre {1}
+LAYOUT
+= MAPA
+LOCKED
+= ZAMKNUTÉ
+PROBE
+= SONDA
+VERIFY
+= OVERENIE
+WRITE
+= ZÁPIS
+CHECKSUM
+= SÚČET
+CHECK
+= KONTROLA
+REBOOT
+= REŠTART
+SD SYNC
+= SD SYNC
+EJECT
+= VYSUNÚŤ
+DONE
+= HOTOVO
+FLASH MAP
+= MAPA FLASH
+SAME
+= ROVNAKÉ
+READ
+= ČÍTANIE
+ERASE
+= MAZANIE
+WRITTEN
+= ZAPÍSANÉ
+BAD
+= CHYBNÉ
+FILES
+= SÚBORY
+BUS TAP
+= ODPOSLECH
+THEN PRESS RESET
+= POTOM STLAČ RESET
+SD CARD
+= SD KARTA
+NO CARD
+= BEZ KARTY
+READ BACK
+= ČÍTAM SPÄŤ
+MOUNT
+= MOUNT
+CHECKED
+= OVERENÉ
+DATA
+= DÁTA
+RATE
+= RÝCH.
+ETA
+= ETA
+ACCESS GRANTED
+= PRÍSTUP POVOLENÝ
+STOCK RESTORED
+= PÔVODNÝ OBNOVENÝ
+the player boots stock firmware again
+= prehrávač opäť štartuje s pôvodným firmware
+rockbox is live on the player
+= rockbox beží na prehrávači
+SESSION
+= RELÁCIA
+{0} sectors rewritten, checksummed
+= prepísané sektory: {0}, kontrolný súčet OK
+{0} files  ·  {1}  ·  read back OK
+= súbory: {0}  ·  {1}  ·  prečítané späť OK
+not updated
+= neaktualizované
+TIME
+= ČAS
+UNPLUG TO FINISH
+= ODPOJ NA DOKONČENIE
+EJECTED
+= VYSUNUTÉ
+UNPLUG AND ROCK
+= ODPOJ A ROCKUJ
+AGAIN
+= ZNOVA
+CREDITS
+= TITULKY
+the flash was partly rewritten: a backup is safe on disk
+= flash bol čiastočne prepísaný: záloha je bezpečne na disku
+nothing was written
+= nič sa nezapísalo
+FAULT
+= CHYBA
+COPY REPORT
+= KOPÍROVAŤ HLÁSENIE
+REPORT COPIED
+= HLÁSENIE SKOPÍROVANÉ
+NOW PLAYING
+= TERAZ HRÁ
+THIS FLASHER
+= TENTO FLASHER
+ROCKBOX CONTRIBUTORS
+= PRISPEVATELIA ROCKBOXU
+{0} contributors
+= prispievatelia: {0}
+People that have contributed to the project, one way or another. Friends!
+= Ľudia, ktorí tak či onak prispeli k projektu. Priatelia!
+links open in your browser
+= odkazy sa otvoria v prehliadači
+Made by
+= Autor
+Device protocols and payloads
+= Protokoly zariadení a payloady
+Music
+= Hudba
+Voice lines
+= Hlasové hlášky
+Sound effects
+= Zvukové efekty
+Fonts
+= Písma
+Rust crates
+= Rust crates
+Reference photos
+= Referenčné fotografie
+LANGUAGE
+= JAZYK
+AUTOMATIC
+= AUTOMATICKY
+stock firmware on the bus: asking it for download mode
+= pôvodný firmware na zbernici: žiadam režim sťahovania
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0} potvrdil 0xCB: reštartuje do ADFU
+attaching to {0}
+= pripájam sa k {0}
+sector CRC32 scan on the player
+= CRC32 sken sektorov na prehrávači
+dumping {0} KiB
+= vypisujem {0} KiB
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= zachytených sektorov: {0} (prečítaných {1}, už známych {2}); CRC32 overený
+dumping {0} KiB of raw NOR cells
+= vypisujem {0} KiB surových buniek NOR
+second pass: comparing
+= druhý prechod: porovnávam
+{0} sectors captured; two reads agree
+= zachytených sektorov: {0}; dve čítania sa zhodujú
+identical backup already on file: {0}
+= rovnaká záloha už existuje: {0}
+backup -> {0}
+= záloha -> {0}
+{0} of {1} sectors differ
+= sektory sa líšia: {0} z {1}
+0x{0} erase / program / verify ok
+= 0x{0} mazanie / zápis / overenie ok
+CRC32 of every writable sector, computed on the player
+= CRC32 každého zapisovateľného sektora, počítané na prehrávači
+reading the writable window back
+= čítam zapisovateľné okno späť
+flash checksum OK  sha256 {0}..{1}
+= kontrolný súčet flash OK  sha256 {0}..{1}
+rebooting into Rockbox
+= reštartujem do Rockbox
+rebooting into stock firmware
+= reštartujem do pôvodného firmware
+firmware is up
+= firmware beží
+{0} image(s), {1} KiB, sha256 verified
+= obrazy: {0}, {1} KiB, sha256 overený
+{0} sectors rewritten
+= prepísané sektory: {0}
+Rockbox did not show up as a USB disk; the card was not updated
+= Rockbox sa neobjavil ako USB disk; karta nebola aktualizovaná
+total {0} s
+= spolu {0} s
+{0} loaded, checksum OK
+= načítané: {0}, kontrolný súčet OK
+backup is from another unit; its per-unit sectors are left alone
+= záloha je z inej jednotky; jej sektory špecifické pre zariadenie sa nechávajú
+waiting for Rockbox's USB disk
+= čakám na USB disk Rockbox
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= zatiaľ žiadny USB disk od Rockboxu: ak je nastavené iba nabíjanie, odpoj prehrávač, podrž ľubovoľné tlačidlo a znova ho pripoj (alebo nastav Nastavenia > Všeobecné nastavenia > Systém > USB > Režim USB na úložisko)
+no microSD card in the player: insert one, then press RESET
+= v prehrávači nie je karta microSD: vlož ju a stlač RESET
+card online: {0}
+= karta online: {0}
+removed {0} stale plugin/codec files
+= odstránené zastarané súbory pluginov/kodekov: {0}
+removed {0}: the firmware is in flash, not on the card
+= odstránené {0}: firmware je vo flash pamäti, nie na karte
+{0} files written
+= zapísané súbory: {0}
+reading every file back from the card
+= čítam každý súbor z karty späť
+{0} files read back: sha256 OK
+= súbory prečítané späť: {0}: sha256 OK
+card ejected
+= karta vysunutá
+could not eject the card ({0}); eject it before unplugging
+= kartu sa nepodarilo vysunúť ({0}); vysuň ju pred odpojením
+stock firmware detected: ACTIONSUSBD
+= zistený pôvodný firmware: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= vkladám príkaz výrobcu 0xCB -> ADFU
+opening {0} download mode
+= otváram režim sťahovania {0}
+reattaching to download mode
+= znovu sa pripájam do režimu sťahovania
+dumping {0} KiB of stock flash
+= vypisujem {0} KiB pôvodného flash
+re-reading CRC32 of every sector
+= znovu čítam CRC32 každého sektora
+backup verified: {0}/{1} sectors match
+= záloha overená: zhodných sektorov {0}/{1}
+{0} sectors differ; writing
+= sektory sa líšia: {0}; zapisujem
+sector 0x{0} erase/program/verify ok
+= sektor 0x{0} mazanie/zápis/overenie ok
+full flash CRC scan
+= úplný CRC sken flash
+flash checksum OK
+= kontrolný súčet flash OK
+waiting for Rockbox USB mass storage
+= čakám na USB úložisko Rockbox
+no media: insert a microSD card
+= žiadne médium: vlož kartu microSD
+syncing and ejecting card
+= synchronizujem a vysúvam kartu
+another tool holds the player ({0})
+= prehrávač drží iný nástroj ({0})
+the player did not come back in download mode
+= prehrávač sa nevrátil do režimu sťahovania
+the YP3 enters download mode by hand: hold Down while connecting USB
+= YP3 vstúpi do režimu sťahovania ručne: podrž Dole pri pripájaní USB
+battery too low to flash safely ({0})
+= batéria je príliš slabá na bezpečný zápis ({0})
+the player came back in download mode: the new firmware did not start
+= prehrávač sa vrátil do režimu sťahovania: nový firmware nenaštartoval
+this package is for {0}, not {1}
+= tento balík je pre {0}, nie pre {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= flash prehrávača na 0x{0} nie je taký, pre aký bol balík zostavený; nič sa nezapísalo
+the package has no firmware image
+= balík neobsahuje obraz firmware
+the card needs {0} MiB free; it has {1} MiB
+= karta potrebuje {0} MiB voľných; má {1} MiB
+{0} did not read back correctly from the card
+= {0} sa z karty nenačítalo správne
+could not mount the player's card: {0}
+= nepodarilo sa pripojiť kartu prehrávača: {0}
+the player's card did not appear
+= karta prehrávača sa neobjavila
+the card is in use by another program
+= kartu používa iný program
+cancelled
+= zrušené
+checksum mismatch at 0x{0}
+= nezhoda kontrolného súčtu na 0x{0}
+sector 0x{0} reads inconsistently
+= sektor 0x{0} sa číta nekonzistentne
+flash at 0x{0} reads inconsistently
+= flash na 0x{0} sa číta nekonzistentne
+backup did not read back from disk
+= záloha sa z disku nenačítala späť
+{0} is damaged (checksum mismatch)
+= {0} je poškodený (nezhoda kontrolného súčtu)
+{0} is {1} bytes; a full flash image is {2}
+= {0} má {1} bajtov; úplný obraz flash má {2}
+not a tar.xz release: {0}
+= nie je vydanie tar.xz: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= tento balík (formát {0}) vyžaduje novší rockslop ako {1}: aktualizuj rockslop
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= tento balík (formát {0}) je pre rockslop {1} príliš starý: stiahni novšie vydanie
+MANIFEST has no format
+= MANIFEST nemá formát
+MANIFEST names no target
+= MANIFEST neuvádza cieľ
+unsafe path in archive: {0}
+= nebezpečná cesta v archíve: {0}
+{0}: links and special files are not allowed
+= {0}: odkazy a špeciálne súbory nie sú povolené
+{0}: checksum mismatch, the download is corrupt
+= {0}: nezhoda kontrolného súčtu, stiahnutý súbor je poškodený
+unexpected member {0}
+= neočakávaný člen {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= v archíve chýba súborov uvedených v SHA256SUMS: {0}
+release contains no flash image
+= vydanie neobsahuje obraz flash
+{0}: checksum mismatch
+= {0}: nezhoda kontrolného súčtu
+archive member too large
+= položka archívu je príliš veľká
+internal error: {0}
+= interná chyba: {0}
+{0}: permission denied. {1}
+= {0}: prístup zamietnutý. {1}
+Install the udev rule (see README) or run as root.
+= Nainštaluj pravidlo udev (pozri README) alebo spusti ako root.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= macOS potrebuje root, aby prevzal zariadenie od ovládača veľkokapacitného úložiska: spusti z Terminálu cez sudo.
+The device needs the WinUSB driver (Zadig).
+= Zariadenie potrebuje ovládač WinUSB (Zadig).
+{0}: the device is busy (another tool is using it?)
+= {0}: zariadenie je zaneprázdnené (používa ho iný nástroj?)
+{0}: the device went away
+= {0}: zariadenie zmizlo
+{0}: timed out
+= {0}: vypršal časový limit
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= ŤAHAJ A OTÁČAJ
+UNPLUG
+= ODPOJ
+pull the USB cable out
+= vytiahni kábel USB
+POWER ON
+= ZAPNI
+hold POWER, on the bottom edge
+= podrž POWER na spodnej hrane
+stock firmware
+= pôvodný firmware
+SWITCH OFF
+= VYPNI
+hold POWER until the screen goes dark
+= drž POWER, kým displej nezhasne
+HOLD POWER
+= PODRŽ POWER
+plug in while holding, ~4 s
+= pripoj počas držania, ~4 s
+on the player: System > Debug > {0}
+= v prehrávači: Systém > Ladenie > {0}
+follow the steps above
+= postupuj podľa krokov vyššie
+THE {0} PACKAGE
+= BALÍK PRE {0}
+NEEDS A MICROSD CARD
+= POTREBUJE KARTU MICROSD
+It looks like you're trying to hack an MP3 player. Would you like help?
+= Zdá sa, že sa snažíš hacknúť MP3 prehrávač. Chceš pomoc?
+GOT IT
+= ROZUMIEM
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= Na týchto prehrávačoch nie je číslo modelu. Porovnaj radšej drôtené modely: tlačidlá a porty sa líšia. Potiahni prehrávač a otoč ho.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= Najprv prehrávač vypni, potom podrž DOLE ešte pred zapojením kábla a drž ďalej.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= Drž POWER počas zapájania kábla a drž ho ďalej asi 4 sekundy.
+Switch the player on first: hold POWER on its bottom edge.
+= Najprv prehrávač zapni: podrž POWER na jeho spodnej hrane.
+Still nothing? Try another cable: some only charge.
+= Stále nič? Skús iný kábel: niektoré len nabíjajú.
+Your computer won't let rockslop use the player.
+= Tvoj počítač nepúšťa rockslop k prehrávaču.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= Najprv odpoj kábel: prehrávač počúva iba v režime sťahovania. Kroky ukazujú, ako na to.
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= Potrebuješ balík Rockbox zostavený pre {0}: súbor .tar.xz. Klikni na VYBRAŤ OBRAZ alebo ho pusť na panel.
+Push a microSD card all the way into the player's slot, then press RESET.
+= Zasuň kartu microSD úplne do slotu prehrávača a potom stlač RESET.
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Rockbox ešte neukázal svoj USB disk. Ak prehrávač iba nabíja, odpoj ho, podrž ľubovoľné tlačidlo a znova ho pripoj.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= ZNOVA to zvyčajne vyrieši. Stále to nejde? KOPÍROVAŤ HLÁSENIE vloží podrobnosti do schránky na nahlásenie chyby.
+It looks like you watched all the credits. Nobody does that. Respect.
+= Zdá sa, že ťa titulky bavili až do konca. To nikto nerobí. Rešpekt.
+DEAL WITH IT
+= DEAL WITH IT

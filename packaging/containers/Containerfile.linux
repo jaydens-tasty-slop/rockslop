@@ -1,0 +1,7 @@
+# Portable Linux build: an older glibc (Debian bookworm, 2.36) than most
+# desktops, so the binary runs on them. GL and X11 are loaded at run time;
+# libasound is the only shared library linked.
+FROM docker.io/library/rust:1-bookworm
+RUN apt-get update && apt-get install -y --no-install-recommends libasound2-dev pkg-config \
+    && rm -rf /var/lib/apt/lists/*
+WORKDIR /src

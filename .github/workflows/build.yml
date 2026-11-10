@@ -1,0 +1,100 @@
+# Every push to master: test, build Linux and Windows (x86-64 and arm64)
+# and the flatpak in the same containers as `make`, and publish them as a
+# release named after the build, e.g. 20261028_141519-1a2b3c4 (the commit's
+# UTC time and hash, as build.rs stamps it). Pull requests build and test
+# only. macOS needs Apple's SDK, which can't go in CI: `make macos` locally,
+# then `gh release upload TAG dist/Rockslop-macos.zip dist/rockslop-cli-macos`.
+
+name: build
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  # a release per push: let each one finish
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - run: sudo apt-get update && sudo apt-get install -y --no-install-recommends libasound2-dev
+      - uses: dtolnay/rust-toolchain@stable
+      - run: cargo test --locked
+
+  build:
+    strategy:
+      fail-fast: false
+      matrix:
+        target: [linux, linux-arm64, windows, windows-arm64]
+    runs-on: ubuntu-24.04
+    steps:
+      - uses: actions/checkout@v5
+      - run: make ${{ matrix.target }} PODMAN=docker
+      - uses: actions/upload-artifact@v5
+        with:
+          name: dist-${{ matrix.target }}
+          path: dist/
+          if-no-files-found: error
+
+  flatpak:
+    needs: build
+    runs-on: ubuntu-24.04
+    container:
+      image: ghcr.io/flathub-infra/flatpak-github-actions:freedesktop-25.08
+      options: --privileged
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v5
+        with:
+          name: dist-linux
+          path: dist
+      - uses: flatpak/flatpak-github-actions/flatpak-builder@v6
+        with:
+          bundle: rockslop.flatpak
+          manifest-path: packaging/flatpak/io.github.rockslop.Flasher.yml
+          cache: false
+          upload-artifact: false
+      - uses: actions/upload-artifact@v5
+        with:
+          name: dist-flatpak
+          path: rockslop.flatpak
+          if-no-files-found: error
+
+  release:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/master'
+    needs: [test, build, flatpak]
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/download-artifact@v5
+        with:
+          pattern: dist-*
+          merge-multiple: true
+          path: dist
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          chmod +x dist/rockslop-cli-linux-x86_64
+          # the name the binaries carry, so the release and the app agree
+          v=$(dist/rockslop-cli-linux-x86_64 --version | cut -d' ' -f2)
+          case "$v" in [0-9]*_[0-9]*-[0-9a-f]*) ;; *) echo "bad version: $v"; exit 1 ;; esac
+          {
+            git log -1 --format=%B
+            echo
+            echo "Linux and Windows, x86-64 and arm64, and a flatpak. Linux:"
+            echo "\`chmod +x\` after downloading. macOS builds are added by hand."
+          } > notes.md
+          ls -l dist
+          gh release create "$v" dist/* --target "$GITHUB_SHA" --title "rockslop $v" --notes-file notes.md

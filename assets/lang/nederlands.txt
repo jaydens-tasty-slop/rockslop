@@ -1,0 +1,522 @@
+# Nederlands: rockslop UI
+TARGET
+= DOEL
+LINK
+= LINK
+PAYLOAD
+= PAYLOAD
+EXECUTE
+= UITVOEREN
+BUS IDLE
+= BUS LEEG
+STOCK
+= ORIGINEEL
+awaiting target
+= wacht op doel
+scanning usb
+= usb scannen
+awaiting payload
+= wacht op payload
+executing
+= uitvoeren
+session complete
+= sessie voltooid
+session aborted
+= sessie afgebroken
+rolling credits
+= aftiteling loopt
+SND
+= GELUID
+MUTED
+= DEMPT
+NO SND
+= GEEN GELUID
+audio muted
+= geluid uit
+audio on
+= geluid aan
+neural uplink
+= neurale uplink
+usb stack
+= usb-stack
+flash maps
+= flashkaarten
+payloads
+= payloads
+glyph cache
+= glyph-cache
+SELECT TARGET
+= KIES DOEL
+DOWNLOAD MODE
+= DOWNLOADMODUS
+STOCK FIRMWARE
+= ORIGINELE FIRMWARE
+ENGAGE
+= STARTEN
+CLICK TO ENGAGE
+= KLIK OM TE STARTEN
+RESET
+= RESET
+HEADPHONE
+= KOPTELEFOON
+VOL
+= VOL
+POWER
+= POWER
+POWER OFF
+= UITSCHAKELEN
+unplugged: hold the centre key
+= losgekoppeld: houd de middelste toets ingedrukt
+HOLD DOWN
+= HOUD DOWN
+bottom of the wheel
+= onderkant van het wiel
+CONNECT USB
+= SLUIT USB AAN
+keep holding
+= blijf vasthouden
+RELEASE
+= LOSLATEN
+once linked
+= zodra verbonden
+OR
+= OF
+hold DOWN and tap RESET
+= houd DOWN ingedrukt en tik op RESET
+STAND BY
+= STAND-BY
+it reboots into download mode
+= hij herstart in downloadmodus
+ROCKBOX?
+= ROCKBOX?
+switch it off, then hold POWER ~4 s while connecting
+= schakel hem uit en houd dan POWER ~4 s ingedrukt tijdens het verbinden
+LINK FAILED
+= LINK MISLUKT
+SCANNING
+= SCANNEN
+no player on the bus yet
+= nog geen speler op de bus
+ACCESS DENIED
+= TOEGANG GEWEIGERD
+no permission: install the udev rule (see README)
+= geen toestemming: installeer de udev-regel (zie README)
+macOS: run rockslop with sudo to take the device
+= macOS: start rockslop met sudo om het apparaat over te nemen
+install the WinUSB driver for it (Zadig)
+= installeer hiervoor het WinUSB-stuurprogramma (Zadig)
+LINK ESTABLISHED
+= LINK TOT STAND
+identity verified
+= identiteit geverifieerd
+PROBING
+= SONDEREN
+boot ROM online
+= boot-ROM online
+forcing download mode
+= downloadmodus afdwingen
+ROCKBOX RUNNING
+= ROCKBOX ACTIEF
+BACK
+= TERUG
+RETRY
+= OPNIEUW
+Rockbox package
+= Rockbox-pakket
+SELECT IMAGE
+= KIES IMAGE
+or drop it here
+= of sleep het hierheen
+IMAGE
+= IMAGE
+REJECTED
+= GEWEIGERD
+BUILD
+= BUILD
+FLASH
+= FLASH
+CARD
+= KAART
+{0} files  ·  {1}
+= {0} bestanden  ·  {1}
+every member verified
+= alle onderdelen geverifieerd
+BACKUP
+= BACKUP
+stock flash saved first
+= originele flash eerst bewaard
+CHANGE
+= WIJZIG
+INSERT SD CARD
+= SD-KAART PLAATSEN
+RETURN TO STOCK
+= TERUG NAAR ORIGINEEL
+built for {0}, not {1}
+= gebouwd voor {0}, niet voor {1}
+LAYOUT
+= INDELING
+LOCKED
+= VERGRENDELD
+PROBE
+= SONDE
+VERIFY
+= CONTROLE
+WRITE
+= SCHRIJVEN
+CHECKSUM
+= CHECKSUM
+CHECK
+= CHECK
+REBOOT
+= HERSTART
+SD SYNC
+= SD SYNC
+EJECT
+= UITWERPEN
+DONE
+= KLAAR
+FLASH MAP
+= FLASHMAP
+SAME
+= GELIJK
+READ
+= LEZEN
+ERASE
+= WISSEN
+WRITTEN
+= GESCHREVEN
+BAD
+= DEFECT
+FILES
+= BESTANDEN
+BUS TAP
+= BUS TAP
+THEN PRESS RESET
+= DRUK DAN OP RESET
+SD CARD
+= SD-KAART
+NO CARD
+= GEEN KAART
+READ BACK
+= TERUGLEZEN
+MOUNT
+= MOUNTEN
+CHECKED
+= GECONTROLEERD
+DATA
+= DATA
+RATE
+= SNELHEID
+ETA
+= ETA
+ACCESS GRANTED
+= TOEGANG VERLEEND
+STOCK RESTORED
+= ORIGINEEL HERSTELD
+the player boots stock firmware again
+= de speler start weer met de originele firmware
+rockbox is live on the player
+= Rockbox draait op de speler
+SESSION
+= SESSIE
+{0} sectors rewritten, checksummed
+= {0} sectoren herschreven, checksum OK
+{0} files  ·  {1}  ·  read back OK
+= {0} bestanden  ·  {1}  ·  teruggelezen OK
+not updated
+= niet bijgewerkt
+TIME
+= TIJD
+UNPLUG TO FINISH
+= ONTKOPPEL OM AF TE RONDEN
+EJECTED
+= UITGEWORPEN
+UNPLUG AND ROCK
+= ONTKOPPEL EN ROCK
+AGAIN
+= OPNIEUW
+CREDITS
+= MET DANK AAN
+the flash was partly rewritten: a backup is safe on disk
+= de flash is deels herschreven: een backup staat veilig op schijf
+nothing was written
+= er is niets geschreven
+FAULT
+= STORING
+COPY REPORT
+= KOPIEER RAPPORT
+REPORT COPIED
+= RAPPORT GEKOPIEERD
+NOW PLAYING
+= NU AAN HET SPELEN
+THIS FLASHER
+= DEZE FLASHER
+ROCKBOX CONTRIBUTORS
+= ROCKBOX-BIJDRAGERS
+{0} contributors
+= {0} bijdragers
+People that have contributed to the project, one way or another. Friends!
+= Mensen die op de een of andere manier aan het project hebben bijgedragen. Vrienden!
+links open in your browser
+= links openen in je browser
+Made by
+= Gemaakt door
+Device protocols and payloads
+= Apparaatprotocollen en payloads
+Music
+= Muziek
+Voice lines
+= Stemmen
+Sound effects
+= Geluidseffecten
+Fonts
+= Lettertypen
+Rust crates
+= Rust-crates
+Reference photos
+= Referentiefoto's
+LANGUAGE
+= TAAL
+AUTOMATIC
+= AUTOMATISCH
+stock firmware on the bus: asking it for download mode
+= originele firmware op de bus: vraagt om downloadmodus
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0} bevestigde 0xCB: herstart naar ADFU
+attaching to {0}
+= verbinden met {0}
+sector CRC32 scan on the player
+= sector-CRC32-scan op de speler
+dumping {0} KiB
+= {0} KiB uitlezen
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= {0} sectoren vastgelegd ({1} gelezen, {2} al bekend); CRC32 geverifieerd
+dumping {0} KiB of raw NOR cells
+= {0} KiB ruwe NOR-cellen uitlezen
+second pass: comparing
+= tweede ronde: vergelijken
+{0} sectors captured; two reads agree
+= {0} sectoren vastgelegd; twee leesrondes komen overeen
+identical backup already on file: {0}
+= identieke backup bestaat al: {0}
+backup -> {0}
+= backup -> {0}
+{0} of {1} sectors differ
+= {0} van {1} sectoren verschillen
+0x{0} erase / program / verify ok
+= 0x{0} wissen / programmeren / verifiëren ok
+CRC32 of every writable sector, computed on the player
+= CRC32 van elke beschrijfbare sector, berekend op de speler
+reading the writable window back
+= beschrijfbaar venster teruglezen
+flash checksum OK  sha256 {0}..{1}
+= flash-checksum OK  sha256 {0}..{1}
+rebooting into Rockbox
+= herstart naar Rockbox
+rebooting into stock firmware
+= herstart naar originele firmware
+firmware is up
+= firmware draait
+{0} image(s), {1} KiB, sha256 verified
+= {0} image(s), {1} KiB, sha256 geverifieerd
+{0} sectors rewritten
+= {0} sectoren herschreven
+Rockbox did not show up as a USB disk; the card was not updated
+= Rockbox verscheen niet als USB-schijf; de kaart is niet bijgewerkt
+total {0} s
+= totaal {0} s
+{0} loaded, checksum OK
+= {0} geladen, checksum OK
+backup is from another unit; its per-unit sectors are left alone
+= backup komt van een ander apparaat; de apparaatspecifieke sectoren blijven ongemoeid
+waiting for Rockbox's USB disk
+= wachten op de USB-schijf van Rockbox
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= nog geen USB-schijf van Rockbox: staat hij op alleen opladen, ontkoppel dan de speler, houd een willekeurige toets ingedrukt en sluit hem weer aan (of zet Instellingen > Algemene instellingen > Systeem > USB > USB-modus op massaopslag)
+no microSD card in the player: insert one, then press RESET
+= geen microSD-kaart in de speler: plaats er een en druk dan op RESET
+card online: {0}
+= kaart online: {0}
+removed {0} stale plugin/codec files
+= {0} verouderde plugin-/codecbestanden verwijderd
+removed {0}: the firmware is in flash, not on the card
+= {0} verwijderd: de firmware staat in flash, niet op de kaart
+{0} files written
+= {0} bestanden geschreven
+reading every file back from the card
+= alle bestanden van de kaart teruglezen
+{0} files read back: sha256 OK
+= {0} bestanden teruggelezen: sha256 OK
+card ejected
+= kaart uitgeworpen
+could not eject the card ({0}); eject it before unplugging
+= kaart kon niet worden uitgeworpen ({0}); werp hem uit voor je ontkoppelt
+stock firmware detected: ACTIONSUSBD
+= originele firmware gedetecteerd: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= vendor-opdracht 0xCB injecteren -> ADFU
+opening {0} download mode
+= {0}-downloadmodus openen
+reattaching to download mode
+= opnieuw verbinden met downloadmodus
+dumping {0} KiB of stock flash
+= {0} KiB originele flash uitlezen
+re-reading CRC32 of every sector
+= CRC32 van elke sector opnieuw lezen
+backup verified: {0}/{1} sectors match
+= backup geverifieerd: {0}/{1} sectoren komen overeen
+{0} sectors differ; writing
+= {0} sectoren verschillen; schrijven
+sector 0x{0} erase/program/verify ok
+= sector 0x{0} wissen/programmeren/verifiëren ok
+full flash CRC scan
+= volledige flash-CRC-scan
+flash checksum OK
+= flash-checksum OK
+waiting for Rockbox USB mass storage
+= wachten op Rockbox USB-massaopslag
+no media: insert a microSD card
+= geen media: plaats een microSD-kaart
+syncing and ejecting card
+= kaart synchroniseren en uitwerpen
+another tool holds the player ({0})
+= een ander programma houdt de speler vast ({0})
+the player did not come back in download mode
+= de speler kwam niet terug in downloadmodus
+the YP3 enters download mode by hand: hold Down while connecting USB
+= de YP3 gaat met de hand in downloadmodus: houd DOWN ingedrukt tijdens het aansluiten van USB
+battery too low to flash safely ({0})
+= batterij te zwak om veilig te flashen ({0})
+the player came back in download mode: the new firmware did not start
+= de speler kwam terug in downloadmodus: de nieuwe firmware startte niet
+this package is for {0}, not {1}
+= dit pakket is voor {0}, niet voor {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= de flash van deze speler op 0x{0} komt niet overeen met het pakket; er is niets geschreven
+the package has no firmware image
+= het pakket bevat geen firmware-image
+the card needs {0} MiB free; it has {1} MiB
+= de kaart heeft {0} MiB vrij nodig; er is {1} MiB
+{0} did not read back correctly from the card
+= {0} is niet correct teruggelezen van de kaart
+could not mount the player's card: {0}
+= kon de kaart van de speler niet mounten: {0}
+the player's card did not appear
+= de kaart van de speler verscheen niet
+the card is in use by another program
+= de kaart is in gebruik door een ander programma
+cancelled
+= afgebroken
+checksum mismatch at 0x{0}
+= checksum-fout op 0x{0}
+sector 0x{0} reads inconsistently
+= sector 0x{0} leest inconsistent
+flash at 0x{0} reads inconsistently
+= flash op 0x{0} leest inconsistent
+backup did not read back from disk
+= backup kon niet van schijf worden teruggelezen
+{0} is damaged (checksum mismatch)
+= {0} is beschadigd (checksum-fout)
+{0} is {1} bytes; a full flash image is {2}
+= {0} is {1} bytes; een volledig flash-image is {2}
+not a tar.xz release: {0}
+= geen tar.xz-release: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= dit pakket (formaat {0}) vereist een nieuwere rockslop dan {1}: werk rockslop bij
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= dit pakket (formaat {0}) is te oud voor rockslop {1}: haal een nieuwere release
+MANIFEST has no format
+= MANIFEST bevat geen formaat
+MANIFEST names no target
+= MANIFEST noemt geen doel
+unsafe path in archive: {0}
+= onveilig pad in archief: {0}
+{0}: links and special files are not allowed
+= {0}: links en speciale bestanden zijn niet toegestaan
+{0}: checksum mismatch, the download is corrupt
+= {0}: checksum-fout, de download is corrupt
+unexpected member {0}
+= onverwacht onderdeel {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= archief mist {0} bestand(en) uit SHA256SUMS
+release contains no flash image
+= release bevat geen flash-image
+{0}: checksum mismatch
+= {0}: checksum-fout
+archive member too large
+= archiefonderdeel te groot
+internal error: {0}
+= interne fout: {0}
+{0}: permission denied. {1}
+= {0}: toegang geweigerd. {1}
+Install the udev rule (see README) or run as root.
+= Installeer de udev-regel (zie README) of start als root.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= macOS heeft root nodig om het apparaat over te nemen van het massaopslag-stuurprogramma: start vanuit Terminal met sudo.
+The device needs the WinUSB driver (Zadig).
+= Het apparaat heeft het WinUSB-stuurprogramma nodig (Zadig).
+{0}: the device is busy (another tool is using it?)
+= {0}: het apparaat is bezet (gebruikt een ander programma het?)
+{0}: the device went away
+= {0}: het apparaat is verdwenen
+{0}: timed out
+= {0}: time-out
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= SLEEP OM TE DRAAIEN
+UNPLUG
+= ONTKOPPEL
+pull the USB cable out
+= trek de USB-kabel eruit
+POWER ON
+= INSCHAKELEN
+hold POWER, on the bottom edge
+= houd POWER ingedrukt, aan de onderkant
+stock firmware
+= originele firmware
+SWITCH OFF
+= UITZETTEN
+hold POWER until the screen goes dark
+= houd POWER ingedrukt tot het scherm donker wordt
+HOLD POWER
+= HOUD POWER
+plug in while holding, ~4 s
+= sluit aan terwijl je vasthoudt, ~4 s
+on the player: System > Debug > {0}
+= op de speler: Systeem > Debug > {0}
+follow the steps above
+= volg de stappen hierboven
+THE {0} PACKAGE
+= HET {0}-PAKKET
+NEEDS A MICROSD CARD
+= MICROSD-KAART NODIG
+It looks like you're trying to hack an MP3 player. Would you like help?
+= Het lijkt erop dat je een MP3-speler probeert te hacken. Wil je hulp?
+GOT IT
+= BEGREPEN
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= Deze spelers hebben geen modelnummer. Vergelijk in plaats daarvan de draadmodellen: de knoppen en aansluitingen verschillen. Sleep aan een speler om hem te draaien.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= Schakel de speler eerst uit, houd dan DOWN ingedrukt voordat de kabel erin gaat, en blijf vasthouden.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= Houd POWER ingedrukt terwijl je de kabel aansluit, en blijf ongeveer 4 seconden vasthouden.
+Switch the player on first: hold POWER on its bottom edge.
+= Zet de speler eerst aan: houd POWER aan de onderkant ingedrukt.
+Still nothing? Try another cable: some only charge.
+= Nog steeds niets? Probeer een andere kabel: sommige kunnen alleen opladen.
+Your computer won't let rockslop use the player.
+= Je computer laat rockslop de speler niet gebruiken.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= Ontkoppel eerst de kabel: de speler luistert alleen in downloadmodus. De stappen leggen uit hoe.
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= Je hebt het Rockbox-pakket nodig dat voor de {0} is gebouwd: een .tar.xz-bestand. Klik op KIES IMAGE, of sleep het naar het paneel.
+Push a microSD card all the way into the player's slot, then press RESET.
+= Duw een microSD-kaart helemaal in de sleuf van de speler en druk dan op RESET.
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Rockbox heeft zijn USB-schijf nog niet laten zien. Laadt de speler alleen op? Ontkoppel hem, houd een willekeurige toets ingedrukt en sluit hem weer aan.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= OPNIEUW lost het meestal op. Kom je er nog steeds niet uit? KOPIEER RAPPORT zet de details op het klembord voor een bugrapport.
+It looks like you watched all the credits. Nobody does that. Respect.
+= Het lijkt erop dat je de hele aftiteling hebt uitgekeken. Dat doet niemand. Respect.
+DEAL WITH IT
+= DEAL WITH IT

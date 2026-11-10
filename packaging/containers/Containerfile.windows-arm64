@@ -1,0 +1,20 @@
+# Windows arm64 cross build with llvm-mingw (aarch64-pc-windows-gnullvm).
+# crt-static links libunwind into the .exe; otherwise it needs llvm-mingw's
+# libunwind.dll next to it.
+FROM docker.io/library/rust:1-bookworm
+ARG LLVM_MINGW=llvm-mingw-20261020-ucrt-ubuntu-22.04-x86_64
+ARG LLVM_MINGW_SHA256=55064b60b991a1e1e8090b8c2f84e82b22cfe5903d12c159d65064cf5e8ae335
+RUN curl -fsSLo /tmp/llvm-mingw.tar.xz \
+        https://github.com/mstorsjo/llvm-mingw/releases/download/20261020/$LLVM_MINGW.tar.xz \
+    && echo "$LLVM_MINGW_SHA256  /tmp/llvm-mingw.tar.xz" | sha256sum -c - \
+    && tar -xJf /tmp/llvm-mingw.tar.xz -C /opt \
+    && mv /opt/$LLVM_MINGW /opt/llvm-mingw \
+    && rm /tmp/llvm-mingw.tar.xz \
+    && rustup target add aarch64-pc-windows-gnullvm
+ENV PATH=/opt/llvm-mingw/bin:$PATH \
+    CARGO_TARGET_AARCH64_PC_WINDOWS_GNULLVM_LINKER=aarch64-w64-mingw32-clang \
+    CC_aarch64_pc_windows_gnullvm=aarch64-w64-mingw32-clang \
+    CXX_aarch64_pc_windows_gnullvm=aarch64-w64-mingw32-clang++ \
+    AR_aarch64_pc_windows_gnullvm=aarch64-w64-mingw32-ar \
+    CARGO_TARGET_AARCH64_PC_WINDOWS_GNULLVM_RUSTFLAGS="-C target-feature=+crt-static"
+WORKDIR /src

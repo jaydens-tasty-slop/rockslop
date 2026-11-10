@@ -1,0 +1,15 @@
+# Portable Linux arm64 build, cross-compiled from x86_64 on Debian bookworm
+# (glibc 2.36) like Containerfile.linux. libasound comes from the arm64
+# multiarch package; GL and X11 are loaded at run time.
+FROM docker.io/library/rust:1-bookworm
+RUN dpkg --add-architecture arm64 && apt-get update \
+    && apt-get install -y --no-install-recommends gcc-aarch64-linux-gnu libc6-dev-arm64-cross \
+        libasound2-dev:arm64 pkg-config \
+    && rm -rf /var/lib/apt/lists/* \
+    && rustup target add aarch64-unknown-linux-gnu
+ENV CARGO_TARGET_AARCH64_UNKNOWN_LINUX_GNU_LINKER=aarch64-linux-gnu-gcc \
+    CC_aarch64_unknown_linux_gnu=aarch64-linux-gnu-gcc \
+    AR_aarch64_unknown_linux_gnu=aarch64-linux-gnu-ar \
+    PKG_CONFIG_ALLOW_CROSS=1 \
+    PKG_CONFIG_LIBDIR=/usr/lib/aarch64-linux-gnu/pkgconfig:/usr/share/pkgconfig
+WORKDIR /src

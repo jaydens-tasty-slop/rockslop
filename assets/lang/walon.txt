@@ -1,0 +1,522 @@
+# Walon: rockslop UI
+TARGET
+= SIBE
+LINK
+= LYÉN
+PAYLOAD
+= TCHÅDJE
+EXECUTE
+= ENONDE
+BUS IDLE
+= BUS VUDE
+STOCK
+= ORIDJ.
+awaiting target
+= ratindant l' sibe
+scanning usb
+= cweraedje usb
+awaiting payload
+= ratindant l' tchådje
+executing
+= enondaedje
+session complete
+= session finie
+session aborted
+= session rinonceye
+rolling credits
+= kiminålté ki roule
+SND
+= SON
+MUTED
+= MUWET
+NO SND
+= NO SON
+audio muted
+= son muwet
+audio on
+= son enondé
+neural uplink
+= lyén nerveu
+usb stack
+= pile usb
+flash maps
+= cåtes flash
+payloads
+= tchådjes
+glyph cache
+= cache di glyfes
+SELECT TARGET
+= TCHOEZI SIBE
+DOWNLOAD MODE
+= MODE TCHERDJ.
+STOCK FIRMWARE
+= FIRMWARE D' ORIDJ.
+ENGAGE
+= ENGADJÎ
+CLICK TO ENGAGE
+= CLITCHÎ PO ENGADJÎ
+RESET
+= RESET
+HEADPHONE
+= ACOUTEYES
+VOL
+= VOL
+POWER
+= POWER
+POWER OFF
+= DISTINDE
+unplugged: hold the centre key
+= distchaedjî: tinez li boton do mitan
+HOLD DOWN
+= TINEZ DOWN
+bottom of the wheel
+= dizo del roye
+CONNECT USB
+= CONECTEZ USB
+keep holding
+= continouwez a tinre
+RELEASE
+= LÂCHÎ
+once linked
+= cand c' est lyî
+OR
+= OU
+hold DOWN and tap RESET
+= tinez DOWN et clitchîz RESET
+STAND BY
+= RATINDEZ
+it reboots into download mode
+= i rienonde e mode tcherdjaedje
+ROCKBOX?
+= ROCKBOX ?
+switch it off, then hold POWER ~4 s while connecting
+= distindez-l, puis tinez POWER ~4 s tot conectant
+LINK FAILED
+= LYÉN BERWETE
+SCANNING
+= CWERAEDJE
+no player on the bus yet
+= co nou aparey so l' bus
+ACCESS DENIED
+= ACCÈS RIFUSÉ
+no permission: install the udev rule (see README)
+= nole permission: astalez li rigue udev (loukîz README)
+macOS: run rockslop with sudo to take the device
+= macOS: enondez rockslop avou sudo po prinde l' aparey
+install the WinUSB driver for it (Zadig)
+= astalez li pilote WinUSB po-z ey (Zadig)
+LINK ESTABLISHED
+= LYÉN FWAIT
+identity verified
+= identité verifieye
+PROBING
+= SONDAEDJE
+boot ROM online
+= ROM d' enondaedje e lingne
+forcing download mode
+= mode tcherdjaedje foircî
+ROCKBOX RUNNING
+= ROCKBOX ALE
+BACK
+= RELE
+RETRY
+= RESSAYÎ
+Rockbox package
+= Pakèt Rockbox
+SELECT IMAGE
+= TCHOEZI IMÅDJE
+or drop it here
+= ou lachîz l' chal
+IMAGE
+= IMÅDJE
+REJECTED
+= RIFUSÉ
+BUILD
+= MODÈLE
+FLASH
+= FLASH
+CARD
+= CARTE
+{0} files  ·  {1}
+= {0} fitchîs  ·  {1}
+every member verified
+= tos les membes verifiés
+BACKUP
+= SCHAPE
+stock flash saved first
+= flash d' oridjine schapé d' abord
+CHANGE
+= CANDJMINTS
+INSERT SD CARD
+= METEZ CARTE SD
+RETURN TO STOCK
+= RIVENU A L' ORIDJINE
+built for {0}, not {1}
+= fwait po {0}, nén po {1}
+LAYOUT
+= ARANDJMINT
+LOCKED
+= CLAWÉ
+PROBE
+= SONDE
+VERIFY
+= VERIF.
+WRITE
+= SCRIRE
+CHECKSUM
+= CHECKSUM
+CHECK
+= RCWÉRI
+REBOOT
+= RENONDE
+SD SYNC
+= SYNC SD
+EJECT
+= SACOU
+DONE
+= FWAIT
+FLASH MAP
+= CÅTE FLASH
+SAME
+= PAREY
+READ
+= LIJHOU
+ERASE
+= EFACÉ
+WRITTEN
+= SCRIT
+BAD
+= MÅVAIS
+FILES
+= FITCHÎS
+BUS TAP
+= ESPION BUS
+THEN PRESS RESET
+= PUIS CLITCHÎ RESET
+SD CARD
+= CARTE SD
+NO CARD
+= NOLE CARTE
+READ BACK
+= RLIJHAEDJE
+MOUNT
+= MONTER
+CHECKED
+= VERIFIÉ
+DATA
+= DONÉES
+RATE
+= VITESSE
+ETA
+= ETA
+ACCESS GRANTED
+= ACCÈS DONÉ
+STOCK RESTORED
+= ORIDJINE RMETOU
+the player boots stock firmware again
+= l' aparey rienonde li firmware d' oridjine
+rockbox is live on the player
+= rockbox est e vie sol aparey
+SESSION
+= SESSION
+{0} sectors rewritten, checksummed
+= {0} sectôrs rescrits, checksum verifié
+{0} files  ·  {1}  ·  read back OK
+= {0} fitchîs  ·  {1}  ·  rlijhous OK
+not updated
+= nén mettou a djoû
+TIME
+= TEMPS
+UNPLUG TO FINISH
+= DISTCHAEDJÎ PO FINI
+EJECTED
+= SACOU
+UNPLUG AND ROCK
+= DISTCHAEDJÎ ET ROCK
+AGAIN
+= ENCOR
+CREDITS
+= KIMINÅLTÉ
+the flash was partly rewritten: a backup is safe on disk
+= li flash a stî rescrit e pårteye: ene schape est e såf sol disk
+nothing was written
+= ri n' a stî scrit
+FAULT
+= BERWETE
+COPY REPORT
+= COPYÎ RAPOIRT
+REPORT COPIED
+= RAPOIRT COPYÎ
+NOW PLAYING
+= DJI DJOWE ASTEURE
+THIS FLASHER
+= CIST FLASHER
+ROCKBOX CONTRIBUTORS
+= ACTEURS DI ROCKBOX
+{0} contributors
+= {0} acteurs
+People that have contributed to the project, one way or another. Friends!
+= Djins ki ont aidî l' pordjet, d' ene manire ou d' ene ôte. Camaerådes !
+links open in your browser
+= les lyéns s' drovèt dins vosse betchteu
+Made by
+= Fwait pa
+Device protocols and payloads
+= Protocoles d' aparey et tchådjes
+Music
+= Muzike
+Voice lines
+= Fråzes di voes
+Sound effects
+= Efets d' son
+Fonts
+= Fontes
+Rust crates
+= Crates Rust
+Reference photos
+= Fotos di referince
+LANGUAGE
+= LINGAEDJE
+AUTOMATIC
+= OTOMATIC
+stock firmware on the bus: asking it for download mode
+= firmware d' oridjine so l' bus: dimande do mode tcherdjaedje
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0} a acordé 0xCB: rienondaedje en ADFU
+attaching to {0}
+= atatchaedje a {0}
+sector CRC32 scan on the player
+= cweraedje CRC32 des sectôrs sol aparey
+dumping {0} KiB
+= copiaedje di {0} KiB
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= {0} sectôrs pris ({1} lijhous, {2} dedja kinoxhous); CRC32 verifié
+dumping {0} KiB of raw NOR cells
+= copiaedje di {0} KiB di cellules NOR crûwes
+second pass: comparing
+= deuzyinme passe: comparaedje
+{0} sectors captured; two reads agree
+= {0} sectôrs pris; les deus lijhaedjes acordèt
+identical backup already on file: {0}
+= schape parey dedja la: {0}
+backup -> {0}
+= schape -> {0}
+{0} of {1} sectors differ
+= {0} sectôrs so {1} sont difèrints
+0x{0} erase / program / verify ok
+= 0x{0} efaçaedje / programaedje / verifiaedje ok
+CRC32 of every writable sector, computed on the player
+= CRC32 di tos les sectôrs scrijhåves, calculé sol aparey
+reading the writable window back
+= rlijhaedje del finiesse scrijhåve
+flash checksum OK  sha256 {0}..{1}
+= checksum do flash OK  sha256 {0}..{1}
+rebooting into Rockbox
+= rienondaedje en Rockbox
+rebooting into stock firmware
+= rienondaedje do firmware d' oridjine
+firmware is up
+= li firmware est e vie
+{0} image(s), {1} KiB, sha256 verified
+= {0} imådje(s), {1} KiB, sha256 verifié
+{0} sectors rewritten
+= {0} sectôrs rescrits
+Rockbox did not show up as a USB disk; the card was not updated
+= Rockbox n' a nén aparou come disk USB; li carte n' a nén stî mettowe a djoû
+total {0} s
+= total {0} s
+{0} loaded, checksum OK
+= {0} tcherdjî, checksum OK
+backup is from another unit; its per-unit sectors are left alone
+= li schape vént d' ene ôte unité; ses sectôrs po ç' unité sont léyîs en pé
+waiting for Rockbox's USB disk
+= ratindant l' disk USB di Rockbox
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= co nou disk USB di Rockbox: s' il est apontyî po tchedjî seulmint, distchaedjîz l' aparey, tinez on boton et l' rconectez (ou metez Tchuzes > Apontiaedjes djenerås > Sistinme > USB > USB Mode so Mass Storage)
+no microSD card in the player: insert one, then press RESET
+= nole carte microSD dins l' aparey: metez ene, puis clitchîz RESET
+card online: {0}
+= carte e lingne: {0}
+removed {0} stale plugin/codec files
+= {0} viyès fitchîs di plugins/codecs oisté
+removed {0}: the firmware is in flash, not on the card
+= {0} oisté: li firmware est dins l' flash, nén so l' carte
+{0} files written
+= {0} fitchîs scrits
+reading every file back from the card
+= rlijhaedje di tos les fitchîs dispoy l' carte
+{0} files read back: sha256 OK
+= {0} fitchîs rlijhous: sha256 OK
+card ejected
+= carte sacowe
+could not eject the card ({0}); eject it before unplugging
+= dji n' a savou sacouwer l' carte ({0}); sacouwez-le divant di distchaedjî
+stock firmware detected: ACTIONSUSBD
+= firmware d' oridjine trové: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= dji tchessî l' comande do fabricant 0xCB -> ADFU
+opening {0} download mode
+= drovaedje do mode tcherdjaedje {0}
+reattaching to download mode
+= rataitchaedje å mode tcherdjaedje
+dumping {0} KiB of stock flash
+= copiaedje di {0} KiB do flash d' oridjine
+re-reading CRC32 of every sector
+= rlijhaedje do CRC32 di tos les sectôrs
+backup verified: {0}/{1} sectors match
+= schape verifieye: {0}/{1} sectôrs acordèt
+{0} sectors differ; writing
+= {0} sectôrs sont difèrints; scrijhaedje
+sector 0x{0} erase/program/verify ok
+= sectôr 0x{0} efaçaedje/programaedje/verifiaedje ok
+full flash CRC scan
+= cweraedje CRC conplet do flash
+flash checksum OK
+= checksum do flash OK
+waiting for Rockbox USB mass storage
+= ratindant l' stocaedje di masse USB di Rockbox
+no media: insert a microSD card
+= nou sopoirt: metez ene carte microSD
+syncing and ejecting card
+= sincronisaedje et sacouwaedje del carte
+another tool holds the player ({0})
+= ene ôte usteye tént l' aparey ({0})
+the player did not come back in download mode
+= l' aparey n' est nén rvenou e mode tcherdjaedje
+the YP3 enters download mode by hand: hold Down while connecting USB
+= li YP3 intére e mode tcherdjaedje a mwin: tinez Down tot conectant l' USB
+battery too low to flash safely ({0})
+= batreye trop basse po flashî en såvrté ({0})
+the player came back in download mode: the new firmware did not start
+= l' aparey est rvenou e mode tcherdjaedje: li novea firmware n' a nén enondé
+this package is for {0}, not {1}
+= cist pakèt est po {0}, nén po {1}
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= li flash di cist aparey a 0x{0} n' est nén ç' ki l' pakèt a stî fwait po; ri n' a stî scrit
+the package has no firmware image
+= li pakèt n' a nole imådje di firmware
+the card needs {0} MiB free; it has {1} MiB
+= li carte a mezåjhe di {0} MiB libes; ele a {1} MiB
+{0} did not read back correctly from the card
+= {0} n' a nén stî bén rlijhou dispoy l' carte
+could not mount the player's card: {0}
+= dji n' a savou monter l' carte di l' aparey: {0}
+the player's card did not appear
+= l' carte di l' aparey n' a nén aparou
+the card is in use by another program
+= l' carte est eployeye pa ene ôte programe
+cancelled
+= rinoncî
+checksum mismatch at 0x{0}
+= checksum nén bon a 0x{0}
+sector 0x{0} reads inconsistently
+= l' sectôr 0x{0} si lét nén todi parey
+flash at 0x{0} reads inconsistently
+= li flash a 0x{0} si lét nén todi parey
+backup did not read back from disk
+= li schape n' a nén stî rlijhowe dispoy l' disk
+{0} is damaged (checksum mismatch)
+= {0} est abimé (checksum nén bon)
+{0} is {1} bytes; a full flash image is {2}
+= {0} fait {1} octets; ene imådje flash conplete fait {2}
+not a tar.xz release: {0}
+= c' est nén ene sortîe tar.xz: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= cist pakèt (sôre {0}) a mezåjhe d' on rockslop pus novea ki {1}: metez rockslop a djoû
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= cist pakèt (sôre {0}) est trop vî po rockslop {1}: prindez ene pus nouve sortîe
+MANIFEST has no format
+= MANIFEST n' a nou format
+MANIFEST names no target
+= MANIFEST nome nou sibe
+unsafe path in archive: {0}
+= tchimin nén seur dins l' årtchive: {0}
+{0}: links and special files are not allowed
+= {0}: les lyéns et les fitchîs spéciåls n' sont nén permetous
+{0}: checksum mismatch, the download is corrupt
+= {0}: checksum nén bon, li tcherdjaedje est abimé
+unexpected member {0}
+= membe nén ratindou {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= a l' årtchive i manke {0} fitchî(s) metou(s) dins SHA256SUMS
+release contains no flash image
+= li sortîe n' a nole imådje flash
+{0}: checksum mismatch
+= {0}: checksum nén bon
+archive member too large
+= membe d' årtchive trop grand
+internal error: {0}
+= aroke di dvins: {0}
+{0}: permission denied. {1}
+= {0}: permission rifuzêye. {1}
+Install the udev rule (see README) or run as root.
+= Astalez li rigue udev (loukîz README) ou enondez come root.
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= macOS a mezåjhe di root po prinde l' aparey a s' pilote di stocaedje di masse: enondez dins Terminal avou sudo.
+The device needs the WinUSB driver (Zadig).
+= L' aparey a mezåjhe do pilote WinUSB (Zadig).
+{0}: the device is busy (another tool is using it?)
+= {0}: l' aparey est eployî (pa ene ôte usteye ?)
+{0}: the device went away
+= {0}: l' aparey n' est pus la
+{0}: timed out
+= {0}: li tins est passé
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= SAETCHÎZ PO TOURNER
+UNPLUG
+= DISTCHAEDJÎ
+pull the USB cable out
+= saetchîz l' cåbe USB foû
+POWER ON
+= ENONDER
+hold POWER, on the bottom edge
+= tinez POWER, so l' boird di dzo
+stock firmware
+= firmware d' oridjine
+SWITCH OFF
+= DISTINDE
+hold POWER until the screen goes dark
+= tinez POWER tant ki l' waitroûle n' est nén neure
+HOLD POWER
+= TINEZ POWER
+plug in while holding, ~4 s
+= conectez tot tinant, ~4 s
+on the player: System > Debug > {0}
+= sol aparey: Sistinme > Disbugaedje > {0}
+follow the steps above
+= shuvez les hopes chal dizeu
+THE {0} PACKAGE
+= LI PAKÈT PO {0}
+NEEDS A MICROSD CARD
+= I FÅT ENE CARTE MICROSD
+It looks like you're trying to hack an MP3 player. Would you like help?
+= I shonne ki vos sayîz di hacker on aparey MP3. Vos voloz di l' aidance ?
+GOT IT
+= D' ACOIRD
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= I-gn a nou limero d' modele so ces apareys la. Comparez pus vite les modeles e fi: les botons et les pôrts sont difèrints. Saetchîz on aparey po l' fé tourner.
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= Distindez l' aparey d' abord, puis tinez DOWN divant d' conecter l' cåbe, et continouwez a tinre.
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= Tinez POWER tot conectant l' cåbe, et continouwez a tinre a pô près 4 segondes.
+Switch the player on first: hold POWER on its bottom edge.
+= Enondez l' aparey d' abord: tinez POWER so s' boird di dzo.
+Still nothing? Try another cable: some only charge.
+= Todi rén ? Sayîz on ôte cåbe: sacwants ni fjhèt k' tcherdjî.
+Your computer won't let rockslop use the player.
+= Vosse copiutrece ni lait nén rockslop eployî l' aparey.
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= Distchaedjîz l' cåbe d' abord: l' aparey n' acoute k' e mode tcherdjaedje. Les hopes vs dijhèt kimint.
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= I vs fåt l' pakèt Rockbox fwait po l' {0}: on fitchî .tar.xz. Clitchîz TCHOEZI IMÅDJE, ou lachîz l' sol panea.
+Push a microSD card all the way into the player's slot, then press RESET.
+= Boutez ene carte microSD disk' å fond dins l' fente di l' aparey, puis clitchîz RESET.
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Rockbox n' a nén co mostré s' disk USB. Si l' aparey ni fwait k' tcherdjî, distchaedjîz l' aparey, tinez on boton et l' rconectez.
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= RESSAYÎ arindje sovint l' afwaire. Todi bloké ? COPYÎ RAPOIRT mete les detays dins l' presse-papî po on rapoirt d' aroke.
+It looks like you watched all the credits. Nobody does that. Respect.
+= I shonne ki vos avoz rwaitî tote li kiminålté. Nolu n' fwait ça. Respet !
+DEAL WITH IT
+= DEAL WITH IT

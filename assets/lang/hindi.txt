@@ -1,0 +1,522 @@
+# हिन्दी: rockslop UI
+TARGET
+= लक्ष्य
+LINK
+= लिंक
+PAYLOAD
+= पेलोड
+EXECUTE
+= चलाओ
+BUS IDLE
+= कुछ नहीं
+STOCK
+= स्टॉक
+awaiting target
+= लक्ष्य की प्रतीक्षा
+scanning usb
+= usb स्कैन
+awaiting payload
+= पेलोड की प्रतीक्षा
+executing
+= चल रहा है
+session complete
+= सत्र पूर्ण
+session aborted
+= सत्र रद्द
+rolling credits
+= क्रेडिट चल रहे हैं
+SND
+= ध्वनि
+MUTED
+= म्यूट
+NO SND
+= ध्वनि नहीं
+audio muted
+= ऑडियो म्यूट
+audio on
+= ऑडियो चालू
+neural uplink
+= न्यूरल अपलिंक
+usb stack
+= usb स्टैक
+flash maps
+= फ़्लैश मैप
+payloads
+= पेलोड
+glyph cache
+= ग्लिफ़ कैश
+SELECT TARGET
+= लक्ष्य चुनें
+DOWNLOAD MODE
+= डाउनलोड मोड
+STOCK FIRMWARE
+= स्टॉक फ़र्मवेयर
+ENGAGE
+= शुरू
+CLICK TO ENGAGE
+= शुरू करने क्लिक करें
+RESET
+= RESET
+HEADPHONE
+= हेडफ़ोन
+VOL
+= वॉल्यूम
+POWER
+= POWER
+POWER OFF
+= बंद करें
+unplugged: hold the centre key
+= अनप्लग: बीच की कुंजी दबाए रखें
+HOLD DOWN
+= DOWN दबाएँ
+bottom of the wheel
+= व्हील का निचला भाग
+CONNECT USB
+= USB जोड़ें
+keep holding
+= दबाए रखें
+RELEASE
+= छोड़ें
+once linked
+= जुड़ने पर
+OR
+= या
+hold DOWN and tap RESET
+= DOWN दबाकर RESET दबाएँ
+STAND BY
+= रुकिए
+it reboots into download mode
+= यह डाउनलोड मोड में रीबूट होगा
+ROCKBOX?
+= ROCKBOX?
+switch it off, then hold POWER ~4 s while connecting
+= पहले बंद करें, फिर जोड़ते समय POWER ~4 सेकंड दबाएँ
+LINK FAILED
+= लिंक विफल
+SCANNING
+= स्कैन जारी
+no player on the bus yet
+= बस पर अभी कोई प्लेयर नहीं
+ACCESS DENIED
+= प्रवेश अस्वीकृत
+no permission: install the udev rule (see README)
+= अनुमति नहीं: udev नियम लगाएँ (README देखें)
+macOS: run rockslop with sudo to take the device
+= macOS: डिवाइस लेने के लिए rockslop को sudo से चलाएँ
+install the WinUSB driver for it (Zadig)
+= इसके लिए WinUSB ड्राइवर लगाएँ (Zadig)
+LINK ESTABLISHED
+= लिंक स्थापित
+identity verified
+= पहचान सत्यापित
+PROBING
+= जाँच जारी
+boot ROM online
+= boot ROM ऑनलाइन
+forcing download mode
+= डाउनलोड मोड थोपा जा रहा है
+ROCKBOX RUNNING
+= ROCKBOX चालू
+BACK
+= वापस
+RETRY
+= फिर से
+Rockbox package
+= Rockbox पैकेज
+SELECT IMAGE
+= इमेज चुनें
+or drop it here
+= या यहाँ छोड़ें
+IMAGE
+= इमेज
+REJECTED
+= अस्वीकृत
+BUILD
+= बिल्ड
+FLASH
+= फ़्लैश
+CARD
+= कार्ड
+{0} files  ·  {1}
+= {0} फ़ाइलें  ·  {1}
+every member verified
+= हर सदस्य सत्यापित
+BACKUP
+= बैकअप
+stock flash saved first
+= स्टॉक फ़्लैश पहले सहेजा गया
+CHANGE
+= बदलें
+INSERT SD CARD
+= SD कार्ड डालें
+RETURN TO STOCK
+= स्टॉक पर लौटें
+built for {0}, not {1}
+= {0} के लिए बना, {1} के लिए नहीं
+LAYOUT
+= लेआउट
+LOCKED
+= लॉक
+PROBE
+= जाँच
+VERIFY
+= सत्यापन
+WRITE
+= लिखना
+CHECKSUM
+= चेकसम
+CHECK
+= जाँच
+REBOOT
+= रीबूट
+SD SYNC
+= SD सिंक
+EJECT
+= निकालें
+DONE
+= पूर्ण
+FLASH MAP
+= फ़्लैश मैप
+SAME
+= समान
+READ
+= पढ़ना
+ERASE
+= मिटाना
+WRITTEN
+= लिखा
+BAD
+= खराब
+FILES
+= फ़ाइलें
+BUS TAP
+= बस टैप
+THEN PRESS RESET
+= फिर RESET दबाएँ
+SD CARD
+= SD कार्ड
+NO CARD
+= कार्ड नहीं
+READ BACK
+= वापस पढ़ा
+MOUNT
+= माउंट
+CHECKED
+= जाँचा
+DATA
+= डेटा
+RATE
+= गति
+ETA
+= शेष
+ACCESS GRANTED
+= प्रवेश स्वीकृत
+STOCK RESTORED
+= स्टॉक बहाल
+the player boots stock firmware again
+= प्लेयर फिर स्टॉक फ़र्मवेयर पर बूट होता है
+rockbox is live on the player
+= rockbox प्लेयर पर चालू है
+SESSION
+= सत्र
+{0} sectors rewritten, checksummed
+= {0} सेक्टर दोबारा लिखे, चेकसम जाँचा
+{0} files  ·  {1}  ·  read back OK
+= {0} फ़ाइलें  ·  {1}  ·  वापस पढ़ना ठीक
+not updated
+= अपडेट नहीं हुआ
+TIME
+= समय
+UNPLUG TO FINISH
+= पूरा करने अनप्लग करें
+EJECTED
+= निकाला गया
+UNPLUG AND ROCK
+= अनप्लग करो, रॉक करो
+AGAIN
+= फिर से
+CREDITS
+= क्रेडिट
+the flash was partly rewritten: a backup is safe on disk
+= फ़्लैश आंशिक रूप से दोबारा लिखा गया: बैकअप डिस्क पर सुरक्षित है
+nothing was written
+= कुछ नहीं लिखा गया
+FAULT
+= खराबी
+COPY REPORT
+= रिपोर्ट कॉपी करें
+REPORT COPIED
+= रिपोर्ट कॉपी हुई
+NOW PLAYING
+= अभी चल रहा है
+THIS FLASHER
+= यह फ़्लैशर
+ROCKBOX CONTRIBUTORS
+= ROCKBOX के योगदानकर्ता
+{0} contributors
+= {0} योगदानकर्ता
+People that have contributed to the project, one way or another. Friends!
+= वे लोग जिन्होंने किसी न किसी तरह प्रोजेक्ट में योगदान दिया। दोस्तो!
+links open in your browser
+= लिंक ब्राउज़र में खुलते हैं
+Made by
+= बनाने वाले
+Device protocols and payloads
+= डिवाइस प्रोटोकॉल और पेलोड
+Music
+= संगीत
+Voice lines
+= आवाज़ की पंक्तियाँ
+Sound effects
+= ध्वनि प्रभाव
+Fonts
+= फ़ॉन्ट
+Rust crates
+= Rust क्रेट
+Reference photos
+= संदर्भ तस्वीरें
+LANGUAGE
+= भाषा
+AUTOMATIC
+= स्वचालित
+stock firmware on the bus: asking it for download mode
+= बस पर स्टॉक फ़र्मवेयर: डाउनलोड मोड माँगा जा रहा है
+{0} acknowledged 0xCB: rebooting into ADFU
+= {0} ने 0xCB माना: ADFU में रीबूट
+attaching to {0}
+= {0} से जुड़ रहे हैं
+sector CRC32 scan on the player
+= प्लेयर पर सेक्टर CRC32 स्कैन
+dumping {0} KiB
+= {0} KiB डंप हो रहा है
+{0} sectors captured ({1} read, {2} already known); CRC32 verified
+= {0} सेक्टर लिए ({1} पढ़े, {2} पहले से ज्ञात); CRC32 सत्यापित
+dumping {0} KiB of raw NOR cells
+= कच्चे NOR सेल के {0} KiB डंप हो रहे हैं
+second pass: comparing
+= दूसरा चरण: तुलना
+{0} sectors captured; two reads agree
+= {0} सेक्टर लिए; दोनों रीड मेल खाते हैं
+identical backup already on file: {0}
+= वैसा ही बैकअप पहले से मौजूद: {0}
+backup -> {0}
+= बैकअप -> {0}
+{0} of {1} sectors differ
+= {1} में से {0} सेक्टर अलग
+0x{0} erase / program / verify ok
+= 0x{0} मिटाना / लिखना / सत्यापन ठीक
+CRC32 of every writable sector, computed on the player
+= हर लिखने योग्य सेक्टर का CRC32, प्लेयर पर निकाला गया
+reading the writable window back
+= लिखने योग्य हिस्सा वापस पढ़ रहे हैं
+flash checksum OK  sha256 {0}..{1}
+= फ़्लैश चेकसम ठीक  sha256 {0}..{1}
+rebooting into Rockbox
+= Rockbox में रीबूट
+rebooting into stock firmware
+= स्टॉक फ़र्मवेयर में रीबूट
+firmware is up
+= फ़र्मवेयर चालू
+{0} image(s), {1} KiB, sha256 verified
+= इमेज {0}, {1} KiB, sha256 सत्यापित
+{0} sectors rewritten
+= {0} सेक्टर दोबारा लिखे
+Rockbox did not show up as a USB disk; the card was not updated
+= Rockbox USB डिस्क के रूप में नहीं दिखा; कार्ड अपडेट नहीं हुआ
+total {0} s
+= कुल {0} सेकंड
+{0} loaded, checksum OK
+= {0} लोड हुआ, चेकसम ठीक
+backup is from another unit; its per-unit sectors are left alone
+= बैकअप दूसरी यूनिट का है; यूनिट-विशिष्ट सेक्टर छोड़ दिए गए
+waiting for Rockbox's USB disk
+= Rockbox की USB डिस्क की प्रतीक्षा
+no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)
+= Rockbox की USB डिस्क अभी नहीं: अगर यह सिर्फ़ चार्ज पर सेट है, तो प्लेयर अनप्लग करें, कोई भी बटन दबाए रखें और फिर से लगाएँ (या सेटिनगस > जनरल सेटिनगस > सिसटम > USB > USB Mode को Mass Storage पर सेट करें)
+no microSD card in the player: insert one, then press RESET
+= प्लेयर में microSD कार्ड नहीं: डालें, फिर RESET दबाएँ
+card online: {0}
+= कार्ड ऑनलाइन: {0}
+removed {0} stale plugin/codec files
+= {0} पुरानी plugin/codec फ़ाइलें हटाईं
+removed {0}: the firmware is in flash, not on the card
+= {0} हटाया गया: फ़र्मवेयर फ़्लैश में है, कार्ड पर नहीं
+{0} files written
+= {0} फ़ाइलें लिखीं
+reading every file back from the card
+= कार्ड से हर फ़ाइल वापस पढ़ रहे हैं
+{0} files read back: sha256 OK
+= {0} फ़ाइलें वापस पढ़ीं: sha256 ठीक
+card ejected
+= कार्ड निकाला गया
+could not eject the card ({0}); eject it before unplugging
+= कार्ड नहीं निकाल सके ({0}); अनप्लग से पहले निकालें
+stock firmware detected: ACTIONSUSBD
+= स्टॉक फ़र्मवेयर मिला: ACTIONSUSBD
+injecting vendor command 0xCB -> ADFU
+= वेंडर कमांड 0xCB भेजी जा रही है -> ADFU
+opening {0} download mode
+= {0} डाउनलोड मोड खोल रहे हैं
+reattaching to download mode
+= डाउनलोड मोड से फिर जुड़ रहे हैं
+dumping {0} KiB of stock flash
+= स्टॉक फ़्लैश के {0} KiB डंप हो रहे हैं
+re-reading CRC32 of every sector
+= हर सेक्टर का CRC32 फिर पढ़ रहे हैं
+backup verified: {0}/{1} sectors match
+= बैकअप सत्यापित: {0}/{1} सेक्टर मेल खाते हैं
+{0} sectors differ; writing
+= {0} सेक्टर अलग; लिख रहे हैं
+sector 0x{0} erase/program/verify ok
+= सेक्टर 0x{0} मिटाना/लिखना/सत्यापन ठीक
+full flash CRC scan
+= पूरे फ़्लैश का CRC स्कैन
+flash checksum OK
+= फ़्लैश चेकसम ठीक
+waiting for Rockbox USB mass storage
+= Rockbox USB मास स्टोरेज की प्रतीक्षा
+no media: insert a microSD card
+= मीडिया नहीं: microSD कार्ड डालें
+syncing and ejecting card
+= कार्ड सिंक कर निकाल रहे हैं
+another tool holds the player ({0})
+= दूसरा टूल प्लेयर इस्तेमाल कर रहा है ({0})
+the player did not come back in download mode
+= प्लेयर डाउनलोड मोड में वापस नहीं आया
+the YP3 enters download mode by hand: hold Down while connecting USB
+= YP3 हाथ से डाउनलोड मोड में जाता है: USB जोड़ते समय Down दबाए रखें
+battery too low to flash safely ({0})
+= सुरक्षित फ़्लैश के लिए बैटरी बहुत कम ({0})
+the player came back in download mode: the new firmware did not start
+= प्लेयर डाउनलोड मोड में लौट आया: नया फ़र्मवेयर शुरू नहीं हुआ
+this package is for {0}, not {1}
+= यह पैकेज {0} के लिए है, {1} के लिए नहीं
+this player's flash at 0x{0} is not what the package was built for; nothing was written
+= इस प्लेयर का 0x{0} पर फ़्लैश वह नहीं जिसके लिए पैकेज बना; कुछ नहीं लिखा गया
+the package has no firmware image
+= पैकेज में फ़र्मवेयर इमेज नहीं है
+the card needs {0} MiB free; it has {1} MiB
+= कार्ड में {0} MiB खाली चाहिए; है {1} MiB
+{0} did not read back correctly from the card
+= {0} कार्ड से सही वापस नहीं पढ़ा गया
+could not mount the player's card: {0}
+= प्लेयर का कार्ड माउंट नहीं हो सका: {0}
+the player's card did not appear
+= प्लेयर का कार्ड नहीं दिखा
+the card is in use by another program
+= कार्ड दूसरे प्रोग्राम में इस्तेमाल हो रहा है
+cancelled
+= रद्द किया
+checksum mismatch at 0x{0}
+= 0x{0} पर चेकसम बेमेल
+sector 0x{0} reads inconsistently
+= सेक्टर 0x{0} असंगत पढ़ा जाता है
+flash at 0x{0} reads inconsistently
+= 0x{0} पर फ़्लैश असंगत पढ़ा जाता है
+backup did not read back from disk
+= बैकअप डिस्क से वापस नहीं पढ़ा गया
+{0} is damaged (checksum mismatch)
+= {0} खराब है (चेकसम बेमेल)
+{0} is {1} bytes; a full flash image is {2}
+= {0} {1} बाइट का है; पूरी फ़्लैश इमेज {2} की होती है
+not a tar.xz release: {0}
+= tar.xz रिलीज़ नहीं: {0}
+this package (format {0}) needs a newer rockslop than {1}: update rockslop
+= इस पैकेज (फ़ॉर्मैट {0}) के लिए {1} से नया rockslop चाहिए: rockslop अपडेट करें
+this package (format {0}) is too old for rockslop {1}: get a newer release
+= यह पैकेज (फ़ॉर्मैट {0}) rockslop {1} के लिए बहुत पुराना है: नई रिलीज़ लें
+MANIFEST has no format
+= MANIFEST में फ़ॉर्मैट नहीं
+MANIFEST names no target
+= MANIFEST में लक्ष्य नहीं
+unsafe path in archive: {0}
+= आर्काइव में असुरक्षित पाथ: {0}
+{0}: links and special files are not allowed
+= {0}: लिंक और विशेष फ़ाइलें मान्य नहीं
+{0}: checksum mismatch, the download is corrupt
+= {0}: चेकसम बेमेल, डाउनलोड खराब है
+unexpected member {0}
+= अनपेक्षित सदस्य {0}
+archive is missing {0} file(s) listed in SHA256SUMS
+= आर्काइव में SHA256SUMS की सूची की {0} फ़ाइलें नहीं हैं
+release contains no flash image
+= रिलीज़ में फ़्लैश इमेज नहीं
+{0}: checksum mismatch
+= {0}: चेकसम बेमेल
+archive member too large
+= आर्काइव सदस्य बहुत बड़ा
+internal error: {0}
+= आंतरिक त्रुटि: {0}
+{0}: permission denied. {1}
+= {0}: अनुमति अस्वीकृत। {1}
+Install the udev rule (see README) or run as root.
+= udev नियम लगाएँ (README देखें) या root के रूप में चलाएँ।
+macOS needs root to take the device from its mass storage driver: run from Terminal with sudo.
+= डिवाइस को उसके मास स्टोरेज ड्राइवर से लेने के लिए macOS को root चाहिए: टर्मिनल से sudo के साथ चलाएँ।
+The device needs the WinUSB driver (Zadig).
+= डिवाइस को WinUSB ड्राइवर चाहिए (Zadig)।
+{0}: the device is busy (another tool is using it?)
+= {0}: डिवाइस व्यस्त है (क्या कोई दूसरा टूल इसे इस्तेमाल कर रहा है?)
+{0}: the device went away
+= {0}: डिवाइस हट गया
+{0}: timed out
+= {0}: समय सीमा समाप्त
+# Clippy, and the new download-mode steps
+DRAG TO SPIN
+= घुमाने के लिए खींचें
+UNPLUG
+= अनप्लग करें
+pull the USB cable out
+= USB केबल निकालें
+POWER ON
+= चालू करें
+hold POWER, on the bottom edge
+= POWER दबाए रखें, नीचे के किनारे पर
+stock firmware
+= स्टॉक फ़र्मवेयर
+SWITCH OFF
+= बंद करें
+hold POWER until the screen goes dark
+= स्क्रीन काली होने तक POWER दबाए रखें
+HOLD POWER
+= POWER दबाएँ
+plug in while holding, ~4 s
+= दबाए रखते हुए लगाएँ, ~4 सेकंड
+on the player: System > Debug > {0}
+= प्लेयर पर: सिसटम > Debug > {0}
+follow the steps above
+= ऊपर दिए चरणों का पालन करें
+THE {0} PACKAGE
+= {0} का पैकेज
+NEEDS A MICROSD CARD
+= microSD कार्ड चाहिए
+It looks like you're trying to hack an MP3 player. Would you like help?
+= लगता है आप एक MP3 प्लेयर हैक करने की कोशिश कर रहे हैं। क्या आप मदद चाहेंगे?
+GOT IT
+= ठीक है
+There's no model number on these players. Compare the wireframes instead: the buttons and ports differ. Drag a player to spin it.
+= इन प्लेयरों पर कोई मॉडल नंबर नहीं होता। इसके बजाय वायरफ़्रेम की तुलना करें: बटन और पोर्ट अलग-अलग हैं। घुमाने के लिए किसी प्लेयर को खींचें।
+Power the player off first, then hold DOWN before the cable goes in, and keep holding.
+= पहले प्लेयर बंद करें, फिर केबल लगाने से पहले DOWN दबाएँ, और दबाए रखें।
+Hold POWER while you plug the cable in, and keep holding for about 4 seconds.
+= केबल लगाते समय POWER दबाए रखें, और लगभग 4 सेकंड तक दबाए रखें।
+Switch the player on first: hold POWER on its bottom edge.
+= पहले प्लेयर चालू करें: उसके नीचे के किनारे पर POWER दबाए रखें।
+Still nothing? Try another cable: some only charge.
+= अब भी कुछ नहीं? दूसरी केबल आज़माएँ: कुछ केबल सिर्फ़ चार्ज करती हैं।
+Your computer won't let rockslop use the player.
+= आपका कंप्यूटर rockslop को प्लेयर इस्तेमाल नहीं करने दे रहा।
+Unplug the cable first: the player only listens in download mode. The steps say how.
+= पहले केबल निकालें: प्लेयर सिर्फ़ डाउनलोड मोड में सुनता है। चरण बताते हैं कैसे।
+You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.
+= आपको {0} के लिए बना Rockbox पैकेज चाहिए: एक .tar.xz फ़ाइल। "इमेज चुनें" पर क्लिक करें, या उसे पैनल पर छोड़ें।
+Push a microSD card all the way into the player's slot, then press RESET.
+= microSD कार्ड को प्लेयर के स्लॉट में पूरा अंदर तक डालें, फिर RESET दबाएँ।
+Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
+= Rockbox ने अभी तक अपनी USB डिस्क नहीं दिखाई। अगर प्लेयर सिर्फ़ चार्ज होता है, तो उसे अनप्लग करें, कोई भी बटन दबाए रखें और फिर से लगाएँ।
+RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+= "फिर से" से आम तौर पर बात बन जाती है। अब भी अटके हैं? "रिपोर्ट कॉपी करें" बग रिपोर्ट के लिए विवरण क्लिपबोर्ड पर रख देता है।
+It looks like you watched all the credits. Nobody does that. Respect.
+= लगता है आपने पूरे क्रेडिट देख लिए। कोई ऐसा नहीं करता। सलाम।
+DEAL WITH IT
+= DEAL WITH IT
