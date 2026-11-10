@@ -3046,9 +3046,11 @@ impl App {
                 );
             }
         }
-        // hex / file stream
+        // hex / file stream, and the terminal under it, down to just above
+        // the bottom row's chips (SND's top is 47 px up)
+        let foot = sz.y - 56.0;
         let hy = mr.y + mr.h + 22.0;
-        let hh = ((sz.y - hy - 40.0) * 0.5).max(110.0);
+        let hh = ((foot - hy) * 0.5).max(110.0);
         let hr = Rect::new(x0, hy, w, hh);
         let ha = window(st, 0.4, 0.5);
         let syncing = matches!(job.phase, Some(Phase::Sync | Phase::Eject));
@@ -3090,7 +3092,7 @@ impl App {
         }
         // terminal
         let ty = hr.y + hr.h + 22.0;
-        let tap = Rect::new(x0, ty, w, sz.y - ty - 40.0);
+        let tap = Rect::new(x0, ty, w, foot - ty);
         let ta = window(st, 0.55, 0.5);
         ui::panel(tap, pal::VIOLET, ta);
         ui::terminal(&self.g, Rect::new(tap.x + 18.0, tap.y + 8.0, tap.w - 36.0, tap.h - 12.0), &self.log, t, ta);
