@@ -4,7 +4,7 @@
 FROM docker.io/library/rust:1-bookworm
 ARG LLVM_MINGW=llvm-mingw-20261020-ucrt-ubuntu-22.04-x86_64
 ARG LLVM_MINGW_SHA256=55064b60b991a1e1e8090b8c2f84e82b22cfe5903d12c159d65064cf5e8ae335
-RUN curl -fsSLo /tmp/llvm-mingw.tar.xz \
+RUN curl -fsSL --retry 5 --retry-all-errors -o /tmp/llvm-mingw.tar.xz \
         https://github.com/mstorsjo/llvm-mingw/releases/download/20261020/$LLVM_MINGW.tar.xz \
     && echo "$LLVM_MINGW_SHA256  /tmp/llvm-mingw.tar.xz" | sha256sum -c - \
     && tar -xJf /tmp/llvm-mingw.tar.xz -C /opt \
