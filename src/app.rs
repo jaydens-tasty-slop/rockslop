@@ -2009,9 +2009,7 @@ impl App {
         // under the picker, nothing sees the pointer
         let input = (self.ui.mouse, self.ui.pressed, self.ui.released);
         if self.picker.is_some() {
-            self.ui.mouse = vec2(-1e5, -1e5);
-            self.ui.pressed = false;
-            self.ui.released = false;
+            self.ui.hide_pointer();
         }
         if s != Screen::Boot {
             self.chrome();
@@ -2058,6 +2056,13 @@ impl App {
         let st = self.screen_t;
         let (lr, rr, wave_y) = credits::layout(sz);
         let beat = self.beat;
+        // Clippy surfs in front of the panes and BACK: his clicks first
+        if let Some((at, full)) = self.encore {
+            if self.clippy.encore_click(&mut self.ui, t - at, full, t, wave_y, sz.x, beat) {
+                self.audio.sfx(Sfx::Drop);
+                self.kick = self.kick.max(0.7);
+            }
+        }
         // the title, centre top between the panes
         let cw = rr.x - (lr.x + lr.w) - 24.0;
         let top = lr.y + 44.0;

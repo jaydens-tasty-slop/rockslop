@@ -70,6 +70,14 @@ impl Ui {
         self.over_before = std::mem::take(&mut self.over_now);
     }
 
+    /// Something drawn on top has the pointer: the widgets drawn after this
+    /// see neither it nor its clicks, until the frame's input is put back.
+    pub fn hide_pointer(&mut self) {
+        self.mouse = vec2(-1e5, -1e5);
+        self.pressed = false;
+        self.released = false;
+    }
+
     /// Hover test for a custom widget: marks the mouse as taken.
     pub fn over(&mut self, r: Rect) -> bool {
         let o = r.contains(self.mouse);

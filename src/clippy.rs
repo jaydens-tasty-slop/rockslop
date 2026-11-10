@@ -3,9 +3,11 @@
 //! tip away for the session. Drawn from scratch as a neon wireframe: a bent
 //! wire, eyebrows, and visor shades that drop on as he arrives and that he
 //! now and then peeks over (click him to make him do it). Once the credits
-//! have rolled all the way through he comes back for an encore.
+//! have rolled all the way through he comes back for an encore, and stays
+//! surfing the scroller: click him for another kickflip.
 
 use crate::anim::{clamp01, ease_in_out_cubic, ease_out_back, ease_out_cubic, Spring};
+use crate::audio::Sfx;
 use crate::gfx::text::{self, Align, Face};
 use crate::gfx::{pal, Gfx};
 use crate::i18n::{self, tr};
@@ -46,6 +48,8 @@ pub struct Clippy {
     gone: Vec<Tip>,
     /// when he last started peeking over his shades
     peek_at: f32,
+    /// when he last took off on a trick someone clicked for
+    trick_at: f32,
 }
 
 const BUBBLE_W: f32 = 268.0;
@@ -56,7 +60,7 @@ const TALL: f32 = 10.1 * U * 1.08;
 
 impl Clippy {
     pub fn new() -> Clippy {
-        Clippy { since: None, shown: None, shown_at: 0.0, out: Spring::new(0.0, 70.0, 11.0), gone: Vec::new(), peek_at: -10.0 }
+        Clippy { since: None, shown: None, shown_at: 0.0, out: Spring::new(0.0, 70.0, 11.0), gone: Vec::new(), peek_at: -10.0, trick_at: -10.0 }
     }
 
     /// Each frame: the tip for where the user is (None: nothing to help
@@ -183,38 +187,14 @@ impl Clippy {
     /// through: he drops onto the wave scroller (along `wave_y`, across a
     /// screen `width` wide) and surfs it on his paper; at centre stage he
     /// backflips out of his shades and they drop back on; then he stays,
-    /// cruising up and down the wave. Not `full`: back on the credits
+    /// cruising up and down the wave, and a click on him (`encore_click`)
+    /// sends him into another kickflip. Not `full`: back on the credits
     /// after all that, he just drops in and cruises.
     pub fn encore(&self, g: &Gfx, e: f32, full: bool, time: f32, wave_y: f32, width: f32, beat: f32) {
         if e < 0.0 {
             return;
         }
-        let (mid, start) = (width * 0.5, width * 0.8);
-        let flip = if full { clamp01((e - ENCORE_FLIP) / (ENCORE_LAND - ENCORE_FLIP)) } else { 0.0 };
-        // cruising: a slow swing either side of centre, from where he was
-        let cruise = |from: f32, phase: f32| mid + (start - mid) * (phase + (e - from) * 0.3).sin();
-        let x = if e < ENCORE_DROP {
-            start
-        } else if !full {
-            cruise(ENCORE_DROP, PI / 2.0)
-        } else if e < ENCORE_FLIP {
-            start + (mid - start) * ease_in_out_cubic((e - ENCORE_DROP) / (ENCORE_FLIP - ENCORE_DROP))
-        } else if e < ENCORE_OFF {
-            mid
-        } else {
-            cruise(ENCORE_OFF, 0.0)
-        };
-        // riding the words: on top of them, tipped with the wave
-        let ride = wave_y - 24.0 + wave(x, time, beat);
-        let slope = wave_slope(x, time, beat);
-        let (y, tilt) = if e < ENCORE_DROP {
-            let f = e / ENCORE_DROP;
-            (-120.0 + (ride + 120.0) * f * f, (1.0 - f) * -0.5)
-        } else {
-            // the backflip's jump
-            (ride - 170.0 * 4.0 * flip * (1.0 - flip), slope.atan())
-        };
-        let feet = vec2(x, y - 0.3 * U);
+        let Ride { at, feet, tilt, flip, trick, .. } = self.ride(e, full, time, wave_y, width, beat);
         // the shades: on as he falls in, off for the flip, dealt back on
         let shades = if e < ENCORE_FLIP || !full {
             0.0
@@ -226,13 +206,13 @@ impl Clippy {
         let a = clamp01(e * 4.0);
         // the board: his paper, turned over (a kickflip with the backflip)
         let turn = (flip * TAU).cos();
-        board(vec2(x, y), tilt, turn, a, time);
+        board(at, tilt, turn, a, time);
         let pose = Pose {
             a,
             tilt,
             flip: -flip * TAU,
             shades,
-            raise: if full && (ENCORE_FLIP..ENCORE_LAND + 1.0).contains(&e) { 0.5 } else { 0.1 * beat },
+            raise: if trick || (full && (ENCORE_FLIP..ENCORE_LAND + 1.0).contains(&e)) { 0.5 } else { 0.1 * beat },
             beat,
             ..Pose::default()
         };
@@ -262,6 +242,96 @@ impl Clippy {
         }
     }
 }
+
+/// Where he is on the wave, `e` seconds into the encore.
+struct Ride {
+    /// the board's centre, and his feet on it
+    at: Vec2,
+    feet: Vec2,
+    /// where the board meets the wave under him, jumping or not
+    ground: f32,
+    tilt: f32,
+    /// how far through a flip he is (0..1): the show's, or a clicked one
+    flip: f32,
+    /// on a clicked trick
+    trick: bool,
+}
+
+impl Clippy {
+    /// Clicking him while he surfs (once the show's flip has landed, or
+    /// straight away on a later visit) sends him into another kickflip.
+    /// He's in front of the panes and BACK, so call it before them: while
+    /// he's on the wave they don't see the pointer over him, or its clicks.
+    /// Returns true the frame a trick lands.
+    pub fn encore_click(&mut self, ui: &mut Ui, e: f32, full: bool, time: f32, wave_y: f32, width: f32, beat: f32) -> bool {
+        let landed = self.trick(time).is_none() && self.trick(time - ui.dt).is_some();
+        if e < ENCORE_DROP {
+            return landed;
+        }
+        let r = self.ride(e, full, time, wave_y, width, beat);
+        // him, and the air under him while he jumps: a second click must
+        // not land on what he jumped off
+        let top = r.feet.y - TALL;
+        let me = Rect::new(r.feet.x - 2.6 * U, top, 5.2 * U, r.ground + U - top);
+        if !me.contains(ui.mouse) {
+            return landed;
+        }
+        let ready = self.trick(time).is_none() && e >= if full { ENCORE_LAND + 1.0 } else { ENCORE_DROP };
+        if ready {
+            let over = ui.over(me);
+            if ui.click(over, Sfx::Transition) {
+                self.trick_at = time;
+            }
+        }
+        ui.captured = true;
+        ui.hide_pointer();
+        landed
+    }
+
+    /// How far through a clicked trick he is (0..1), while he's on one.
+    fn trick(&self, time: f32) -> Option<f32> {
+        let f = (time - self.trick_at) / TRICK;
+        (0.0..1.0).contains(&f).then_some(f)
+    }
+
+    fn ride(&self, e: f32, full: bool, time: f32, wave_y: f32, width: f32, beat: f32) -> Ride {
+        let (mid, start) = (width * 0.5, width * 0.8);
+        let show = if full { clamp01((e - ENCORE_FLIP) / (ENCORE_LAND - ENCORE_FLIP)) } else { 0.0 };
+        let trick = self.trick(time);
+        // the show's backflip, else a clicked one: a flip turn and a hop
+        let (flip, hop) = match trick {
+            _ if show > 0.0 && show < 1.0 => (show, 170.0),
+            Some(f) => (f, 120.0),
+            None => (0.0, 0.0),
+        };
+        // cruising: a slow swing either side of centre, from where he was
+        let cruise = |from: f32, phase: f32| mid + (start - mid) * (phase + (e - from) * 0.3).sin();
+        let x = if e < ENCORE_DROP {
+            start
+        } else if !full {
+            cruise(ENCORE_DROP, PI / 2.0)
+        } else if e < ENCORE_FLIP {
+            start + (mid - start) * ease_in_out_cubic((e - ENCORE_DROP) / (ENCORE_FLIP - ENCORE_DROP))
+        } else if e < ENCORE_OFF {
+            mid
+        } else {
+            cruise(ENCORE_OFF, 0.0)
+        };
+        // riding the words: on top of them, tipped with the wave
+        let ride = wave_y - 24.0 + wave(x, time, beat);
+        let slope = wave_slope(x, time, beat);
+        let (y, tilt) = if e < ENCORE_DROP {
+            let f = e / ENCORE_DROP;
+            (-120.0 + (ride + 120.0) * f * f, (1.0 - f) * -0.5)
+        } else {
+            (ride - hop * 4.0 * flip * (1.0 - flip), slope.atan())
+        };
+        Ride { at: vec2(x, y), feet: vec2(x, y - 0.3 * U), ground: ride.max(y), tilt, flip, trick: trick.is_some() }
+    }
+}
+
+/// A clicked trick's length, s.
+const TRICK: f32 = 0.85;
 
 /// The encore's beats, in seconds: he lands on the wave, starts the
 /// backflip, lands it, and starts cruising.
