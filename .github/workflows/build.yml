@@ -91,10 +91,10 @@ jobs:
           v=$(dist/rockslop-cli-linux-x86_64 --version | cut -d' ' -f2)
           case "$v" in [0-9]*_[0-9]*-[0-9a-f]*) ;; *) echo "bad version: $v"; exit 1 ;; esac
           {
-            git log -1 --format=%B
+            git log -1 --format=%B | sed '/^Co-Authored-By:/Id'
             echo
             echo "Linux and Windows, x86-64 and arm64, and a flatpak. Linux:"
             echo "\`chmod +x\` after downloading. macOS builds are added by hand."
-          } > notes.md
+          } | cat -s > notes.md
           ls -l dist
           gh release create "$v" dist/* --target "$GITHUB_SHA" --title "rockslop $v" --notes-file notes.md
