@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Čini se da si odgledao cijelu odjavnu špicu. To nitko ne radi. Svaka čast.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= na ovom računalu nema sigurnosne kopije tvorničkog firmwarea
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Kad rockslop flasha uređaj, ostavlja kopiju tvorničkog firmwarea na microSD kartici uređaja: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Pokreni uređaj u Rockboxu i spoji ga, a rockslop će sam potražiti tamo. Ili pronađi datoteku i odaberi je.
+looking on the player's card
+= tražim na kartici uređaja
+no stock firmware on the player's card
+= na kartici uređaja nema tvorničkog firmwarea
+checking the image
+= provjeravam sliku
+stock firmware: {0}
+= tvornički firmware: {0}
+UNKNOWN FIRMWARE
+= NEPOZNAT FIRMWARE
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Ovo nije tvornički firmware koji rockslop poznaje: novija verzija ili uopće nije tvornički.
+It has Rockbox in it, so it isn't stock firmware.
+= Sadrži Rockbox, pa nije tvornički firmware.
+Flash it only if you're sure it came from a {0}.
+= Flashaj ga samo ako si siguran da potječe s uređaja {0}.
+FLASH ANYWAY
+= FLASHAJ IPAK
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Mapa .rockbox je skrivena: uključi prikaz skrivenih datoteka u svom pregledniku datoteka da je vidiš.
+stock firmware copied to the card: {0}
+= tvornički firmware kopiran na karticu: {0}
+stock firmware already on the card: {0}
+= tvornički firmware već je na kartici: {0}
+could not copy the stock firmware to the card: {0}
+= tvornički firmware nije moguće kopirati na karticu: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= na kartici nema mjesta za tvornički firmware ({0} KiB slobodno)
+the stock firmware did not read back correctly from the card
+= tvornički firmware nije se ispravno pročitao s kartice
+stock firmware found on the card: {0}
+= tvornički firmware pronađen na kartici: {0}
+known stock firmware: {0}
+= poznat tvornički firmware: {0}
+rockslop does not recognise this firmware
+= rockslop ne prepoznaje ovaj firmware
+{0} is not a {1} flash backup (no partition table)
+= {0} nije flash sigurnosna kopija za {1} (nema particijske tablice)
+{0} has no firmware in it (that part is blank)
+= {0} ne sadrži firmware (taj dio je prazan)
+{0} has Rockbox in it: it is not stock firmware
+= {0} sadrži Rockbox: nije tvornički firmware

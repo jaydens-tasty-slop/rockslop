@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = 看起來您把製作名單全看完了。沒人會這麼做。佩服。
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= 此電腦上沒有原廠韌體備份
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= rockslop 刷寫播放器時，會在播放器的 microSD 卡上留一份原廠韌體副本：.rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= 讓播放器啟動進入 Rockbox 並連接電腦，rockslop 會自己去那裡找。或者找到該檔案並選取它。
+looking on the player's card
+= 正在播放器的卡上尋找
+no stock firmware on the player's card
+= 播放器的卡上沒有原廠韌體
+checking the image
+= 正在檢查映像檔
+stock firmware: {0}
+= 原廠韌體：{0}
+UNKNOWN FIRMWARE
+= 未知韌體
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= 這不是 rockslop 認得的原廠韌體：可能是較新的版本，或者根本不是原廠的。
+It has Rockbox in it, so it isn't stock firmware.
+= 其中含有 Rockbox，所以不是原廠韌體。
+Flash it only if you're sure it came from a {0}.
+= 只有確定它來自 {0} 時才刷寫。
+FLASH ANYWAY
+= 仍然刷寫
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= .rockbox 資料夾是隱藏的：請在檔案管理員中開啟顯示隱藏檔案才能看到。
+stock firmware copied to the card: {0}
+= 原廠韌體已複製到卡上：{0}
+stock firmware already on the card: {0}
+= 原廠韌體已在卡上：{0}
+could not copy the stock firmware to the card: {0}
+= 無法將原廠韌體複製到卡上：{0}
+no room on the card for the stock firmware ({0} KiB free)
+= 卡上沒有足夠空間存放原廠韌體（剩餘 {0} KiB）
+the stock firmware did not read back correctly from the card
+= 原廠韌體從卡上讀回時不正確
+stock firmware found on the card: {0}
+= 在卡上找到原廠韌體：{0}
+known stock firmware: {0}
+= 已知的原廠韌體：{0}
+rockslop does not recognise this firmware
+= rockslop 不認得此韌體
+{0} is not a {1} flash backup (no partition table)
+= {0} 不是 {1} 的快閃備份（沒有分割表）
+{0} has no firmware in it (that part is blank)
+= {0} 中沒有韌體（該部分是空白的）
+{0} has Rockbox in it: it is not stock firmware
+= {0} 中含有 Rockbox：不是原廠韌體

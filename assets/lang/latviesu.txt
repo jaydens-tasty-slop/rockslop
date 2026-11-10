@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Izskatās, ka tu noskatījies visus titrus. Neviens tā nedara. Cieņa.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= nav rūpnīcas firmware kopijas šajā datorā
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Kad rockslop ieflešo atskaņotāju, tas atskaņotāja microSD kartē ieliek rūpnīcas firmware kopiju: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Palaid atskaņotāju Rockbox režīmā un pievieno to, un rockslop pats meklēs tur. Vai arī atrodi failu un izvēlies to.
+looking on the player's card
+= meklē atskaņotāja kartē
+no stock firmware on the player's card
+= atskaņotāja kartē nav rūpnīcas firmware
+checking the image
+= pārbauda attēlu
+stock firmware: {0}
+= rūpnīcas firmware: {0}
+UNKNOWN FIRMWARE
+= NEZINĀMS FIRMWARE
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Šis nav rūpnīcas firmware, ko rockslop pazīst: vai nu jaunāka versija, vai vispār nav rūpnīcas.
+It has Rockbox in it, so it isn't stock firmware.
+= Tajā ir Rockbox, tāpēc tas nav rūpnīcas firmware.
+Flash it only if you're sure it came from a {0}.
+= Ieflešo to tikai tad, ja esi drošs, ka tas nāk no {0}.
+FLASH ANYWAY
+= IEFLEŠOT TOMĒR
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Mape .rockbox ir slēpta: ieslēdz slēpto failu rādīšanu savā failu pārlūkā, lai to redzētu.
+stock firmware copied to the card: {0}
+= rūpnīcas firmware nokopēts uz karti: {0}
+stock firmware already on the card: {0}
+= rūpnīcas firmware kartē jau ir: {0}
+could not copy the stock firmware to the card: {0}
+= neizdevās nokopēt rūpnīcas firmware uz karti: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= kartē nav vietas rūpnīcas firmware ({0} KiB brīvi)
+the stock firmware did not read back correctly from the card
+= rūpnīcas firmware no kartes nolasījās nepareizi
+stock firmware found on the card: {0}
+= rūpnīcas firmware atrasts kartē: {0}
+known stock firmware: {0}
+= zināms rūpnīcas firmware: {0}
+rockslop does not recognise this firmware
+= rockslop neatpazīst šo firmware
+{0} is not a {1} flash backup (no partition table)
+= {0} nav {1} flash dublējums (nav partīciju tabulas)
+{0} has no firmware in it (that part is blank)
+= {0} nesatur firmware (šī daļa ir tukša)
+{0} has Rockbox in it: it is not stock firmware
+= {0} satur Rockbox: tas nav rūpnīcas firmware

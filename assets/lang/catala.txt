@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Sembla que has mirat tots els crèdits. Ningú no ho fa. Respecte.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= no hi ha cap còpia del firmware original en aquest ordinador
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Quan rockslop grava el firmware en un reproductor, deixa una còpia del firmware original a la targeta microSD del reproductor: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Inicia el reproductor amb Rockbox i connecta'l, i rockslop hi buscarà per ell mateix. O troba el fitxer i selecciona'l.
+looking on the player's card
+= buscant a la targeta del reproductor
+no stock firmware on the player's card
+= no hi ha firmware original a la targeta del reproductor
+checking the image
+= comprovant la imatge
+stock firmware: {0}
+= firmware original: {0}
+UNKNOWN FIRMWARE
+= FIRMWARE DESCONEGUT
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= No és un firmware original que rockslop conegui: una versió més nova, o no és original.
+It has Rockbox in it, so it isn't stock firmware.
+= Porta Rockbox a dins, així que no és firmware original.
+Flash it only if you're sure it came from a {0}.
+= Grava'l només si estàs segur que ve d'un {0}.
+FLASH ANYWAY
+= GRAVA'L IGUALMENT
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= La carpeta .rockbox està amagada: activa els fitxers ocults al gestor de fitxers per veure-la.
+stock firmware copied to the card: {0}
+= firmware original copiat a la targeta: {0}
+stock firmware already on the card: {0}
+= firmware original ja és a la targeta: {0}
+could not copy the stock firmware to the card: {0}
+= no s'ha pogut copiar el firmware original a la targeta: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= no hi ha espai a la targeta per al firmware original ({0} KiB lliures)
+the stock firmware did not read back correctly from the card
+= el firmware original no s'ha llegit bé de la targeta
+stock firmware found on the card: {0}
+= firmware original trobat a la targeta: {0}
+known stock firmware: {0}
+= firmware original conegut: {0}
+rockslop does not recognise this firmware
+= rockslop no reconeix aquest firmware
+{0} is not a {1} flash backup (no partition table)
+= {0} no és una còpia flash de {1} (sense taula de particions)
+{0} has no firmware in it (that part is blank)
+= {0} no té cap firmware a dins (aquesta part és en blanc)
+{0} has Rockbox in it: it is not stock firmware
+= {0} porta Rockbox a dins: no és firmware original

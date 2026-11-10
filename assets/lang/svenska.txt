@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Det verkar som om du har sett hela eftertexten. Det gör ingen. Respekt.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= ingen backup av originalfirmware på den här datorn
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= När rockslop flashar en spelare lägger den en kopia av originalfirmware på spelarens microSD-kort: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Starta spelaren i Rockbox och anslut den, så tittar rockslop där själv. Eller hitta filen och välj den.
+looking on the player's card
+= letar på spelarens kort
+no stock firmware on the player's card
+= ingen originalfirmware på spelarens kort
+checking the image
+= kontrollerar avbilden
+stock firmware: {0}
+= originalfirmware: {0}
+UNKNOWN FIRMWARE
+= OKÄND FIRMWARE
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Det är inte en originalfirmware som rockslop känner till: en nyare version, eller inte original alls.
+It has Rockbox in it, so it isn't stock firmware.
+= Den innehåller Rockbox, så det är inte originalfirmware.
+Flash it only if you're sure it came from a {0}.
+= Flasha den bara om du är säker på att den kommer från en {0}.
+FLASH ANYWAY
+= FLASHA ÄNDÅ
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Mappen .rockbox är dold: slå på visning av dolda filer i din filhanterare för att se den.
+stock firmware copied to the card: {0}
+= originalfirmware kopierad till kortet: {0}
+stock firmware already on the card: {0}
+= originalfirmware finns redan på kortet: {0}
+could not copy the stock firmware to the card: {0}
+= kunde inte kopiera originalfirmware till kortet: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= inget utrymme på kortet för originalfirmware ({0} KiB ledigt)
+the stock firmware did not read back correctly from the card
+= originalfirmware lästes inte tillbaka rätt från kortet
+stock firmware found on the card: {0}
+= originalfirmware hittad på kortet: {0}
+known stock firmware: {0}
+= känd originalfirmware: {0}
+rockslop does not recognise this firmware
+= rockslop känner inte igen den här firmwaren
+{0} is not a {1} flash backup (no partition table)
+= {0} är inte en {1}-flashbackup (ingen partitionstabell)
+{0} has no firmware in it (that part is blank)
+= {0} har ingen firmware i sig (den delen är tom)
+{0} has Rockbox in it: it is not stock firmware
+= {0} innehåller Rockbox: det är inte originalfirmware

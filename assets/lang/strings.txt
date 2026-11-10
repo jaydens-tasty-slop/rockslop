@@ -152,6 +152,25 @@ built for {0}, not {1}
 LAYOUT
 LOCKED
 
+## Return to stock with no stock backup on this computer: the payload panel
+## asks for the image (a whole-flash backup file, .bin) instead
+no stock backup on this computer
+# {0} = a file name pattern such as "yp3-…-stock.bin"; .rockbox is a folder
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+looking on the player's card
+no stock firmware on the player's card
+checking the image
+# {0} = a file name
+stock firmware: {0}
+# the picked file passed the checks but its firmware isn't one rockslop knows
+UNKNOWN FIRMWARE
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+It has Rockbox in it, so it isn't stock firmware.
+# {0} = a player name
+Flash it only if you're sure it came from a {0}.
+FLASH ANYWAY
+
 ## Execute: the phases of a flash (short chips in a strip)
 PROBE
 VERIFY
@@ -257,6 +276,9 @@ Push a microSD card all the way into the player's slot, then press RESET.
 # "USB disk": the player showing up on the computer as a USB drive
 Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
 RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+# returning to stock: the backup is in .rockbox on the card, a folder
+# file browsers hide
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
 # after the credits have rolled all the way through: he surfs the scroller
 It looks like you watched all the credits. Nobody does that. Respect.
 # the sunglasses meme, as he puts his shades back on; keep it in English
@@ -308,6 +330,17 @@ reading every file back from the card
 {0} files read back: sha256 OK
 card ejected
 could not eject the card ({0}); eject it before unplugging
+# a copy of the stock firmware backup kept on the card; {0} = its path there
+stock firmware copied to the card: {0}
+stock firmware already on the card: {0}
+could not copy the stock firmware to the card: {0}
+no room on the card for the stock firmware ({0} KiB free)
+the stock firmware did not read back correctly from the card
+# the card had a stock backup this computer lacked: {0} = where it is kept now
+stock firmware found on the card: {0}
+# {0} = a firmware version name
+known stock firmware: {0}
+rockslop does not recognise this firmware
 stock firmware detected: ACTIONSUSBD
 injecting vendor command 0xCB -> ADFU
 opening {0} download mode
@@ -345,6 +378,10 @@ flash at 0x{0} reads inconsistently
 backup did not read back from disk
 {0} is damaged (checksum mismatch)
 {0} is {1} bytes; a full flash image is {2}
+# {0} = a file name, {1} = a player name
+{0} is not a {1} flash backup (no partition table)
+{0} has no firmware in it (that part is blank)
+{0} has Rockbox in it: it is not stock firmware
 not a tar.xz release: {0}
 # {0} = a number; {1} = rockslop's version, such as 0.1.0
 this package (format {0}) needs a newer rockslop than {1}: update rockslop

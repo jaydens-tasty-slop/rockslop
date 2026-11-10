@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Atrodo, kad pažiūrėjai visus titrus iki galo. Niekas to nedaro. Pagarba.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= šiame kompiuteryje nėra gamyklinio firmware kopijos
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Kai rockslop įrašo grotuvą, jis į grotuvo microSD kortelę padeda gamyklinio firmware kopiją: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Paleisk grotuvą su Rockbox ir prijunk jį, o rockslop pats ten pasižiūrės. Arba susirask failą ir jį pasirink.
+looking on the player's card
+= ieškoma grotuvo kortelėje
+no stock firmware on the player's card
+= grotuvo kortelėje nėra gamyklinio firmware
+checking the image
+= tikrinamas vaizdas
+stock firmware: {0}
+= gamyklinis firmware: {0}
+UNKNOWN FIRMWARE
+= NEŽINOMAS FIRMWARE
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Tai ne gamyklinis firmware, kurį rockslop pažįsta: arba naujesnė versija, arba išvis ne gamyklinis.
+It has Rockbox in it, so it isn't stock firmware.
+= Jame yra Rockbox, todėl tai ne gamyklinis firmware.
+Flash it only if you're sure it came from a {0}.
+= Įrašyk jį tik jei tikrai žinai, kad jis iš {0}.
+FLASH ANYWAY
+= ĮRAŠYTI VIS TIEK
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Aplankas .rockbox yra paslėptas: failų naršyklėje įjunk paslėptų failų rodymą, kad jį pamatytum.
+stock firmware copied to the card: {0}
+= gamyklinis firmware nukopijuotas į kortelę: {0}
+stock firmware already on the card: {0}
+= gamyklinis firmware kortelėje jau yra: {0}
+could not copy the stock firmware to the card: {0}
+= nepavyko nukopijuoti gamyklinio firmware į kortelę: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= kortelėje nėra vietos gamykliniam firmware ({0} KiB laisva)
+the stock firmware did not read back correctly from the card
+= gamyklinis firmware iš kortelės nuskaitytas neteisingai
+stock firmware found on the card: {0}
+= gamyklinis firmware rastas kortelėje: {0}
+known stock firmware: {0}
+= žinomas gamyklinis firmware: {0}
+rockslop does not recognise this firmware
+= rockslop neatpažįsta šio firmware
+{0} is not a {1} flash backup (no partition table)
+= {0} nėra {1} flash atsarginė kopija (nėra skaidinių lentelės)
+{0} has no firmware in it (that part is blank)
+= {0} viduje nėra firmware (ta dalis tuščia)
+{0} has Rockbox in it: it is not stock firmware
+= {0} viduje yra Rockbox: tai ne gamyklinis firmware

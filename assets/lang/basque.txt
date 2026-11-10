@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Badirudi kreditu guztiak ikusi dituzula. Inork ez du hori egiten. Errespetua.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= ez dago firmware jatorrizkoaren babeskopiarik ordenagailu honetan
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= rockslop-ek erreproduzitzaile bat flashatzen duenean, firmware jatorrizkoaren kopia bat uzten du erreproduzitzailearen microSD txartelean: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Abiarazi erreproduzitzailea Rockbox-en eta konektatu, eta rockslop-ek berak bilatuko du bertan. Edo bilatu fitxategia eta hautatu.
+looking on the player's card
+= erreproduzitzailearen txartelean bilatzen
+no stock firmware on the player's card
+= ez dago firmware jatorrizkorik erreproduzitzailearen txartelean
+checking the image
+= irudia egiaztatzen
+stock firmware: {0}
+= firmware jatorrizkoa: {0}
+UNKNOWN FIRMWARE
+= FIRMWARE EZEZAGUNA
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Hau ez da rockslop-ek ezagutzen duen firmware jatorrizkoa: bertsio berriago bat, edo jatorrizkoa ez dena.
+It has Rockbox in it, so it isn't stock firmware.
+= Rockbox du barruan, beraz ez da firmware jatorrizkoa.
+Flash it only if you're sure it came from a {0}.
+= Flashatu soilik {0} batetik datorrela ziur bazaude.
+FLASH ANYWAY
+= FLASHATU HALA ERE
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= .rockbox karpeta ezkutuan dago: aktibatu fitxategi ezkutuak zure fitxategi-arakatzailean ikusteko.
+stock firmware copied to the card: {0}
+= firmware jatorrizkoa txartelera kopiatu da: {0}
+stock firmware already on the card: {0}
+= firmware jatorrizkoa badago jada txartelean: {0}
+could not copy the stock firmware to the card: {0}
+= ezin izan da firmware jatorrizkoa txartelera kopiatu: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= ez dago lekurik txartelean firmware jatorrizkoarentzat ({0} KiB libre)
+the stock firmware did not read back correctly from the card
+= firmware jatorrizkoa ez da ondo irakurri txartelean
+stock firmware found on the card: {0}
+= firmware jatorrizkoa aurkitu da txartelean: {0}
+known stock firmware: {0}
+= firmware jatorrizko ezaguna: {0}
+rockslop does not recognise this firmware
+= rockslop-ek ez du firmware hau ezagutzen
+{0} is not a {1} flash backup (no partition table)
+= {0} ez da {1}(r)en flash babeskopia bat (partizio-taularik ez)
+{0} has no firmware in it (that part is blank)
+= {0}(e)k ez du firmwarerik barruan (zati hori hutsik dago)
+{0} has Rockbox in it: it is not stock firmware
+= {0}(e)k Rockbox du barruan: ez da firmware jatorrizkoa

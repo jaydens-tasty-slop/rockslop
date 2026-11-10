@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Wygląda na to, że całe napisy końcowe za tobą. Nikt tego nie robi. Szacun.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= brak kopii fabrycznego firmware na tym komputerze
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Gdy rockslop flashuje odtwarzacz, zostawia kopię fabrycznego firmware na karcie microSD odtwarzacza: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Uruchom odtwarzacz w Rockbox i podłącz go, a rockslop sam tam poszuka. Albo znajdź plik i wybierz go.
+looking on the player's card
+= szukanie na karcie odtwarzacza
+no stock firmware on the player's card
+= brak fabrycznego firmware na karcie odtwarzacza
+checking the image
+= sprawdzanie obrazu
+stock firmware: {0}
+= fabryczny firmware: {0}
+UNKNOWN FIRMWARE
+= NIEZNANY FIRMWARE
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= To nie jest fabryczny firmware, który rockslop zna: nowsza wersja albo w ogóle nie fabryczny.
+It has Rockbox in it, so it isn't stock firmware.
+= Jest w nim Rockbox, więc to nie jest fabryczny firmware.
+Flash it only if you're sure it came from a {0}.
+= Wgraj go tylko wtedy, gdy masz pewność, że pochodzi z {0}.
+FLASH ANYWAY
+= WGRAJ MIMO TO
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Folder .rockbox jest ukryty: włącz pokazywanie ukrytych plików w menedżerze plików, żeby go zobaczyć.
+stock firmware copied to the card: {0}
+= fabryczny firmware skopiowany na kartę: {0}
+stock firmware already on the card: {0}
+= fabryczny firmware już jest na karcie: {0}
+could not copy the stock firmware to the card: {0}
+= nie udało się skopiować fabrycznego firmware na kartę: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= brak miejsca na karcie na fabryczny firmware ({0} KiB wolne)
+the stock firmware did not read back correctly from the card
+= fabryczny firmware nie odczytał się poprawnie z karty
+stock firmware found on the card: {0}
+= fabryczny firmware znaleziony na karcie: {0}
+known stock firmware: {0}
+= znany fabryczny firmware: {0}
+rockslop does not recognise this firmware
+= rockslop nie rozpoznaje tego firmware
+{0} is not a {1} flash backup (no partition table)
+= {0} nie jest kopią flash {1} (brak tablicy partycji)
+{0} has no firmware in it (that part is blank)
+= {0} nie zawiera firmware (ta część jest pusta)
+{0} has Rockbox in it: it is not stock firmware
+= {0} zawiera Rockbox: to nie jest fabryczny firmware

@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Có vẻ như bạn đã xem hết phần credits. Chẳng ai làm thế cả. Nể thật.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= máy tính này không có bản sao lưu firmware gốc
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Khi rockslop flash một máy, nó để một bản sao firmware gốc trên thẻ microSD của máy: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Khởi động máy vào Rockbox rồi cắm vào, rockslop sẽ tự tìm ở đó. Hoặc tự tìm tệp rồi chọn nó.
+looking on the player's card
+= đang tìm trên thẻ của máy
+no stock firmware on the player's card
+= không có firmware gốc trên thẻ của máy
+checking the image
+= đang kiểm tra ảnh
+stock firmware: {0}
+= firmware gốc: {0}
+UNKNOWN FIRMWARE
+= FIRMWARE LẠ
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Đây không phải firmware gốc mà rockslop biết: có thể là bản mới hơn, hoặc không phải bản gốc.
+It has Rockbox in it, so it isn't stock firmware.
+= Bên trong có Rockbox, nên đây không phải firmware gốc.
+Flash it only if you're sure it came from a {0}.
+= Chỉ flash nếu bạn chắc nó đến từ một {0}.
+FLASH ANYWAY
+= VẪN FLASH
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Thư mục .rockbox bị ẩn: hãy bật hiện tệp ẩn trong trình quản lý tệp để thấy nó.
+stock firmware copied to the card: {0}
+= đã chép firmware gốc vào thẻ: {0}
+stock firmware already on the card: {0}
+= firmware gốc đã có trên thẻ: {0}
+could not copy the stock firmware to the card: {0}
+= không chép được firmware gốc vào thẻ: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= thẻ không đủ chỗ cho firmware gốc (còn trống {0} KiB)
+the stock firmware did not read back correctly from the card
+= firmware gốc đọc lại từ thẻ không đúng
+stock firmware found on the card: {0}
+= đã tìm thấy firmware gốc trên thẻ: {0}
+known stock firmware: {0}
+= firmware gốc đã biết: {0}
+rockslop does not recognise this firmware
+= rockslop không nhận ra firmware này
+{0} is not a {1} flash backup (no partition table)
+= {0} không phải bản sao lưu flash của {1} (không có bảng phân vùng)
+{0} has no firmware in it (that part is blank)
+= {0} không có firmware (phần đó trống)
+{0} has Rockbox in it: it is not stock firmware
+= {0} có Rockbox bên trong: không phải firmware gốc

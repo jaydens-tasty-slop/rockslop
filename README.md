@@ -31,9 +31,12 @@ downloading.
 5. **Reboot** into Rockbox. When its USB disk appears, **Sync** copies the
    card files onto the microSD card, reads each one back against its
    SHA-256, and ejects the disk. If there is no card, the flasher waits
-   and asks for one.
+   and asks for one. A copy of the stock backup goes onto the card too, as
+   `.rockbox/{player}-{unit}-{time}-stock.bin` (see *Backups*).
 
-**Return to stock** writes a backup back the same way.
+**Return to stock** writes a backup back the same way. It is always on
+offer: it takes this computer's stock backup, else the one on the card of
+a player plugged in running Rockbox, else asks for the file.
 
 ## Download mode
 
@@ -49,7 +52,7 @@ The GUI shows these steps on screen. The CLI prints them.
 ```
 rockslop                         # the GUI
 rockslop --demo                  # a simulated player; nothing touches USB
-rockslop --mute                  # no sound (M toggles it)
+rockslop --mute                  # no sound (M toggles it; muting in the app is remembered)
 rockslop --lang deutsch          # interface language (below)
 rockslop --render-scale 0.5      # render at half the screen's resolution
 
@@ -57,7 +60,7 @@ rockslop-cli status              # players on USB, and their mode
 rockslop-cli check  rockbox-yp3-4.0.tar.xz
 rockslop-cli probe  yp3|ts17
 rockslop-cli flash  rockbox-yp3-4.0.tar.xz
-rockslop-cli restore yp3|ts17 [IMAGE]   # default: this unit's stock backup
+rockslop-cli restore yp3|ts17 [IMAGE]   # default: a stock backup here, or on Rockbox's card
 rockslop-cli backups [yp3|ts17]
 rockslop-cli card                # where Rockbox's USB disk is mounted
     --yes  (don't ask)  --wait SECS  (default 300)  --demo
@@ -118,7 +121,16 @@ Each file is named `{player}-{unit}-{UTC time}-{stock|other}.bin` and has a
 `.sha256` beside it. `{unit}` is a CRC of the unit's own calibration
 sectors, so a backup is matched to the player it came from. A backup with
 no Rockbox in it is marked `stock`. Return to stock uses the newest stock
-backup of that unit.
+backup of that unit (or of another unit: the part it writes is the same).
+
+A flash also copies the stock backup and its `.sha256` onto the player's
+card, into `.rockbox/` (a hidden folder). On a computer without a stock
+backup, rockslop takes it from there when the player is plugged in
+running Rockbox, during the link or a flash. Or pick the file on the
+payload panel: it must be a whole-flash image of the player with its
+partition table, and its firmware is checked against the stock versions
+rockslop knows (`KNOWN` in `src/device/backup.rs`). One it doesn't know is
+flagged, and **FLASH ANYWAY** takes it all the same.
 
 ## Platform setup
 

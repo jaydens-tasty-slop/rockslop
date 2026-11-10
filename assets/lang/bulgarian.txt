@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Изглежда, че изгледа всички надписи докрай. Никой не прави това. Уважение.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= няма копие на заводския фърмуер на този компютър
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Когато rockslop флашва плеър, оставя копие на заводския фърмуер на microSD картата на плеъра: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Стартирай плеъра с Rockbox и го свържи, и rockslop сам ще потърси там. Или намери файла и го избери.
+looking on the player's card
+= търсене в картата на плеъра
+no stock firmware on the player's card
+= няма заводски фърмуер на картата на плеъра
+checking the image
+= проверка на образа
+stock firmware: {0}
+= заводски фърмуер: {0}
+UNKNOWN FIRMWARE
+= НЕПОЗНАТ ФЪРМУЕР
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Това не е заводски фърмуер, който rockslop познава: по-нова версия или изобщо не е заводски.
+It has Rockbox in it, so it isn't stock firmware.
+= Съдържа Rockbox, така че не е заводски фърмуер.
+Flash it only if you're sure it came from a {0}.
+= Флашвай го само ако си сигурен, че е от {0}.
+FLASH ANYWAY
+= ФЛАШНИ ВСЕКИ СЛУЧАЙ
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Папката .rockbox е скрита: включи показването на скрити файлове във файловия си мениджър, за да я видиш.
+stock firmware copied to the card: {0}
+= заводският фърмуер е копиран на картата: {0}
+stock firmware already on the card: {0}
+= заводският фърмуер вече е на картата: {0}
+could not copy the stock firmware to the card: {0}
+= заводският фърмуер не можа да се копира на картата: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= няма място на картата за заводския фърмуер ({0} KiB свободни)
+the stock firmware did not read back correctly from the card
+= заводският фърмуер не се прочете правилно от картата
+stock firmware found on the card: {0}
+= заводски фърмуер е намерен на картата: {0}
+known stock firmware: {0}
+= познат заводски фърмуер: {0}
+rockslop does not recognise this firmware
+= rockslop не разпознава този фърмуер
+{0} is not a {1} flash backup (no partition table)
+= {0} не е флаш копие за {1} (няма таблица на дяловете)
+{0} has no firmware in it (that part is blank)
+= {0} няма фърмуер в себе си (тази част е празна)
+{0} has Rockbox in it: it is not stock firmware
+= {0} съдържа Rockbox: не е заводски фърмуер

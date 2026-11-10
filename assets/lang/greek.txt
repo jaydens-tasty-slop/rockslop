@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Φαίνεται ότι είδες όλους τους τίτλους τέλους. Κανείς δεν το κάνει αυτό. Σεβασμός.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= δεν υπάρχει αντίγραφο του εργοστασιακού firmware σε αυτόν τον υπολογιστή
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Όταν το rockslop κάνει flash σε μια συσκευή, αφήνει ένα αντίγραφο του εργοστασιακού firmware στην κάρτα microSD της συσκευής: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Ξεκίνα τη συσκευή στο Rockbox και σύνδεσέ την, και το rockslop θα ψάξει εκεί μόνο του. Ή βρες το αρχείο και επίλεξέ το.
+looking on the player's card
+= αναζήτηση στην κάρτα της συσκευής
+no stock firmware on the player's card
+= δεν υπάρχει εργοστασιακό firmware στην κάρτα της συσκευής
+checking the image
+= έλεγχος της εικόνας
+stock firmware: {0}
+= εργοστασιακό firmware: {0}
+UNKNOWN FIRMWARE
+= ΑΓΝΩΣΤΟ FIRMWARE
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Δεν είναι εργοστασιακό firmware που γνωρίζει το rockslop: νεότερη έκδοση ή καθόλου εργοστασιακό.
+It has Rockbox in it, so it isn't stock firmware.
+= Περιέχει Rockbox, άρα δεν είναι εργοστασιακό firmware.
+Flash it only if you're sure it came from a {0}.
+= Κάνε flash μόνο αν είσαι σίγουρος ότι προέρχεται από {0}.
+FLASH ANYWAY
+= FLASH ΟΠΩΣΔΗΠΟΤΕ
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Ο φάκελος .rockbox είναι κρυφός: ενεργοποίησε την εμφάνιση κρυφών αρχείων στον διαχειριστή αρχείων σου για να τον δεις.
+stock firmware copied to the card: {0}
+= εργοστασιακό firmware αντιγράφηκε στην κάρτα: {0}
+stock firmware already on the card: {0}
+= εργοστασιακό firmware ήδη στην κάρτα: {0}
+could not copy the stock firmware to the card: {0}
+= αδυναμία αντιγραφής του εργοστασιακού firmware στην κάρτα: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= δεν υπάρχει χώρος στην κάρτα για το εργοστασιακό firmware ({0} KiB ελεύθερα)
+the stock firmware did not read back correctly from the card
+= το εργοστασιακό firmware δεν διαβάστηκε σωστά από την κάρτα
+stock firmware found on the card: {0}
+= εργοστασιακό firmware βρέθηκε στην κάρτα: {0}
+known stock firmware: {0}
+= γνωστό εργοστασιακό firmware: {0}
+rockslop does not recognise this firmware
+= το rockslop δεν αναγνωρίζει αυτό το firmware
+{0} is not a {1} flash backup (no partition table)
+= το {0} δεν είναι αντίγραφο flash για {1} (χωρίς πίνακα διαμερισμάτων)
+{0} has no firmware in it (that part is blank)
+= το {0} δεν περιέχει firmware (αυτό το τμήμα είναι κενό)
+{0} has Rockbox in it: it is not stock firmware
+= το {0} περιέχει Rockbox: δεν είναι εργοστασιακό firmware

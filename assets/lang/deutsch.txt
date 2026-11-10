@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Es sieht so aus, als hätten Sie den ganzen Abspann gesehen. Das macht niemand. Respekt.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= kein Original-Firmware-Backup auf diesem Computer
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Wenn rockslop einen Player flasht, legt es eine Kopie der Original-Firmware auf der microSD-Karte des Players ab: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Starten Sie den Player in Rockbox und schließen Sie ihn an, dann sucht rockslop dort selbst. Oder suchen Sie die Datei und wählen Sie sie aus.
+looking on the player's card
+= suche auf der Karte des Players
+no stock firmware on the player's card
+= keine Original-Firmware auf der Karte des Players
+checking the image
+= prüfe das Abbild
+stock firmware: {0}
+= Original-Firmware: {0}
+UNKNOWN FIRMWARE
+= UNBEKANNTE FIRMWARE
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Das ist keine Original-Firmware, die rockslop kennt: eine neuere Version oder gar keine Original-Firmware.
+It has Rockbox in it, so it isn't stock firmware.
+= Sie enthält Rockbox, also ist es keine Original-Firmware.
+Flash it only if you're sure it came from a {0}.
+= Flashen Sie sie nur, wenn Sie sicher sind, dass sie von einem {0} stammt.
+FLASH ANYWAY
+= TROTZDEM FLASHEN
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Der Ordner .rockbox ist versteckt: Schalten Sie in Ihrem Dateimanager die Anzeige versteckter Dateien ein, um ihn zu sehen.
+stock firmware copied to the card: {0}
+= Original-Firmware auf die Karte kopiert: {0}
+stock firmware already on the card: {0}
+= Original-Firmware schon auf der Karte: {0}
+could not copy the stock firmware to the card: {0}
+= Original-Firmware konnte nicht auf die Karte kopiert werden: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= kein Platz auf der Karte für die Original-Firmware ({0} KiB frei)
+the stock firmware did not read back correctly from the card
+= die Original-Firmware ließ sich nicht korrekt von der Karte zurücklesen
+stock firmware found on the card: {0}
+= Original-Firmware auf der Karte gefunden: {0}
+known stock firmware: {0}
+= bekannte Original-Firmware: {0}
+rockslop does not recognise this firmware
+= rockslop erkennt diese Firmware nicht
+{0} is not a {1} flash backup (no partition table)
+= {0} ist kein Flash-Backup für {1} (keine Partitionstabelle)
+{0} has no firmware in it (that part is blank)
+= {0} enthält keine Firmware (dieser Teil ist leer)
+{0} has Rockbox in it: it is not stock firmware
+= {0} enthält Rockbox: das ist keine Original-Firmware

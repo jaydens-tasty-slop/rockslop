@@ -202,8 +202,7 @@ fn from_tag(tag: &str) -> Option<&'static str> {
 pub const AUTO: &str = "auto";
 
 fn choice_file() -> std::path::PathBuf {
-    let d = rockslop::device::backup::dir();
-    d.parent().map(|p| p.to_path_buf()).unwrap_or(d).join("language")
+    rockslop::device::backup::data_dir().join("language")
 }
 
 /// The language last picked (a Rockbox name, or AUTO).

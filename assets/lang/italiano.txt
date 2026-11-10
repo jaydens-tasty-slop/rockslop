@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Sembra che tu abbia guardato tutti i titoli di coda. Nessuno lo fa. Rispetto.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= nessun backup del firmware originale su questo computer
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Quando rockslop flasha un lettore, lascia una copia del firmware originale sulla scheda microSD del lettore: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Avvia il lettore in Rockbox e collegalo, e rockslop cercherà lì da solo. Oppure trova il file e selezionalo.
+looking on the player's card
+= cerco sulla scheda del lettore
+no stock firmware on the player's card
+= nessun firmware originale sulla scheda del lettore
+checking the image
+= controllo l'immagine
+stock firmware: {0}
+= firmware originale: {0}
+UNKNOWN FIRMWARE
+= FIRMWARE SCONOSCIUTO
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Non è un firmware originale che rockslop conosce: una versione più recente, o proprio non originale.
+It has Rockbox in it, so it isn't stock firmware.
+= Contiene Rockbox, quindi non è un firmware originale.
+Flash it only if you're sure it came from a {0}.
+= Flashalo solo se sei sicuro che provenga da un {0}.
+FLASH ANYWAY
+= FLASHA COMUNQUE
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= La cartella .rockbox è nascosta: attiva i file nascosti nel tuo gestore di file per vederla.
+stock firmware copied to the card: {0}
+= firmware originale copiato sulla scheda: {0}
+stock firmware already on the card: {0}
+= firmware originale già sulla scheda: {0}
+could not copy the stock firmware to the card: {0}
+= impossibile copiare il firmware originale sulla scheda: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= niente spazio sulla scheda per il firmware originale ({0} KiB liberi)
+the stock firmware did not read back correctly from the card
+= il firmware originale non si è riletto correttamente dalla scheda
+stock firmware found on the card: {0}
+= firmware originale trovato sulla scheda: {0}
+known stock firmware: {0}
+= firmware originale noto: {0}
+rockslop does not recognise this firmware
+= rockslop non riconosce questo firmware
+{0} is not a {1} flash backup (no partition table)
+= {0} non è un backup flash di {1} (nessuna tabella delle partizioni)
+{0} has no firmware in it (that part is blank)
+= {0} non contiene alcun firmware (quella parte è vuota)
+{0} has Rockbox in it: it is not stock firmware
+= {0} contiene Rockbox: non è un firmware originale

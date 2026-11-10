@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Det ser ut som du såg heile rulleteksten. Ingen gjer det. Respekt.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= inga backup av original firmware på denne datamaskina
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Når rockslop flashar ein spelar, legg han ein kopi av original firmware på microSD-kortet til spelaren: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Start spelaren i Rockbox og kopla han til, så ser rockslop etter der sjølv. Eller finn fila og vel ho.
+looking on the player's card
+= ser etter på kortet til spelaren
+no stock firmware on the player's card
+= ingen original firmware på kortet til spelaren
+checking the image
+= sjekkar biletfila
+stock firmware: {0}
+= original firmware: {0}
+UNKNOWN FIRMWARE
+= UKJENT FIRMWARE
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Dette er ikkje ein original firmware som rockslop kjenner: ein nyare versjon, eller ikkje original i det heile.
+It has Rockbox in it, so it isn't stock firmware.
+= Han har Rockbox i seg, så han er ikkje original firmware.
+Flash it only if you're sure it came from a {0}.
+= Flash han berre viss du er sikker på at han kom frå ein {0}.
+FLASH ANYWAY
+= FLASH LIKEVEL
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Mappa .rockbox er skjult: slå på visning av skjulte filer i filbehandlaren for å sjå henne.
+stock firmware copied to the card: {0}
+= original firmware kopiert til kortet: {0}
+stock firmware already on the card: {0}
+= original firmware ligg alt på kortet: {0}
+could not copy the stock firmware to the card: {0}
+= kunne ikkje kopiere original firmware til kortet: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= ikkje plass på kortet til original firmware ({0} KiB ledig)
+the stock firmware did not read back correctly from the card
+= original firmware blei ikkje lesen rett tilbake frå kortet
+stock firmware found on the card: {0}
+= original firmware funnen på kortet: {0}
+known stock firmware: {0}
+= kjend original firmware: {0}
+rockslop does not recognise this firmware
+= rockslop kjenner ikkje igjen denne firmwaren
+{0} is not a {1} flash backup (no partition table)
+= {0} er ikkje ein {1} flash-backup (ingen partisjonstabell)
+{0} has no firmware in it (that part is blank)
+= {0} har ingen firmware i seg (den delen er tom)
+{0} has Rockbox in it: it is not stock firmware
+= {0} har Rockbox i seg: det er ikkje original firmware

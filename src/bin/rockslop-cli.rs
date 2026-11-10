@@ -4,7 +4,8 @@
 //!   rockslop-cli check PACKAGE            verify a package offline
 //!   rockslop-cli probe yp3|ts17           identify a player in download mode
 //!   rockslop-cli flash PACKAGE            back up, flash, checksum, sync card
-//!   rockslop-cli restore yp3|ts17 [IMAGE] return to stock (newest backup)
+//!   rockslop-cli restore yp3|ts17 [IMAGE] return to stock (a stock backup
+//!                                         here, else on Rockbox's card)
 //!   rockslop-cli backups [yp3|ts17]       list firmware backups
 //!   rockslop-cli card                     where Rockbox's USB disk is mounted
 //!
@@ -265,10 +266,40 @@ fn flash(o: &Opts, path: &Path) -> Result<(), String> {
 
 fn restore(o: &Opts, kind: Kind, image: Option<PathBuf>) -> Result<(), String> {
     let image = match image {
-        Some(p) => p,
-        None => backup::stock_for(kind, None)
-            .map(|b| b.path)
-            .ok_or_else(|| err!(E420, "no stock {} backup on file in {}", kind.name(), backup::dir().display()))?,
+        Some(p) => {
+            // any image will do (an older Rockbox, say), once it passes the checks
+            let c = backup::check_image(kind, &p)?;
+            match (c.known, c.stock) {
+                (Some(v), true) => println!("firmware {v} (known stock)"),
+                (_, true) => println!("firmware not a stock version rockslop knows"),
+                (_, false) => println!("firmware has Rockbox in it: not stock"),
+            }
+            p
+        }
+        None => match backup::stock_for(kind, None) {
+            Some(b) => b.path,
+            None => {
+                // a flash leaves a copy on the player's card
+                if !o.demo && !matches!(sdcard::look(), Look::Absent) {
+                    println!("no stock backup in {}: looking on Rockbox's card", backup::dir().display());
+                }
+                match if o.demo { None } else { backup::from_card(kind)? } {
+                    Some(b) => {
+                        println!("found    {} (taken from the card)", b.path.display());
+                        b.path
+                    }
+                    None => {
+                        return Err(err!(
+                            E420,
+                            "no stock {} backup in {}. rockslop leaves one on the player's card when it flashes: .rockbox/{}-...-stock.bin. Start the player in Rockbox and plug it in to have it found, or pass that file as IMAGE",
+                            kind.name(),
+                            backup::dir().display(),
+                            kind.id()
+                        ))
+                    }
+                }
+            }
+        },
     };
     println!("image    {}", image.display());
     let mut h = hub(o);

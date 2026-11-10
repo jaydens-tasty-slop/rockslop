@@ -26,6 +26,8 @@ pub enum Tip {
     Firmware,
     Access,
     Package,
+    /// RETURN TO STOCK, with no stock backup on this computer
+    Stock,
     Card,
     Disk,
     Fail,

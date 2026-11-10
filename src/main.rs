@@ -4,7 +4,8 @@
 //!   rockslop --demo               a fake player, nothing touches USB
 //!   rockslop --demo --auto        ... clicking through by itself
 //!       [--rockbox]               ... the player turning up in Rockbox first
-//!   rockslop --mute               start with the sound off (M toggles)
+//!   rockslop --mute               start with the sound off (M toggles; muting
+//!                                 in the app lasts until it is unmuted there)
 //!   rockslop --lang deutsch       language: a Rockbox language name, `auto`
 //!                                 (the system's) or `pseudo`; the default is
 //!                                 the last one picked, else `auto`
@@ -108,7 +109,7 @@ async fn main() {
         tips_now: has("--tips-now"),
     };
     let audio = if shot.is_some() { Audio::silent() } else { Audio::new() };
-    if has("--mute") {
+    if has("--mute") || (shot.is_none() && app::muted_last_time()) {
         audio.toggle_mute();
     }
     // the log of what the flasher did to a real player (not the simulator's)

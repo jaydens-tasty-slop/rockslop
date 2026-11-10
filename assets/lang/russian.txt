@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Похоже, все титры позади. Так никто не делает. Респект.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= на этом компьютере нет копии штатной прошивки
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Когда rockslop прошивает плеер, он кладёт копию штатной прошивки на microSD-карту плеера: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Запусти плеер с Rockbox и подключи его, и rockslop сам посмотрит там. Или найди файл и выбери его.
+looking on the player's card
+= поиск на карте плеера
+no stock firmware on the player's card
+= на карте плеера нет штатной прошивки
+checking the image
+= проверка образа
+stock firmware: {0}
+= штатная прошивка: {0}
+UNKNOWN FIRMWARE
+= НЕИЗВЕСТНАЯ ПРОШИВКА
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Это не штатная прошивка, которую знает rockslop: либо более новая версия, либо вообще не штатная.
+It has Rockbox in it, so it isn't stock firmware.
+= В ней есть Rockbox, так что это не штатная прошивка.
+Flash it only if you're sure it came from a {0}.
+= Прошивай, только если уверен, что она от {0}.
+FLASH ANYWAY
+= ВСЁ РАВНО
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Папка .rockbox скрыта: включи показ скрытых файлов в файловом менеджере, чтобы её увидеть.
+stock firmware copied to the card: {0}
+= штатная прошивка скопирована на карту: {0}
+stock firmware already on the card: {0}
+= штатная прошивка уже на карте: {0}
+could not copy the stock firmware to the card: {0}
+= не удалось скопировать штатную прошивку на карту: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= на карте нет места для штатной прошивки (свободно {0} KiB)
+the stock firmware did not read back correctly from the card
+= штатная прошивка неверно считалась обратно с карты
+stock firmware found on the card: {0}
+= штатная прошивка найдена на карте: {0}
+known stock firmware: {0}
+= известная штатная прошивка: {0}
+rockslop does not recognise this firmware
+= rockslop не узнаёт эту прошивку
+{0} is not a {1} flash backup (no partition table)
+= {0} не флеш-копия {1} (нет таблицы разделов)
+{0} has no firmware in it (that part is blank)
+= в {0} нет прошивки (эта часть пустая)
+{0} has Rockbox in it: it is not stock firmware
+= в {0} есть Rockbox: это не штатная прошивка

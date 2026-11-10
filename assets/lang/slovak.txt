@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Zdá sa, že ťa titulky bavili až do konca. To nikto nerobí. Rešpekt.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= na tomto počítači nie je záloha pôvodného firmware
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Keď rockslop flashuje prehrávač, uloží kópiu pôvodného firmware na microSD kartu prehrávača: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Spusti prehrávač v Rockboxe a pripoj ho a rockslop sa tam pozrie sám. Alebo nájdi súbor a vyber ho.
+looking on the player's card
+= hľadám na karte prehrávača
+no stock firmware on the player's card
+= na karte prehrávača nie je pôvodný firmware
+checking the image
+= kontrolujem obraz
+stock firmware: {0}
+= pôvodný firmware: {0}
+UNKNOWN FIRMWARE
+= NEZNÁMY FIRMWARE
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Nie je to pôvodný firmware, ktorý rockslop pozná: novšia verzia, alebo vôbec nie pôvodný.
+It has Rockbox in it, so it isn't stock firmware.
+= Je v ňom Rockbox, takže to nie je pôvodný firmware.
+Flash it only if you're sure it came from a {0}.
+= Flashuj ho, len ak si si istý, že pochádza z {0}.
+FLASH ANYWAY
+= FLASHOVAŤ AJ TAK
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Priečinok .rockbox je skrytý: zapni zobrazovanie skrytých súborov vo svojom správcovi súborov, aby si ho videl.
+stock firmware copied to the card: {0}
+= pôvodný firmware skopírovaný na kartu: {0}
+stock firmware already on the card: {0}
+= pôvodný firmware už je na karte: {0}
+could not copy the stock firmware to the card: {0}
+= pôvodný firmware sa nepodarilo skopírovať na kartu: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= na karte nie je miesto pre pôvodný firmware ({0} KiB voľných)
+the stock firmware did not read back correctly from the card
+= pôvodný firmware sa z karty nenačítal správne
+stock firmware found on the card: {0}
+= pôvodný firmware nájdený na karte: {0}
+known stock firmware: {0}
+= známy pôvodný firmware: {0}
+rockslop does not recognise this firmware
+= rockslop tento firmware nepozná
+{0} is not a {1} flash backup (no partition table)
+= {0} nie je flash záloha {1} (bez tabuľky oddielov)
+{0} has no firmware in it (that part is blank)
+= {0} neobsahuje firmware (táto časť je prázdna)
+{0} has Rockbox in it: it is not stock firmware
+= {0} obsahuje Rockbox: nie je to pôvodný firmware

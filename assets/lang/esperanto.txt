@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Ŝajnas, ke vi spektis ĉiujn kreditaĵojn. Neniu faras tion. Respekton.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= neniu sekurkopio de la fabrika programaro en ĉi tiu komputilo
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Kiam rockslop flash-skribas ludilon, ĝi metas kopion de la fabrika programaro sur la microSD-karton de la ludilo: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Startigu la ludilon en Rockbox kaj konektu ĝin, kaj rockslop mem serĉos tie. Aŭ trovu la dosieron kaj elektu ĝin.
+looking on the player's card
+= serĉante sur la karto de la ludilo
+no stock firmware on the player's card
+= neniu fabrika programaro sur la karto de la ludilo
+checking the image
+= kontrolante la bildon
+stock firmware: {0}
+= fabrika programaro: {0}
+UNKNOWN FIRMWARE
+= NEKONATA PROGRAMARO
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Ĝi ne estas fabrika programaro, kiun rockslop konas: pli nova versio, aŭ tute ne fabrika.
+It has Rockbox in it, so it isn't stock firmware.
+= Ĝi enhavas Rockbox, do ĝi ne estas fabrika programaro.
+Flash it only if you're sure it came from a {0}.
+= Flash-skribu ĝin nur se vi certas, ke ĝi venis de {0}.
+FLASH ANYWAY
+= TAMEN FLASH-SKRIBI
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= La dosierujo .rockbox estas kaŝita: ŝaltu kaŝitajn dosierojn en via dosieradministrilo por vidi ĝin.
+stock firmware copied to the card: {0}
+= fabrika programaro kopiita sur la karton: {0}
+stock firmware already on the card: {0}
+= fabrika programaro jam estas sur la karto: {0}
+could not copy the stock firmware to the card: {0}
+= ne eblis kopii la fabrikan programaron sur la karton: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= ne sufiĉas spaco sur la karto por la fabrika programaro ({0} KiB libera)
+the stock firmware did not read back correctly from the card
+= la fabrika programaro ne legiĝis ĝuste de la karto
+stock firmware found on the card: {0}
+= fabrika programaro trovita sur la karto: {0}
+known stock firmware: {0}
+= konata fabrika programaro: {0}
+rockslop does not recognise this firmware
+= rockslop ne rekonas ĉi tiun programaron
+{0} is not a {1} flash backup (no partition table)
+= {0} ne estas flash-sekurkopio de {1} (neniu subdiska tabelo)
+{0} has no firmware in it (that part is blank)
+= {0} ne enhavas programaron (tiu parto estas malplena)
+{0} has Rockbox in it: it is not stock firmware
+= {0} enhavas Rockbox: ĝi ne estas fabrika programaro

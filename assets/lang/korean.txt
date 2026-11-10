@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = 크레딧을 끝까지 다 본 것 같군요. 그런 사람은 없는데. 리스펙트.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= 이 컴퓨터에 정품 펌웨어 백업 없음
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= rockslop이 플레이어를 플래시할 때, 플레이어의 microSD 카드에 정품 펌웨어 사본을 넣어 둡니다: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= 플레이어를 Rockbox로 시작해 연결하면 rockslop이 직접 그곳을 찾습니다. 아니면 파일을 찾아서 선택하세요.
+looking on the player's card
+= 플레이어의 카드에서 찾는 중
+no stock firmware on the player's card
+= 플레이어의 카드에 정품 펌웨어 없음
+checking the image
+= 이미지 확인 중
+stock firmware: {0}
+= 정품 펌웨어: {0}
+UNKNOWN FIRMWARE
+= 알 수 없는 펌웨어
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= rockslop이 아는 정품 펌웨어가 아닙니다: 더 새로운 버전이거나 아예 정품이 아닙니다.
+It has Rockbox in it, so it isn't stock firmware.
+= Rockbox가 들어 있으므로 정품 펌웨어가 아닙니다.
+Flash it only if you're sure it came from a {0}.
+= {0}에서 나온 것이 확실할 때만 플래시하세요.
+FLASH ANYWAY
+= 그래도 플래시
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= .rockbox 폴더는 숨겨져 있습니다: 보려면 파일 브라우저에서 숨김 파일 표시를 켜세요.
+stock firmware copied to the card: {0}
+= 정품 펌웨어를 카드에 복사함: {0}
+stock firmware already on the card: {0}
+= 정품 펌웨어가 이미 카드에 있음: {0}
+could not copy the stock firmware to the card: {0}
+= 정품 펌웨어를 카드에 복사할 수 없음: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= 카드에 정품 펌웨어를 둘 공간 없음 ({0} KiB 남음)
+the stock firmware did not read back correctly from the card
+= 정품 펌웨어를 카드에서 제대로 읽어 오지 못함
+stock firmware found on the card: {0}
+= 카드에서 정품 펌웨어를 찾음: {0}
+known stock firmware: {0}
+= 알려진 정품 펌웨어: {0}
+rockslop does not recognise this firmware
+= rockslop이 이 펌웨어를 인식하지 못함
+{0} is not a {1} flash backup (no partition table)
+= {0}은(는) {1} 플래시 백업이 아님 (파티션 테이블 없음)
+{0} has no firmware in it (that part is blank)
+= {0}에 펌웨어가 들어 있지 않음 (그 부분이 비어 있음)
+{0} has Rockbox in it: it is not stock firmware
+= {0}에 Rockbox가 들어 있음: 정품 펌웨어가 아님

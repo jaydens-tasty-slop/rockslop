@@ -28,21 +28,6 @@ fn ident(kind: Kind) -> (u16, u16, u16, u16) {
     }
 }
 
-struct Geometry {
-    size: u32,
-    sector: u32,
-    writable: (u32, u32),
-    /// per-unit sectors that fingerprint a unit
-    unit: (u32, u32),
-}
-
-fn geometry(kind: Kind) -> Geometry {
-    match kind {
-        Kind::Yp3 => Geometry { size: yp3::FLASH_SIZE, sector: yp3::SECTOR, writable: yp3::WRITABLE, unit: (0x1FC000, 0x200000) },
-        Kind::Ts17 => Geometry { size: ts17::FLASH_SIZE, sector: ts17::SECTOR, writable: ts17::WRITABLE, unit: (0x332000, 0x337000) },
-    }
-}
-
 /// One session with a player in download mode.
 enum Dev {
     Yp3(Yp3),
@@ -340,7 +325,7 @@ impl Real {
         ev.phase(Phase::Backup);
         match d {
             Dev::Yp3(y) => {
-                let g = geometry(Kind::Yp3);
+                let g = Kind::Yp3.geometry();
                 let n = g.size / g.sector;
                 ev.info("sector CRC32 scan on the player");
                 let crcs = y.flash_crcs(0, n)?;
@@ -386,7 +371,7 @@ impl Real {
                 Ok(img)
             }
             Dev::Ts17(t) => {
-                let g = geometry(Kind::Ts17);
+                let g = Kind::Ts17.geometry();
                 t.nor_setup(true)?;
                 let chunk = Ts17::chunk_size();
                 let per = chunk / g.sector;
@@ -421,25 +406,9 @@ impl Real {
         }
     }
 
-    fn fingerprint(kind: Kind, img: &[u8]) -> u32 {
-        let g = geometry(kind);
-        crc32(&img[g.unit.0 as usize..g.unit.1 as usize])
-    }
-
-    /// The image as firmware sees it (TS17 cells decoded where XIP runs).
-    fn plain_view(&self, kind: Kind, img: &[u8]) -> Vec<u8> {
-        match kind {
-            Kind::Yp3 => img.to_vec(),
-            Kind::Ts17 => {
-                let (a, b) = ts17::WRITABLE;
-                self.rdm.decode(&img[a as usize..b as usize], XIP_RUN)
-            }
-        }
-    }
-
     fn keep_backup(&mut self, kind: Kind, img: &[u8], ev: &Sink) -> Result<Backup, String> {
-        let fp = Self::fingerprint(kind, img);
-        let stock = !backup::has_rockbox(&self.plain_view(kind, img)) && !backup::has_rockbox(img);
+        let fp = backup::fingerprint(kind, img);
+        let stock = backup::is_stock(kind, img);
         ev.probe("UNIT", format!("fingerprint {fp:08x}"), None);
         ev.probe("FIRMWARE", if stock { "STOCK" } else { "ROCKBOX / MODIFIED" }, None);
         if let Some(b) = backup::find_same(kind, fp, img) {
@@ -454,7 +423,7 @@ impl Real {
     /// The target image: the current flash with the package's segments laid
     /// over it. Refuses anything outside the writable window.
     fn compose(&self, kind: Kind, cur: &[u8], segs: &[(crate::pkg::Seg, Vec<u8>)]) -> Result<Vec<u8>, String> {
-        let g = geometry(kind);
+        let g = kind.geometry();
         let mut img = cur.to_vec();
         for (seg, data) in segs {
             let cells = match kind {
@@ -484,7 +453,7 @@ impl Real {
     /// Write every sector of `want` that differs from `cur` (writable window
     /// only), then checksum the result against the player.
     fn program(&mut self, d: &mut Dev, kind: Kind, cur: &[u8], want: &[u8], ev: &Sink) -> Result<usize, String> {
-        let g = geometry(kind);
+        let g = kind.geometry();
         let ss = g.sector as usize;
         let todo: Vec<u32> = (g.writable.0 / g.sector..g.writable.1 / g.sector)
             .filter(|&i| cur[i as usize * ss..(i as usize + 1) * ss] != want[i as usize * ss..(i as usize + 1) * ss])
@@ -579,13 +548,15 @@ impl Real {
         }
         ev.phase(Phase::Connect);
         let mut d = self.connect(kind, ev)?;
-        let g = geometry(kind);
+        let g = kind.geometry();
         ev.send(Event::Layout { sectors: g.size / g.sector, sector_size: g.sector });
         self.probe(&mut d, ev)?;
         self.guarded.insert(kind, Instant::now());
 
         let cur = self.dump(&mut d, ev)?;
         let bk = self.keep_backup(kind, &cur, ev)?;
+        // what goes on the card for the way back
+        let stock = if bk.stock { Some(bk.clone()) } else { backup::stock_for(kind, Some(bk.fingerprint)) };
 
         ev.phase(Phase::Verify);
         for e in &pkg.expect {
@@ -622,7 +593,7 @@ impl Real {
             ev.send(Event::Done(out));
             return Ok(());
         }
-        let (files, bytes) = sync_card(kind, &pkg, ev)?;
+        let (files, bytes) = sync_card(kind, &pkg, stock.as_ref(), ev)?;
         out.files = files;
         out.bytes = bytes;
         out.card = true;
@@ -633,7 +604,7 @@ impl Real {
     }
 
     fn restore(&mut self, kind: Kind, image: &Path, ev: &Sink) -> Result<(), String> {
-        let g = geometry(kind);
+        let g = kind.geometry();
         ev.phase(Phase::Connect);
         let mut d = self.connect(kind, ev)?;
         ev.send(Event::Layout { sectors: g.size / g.sector, sector_size: g.sector });
@@ -647,8 +618,12 @@ impl Real {
         ev.phase(Phase::Verify);
         let img = backup::load(image, g.size as usize)?;
         ev.ok(format!("{} loaded, checksum OK", image.file_name().map(|n| n.to_string_lossy()).unwrap_or_default()));
+        match backup::known(kind, &img) {
+            Some(v) => ev.ok(format!("known stock firmware: {v}")),
+            None => ev.warn("rockslop does not recognise this firmware"),
+        }
         let cur = self.dump(&mut d, ev)?;
-        if Self::fingerprint(kind, &cur) != Self::fingerprint(kind, &img) {
+        if backup::fingerprint(kind, &cur) != backup::fingerprint(kind, &img) {
             ev.warn("backup is from another unit; its per-unit sectors are left alone");
         }
         // only the writable window comes from the backup
@@ -663,8 +638,10 @@ impl Real {
     }
 }
 
-/// Copy the package's card tree onto the player's card and read it back.
-fn sync_card(kind: Kind, pkg: &Package, ev: &Sink) -> Result<(usize, u64), String> {
+/// Copy the package's card tree onto the player's card and read it back;
+/// then put the stock backup there too, or take it from there when this
+/// computer has none.
+fn sync_card(kind: Kind, pkg: &Package, stock: Option<&Backup>, ev: &Sink) -> Result<(usize, u64), String> {
     ev.phase(Phase::Sync);
     ev.info("waiting for Rockbox's USB disk");
     let mut asked = false;
@@ -748,6 +725,14 @@ fn sync_card(kind: Kind, pkg: &Package, ev: &Sink) -> Result<(usize, u64), Strin
         },
     )?;
     ev.ok(format!("{} files written", sums.len()));
+    let stock_copy = match stock.map(|b| stock_to_card(&card, b, ev)) {
+        Some(Err(e)) => {
+            ev.warn(format!("could not copy the stock firmware to the card: {e}"));
+            None
+        }
+        Some(Ok(c)) => c,
+        None => None,
+    };
     ev.info("reading every file back from the card");
     sdcard::drop_cache(&mut card)?;
     let mut checked = 0u64;
@@ -763,12 +748,55 @@ fn sync_card(kind: Kind, pkg: &Package, ev: &Sink) -> Result<(usize, u64), Strin
         ev.progress(0.7 + 0.3 * checked as f32 / total.max(1) as f32);
     }
     ev.ok(format!("{} files read back: sha256 OK", sums.len()));
+    if let Some((rel, img)) = stock_copy {
+        let p = card.mount.join(&rel);
+        if sdcard::read_back(&p).is_ok_and(|d| d == img) {
+            ev.send(Event::ReadBack(rel.clone(), img.len() as u64));
+            ev.ok(format!("stock firmware copied to the card: {rel}"));
+        } else {
+            // without its checksum file, nothing takes the copy for good
+            let _ = std::fs::remove_file(backup::sidecar(&p));
+            ev.warn("the stock firmware did not read back correctly from the card");
+        }
+    } else if stock.is_none() {
+        if let Some(b) = backup::on_card(kind, &card.mount).iter().find_map(|p| backup::import(kind, p).ok()) {
+            ev.ok(format!("stock firmware found on the card: {}", b.path.display()));
+        }
+    }
     ev.phase(Phase::Eject);
     match sdcard::eject(&card) {
         Ok(()) => ev.ok("card ejected"),
         Err(e) => ev.warn(format!("could not eject the card ({e}); eject it before unplugging")),
     }
     Ok((sums.len(), total))
+}
+
+/// Write a copy of the stock backup to the card (`.rockbox/<its name>`,
+/// with its checksum file), where another computer can find it: the path
+/// and image to read back, or None when it is there already. Errors are
+/// plain reasons: a failure here only warns.
+fn stock_to_card(card: &sdcard::Card, b: &Backup, ev: &Sink) -> Result<Option<(String, Vec<u8>)>, String> {
+    let name = b.path.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+    let rel = format!(".rockbox/{name}");
+    let (dst, dst_sum) = (card.mount.join(&rel), backup::sidecar(&card.mount.join(&rel)));
+    let img = std::fs::read(&b.path).map_err(|e| e.to_string())?;
+    let sum = std::fs::read(backup::sidecar(&b.path)).map_err(|e| e.to_string())?;
+    let len = std::fs::metadata(&dst).map(|m| m.len()).ok();
+    if len == Some(img.len() as u64) && std::fs::read(&dst_sum).is_ok_and(|s| s == sum) {
+        ev.dim(format!("stock firmware already on the card: {rel}"));
+        return Ok(None);
+    }
+    if let Some(free) = sdcard::free_space(card).filter(|&f| f < img.len() as u64 + (64 << 10)) {
+        ev.warn(format!("no room on the card for the stock firmware ({} KiB free)", free >> 10));
+        return Ok(None);
+    }
+    ev.send(Event::File(rel.clone(), img.len() as u64));
+    for (p, data) in [(&dst, &img), (&dst_sum, &sum)] {
+        let mut f = std::fs::File::create(p).map_err(|e| e.to_string())?;
+        f.write_all(data).map_err(|e| e.to_string())?;
+        sdcard::sync_file(&f).map_err(|e| e.to_string())?;
+    }
+    Ok(Some((rel, img)))
 }
 
 fn dir_size(p: &Path) -> u64 {

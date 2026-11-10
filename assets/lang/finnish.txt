@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Näyttää siltä, että katsoit kaikki lopputekstit. Kukaan ei tee niin. Respektiä.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= tällä tietokoneella ei ole tehdasfirmwaren varmuuskopiota
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Kun rockslop flashaa soittimen, se jättää kopion tehdasfirmwaresta soittimen microSD-kortille: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Käynnistä soitin Rockboxissa ja kytke se, niin rockslop etsii sieltä itse. Tai etsi tiedosto ja valitse se.
+looking on the player's card
+= etsitään soittimen kortilta
+no stock firmware on the player's card
+= soittimen kortilla ei ole tehdasfirmwarea
+checking the image
+= tarkistetaan levykuvaa
+stock firmware: {0}
+= tehdasfirmware: {0}
+UNKNOWN FIRMWARE
+= TUNTEMATON FIRMWARE
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Tämä ei ole tehdasfirmware, jonka rockslop tuntee: uudempi versio tai ei lainkaan tehdasfirmware.
+It has Rockbox in it, so it isn't stock firmware.
+= Siinä on Rockbox, joten se ei ole tehdasfirmware.
+Flash it only if you're sure it came from a {0}.
+= Flashaa se vain, jos olet varma, että se on peräisin laitteesta {0}.
+FLASH ANYWAY
+= FLASHAA SILTI
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= .rockbox-kansio on piilotettu: ota piilotetut tiedostot näkyviin tiedostonhallinnassa, niin näet sen.
+stock firmware copied to the card: {0}
+= tehdasfirmware kopioitu kortille: {0}
+stock firmware already on the card: {0}
+= tehdasfirmware on jo kortilla: {0}
+could not copy the stock firmware to the card: {0}
+= tehdasfirmwarea ei voitu kopioida kortille: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= kortilla ei ole tilaa tehdasfirmwarelle ({0} KiB vapaana)
+the stock firmware did not read back correctly from the card
+= tehdasfirmware ei luettu kortilta oikein takaisin
+stock firmware found on the card: {0}
+= tehdasfirmware löytyi kortilta: {0}
+known stock firmware: {0}
+= tunnettu tehdasfirmware: {0}
+rockslop does not recognise this firmware
+= rockslop ei tunnista tätä firmwarea
+{0} is not a {1} flash backup (no partition table)
+= {0} ei ole {1}-flash-varmuuskopio (ei osiotaulua)
+{0} has no firmware in it (that part is blank)
+= {0} ei sisällä firmwarea (se osa on tyhjä)
+{0} has Rockbox in it: it is not stock firmware
+= {0} sisältää Rockboxin: se ei ole tehdasfirmware

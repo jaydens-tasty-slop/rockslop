@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Úgy tűnik, végignézted a teljes stáblistát. Ezt senki sem teszi. Le a kalappal.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= nincs gyári firmware mentés ezen a számítógépen
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Amikor a rockslop felír egy lejátszót, a gyári firmware másolatát a lejátszó microSD kártyájára teszi: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Indítsd a lejátszót Rockboxban, és csatlakoztasd, a rockslop magától megnézi ott. Vagy keresd meg a fájlt, és válaszd ki.
+looking on the player's card
+= keresés a lejátszó kártyáján
+no stock firmware on the player's card
+= nincs gyári firmware a lejátszó kártyáján
+checking the image
+= kép ellenőrzése
+stock firmware: {0}
+= gyári firmware: {0}
+UNKNOWN FIRMWARE
+= ISMERETLEN FIRMWARE
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Ez nem olyan gyári firmware, amelyet a rockslop ismer: újabb verzió, vagy egyáltalán nem gyári.
+It has Rockbox in it, so it isn't stock firmware.
+= Rockbox van benne, ezért nem gyári firmware.
+Flash it only if you're sure it came from a {0}.
+= Csak akkor told fel, ha biztos vagy benne, hogy {0} lejátszóból származik.
+FLASH ANYWAY
+= FELÍRÁS MÉGIS
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= A .rockbox mappa rejtett: kapcsold be a rejtett fájlok megjelenítését a fájlkezelődben, hogy lásd.
+stock firmware copied to the card: {0}
+= gyári firmware a kártyára másolva: {0}
+stock firmware already on the card: {0}
+= gyári firmware már a kártyán van: {0}
+could not copy the stock firmware to the card: {0}
+= a gyári firmware másolása a kártyára nem sikerült: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= nincs hely a kártyán a gyári firmware-nek ({0} KiB szabad)
+the stock firmware did not read back correctly from the card
+= a gyári firmware nem olvasódott vissza helyesen a kártyáról
+stock firmware found on the card: {0}
+= gyári firmware megtalálva a kártyán: {0}
+known stock firmware: {0}
+= ismert gyári firmware: {0}
+rockslop does not recognise this firmware
+= a rockslop nem ismeri fel ezt a firmware-t
+{0} is not a {1} flash backup (no partition table)
+= {0} nem {1} flash mentés (nincs partíciós tábla)
+{0} has no firmware in it (that part is blank)
+= {0} nem tartalmaz firmware-t (ez a rész üres)
+{0} has Rockbox in it: it is not stock firmware
+= {0} Rockboxot tartalmaz: nem gyári firmware

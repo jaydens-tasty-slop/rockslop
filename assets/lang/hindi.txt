@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = लगता है आपने पूरे क्रेडिट देख लिए। कोई ऐसा नहीं करता। सलाम।
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= इस कंप्यूटर पर स्टॉक फ़र्मवेयर का बैकअप नहीं है
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= जब rockslop किसी प्लेयर को फ़्लैश करता है, तो वह प्लेयर के microSD कार्ड पर स्टॉक फ़र्मवेयर की एक कॉपी रख देता है: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= प्लेयर को Rockbox में चालू करके जोड़ें, और rockslop वहीं खुद देख लेगा। या फ़ाइल ढूँढकर चुनें।
+looking on the player's card
+= प्लेयर के कार्ड में देख रहा है
+no stock firmware on the player's card
+= प्लेयर के कार्ड में स्टॉक फ़र्मवेयर नहीं है
+checking the image
+= इमेज जाँच रहा है
+stock firmware: {0}
+= स्टॉक फ़र्मवेयर: {0}
+UNKNOWN FIRMWARE
+= अज्ञात फ़र्मवेयर
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= यह rockslop का जाना-पहचाना स्टॉक फ़र्मवेयर नहीं है: कोई नया संस्करण, या स्टॉक है ही नहीं।
+It has Rockbox in it, so it isn't stock firmware.
+= इसमें Rockbox है, इसलिए यह स्टॉक फ़र्मवेयर नहीं है।
+Flash it only if you're sure it came from a {0}.
+= इसे तभी फ़्लैश करें जब आपको पक्का यक़ीन हो कि यह {0} से आया है।
+FLASH ANYWAY
+= फिर भी फ़्लैश करें
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= .rockbox फ़ोल्डर छिपा हुआ है: उसे देखने के लिए अपने फ़ाइल ब्राउज़र में छिपी हुई फ़ाइलें दिखाना चालू करें।
+stock firmware copied to the card: {0}
+= स्टॉक फ़र्मवेयर कार्ड पर कॉपी हुआ: {0}
+stock firmware already on the card: {0}
+= स्टॉक फ़र्मवेयर कार्ड पर पहले से है: {0}
+could not copy the stock firmware to the card: {0}
+= स्टॉक फ़र्मवेयर कार्ड पर कॉपी नहीं हो सका: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= कार्ड पर स्टॉक फ़र्मवेयर के लिए जगह नहीं ({0} KiB खाली)
+the stock firmware did not read back correctly from the card
+= स्टॉक फ़र्मवेयर कार्ड से सही नहीं पढ़ा गया
+stock firmware found on the card: {0}
+= कार्ड पर स्टॉक फ़र्मवेयर मिला: {0}
+known stock firmware: {0}
+= ज्ञात स्टॉक फ़र्मवेयर: {0}
+rockslop does not recognise this firmware
+= rockslop इस फ़र्मवेयर को नहीं पहचानता
+{0} is not a {1} flash backup (no partition table)
+= {0} {1} का फ़्लैश बैकअप नहीं है (कोई पार्टीशन टेबल नहीं)
+{0} has no firmware in it (that part is blank)
+= {0} में कोई फ़र्मवेयर नहीं है (वह हिस्सा ख़ाली है)
+{0} has Rockbox in it: it is not stock firmware
+= {0} में Rockbox है: यह स्टॉक फ़र्मवेयर नहीं है

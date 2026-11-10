@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Mukhang pinanood mo ang lahat ng kredito. Walang gumagawa niyan. Respeto.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= walang backup ng stock firmware sa computer na ito
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Kapag nagfa-flash ng player ang rockslop, naglalagay ito ng kopya ng stock firmware sa microSD card ng player: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= I-start ang player sa Rockbox at isaksak ito, at si rockslop na mismo ang maghahanap doon. O hanapin ang file at piliin ito.
+looking on the player's card
+= naghahanap sa card ng player
+no stock firmware on the player's card
+= walang stock firmware sa card ng player
+checking the image
+= sinusuri ang image
+stock firmware: {0}
+= stock firmware: {0}
+UNKNOWN FIRMWARE
+= HINDI KILALANG FIRMWARE
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Hindi ito stock firmware na kilala ni rockslop: mas bagong bersyon, o hindi talaga stock.
+It has Rockbox in it, so it isn't stock firmware.
+= May Rockbox ito, kaya hindi ito stock firmware.
+Flash it only if you're sure it came from a {0}.
+= I-flash lang ito kung sigurado kang galing ito sa isang {0}.
+FLASH ANYWAY
+= I-FLASH PA RIN
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Nakatago ang .rockbox folder: i-on ang hidden files sa file browser mo para makita ito.
+stock firmware copied to the card: {0}
+= nakopya na ang stock firmware sa card: {0}
+stock firmware already on the card: {0}
+= nasa card na ang stock firmware: {0}
+could not copy the stock firmware to the card: {0}
+= hindi makopya ang stock firmware sa card: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= walang puwang sa card para sa stock firmware ({0} KiB ang libre)
+the stock firmware did not read back correctly from the card
+= hindi tama ang pagkabasa pabalik ng stock firmware mula sa card
+stock firmware found on the card: {0}
+= may nahanap na stock firmware sa card: {0}
+known stock firmware: {0}
+= kilalang stock firmware: {0}
+rockslop does not recognise this firmware
+= hindi kilala ni rockslop ang firmware na ito
+{0} is not a {1} flash backup (no partition table)
+= ang {0} ay hindi {1} flash backup (walang partition table)
+{0} has no firmware in it (that part is blank)
+= walang firmware ang {0} (blangko ang bahaging iyon)
+{0} has Rockbox in it: it is not stock firmware
+= may Rockbox ang {0}: hindi ito stock firmware

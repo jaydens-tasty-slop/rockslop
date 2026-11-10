@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Het lijkt erop dat je de hele aftiteling hebt uitgekeken. Dat doet niemand. Respect.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= geen backup van de originele firmware op deze computer
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Als rockslop een speler flasht, zet het een kopie van de originele firmware op de microSD-kaart van de speler: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Start de speler in Rockbox en sluit hem aan, dan kijkt rockslop daar zelf. Of zoek het bestand en selecteer het.
+looking on the player's card
+= zoeken op de kaart van de speler
+no stock firmware on the player's card
+= geen originele firmware op de kaart van de speler
+checking the image
+= image controleren
+stock firmware: {0}
+= originele firmware: {0}
+UNKNOWN FIRMWARE
+= ONBEKENDE FIRMWARE
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Dit is geen originele firmware die rockslop kent: een nieuwere versie, of helemaal niet origineel.
+It has Rockbox in it, so it isn't stock firmware.
+= Er zit Rockbox in, dus het is geen originele firmware.
+Flash it only if you're sure it came from a {0}.
+= Flash het alleen als je zeker weet dat het van een {0} komt.
+FLASH ANYWAY
+= TOCH FLASHEN
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= De map .rockbox is verborgen: zet verborgen bestanden aan in je bestandsbeheer om hem te zien.
+stock firmware copied to the card: {0}
+= originele firmware naar de kaart gekopieerd: {0}
+stock firmware already on the card: {0}
+= originele firmware staat al op de kaart: {0}
+could not copy the stock firmware to the card: {0}
+= kon de originele firmware niet naar de kaart kopiëren: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= geen ruimte op de kaart voor de originele firmware ({0} KiB vrij)
+the stock firmware did not read back correctly from the card
+= de originele firmware is niet goed teruggelezen van de kaart
+stock firmware found on the card: {0}
+= originele firmware gevonden op de kaart: {0}
+known stock firmware: {0}
+= bekende originele firmware: {0}
+rockslop does not recognise this firmware
+= rockslop herkent deze firmware niet
+{0} is not a {1} flash backup (no partition table)
+= {0} is geen {1} flash-backup (geen partitietabel)
+{0} has no firmware in it (that part is blank)
+= {0} bevat geen firmware (dat deel is leeg)
+{0} has Rockbox in it: it is not stock firmware
+= {0} bevat Rockbox: het is geen originele firmware

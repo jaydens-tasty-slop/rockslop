@@ -6,3 +6,5 @@ unplugged: hold the centre key
 = unplugged: hold the center key
 cancelled
 = canceled
+rockslop does not recognise this firmware
+= rockslop does not recognize this firmware

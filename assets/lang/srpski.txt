@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Изгледа да те је шпица задржала до краја. То нико не ради. Респект.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= на овом рачунару нема резервне копије фабричког фирмвера
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Кад rockslop флешује плејер, ставља копију фабричког фирмвера на microSD картицу плејера: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Покрени плејер у Rockbox-у и прикључи га, а rockslop сам гледа тамо. Или пронађи фајл и изабери га.
+looking on the player's card
+= тражим на картици плејера
+no stock firmware on the player's card
+= на картици плејера нема фабричког фирмвера
+checking the image
+= проверавам слику
+stock firmware: {0}
+= фабрички фирмвер: {0}
+UNKNOWN FIRMWARE
+= НЕПОЗНАТ ФИРМВЕР
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Ово није фабрички фирмвер који rockslop познаје: новија верзија или уопште није фабрички.
+It has Rockbox in it, so it isn't stock firmware.
+= Садржи Rockbox, па није фабрички фирмвер.
+Flash it only if you're sure it came from a {0}.
+= Флешуј га само ако си сигуран да потиче са {0}.
+FLASH ANYWAY
+= ФЛЕШУЈ ИПАК
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Фасцикла .rockbox је скривена: укључи приказ скривених фајлова у менаџеру фајлова да је видиш.
+stock firmware copied to the card: {0}
+= фабрички фирмвер копиран на картицу: {0}
+stock firmware already on the card: {0}
+= фабрички фирмвер је већ на картици: {0}
+could not copy the stock firmware to the card: {0}
+= није успело копирање фабричког фирмвера на картицу: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= нема места на картици за фабрички фирмвер ({0} KiB слободно)
+the stock firmware did not read back correctly from the card
+= фабрички фирмвер се са картице није исправно прочитао назад
+stock firmware found on the card: {0}
+= фабрички фирмвер пронађен на картици: {0}
+known stock firmware: {0}
+= познат фабрички фирмвер: {0}
+rockslop does not recognise this firmware
+= rockslop не препознаје овај фирмвер
+{0} is not a {1} flash backup (no partition table)
+= {0} није {1} флеш копија (нема табеле партиција)
+{0} has no firmware in it (that part is blank)
+= {0} нема фирмвера (тај део је празан)
+{0} has Rockbox in it: it is not stock firmware
+= {0} садржи Rockbox: није фабрички фирмвер

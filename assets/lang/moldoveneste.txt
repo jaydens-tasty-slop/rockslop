@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Se pare că te-ai uitat la toate creditele. Nimeni nu face asta. Respect.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= nicio copie a firmware-ului original pe acest calculator
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Când rockslop flashează un player, pune o copie a firmware-ului original pe cardul microSD al playerului: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Pornește playerul în Rockbox și conectează-l, iar rockslop caută singur acolo. Sau găsește fișierul și selectează-l.
+looking on the player's card
+= se caută pe cardul playerului
+no stock firmware on the player's card
+= niciun firmware original pe cardul playerului
+checking the image
+= se verifică imaginea
+stock firmware: {0}
+= firmware original: {0}
+UNKNOWN FIRMWARE
+= FIRMWARE NECUNOSCUT
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Nu este un firmware original pe care rockslop îl cunoaște: o versiune mai nouă sau deloc original.
+It has Rockbox in it, so it isn't stock firmware.
+= Conține Rockbox, deci nu este firmware original.
+Flash it only if you're sure it came from a {0}.
+= Flashează-l doar dacă ești sigur că provine de la un {0}.
+FLASH ANYWAY
+= FLASHEAZĂ TOTUȘI
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Dosarul .rockbox este ascuns: activează afișarea fișierelor ascunse în managerul de fișiere ca să-l vezi.
+stock firmware copied to the card: {0}
+= firmware original copiat pe card: {0}
+stock firmware already on the card: {0}
+= firmware original deja pe card: {0}
+could not copy the stock firmware to the card: {0}
+= nu s-a putut copia firmware-ul original pe card: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= nu e loc pe card pentru firmware-ul original ({0} KiB liberi)
+the stock firmware did not read back correctly from the card
+= firmware-ul original nu s-a citit corect de pe card
+stock firmware found on the card: {0}
+= firmware original găsit pe card: {0}
+known stock firmware: {0}
+= firmware original cunoscut: {0}
+rockslop does not recognise this firmware
+= rockslop nu recunoaște acest firmware
+{0} is not a {1} flash backup (no partition table)
+= {0} nu este o copie flash {1} (fără tabelă de partiții)
+{0} has no firmware in it (that part is blank)
+= {0} nu are firmware (partea aceea e goală)
+{0} has Rockbox in it: it is not stock firmware
+= {0} conține Rockbox: nu este firmware original

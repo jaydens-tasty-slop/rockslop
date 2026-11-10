@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Tüm jeneriği izlemiş gibi görünüyorsun. Bunu kimse yapmaz. Helal olsun.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= bu bilgisayarda orijinal firmware yedeği yok
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= rockslop bir çaları flashladığında, çaların microSD kartına orijinal firmware'in bir kopyasını koyar: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Çaları Rockbox'ta başlat ve tak, rockslop oraya kendisi bakar. Ya da dosyayı bulup seç.
+looking on the player's card
+= çaların kartına bakılıyor
+no stock firmware on the player's card
+= çaların kartında orijinal firmware yok
+checking the image
+= imaj denetleniyor
+stock firmware: {0}
+= orijinal firmware: {0}
+UNKNOWN FIRMWARE
+= BİLİNMEYEN FIRMWARE
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= Bu, rockslop'un tanıdığı bir orijinal firmware değil: daha yeni bir sürüm ya da hiç orijinal değil.
+It has Rockbox in it, so it isn't stock firmware.
+= İçinde Rockbox var, yani orijinal firmware değil.
+Flash it only if you're sure it came from a {0}.
+= Yalnızca bir {0} cihazından geldiğinden eminsen flashla.
+FLASH ANYWAY
+= YİNE DE FLASHLA
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= .rockbox klasörü gizli: görmek için dosya yöneticinde gizli dosyaları göstermeyi aç.
+stock firmware copied to the card: {0}
+= orijinal firmware karta kopyalandı: {0}
+stock firmware already on the card: {0}
+= orijinal firmware zaten kartta: {0}
+could not copy the stock firmware to the card: {0}
+= orijinal firmware karta kopyalanamadı: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= kartta orijinal firmware için yer yok ({0} KiB boş)
+the stock firmware did not read back correctly from the card
+= orijinal firmware karttan doğru okunamadı
+stock firmware found on the card: {0}
+= orijinal firmware kartta bulundu: {0}
+known stock firmware: {0}
+= bilinen orijinal firmware: {0}
+rockslop does not recognise this firmware
+= rockslop bu firmware'i tanımıyor
+{0} is not a {1} flash backup (no partition table)
+= {0}, {1} flash yedeği değil (bölüm tablosu yok)
+{0} has no firmware in it (that part is blank)
+= {0} içinde firmware yok (o kısım boş)
+{0} has Rockbox in it: it is not stock firmware
+= {0} içinde Rockbox var: orijinal firmware değil

@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = Tundub, et vaatasid kõik tänusõnad läbi. Keegi ei tee seda. Austus.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= sellel arvutil pole tehase firmware'i varukoopiat
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Kui rockslop mängijat flashib, paneb ta tehase firmware'i koopia mängija microSD-kaardile: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Käivita mängija Rockboxis ja ühenda see, siis otsib rockslop sealt ise. Või leia fail ja vali see.
+looking on the player's card
+= otsin mängija kaardilt
+no stock firmware on the player's card
+= mängija kaardil pole tehase firmware'i
+checking the image
+= kontrollin kujutist
+stock firmware: {0}
+= tehase firmware: {0}
+UNKNOWN FIRMWARE
+= TUNDMATU FIRMWARE
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= See pole tehase firmware, mida rockslop tunneb: uuem versioon või üldse mitte tehase oma.
+It has Rockbox in it, so it isn't stock firmware.
+= Selles on Rockbox, seega pole see tehase firmware.
+Flash it only if you're sure it came from a {0}.
+= Flashi seda ainult siis, kui oled kindel, et see pärineb mängijalt {0}.
+FLASH ANYWAY
+= FLASHI IGAL JUHUL
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Kaust .rockbox on peidetud: lülita failihalduris peidetud failide kuvamine sisse, et seda näha.
+stock firmware copied to the card: {0}
+= tehase firmware kopeeritud kaardile: {0}
+stock firmware already on the card: {0}
+= tehase firmware on kaardil juba olemas: {0}
+could not copy the stock firmware to the card: {0}
+= tehase firmware'i ei saanud kaardile kopeerida: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= kaardil pole tehase firmware'i jaoks ruumi ({0} KiB vaba)
+the stock firmware did not read back correctly from the card
+= tehase firmware ei lugenud kaardilt õigesti tagasi
+stock firmware found on the card: {0}
+= tehase firmware leitud kaardilt: {0}
+known stock firmware: {0}
+= tuntud tehase firmware: {0}
+rockslop does not recognise this firmware
+= rockslop ei tunne seda firmware'i ära
+{0} is not a {1} flash backup (no partition table)
+= {0} pole mängija {1} flashi varukoopia (partitsioonitabelit pole)
+{0} has no firmware in it (that part is blank)
+= {0} sees pole firmware'i (see osa on tühi)
+{0} has Rockbox in it: it is not stock firmware
+= {0} sees on Rockbox: see pole tehase firmware

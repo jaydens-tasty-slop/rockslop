@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = クレジットを最後まで見たようですね。そんな人はいません。リスペクト。
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= このコンピューターには標準ファームウェアのバックアップがありません
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= rockslop がプレーヤーを書き込むときは、プレーヤーの microSD カードに標準ファームウェアのコピーを置きます：.rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= プレーヤーを Rockbox で起動して接続すれば、rockslop が自分でそこを探します。またはファイルを探して選んでください。
+looking on the player's card
+= プレーヤーのカードを検索中
+no stock firmware on the player's card
+= プレーヤーのカードに標準ファームウェアがありません
+checking the image
+= イメージを確認中
+stock firmware: {0}
+= 標準ファームウェア：{0}
+UNKNOWN FIRMWARE
+= 不明なファームウェア
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= rockslop が知っている標準ファームウェアではありません：新しいバージョンか、そもそも標準ではないようです。
+It has Rockbox in it, so it isn't stock firmware.
+= Rockbox が入っているので、標準ファームウェアではありません。
+Flash it only if you're sure it came from a {0}.
+= {0} のものだと確信できる場合にだけ書き込んでください。
+FLASH ANYWAY
+= それでも書き込む
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= .rockbox フォルダーは非表示です：見るにはファイルブラウザーで隠しファイルを表示してください。
+stock firmware copied to the card: {0}
+= 標準ファームウェアをカードにコピーしました：{0}
+stock firmware already on the card: {0}
+= 標準ファームウェアは既にカードにあります：{0}
+could not copy the stock firmware to the card: {0}
+= 標準ファームウェアをカードにコピーできませんでした：{0}
+no room on the card for the stock firmware ({0} KiB free)
+= カードに標準ファームウェアの空き容量がありません（空き {0} KiB）
+the stock firmware did not read back correctly from the card
+= 標準ファームウェアをカードから正しく読み戻せませんでした
+stock firmware found on the card: {0}
+= カードで標準ファームウェアを見つけました：{0}
+known stock firmware: {0}
+= 既知の標準ファームウェア：{0}
+rockslop does not recognise this firmware
+= rockslop はこのファームウェアを認識できません
+{0} is not a {1} flash backup (no partition table)
+= {0} は {1} のフラッシュ バックアップではありません（パーティションテーブルなし）
+{0} has no firmware in it (that part is blank)
+= {0} にはファームウェアが入っていません（その部分は空です）
+{0} has Rockbox in it: it is not stock firmware
+= {0} には Rockbox が入っています：標準ファームウェアではありません

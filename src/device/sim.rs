@@ -301,6 +301,11 @@ impl Sim {
                 ev.progress(done as f32 / total as f32 * 0.7);
             }
             ev.ok(format!("{} files written", names.len()));
+            // the way back, kept on the card
+            let stock = format!(".rockbox/{}-3fa9c21e-20261106-231500-stock.bin", kind.id());
+            let size = (sectors * sector_size) as u64;
+            ev.send(Event::File(stock.clone(), size));
+            self.nap(1200);
             ev.info("reading every file back from the card");
             done = 0;
             for (k, (n, sz)) in names.iter().enumerate() {
@@ -312,6 +317,9 @@ impl Sim {
                 ev.progress(0.7 + 0.3 * done as f32 / total as f32);
             }
             ev.ok(format!("{} files read back: sha256 OK", names.len()));
+            ev.send(Event::ReadBack(stock.clone(), size));
+            self.nap(400);
+            ev.ok(format!("stock firmware copied to the card: {stock}"));
             out.files = names.len();
             out.bytes = total;
             out.card = true;

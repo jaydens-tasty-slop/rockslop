@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = נראה שצפית בכל הקרדיטים. אף אחד לא עושה את זה. כל הכבוד.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= אין גיבוי של הקושחה המקורית במחשב הזה
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= כש-rockslop צורב נגן, הוא מניח עותק של הקושחה המקורית בכרטיס ה-microSD של הנגן: ‎.rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= הפעל את הנגן ב-Rockbox וחבר אותו, ו-rockslop יחפש שם בעצמו. או מצא את הקובץ ובחר בו.
+looking on the player's card
+= מחפש בכרטיס של הנגן
+no stock firmware on the player's card
+= אין קושחה מקורית בכרטיס של הנגן
+checking the image
+= בודק את התמונה
+stock firmware: {0}
+= קושחה מקורית: {0}
+UNKNOWN FIRMWARE
+= קושחה לא מוכרת
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= זו לא קושחה מקורית ש-rockslop מכיר: גרסה חדשה יותר, או בכלל לא מקורית.
+It has Rockbox in it, so it isn't stock firmware.
+= יש בה Rockbox, ולכן היא לא קושחה מקורית.
+Flash it only if you're sure it came from a {0}.
+= צרוב אותה רק אם אתה בטוח שהיא מגיעה מ-{0}.
+FLASH ANYWAY
+= צרוב בכל זאת
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= התיקייה ‎.rockbox מוסתרת: הפעל הצגת קבצים מוסתרים במנהל הקבצים שלך כדי לראות אותה.
+stock firmware copied to the card: {0}
+= קושחה מקורית הועתקה לכרטיס: {0}
+stock firmware already on the card: {0}
+= קושחה מקורית כבר בכרטיס: {0}
+could not copy the stock firmware to the card: {0}
+= לא ניתן היה להעתיק את הקושחה המקורית לכרטיס: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= אין מקום בכרטיס לקושחה המקורית ({0} KiB פנויים)
+the stock firmware did not read back correctly from the card
+= הקושחה המקורית לא נקראה כראוי בחזרה מהכרטיס
+stock firmware found on the card: {0}
+= קושחה מקורית נמצאה בכרטיס: {0}
+known stock firmware: {0}
+= קושחה מקורית מוכרת: {0}
+rockslop does not recognise this firmware
+= rockslop לא מזהה את הקושחה הזו
+{0} is not a {1} flash backup (no partition table)
+= {0} אינו גיבוי פלאש של {1} (אין טבלת מחיצות)
+{0} has no firmware in it (that part is blank)
+= אין קושחה ב-{0} (החלק הזה ריק)
+{0} has Rockbox in it: it is not stock firmware
+= יש Rockbox ב-{0}: זו לא קושחה מקורית

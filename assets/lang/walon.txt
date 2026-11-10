@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = I shonne ki vos avoz rwaitî tote li kiminålté. Nolu n' fwait ça. Respet !
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= nou copeye do firmware d' oridjine so ç' copiutrece-ci
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= Cwand rockslop flashe èn aparey, i mete ene copeye do firmware d' oridjine so l' carte microSD di l' aparey: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= Enonde l' aparey avou Rockbox eyet broke-l, et rockslop cwîre la tot seu. Ou bén trovez l' fitchî eyet tchoezixhoz-le.
+looking on the player's card
+= cweraedje so l' carte di l' aparey
+no stock firmware on the player's card
+= nou firmware d' oridjine so l' carte di l' aparey
+checking the image
+= verifiaedje di l' imådje
+stock firmware: {0}
+= firmware d' oridjine: {0}
+UNKNOWN FIRMWARE
+= FIRMWARE NEN CONOGNU
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= C' n' est nén èn firmware d' oridjine ki rockslop conoxhe: ene pus nové modêye, ou nén d' oridjine do tout.
+It has Rockbox in it, so it isn't stock firmware.
+= Il a Rockbox dvins, don ç' n' est nén do firmware d' oridjine.
+Flash it only if you're sure it came from a {0}.
+= Ni flashîz-le ki si vos estoz seur k' il vént d' on {0}.
+FLASH ANYWAY
+= FLASHER TOT PARÈY
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= Li lisse .rockbox est catchî: mostrez les fitchîs catchîs dins vosse manaedjeu di fitchîs po l' vey.
+stock firmware copied to the card: {0}
+= firmware d' oridjine copyî so l' carte: {0}
+stock firmware already on the card: {0}
+= firmware d' oridjine ådjà so l' carte: {0}
+could not copy the stock firmware to the card: {0}
+= n' a nén polou copyî li firmware d' oridjine so l' carte: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= nou plaece so l' carte po l' firmware d' oridjine ({0} KiB libe)
+the stock firmware did not read back correctly from the card
+= li firmware d' oridjine n' a nén stî bén rilî di l' carte
+stock firmware found on the card: {0}
+= firmware d' oridjine trové so l' carte: {0}
+known stock firmware: {0}
+= firmware d' oridjine conoxhou: {0}
+rockslop does not recognise this firmware
+= rockslop ni rconoxh nén ci firmware ci
+{0} is not a {1} flash backup (no partition table)
+= {0} n' est nén ene copeye flash di {1} (nou tåve des pårtixhions)
+{0} has no firmware in it (that part is blank)
+= {0} n' a nén di firmware dvins (ç' tchén-la est vude)
+{0} has Rockbox in it: it is not stock firmware
+= {0} a Rockbox dvins: ç' n' est nén do firmware d' oridjine

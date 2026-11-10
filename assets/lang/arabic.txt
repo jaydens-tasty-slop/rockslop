@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = يبدو أنك شاهدت قائمة الشكر كلها. لا أحد يفعل ذلك. احترامي.
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= لا نسخة من البرنامج الأصلي على هذا الكمبيوتر
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= عندما يكتب rockslop البرنامج على مشغل، يضع نسخة من البرنامج الأصلي على بطاقة microSD في المشغل: ‎.rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= شغّل المشغل على Rockbox ثم وصّله، وسيبحث rockslop هناك بنفسه. أو اعثر على الملف وحدده.
+looking on the player's card
+= البحث في بطاقة المشغل
+no stock firmware on the player's card
+= لا برنامج أصلي على بطاقة المشغل
+checking the image
+= فحص الصورة
+stock firmware: {0}
+= البرنامج الأصلي: {0}
+UNKNOWN FIRMWARE
+= برنامج غير معروف
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= هذا ليس برنامجًا أصليًا يعرفه rockslop: إصدار أحدث، أو ليس أصليًا أصلًا.
+It has Rockbox in it, so it isn't stock firmware.
+= يحتوي على Rockbox، فهو ليس برنامجًا أصليًا.
+Flash it only if you're sure it came from a {0}.
+= اكتبه على المشغل فقط إذا كنت متأكدًا من أنه جاء من {0}.
+FLASH ANYWAY
+= اكتبه على أي حال
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= المجلد ‎.rockbox مخفي: فعّل عرض الملفات المخفية في متصفح الملفات لتراه.
+stock firmware copied to the card: {0}
+= نُسخ البرنامج الأصلي إلى البطاقة: {0}
+stock firmware already on the card: {0}
+= البرنامج الأصلي موجود على البطاقة: {0}
+could not copy the stock firmware to the card: {0}
+= تعذّر نسخ البرنامج الأصلي إلى البطاقة: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= لا مساحة على البطاقة للبرنامج الأصلي (المتاح {0} KiB)
+the stock firmware did not read back correctly from the card
+= لم تتم قراءة البرنامج الأصلي من البطاقة بشكل صحيح
+stock firmware found on the card: {0}
+= عُثر على البرنامج الأصلي على البطاقة: {0}
+known stock firmware: {0}
+= برنامج أصلي معروف: {0}
+rockslop does not recognise this firmware
+= rockslop لا يتعرف على هذا البرنامج
+{0} is not a {1} flash backup (no partition table)
+= {0} ليس نسخة فلاش احتياطية لـ {1} (لا جدول أقسام)
+{0} has no firmware in it (that part is blank)
+= {0} لا يحتوي على برنامج (هذا الجزء فارغ)
+{0} has Rockbox in it: it is not stock firmware
+= {0} يحتوي على Rockbox: ليس برنامجًا أصليًا

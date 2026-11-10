@@ -52,6 +52,22 @@ impl Kind {
             Kind::Ts17 => "ts17",
         }
     }
+    pub fn geometry(self) -> Geometry {
+        match self {
+            Kind::Yp3 => Geometry { size: yp3::FLASH_SIZE, sector: yp3::SECTOR, writable: yp3::WRITABLE, unit: (0x1FC000, 0x200000) },
+            Kind::Ts17 => Geometry { size: ts17::FLASH_SIZE, sector: ts17::SECTOR, writable: ts17::WRITABLE, unit: (0x332000, 0x337000) },
+        }
+    }
+}
+
+/// A player's flash.
+pub struct Geometry {
+    pub size: u32,
+    pub sector: u32,
+    /// what rockslop writes; below it is the boot chain, never touched
+    pub writable: (u32, u32),
+    /// per-unit sectors that fingerprint a unit
+    pub unit: (u32, u32),
 }
 
 /// What we can see on the bus.

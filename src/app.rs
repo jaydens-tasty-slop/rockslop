@@ -127,12 +127,22 @@ struct LinkState {
     seen_at: Option<f32>,
     /// it was plugged in running firmware of its own during this link
     saw_os: bool,
+    /// Rockbox's card has been searched for a stock backup
+    card_looked: bool,
 }
 
 enum PkgState {
     Checking(f32, String),
     Ok,
     Bad(String),
+}
+
+/// What a search for a stock image turned up.
+enum Find {
+    Found(Backup),
+    /// a picked image that isn't known stock firmware; has Rockbox in it
+    Unknown(PathBuf, bool),
+    Nothing,
 }
 
 struct PkgView {
@@ -287,7 +297,17 @@ pub struct App {
     pkg: Option<PkgView>,
     pkg_rx: Option<Receiver<PkgMsg>>,
     pick_rx: Option<Receiver<Option<PathBuf>>>,
+    /// the image RETURN TO STOCK flashes
     stock: Option<Backup>,
+    /// a search for one when this computer has none: on Rockbox's card, or
+    /// a file the user picked (checked, then taken into the backups)
+    stock_rx: Option<Receiver<Result<Find, String>>>,
+    /// how the last search came out, when it found nothing
+    stock_note: Option<(Lvl, String)>,
+    /// a picked image that passed the checks but isn't a stock firmware
+    /// rockslop knows (and whether it has Rockbox in it): the user may
+    /// flash it anyway
+    unknown: Option<(PathBuf, bool)>,
     job: Job,
     log: Vec<(f32, Lvl, String)>,
     plug: Spring,
@@ -321,6 +341,15 @@ pub struct App {
     /// stays on the credits
     encore: Option<(f32, bool)>,
     encored: bool,
+}
+
+/// Muted with the sound badge (or M) last time: rockslop starts muted.
+fn mute_file() -> PathBuf {
+    backup::data_dir().join("muted")
+}
+
+pub fn muted_last_time() -> bool {
+    mute_file().exists()
 }
 
 /// Seconds on the complete screen before the credits roll by themselves.
@@ -431,6 +460,9 @@ impl App {
             pkg_rx: None,
             pick_rx: None,
             stock: None,
+            stock_rx: None,
+            unknown: None,
+            stock_note: None,
             job: Job::default(),
             log: Vec::new(),
             plug: Spring::new(0.0, 40.0, 11.0),
@@ -510,6 +542,8 @@ impl App {
         match s {
             Screen::Select => {
                 self.to_stock = false;
+                self.stock_note = None;
+                self.unknown = None;
                 self.hub.send(Cmd::Watch(None));
                 for a in &mut self.actors {
                     a.spin_rate = 0.35;
@@ -517,6 +551,7 @@ impl App {
             }
             Screen::Link => {
                 self.link = LinkState::default();
+                self.stock = backup::stock_for(self.kind(), None);
                 self.hub.send(Cmd::Watch(Some(self.kind())));
                 self.last_cycle = -1;
             }
@@ -591,7 +626,7 @@ impl App {
         for f in get_dropped_files() {
             if let Some(p) = f.path {
                 if matches!(self.screen, Screen::Payload) {
-                    self.load_package(p);
+                    self.picked(p);
                 }
             }
         }
@@ -599,8 +634,14 @@ impl App {
             if let Ok(r) = rx.try_recv() {
                 self.pick_rx = None;
                 if let Some(p) = r {
-                    self.load_package(p);
+                    self.picked(p);
                 }
+            }
+        }
+        if let Some(rx) = &self.stock_rx {
+            if let Ok(r) = rx.try_recv() {
+                self.stock_rx = None;
+                self.stock_found(r);
             }
         }
         self.logic();
@@ -717,15 +758,18 @@ impl App {
                 Event::File(n, s) => {
                     let sv = &mut self.job.sync;
                     sv.started.get_or_insert(self.time);
-                    sv.written += 1;
                     sv.last = self.time;
-                    let dir = card_dir(&n);
-                    match sv.dirs.iter_mut().find(|d| d.0 == dir) {
-                        Some(d) => {
-                            d.1 += 1;
-                            d.2 = self.time;
+                    // the stock backup's copy is listed, but the counts are the package's
+                    if !n.ends_with("-stock.bin") {
+                        sv.written += 1;
+                        let dir = card_dir(&n);
+                        match sv.dirs.iter_mut().find(|d| d.0 == dir) {
+                            Some(d) => {
+                                d.1 += 1;
+                                d.2 = self.time;
+                            }
+                            None => sv.dirs.push((dir, 1, self.time)),
                         }
-                        None => sv.dirs.push((dir, 1, self.time)),
                     }
                     self.job.files.push((n, s, self.time, false));
                     if self.job.files.len() > 120 {
@@ -822,6 +866,9 @@ impl App {
     fn toggle_mute(&mut self) {
         let m = self.audio.toggle_mute();
         self.say(Lvl::Info, if m { tr("audio muted") } else { tr("audio on") });
+        // kept for next time (best effort)
+        let f = mute_file();
+        let _ = if m { std::fs::create_dir_all(backup::data_dir()).and_then(|_| std::fs::write(&f, "")) } else { std::fs::remove_file(&f) };
     }
 
     fn logic(&mut self) {
@@ -884,6 +931,12 @@ impl App {
                 if seen.is_some_and(|s| os_mode(self.kind(), s.mode)) {
                     self.link.saw_os = true;
                 }
+                // Rockbox is up: its card may hold the stock backup this
+                // computer lacks (a flash leaves one there)
+                if seen.is_some_and(|s| s.mode == Mode::Rockbox) && self.stock.is_none() && !self.link.card_looked && self.stock_rx.is_none() {
+                    self.link.card_looked = true;
+                    self.find_stock(None);
+                }
                 if seen.is_some() && self.link.seen_at.is_none() {
                     self.link.seen_at = Some(self.time);
                     self.usb_hot = 1.0;
@@ -913,13 +966,11 @@ impl App {
                 }
                 if let Some(t) = self.link.probed_at {
                     if self.time - t > 1.6 && self.link.error.is_none() {
-                        if self.to_stock {
-                            self.to_stock = false;
-                            self.stock = backup::stock_for(self.kind(), None);
-                            if self.stock.is_some() {
-                                self.start_restore();
-                                return;
-                            }
+                        // RETURN TO STOCK: straight on, or (with no stock
+                        // image yet) to the payload panel, which asks for one
+                        if self.to_stock && self.stock.is_some() {
+                            self.start_restore();
+                            return;
                         }
                         self.go(Screen::Payload);
                     }
@@ -930,7 +981,7 @@ impl App {
                     self.go(Screen::Select);
                     return;
                 }
-                if self.opts.auto {
+                if self.opts.auto && !self.to_stock {
                     if self.pkg.is_none() && self.screen_t > 1.2 {
                         let p = self.opts.package.clone().unwrap_or_else(|| self.demo_package());
                         self.load_package(p);
@@ -1121,6 +1172,9 @@ impl App {
                 }
                 Some(_) => None,
             },
+            Screen::Payload if self.to_stock => {
+                say(Tip::Stock, 12.0, tr("The .rockbox folder is hidden: turn on hidden files in your file browser to see it.").into())
+            }
             Screen::Payload if self.pkg.is_none() => say(
                 Tip::Package,
                 15.0,
@@ -1467,16 +1521,20 @@ impl App {
             return;
         }
         if self.opts.demo {
-            self.load_package(self.demo_package());
+            self.picked(self.demo_package());
             return;
         }
-        let dialog = rfd::FileDialog::new()
-            .set_title(tr("Rockbox package"))
-            .add_filter(format!("{} (.tar.xz)", tr("Rockbox package")), &["xz", "txz"]);
+        let dialog = if self.to_stock {
+            rfd::FileDialog::new().set_title(tr("STOCK FIRMWARE")).add_filter(format!("{} (.bin)", tr("STOCK FIRMWARE")), &["bin"])
+        } else {
+            rfd::FileDialog::new()
+                .set_title(tr("Rockbox package"))
+                .add_filter(format!("{} (.tar.xz)", tr("Rockbox package")), &["xz", "txz"])
+        };
         if cfg!(target_os = "macos") {
             // AppKit dialogs must run on the main thread
             if let Some(p) = dialog.pick_file() {
-                self.load_package(p);
+                self.picked(p);
             }
             return;
         }
@@ -1485,6 +1543,88 @@ impl App {
             let _ = tx.send(dialog.pick_file());
         });
         self.pick_rx = Some(rx);
+    }
+
+    /// A file picked or dropped on the payload panel: the package, or in
+    /// RETURN TO STOCK the stock image.
+    fn picked(&mut self, p: PathBuf) {
+        if self.to_stock {
+            self.find_stock(Some(p));
+        } else {
+            self.load_package(p);
+        }
+    }
+
+    /// RETURN TO STOCK with nothing on this computer: look on Rockbox's
+    /// card (`None`), or check a file the user picked. Known stock firmware
+    /// is taken into the backups; anything else waits for FLASH ANYWAY.
+    fn find_stock(&mut self, file: Option<PathBuf>) {
+        let kind = self.kind();
+        let doing = if file.is_some() { tr("checking the image") } else { tr("looking on the player's card") };
+        self.stock_note = Some((Lvl::Info, doing.to_string()));
+        self.unknown = None;
+        let (tx, rx) = channel();
+        if self.opts.demo {
+            // the simulator flashes no image: a picked one is taken as is
+            let path = PathBuf::from(format!("{}-3fa9c21e-20261106-231500-stock.bin", kind.id()));
+            let b = Backup { path, kind, fingerprint: 0x3fa9_c21e, stamp: "20261106-231500".into(), stock: true };
+            let _ = tx.send(Ok(if file.is_some() { Find::Found(b) } else { Find::Nothing }));
+        } else {
+            std::thread::spawn(move || {
+                let r = match file {
+                    Some(p) => backup::check_image(kind, &p).and_then(|c| match c.known {
+                        Some(_) if c.stock => backup::import(kind, &p).map(Find::Found),
+                        _ => Ok(Find::Unknown(p, !c.stock)),
+                    }),
+                    None => backup::from_card(kind).map(|b| b.map_or(Find::Nothing, Find::Found)),
+                };
+                let _ = tx.send(r);
+            });
+        }
+        self.stock_rx = Some(rx);
+    }
+
+    fn stock_found(&mut self, r: Result<Find, String>) {
+        match r {
+            Ok(Find::Found(b)) => {
+                let name = b.path.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+                self.say(Lvl::Ok, tf("stock firmware: {0}", &[&name]));
+                self.stock = Some(b);
+                self.stock_note = None;
+                self.audio.sfx(Sfx::Drop);
+                if self.screen == Screen::Payload && self.to_stock {
+                    self.start_restore();
+                }
+            }
+            Ok(Find::Unknown(p, rockbox)) => {
+                self.stock_note = None;
+                self.unknown = Some((p, rockbox));
+                self.audio.sfx(Sfx::Error);
+                self.kick = 0.5;
+            }
+            Ok(Find::Nothing) => self.stock_note = Some((Lvl::Warn, tr("no stock firmware on the player's card").to_string())),
+            Err(e) => {
+                let e = i18n::msg(&e);
+                self.say(Lvl::Err, e.clone());
+                self.stock_note = Some((Lvl::Err, e));
+                // loud only for a file just picked: the link's look at the card is in the background
+                if self.screen == Screen::Payload {
+                    self.audio.sfx(Sfx::Error);
+                    self.kick = 0.8;
+                }
+            }
+        }
+    }
+
+    /// RETURN TO STOCK: at once with an image in hand, else ask for one.
+    fn return_to_stock(&mut self) {
+        self.to_stock = true;
+        if self.stock.is_some() {
+            self.start_restore();
+        } else {
+            self.stock_note = None;
+            self.unknown = None;
+        }
     }
 
     fn reset_job(&mut self, restoring: bool) {
@@ -1501,8 +1641,12 @@ impl App {
 
     fn start_restore(&mut self) {
         let Some(b) = self.stock.clone() else { return };
+        self.restore_from(b.path);
+    }
+
+    fn restore_from(&mut self, image: PathBuf) {
         self.reset_job(true);
-        self.hub.send(Cmd::Restore { kind: self.kind(), image: b.path });
+        self.hub.send(Cmd::Restore { kind: self.kind(), image });
         self.go(Screen::Execute);
     }
 
@@ -2528,6 +2672,20 @@ impl App {
             // where this link leads: straight to the restore
             let pulse = 0.75 + 0.25 * (t * 4.0).sin();
             text::draw_spaced(&self.g, Face::Semi, tr("RETURN TO STOCK"), vec2(panel.x + panel.w, panel.y - 12.0), 11.0, pal::alpha(pal::AMBER, ap * pulse), Align::Right, 2.0);
+            // and the image it will take, or where it may be found
+            let (lvl, note) = match (&self.stock, &self.stock_note) {
+                (Some(b), _) => (Lvl::Ok, tf("stock firmware: {0}", &[&b.path.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default()])),
+                (None, Some((l, n))) => (*l, n.clone()),
+                (None, None) => (Lvl::Warn, tr("no stock backup on this computer").to_string()),
+            };
+            let y = panel.y + panel.h + 26.0;
+            text::draw_fit(&self.g, Face::Mono, &note, vec2(panel.x + panel.w, y), 12.0, pal::alpha(ui::lvl_color(lvl), ap), Align::Right, panel.w);
+            if self.stock.is_none() && self.stock_rx.is_none() {
+                let hint = tr("Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.");
+                for (k, l) in ui::wrap(&self.g, Face::Mono, hint, 11.0, panel.w).iter().take(2).enumerate() {
+                    text::draw(&self.g, Face::Mono, l, vec2(panel.x + panel.w, y + 17.0 + k as f32 * 14.0), 11.0, pal::alpha(pal::scale(pal::ICE, 0.65), ap), Align::Right);
+                }
+            }
         }
         // steps
         let (steps, active, done_n) = self.link_plan();
@@ -2740,7 +2898,8 @@ impl App {
         let panel = Rect::new(px, 112.0, pw, sz.y - 230.0);
         let ap = window(st, 0.1, 0.5);
         ui::panel(panel, pal::MAGENTA, ap);
-        ui::header(&self.g, vec2(panel.x + 26.0, panel.y + 30.0), panel.w - 52.0, tr("PAYLOAD"), pal::MAGENTA, ap, t);
+        let title = if self.to_stock { tr("RETURN TO STOCK") } else { tr("PAYLOAD") };
+        ui::header(&self.g, vec2(panel.x + 26.0, panel.y + 30.0), panel.w - 52.0, title, pal::MAGENTA, ap, t);
         // device summary
         let ident: Vec<String> = self
             .link
@@ -2766,7 +2925,9 @@ impl App {
         let inner = Rect::new(panel.x + 26.0, panel.y + 94.0, panel.w - 52.0, panel.h - 190.0);
         let mut flash_ok = false;
         let mut pick = false;
+        let mut anyway = None;
         match &self.pkg {
+            _ if self.to_stock => (pick, anyway) = self.stock_panel(inner, st),
             None => {
                 // drop zone
                 let a = window(st, 0.3, 0.5);
@@ -2927,18 +3088,22 @@ impl App {
         if pick {
             self.pick_file();
         }
-        // FLASH
+        // FLASH (or, for an image rockslop doesn't know, FLASH ANYWAY)
         let fb = Rect::new(panel.x + 26.0, panel.y + panel.h - 82.0, panel.w - 52.0, 58.0);
         let fa = if flash_ok { window(st, 0.2, 0.5) } else { 0.0 };
         if flash_ok && ui::button(&mut self.ui, &self.g, fb, tr("FLASH"), Tone::Primary, fa, true) {
             self.start_flash();
         }
-        if !flash_ok {
+        if let Some(path) = anyway {
+            if ui::button(&mut self.ui, &self.g, fb, tr("FLASH ANYWAY"), Tone::Primary, ap, true) {
+                self.restore_from(path);
+            }
+        } else if !flash_ok {
             ui::panel(fb, pal::DIM, 0.35 * ap);
             text::draw_spaced_fit(
                 &self.g,
                 Face::Semi,
-                tr("FLASH"),
+                if self.to_stock { tr("RETURN TO STOCK") } else { tr("FLASH") },
                 vec2(fb.x + fb.w / 2.0, fb.y + fb.h / 2.0 + 6.0),
                 18.0,
                 pal::alpha(pal::DIM, ap),
@@ -2963,9 +3128,16 @@ impl App {
             window(st, 0.4, 0.4),
             true,
         ) {
-            self.go(Screen::Select);
+            if self.to_stock {
+                // back to the package
+                self.to_stock = false;
+                self.unknown = None;
+                self.stock_note = None;
+            } else {
+                self.go(Screen::Select);
+            }
         }
-        if self.stock.is_some() {
+        if !self.to_stock {
             let label = tr("RETURN TO STOCK");
             let w = ui::button_width(&self.g, label, 38.0).clamp(200.0, panel.w - 150.0);
             if ui::button(
@@ -2977,9 +3149,73 @@ impl App {
                 window(st, 0.6, 0.4),
                 true,
             ) {
-                self.start_restore();
+                self.return_to_stock();
             }
         }
+    }
+
+    /// The payload panel in RETURN TO STOCK, with no stock backup on this
+    /// computer: where the image is, a drop zone to give it, and what the
+    /// checks made of one that isn't known stock firmware. Returns whether
+    /// to open the file dialog, and the image to flash anyway.
+    fn stock_panel(&mut self, inner: Rect, st: f32) -> (bool, Option<PathBuf>) {
+        let t = self.time;
+        let a = window(st, 0.3, 0.5);
+        let busy = self.stock_rx.is_some() || self.pick_rx.is_some();
+        if let Some((path, rockbox)) = self.unknown.clone() {
+            let mut y = inner.y + 14.0;
+            text::glitch_title(&self.g, tr("UNKNOWN FIRMWARE"), vec2(inner.x, y + 8.0), 20.0, pal::AMBER, Align::Left, 0.15, t, 4.0, inner.w - 120.0);
+            let pick = ui::button(&mut self.ui, &self.g, Rect::new(inner.x + inner.w - 104.0, inner.y - 6.0, 104.0, 28.0), tr("CHANGE"), Tone::Secondary, a, !busy);
+            y += 40.0;
+            let name = path.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+            text::draw_fit(&self.g, Face::Mono, tr("IMAGE"), vec2(inner.x, y), 11.0, pal::alpha(pal::DIM, a), Align::Left, 90.0);
+            text::draw_fit(&self.g, Face::Mono, &name, vec2(inner.x + 96.0, y), 13.0, pal::alpha(pal::ICE, a), Align::Left, inner.w - 96.0);
+            y += 30.0;
+            let why = if rockbox { tr("It has Rockbox in it, so it isn't stock firmware.") } else { tr("It isn't a stock firmware rockslop knows: a newer version, or not stock at all.") };
+            let sure = tf("Flash it only if you're sure it came from a {0}.", &[&self.kind().name()]);
+            for (k, l) in ui::wrap(&self.g, Face::Mono, &format!("{why} {sure}"), 12.0, inner.w).iter().take(6).enumerate() {
+                text::draw(&self.g, Face::Mono, l, vec2(inner.x, y + k as f32 * 17.0), 12.0, pal::alpha(pal::AMBER, a), Align::Left);
+            }
+            return (pick, Some(path));
+        }
+        // drop zone
+        dashed(&ui::chamfer(inner, 14.0), pal::alpha(pal::scale(pal::AMBER, 0.7), a), t);
+        let cx = inner.x + inner.w / 2.0;
+        let tw = inner.w - 40.0;
+        let (lvl, note) = self.stock_note.clone().unwrap_or((Lvl::Warn, tr("no stock backup on this computer").to_string()));
+        let note = ui::wrap(&self.g, Face::Mono, &note, 11.0, tw);
+        let pattern = format!("{}-*-stock.bin", self.kind().id());
+        let mut prose = ui::wrap(
+            &self.g,
+            Face::Mono,
+            &tf("When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}", &[&pattern]),
+            11.0,
+            tw,
+        );
+        prose.push(String::new());
+        prose.extend(ui::wrap(&self.g, Face::Mono, tr("Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it."), 11.0, tw));
+        // title, note, prose, then the button: centred, and what doesn't
+        // fit gives way to the button
+        let note = &note[..note.len().min(3)];
+        let room = ((inner.h - 150.0 - 30.0 - note.len() as f32 * 15.0) / 15.0).max(0.0) as usize;
+        let prose = &prose[..prose.len().min(room)];
+        let h = 30.0 + note.len() as f32 * 15.0 + 10.0 + prose.len() as f32 * 15.0 + 12.0 + 90.0;
+        let mut y = inner.y + ((inner.h - h) / 2.0).max(20.0);
+        text::draw_fit(&self.g, Face::Semi, tr("STOCK FIRMWARE"), vec2(cx, y), 13.0, pal::alpha(pal::ICE, a), Align::Center, tw);
+        y += 22.0;
+        for l in note {
+            text::draw(&self.g, Face::Mono, l, vec2(cx, y), 11.0, pal::alpha(ui::lvl_color(lvl), a), Align::Center);
+            y += 15.0;
+        }
+        y += 10.0;
+        for l in prose {
+            text::draw(&self.g, Face::Mono, l, vec2(cx, y), 11.0, pal::alpha(pal::scale(pal::ICE, 0.7), a), Align::Center);
+            y += 15.0;
+        }
+        let by = (y + 12.0).min(inner.y + inner.h - 90.0);
+        let pick = ui::button(&mut self.ui, &self.g, Rect::new(cx - 130.0, by, 260.0, 52.0), tr("SELECT IMAGE"), Tone::Primary, a, !busy);
+        text::draw_fit(&self.g, Face::Mono, tr("or drop it here"), vec2(cx, by + 76.0), 11.0, pal::alpha(pal::DIM, a), Align::Center, tw);
+        (pick, None)
     }
 
     fn hud_execute(&mut self) {
@@ -3532,7 +3768,6 @@ impl App {
         let side = again_w + 20.0 + stock_w <= room;
         let sr = if side { Rect::new(x0 + again_w + 20.0, by, stock_w, 40.0) } else { Rect::new(x0, by + 54.0, stock_w, 40.0) };
         if !restored
-            && self.stock.is_some()
             && ui::button(
                 &mut self.ui,
                 &self.g,

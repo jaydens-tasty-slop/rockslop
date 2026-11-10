@@ -520,3 +520,53 @@ It looks like you watched all the credits. Nobody does that. Respect.
 = ดูเหมือนว่าคุณดูเครดิตจนจบ ไม่มีใครทำแบบนั้นหรอก นับถือเลย
 DEAL WITH IT
 = DEAL WITH IT
+
+# return to stock without a backup on this computer
+no stock backup on this computer
+= ไม่มีไฟล์สำรองเฟิร์มแวร์ต้นฉบับในคอมพิวเตอร์เครื่องนี้
+When rockslop flashes a player, it puts a copy of the stock firmware on the player's microSD card: .rockbox/{0}
+= เมื่อ rockslop แฟลชเครื่องเล่น มันจะวางสำเนาเฟิร์มแวร์ต้นฉบับไว้ในการ์ด microSD ของเครื่องเล่น: .rockbox/{0}
+Start the player in Rockbox and plug it in, and rockslop looks there itself. Or find the file and select it.
+= เปิดเครื่องเล่นด้วย Rockbox แล้วเสียบสาย rockslop จะไปหาในนั้นเอง หรือจะหาไฟล์แล้วเลือกก็ได้
+looking on the player's card
+= กำลังหาในการ์ดของเครื่องเล่น
+no stock firmware on the player's card
+= ไม่มีเฟิร์มแวร์ต้นฉบับในการ์ดของเครื่องเล่น
+checking the image
+= กำลังตรวจอิมเมจ
+stock firmware: {0}
+= เฟิร์มแวร์ต้นฉบับ: {0}
+UNKNOWN FIRMWARE
+= เฟิร์มแวร์ไม่รู้จัก
+It isn't a stock firmware rockslop knows: a newer version, or not stock at all.
+= นี่ไม่ใช่เฟิร์มแวร์ต้นฉบับที่ rockslop รู้จัก อาจเป็นเวอร์ชันใหม่กว่า หรือไม่ใช่ของต้นฉบับเลย
+It has Rockbox in it, so it isn't stock firmware.
+= มี Rockbox อยู่ข้างใน จึงไม่ใช่เฟิร์มแวร์ต้นฉบับ
+Flash it only if you're sure it came from a {0}.
+= แฟลชก็ต่อเมื่อมั่นใจว่ามาจาก {0} จริงๆ
+FLASH ANYWAY
+= แฟลชต่อไป
+The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
+= โฟลเดอร์ .rockbox ถูกซ่อนอยู่ ให้เปิดการแสดงไฟล์ที่ซ่อนในตัวจัดการไฟล์ของคุณเพื่อดู
+stock firmware copied to the card: {0}
+= คัดลอกเฟิร์มแวร์ต้นฉบับไปที่การ์ดแล้ว: {0}
+stock firmware already on the card: {0}
+= มีเฟิร์มแวร์ต้นฉบับในการ์ดอยู่แล้ว: {0}
+could not copy the stock firmware to the card: {0}
+= คัดลอกเฟิร์มแวร์ต้นฉบับไปที่การ์ดไม่ได้: {0}
+no room on the card for the stock firmware ({0} KiB free)
+= การ์ดไม่มีที่ว่างพอสำหรับเฟิร์มแวร์ต้นฉบับ (ว่าง {0} KiB)
+the stock firmware did not read back correctly from the card
+= อ่านเฟิร์มแวร์ต้นฉบับกลับจากการ์ดได้ไม่ถูกต้อง
+stock firmware found on the card: {0}
+= พบเฟิร์มแวร์ต้นฉบับในการ์ด: {0}
+known stock firmware: {0}
+= เฟิร์มแวร์ต้นฉบับที่รู้จัก: {0}
+rockslop does not recognise this firmware
+= rockslop ไม่รู้จักเฟิร์มแวร์นี้
+{0} is not a {1} flash backup (no partition table)
+= {0} ไม่ใช่ไฟล์สำรองแฟลชของ {1} (ไม่มีตารางพาร์ทิชัน)
+{0} has no firmware in it (that part is blank)
+= {0} ไม่มีเฟิร์มแวร์อยู่ข้างใน (ส่วนนั้นว่างเปล่า)
+{0} has Rockbox in it: it is not stock firmware
+= {0} มี Rockbox อยู่ข้างใน: ไม่ใช่เฟิร์มแวร์ต้นฉบับ

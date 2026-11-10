@@ -86,10 +86,13 @@ To report one, press **COPY REPORT** on the error screen: it puts the error and 
 | E412 | The backup read back wrong from disk. Nothing was written to the player. | Check the disk. |
 | E413 | The backup could not be moved into place. | Check disk space and permissions. |
 | E414 | The backup's checksum file could not be written. | Check disk space and permissions. |
-| E420 | CLI: no stock backup on file for this player. | Give the image path. |
+| E420 | CLI: no stock backup on file for this player, and none on a Rockbox card that is plugged in. | Start the player in Rockbox and plug it in, so its card is searched, or give the image path (the card keeps one as `.rockbox/{player}-…-stock.bin`). |
 | E421 | The image file could not be read. | Check the path. |
 | E422 | The image is not the size of a full flash image. | Use a full backup of this player. |
 | E423 | The image does not match its `.sha256` file. It is damaged. | Use another backup. |
+| E424 | The image has no partition table where this player keeps one: it is not a flash backup of this player. | Use a backup of this player. |
+| E425 | The firmware part of the image is blank. | Use another backup. |
+| E426 | The image on the player's card has Rockbox in it, so it was not taken as the stock backup. | Pick the stock backup yourself. |
 | E501 | Waiting for the card was cancelled. | Flash again. |
 | E502 | The card could not be mounted (five tries). | Mount it yourself, then flash again. Unchanged sectors are skipped. |
 | E503 | The card never appeared. | Put a microSD card in the player. Flash again. |
