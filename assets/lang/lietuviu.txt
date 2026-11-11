@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} viduje nėra firmware (ta dalis tuščia)
 {0} has Rockbox in it: it is not stock firmware
 = {0} viduje yra Rockbox: tai ne gamyklinis firmware
+BEFORE THE FIRST FLASH
+= PRIEŠ PIRMĄ ĮRAŠYMĄ
+POINT OF NO RETURN
+= KELIO ATGAL NĖRA
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop tuoj įrašys Rockbox į tavo {0} grotuvą. Perskaityk kiekvieną punktą ir pažymėk jį, tada laikyk mygtuką, kad pasirašytum.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop ir šio grotuvo Rockbox portas yra 100% vibe-coded: joks žmogus niekada nežiūrėjo į kodą. Jie išbandyti tikruose grotuvuose, bet tai ir viskas.
+THIS CAN BRICK YOUR PLAYER
+= TAI GALI SUGADINTI TAVO GROTUVĄ
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox šiame grotuve yra neoficialus ir eksperimentinis. Nepavykęs įrašymas (atsilaisvinęs kabelis, programos lūžis, klaida mūsų kode) gali palikti grotuvą negyvą, ir gali nebūti jokio būdo jį atgaivinti. rockslop pasilieka gamyklinio firmware atsarginę kopiją, bet atsarginė kopija negali išgelbėti kiekvieno grotuvo. Rizika tenka tik tau.
+YOUR WARRANTY IS VOID
+= TAVO GARANTIJA NEBEGALIOJA
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Įrašius firmware, kurio neparašė gamintojas, garantija nebegalioja. Kad ir kas nuo šiol nutiktų šiam grotuvui, tai tavo rūpestis: jokio remonto, jokio pakeitimo, jokio pinigų grąžinimo. Grįžimas prie gamyklinio firmware to nepakeičia.
+DON'T TAKE IT BACK
+= NEGRĄŽINK JO
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Niekada negrąžink įrašyto grotuvo, nereikšk dėl jo garantinių pretenzijų ir nesiskųsk dėl jo pardavėjui ar gamintojui. Rockbox veikia šiuose grotuvuose, nes niekas jų neužrakino. Jei įrašyti grotuvai pradės grįžti, kita partija bus užrakinta, ir tai bus Rockbox pabaiga juose visiems. Jei tavo grotuvas sugenda, kreipkis į rockslop, niekada ne į parduotuvę.
+I UNDERSTAND
+= SUPRANTU
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Perskaičiau visus tris. Jei grotuvas suges, atsakomybė mano. Garantijos nebėra. Jis niekada negrįš pardavėjui. Atgal neimama.
+HOLD TO SIGN
+= LAIKYK, KAD PASIRAŠYTUM
+KEEP HOLDING
+= LAIKYK TOLIAU
+SIGNED
+= PASIRAŠYTA
+NOT NOW
+= NE DABAR
+tick all three boxes first
+= pirmiausia pažymėk visus tris langelius
+Signing is final. rockslop won't ask again on this computer.
+= Parašas galutinis. rockslop šiame kompiuteryje daugiau neklaus.
+NO BACKSIES
+= ATGAL NEIMAMA
+waiver signed: rockslop won't ask again on this computer
+= pareiškimas pasirašytas: rockslop šiame kompiuteryje daugiau neklaus
+waiver signed (demo: not saved)
+= pareiškimas pasirašytas (demo: neišsaugotas)
+could not save the waiver: {0}
+= nepavyko išsaugoti pareiškimo: {0}

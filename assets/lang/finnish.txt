@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} ei sisällä firmwarea (se osa on tyhjä)
 {0} has Rockbox in it: it is not stock firmware
 = {0} sisältää Rockboxin: se ei ole tehdasfirmware
+BEFORE THE FIRST FLASH
+= ENNEN ENSIMMÄISTÄ FLASHAUSTA
+POINT OF NO RETURN
+= PALUUTA EI OLE
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop on juuri kirjoittamassa Rockboxin {0}-soittimeesi. Lue jokainen kohta ja rastita se, ja allekirjoita sitten pitämällä painiketta pohjassa.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop ja tämän soittimen Rockbox-portti ovat 100-prosenttisesti vibekoodattuja: yksikään ihminen ei ole koskaan katsonut koodia. Niitä on testattu oikeilla soittimilla, mutta siinä kaikki.
+THIS CAN BRICK YOUR PLAYER
+= TÄMÄ VOI TUHOTA SOITTIMESI
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox tällä soittimella on epävirallinen ja kokeellinen. Pieleen mennyt flashaus (löysä kaapeli, kaatuminen, bugi koodissamme) voi jättää soittimen kuolleeksi, eikä sitä ehkä saa enää millään henkiin. rockslop pitää tallessa tehdasfirmwaren varmuuskopion, mutta varmuuskopio ei pelasta jokaista soitinta. Riski on yksin sinun.
+YOUR WARRANTY IS VOID
+= TAKUUSI RAUKEAA
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Takuu raukeaa, kun flashaat firmwaren, jota valmistaja ei ole kirjoittanut. Mitä tälle soittimelle tästä eteenpäin tapahtuukin, se on sinun ongelmasi: ei korjausta, ei vaihtoa, ei rahoja takaisin. Paluu tehdasfirmwareen ei muuta tätä.
+DON'T TAKE IT BACK
+= ÄLÄ PALAUTA SITÄ
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Älä koskaan palauta flashattua soitinta, älä hae sille takuuta äläkä valita siitä myyjälle tai valmistajalle. Rockbox toimii näillä soittimilla, koska kukaan ei ole lukinnut niitä. Jos flashattuja soittimia alkaa tulla takaisin, seuraava erä lukitaan, ja silloin Rockbox on niissä mennyttä kaikkien osalta. Jos omasi hajoaa, käänny rockslopin puoleen, älä koskaan kaupan.
+I UNDERSTAND
+= YMMÄRRÄN
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Olen lukenut kaikki kolme. Jos soitin tuhoutuu, vastuu on minun. Takuu on mennyt. Se ei koskaan palaa myyjälle. Ei perumista.
+HOLD TO SIGN
+= ALLEKIRJOITA PITÄMÄLLÄ
+KEEP HOLDING
+= PIDÄ EDELLEEN
+SIGNED
+= ALLEKIRJOITETTU
+NOT NOW
+= EI NYT
+tick all three boxes first
+= rastita ensin kaikki kolme ruutua
+Signing is final. rockslop won't ask again on this computer.
+= Allekirjoitus on lopullinen. rockslop ei kysy uudelleen tällä tietokoneella.
+NO BACKSIES
+= EI PERUMISTA
+waiver signed: rockslop won't ask again on this computer
+= sitoumus allekirjoitettu: rockslop ei kysy uudelleen tällä tietokoneella
+waiver signed (demo: not saved)
+= sitoumus allekirjoitettu (demo: ei tallennettu)
+could not save the waiver: {0}
+= sitoumusta ei voitu tallentaa: {0}

@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} nu are firmware (partea aceea e goală)
 {0} has Rockbox in it: it is not stock firmware
 = {0} conține Rockbox: nu este firmware original
+BEFORE THE FIRST FLASH
+= ÎNAINTE DE PRIMUL FLASH
+POINT OF NO RETURN
+= PUNCTUL FĂRĂ ÎNTOARCERE
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop urmează să scrie Rockbox pe playerul tău {0}. Citește fiecare dintre aceste puncte și bifează-l, apoi ține apăsat ca să semnezi.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop și portul Rockbox pentru acest player sunt scrise 100% prin vibe coding: niciun om nu s-a uitat vreodată la cod. Au fost testate pe playere reale, dar atât.
+THIS CAN BRICK YOUR PLAYER
+= ASTA ÎȚI POATE DISTRUGE PLAYERUL
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox pe acest player este neoficial și experimental. Dacă flash-ul merge prost (un cablu slăbit, o blocare, un bug de-al nostru), playerul poate rămâne mort și s-ar putea să nu mai existe nicio cale de a-l readuce la viață. rockslop păstrează o copie de siguranță a firmware-ului original, dar o copie nu poate salva orice player. Riscul este numai al tău.
+YOUR WARRANTY IS VOID
+= GARANȚIA SE ANULEAZĂ
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Flasharea unui firmware pe care nu l-a scris producătorul anulează garanția. Orice se întâmplă de acum înainte cu acest player e treaba ta: fără reparație, fără înlocuire, fără banii înapoi. Revenirea la firmware-ul original nu schimbă asta.
+DON'T TAKE IT BACK
+= NU-L DUCE ÎNAPOI
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Nu returna niciodată un player flashat, nu cere garanție pentru el și nu te plânge de el vânzătorului sau producătorului. Rockbox rulează pe aceste playere pentru că nimeni nu le-a blocat. Dacă playerele flashate încep să se întoarcă, următorul lot va fi blocat și acela va fi sfârșitul Rockbox pe ele, pentru toată lumea. Dacă al tău se strică, vino cu problema la rockslop, niciodată la magazin.
+I UNDERSTAND
+= ÎNȚELEG
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Le-am citit pe toate trei. Dacă playerul moare, e răspunderea mea. Garanția s-a dus. Nu ajunge niciodată înapoi la vânzător. Fără întoarcere.
+HOLD TO SIGN
+= ȚINE CA SĂ SEMNEZI
+KEEP HOLDING
+= ȚINE APĂSAT
+SIGNED
+= SEMNAT
+NOT NOW
+= NU ACUM
+tick all three boxes first
+= bifează întâi toate cele trei căsuțe
+Signing is final. rockslop won't ask again on this computer.
+= Semnătura e definitivă. rockslop nu te va mai întreba pe acest calculator.
+NO BACKSIES
+= FĂRĂ ÎNTOARCERE
+waiver signed: rockslop won't ask again on this computer
+= declarație semnată: rockslop nu va mai întreba pe acest calculator
+waiver signed (demo: not saved)
+= declarație semnată (demo: nesalvată)
+could not save the waiver: {0}
+= nu s-a putut salva declarația: {0}

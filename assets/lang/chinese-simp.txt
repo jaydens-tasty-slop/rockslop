@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} 中没有固件（该部分是空白的）
 {0} has Rockbox in it: it is not stock firmware
 = {0} 中含有 Rockbox：不是原厂固件
+BEFORE THE FIRST FLASH
+= 首次刷写之前
+POINT OF NO RETURN
+= 没有回头路
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop 即将把 Rockbox 写入您的 {0}。请逐条阅读并勾选，然后长按签署。
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop 和这台播放器的 Rockbox 移植版 100% 靠氛围编程（vibe coding）写成：从来没有人看过这些代码。它在真实的播放器上测试过，仅此而已。
+THIS CAN BRICK YOUR PLAYER
+= 播放器可能变砖
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= 这台播放器上的 Rockbox 是非官方的、实验性的。刷写一旦出错（数据线松动、程序崩溃、我们自己的 bug），播放器可能彻底报废，而且可能再也救不回来。rockslop 会保留一份原厂固件备份，但备份救不了每一台播放器。风险全由您一人承担。
+YOUR WARRANTY IS VOID
+= 保修失效
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= 刷写非厂商编写的固件会使保修失效。从现在起，这台播放器出了任何问题都由您自己处理：不维修、不换货、不退款。恢复原厂也改变不了这一点。
+DON'T TAKE IT BACK
+= 不要退货
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= 绝不要退回刷写过的播放器，不要拿它申请保修或索赔，也不要为此向卖家或厂商投诉。Rockbox 之所以能在这些播放器上运行，是因为没人把它们锁起来。如果刷写过的播放器开始被退回，下一批就会被锁死，所有人都再也不能在这些播放器上用 Rockbox。如果您的坏了，请找 rockslop，绝不要找商店。
+I UNDERSTAND
+= 我明白
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= 三条我都读过了。变砖了责任在我。保修没了。绝不退回给卖家。不许反悔。
+HOLD TO SIGN
+= 长按签署
+KEEP HOLDING
+= 继续按住
+SIGNED
+= 已签署
+NOT NOW
+= 以后再说
+tick all three boxes first
+= 请先勾选全部三项
+Signing is final. rockslop won't ask again on this computer.
+= 签署后不可撤销。rockslop 不会在此电脑上再次询问。
+NO BACKSIES
+= 不许反悔
+waiver signed: rockslop won't ask again on this computer
+= 免责协议已签署：rockslop 不会在此电脑上再次询问
+waiver signed (demo: not saved)
+= 免责协议已签署（演示：未保存）
+could not save the waiver: {0}
+= 无法保存免责协议：{0}

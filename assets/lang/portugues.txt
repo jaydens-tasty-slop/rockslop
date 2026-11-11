@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} não tem firmware lá dentro (essa parte está vazia)
 {0} has Rockbox in it: it is not stock firmware
 = {0} tem Rockbox lá dentro: não é firmware original
+BEFORE THE FIRST FLASH
+= ANTES DA PRIMEIRA GRAVAÇÃO
+POINT OF NO RETURN
+= PONTO SEM RETORNO
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= O rockslop vai gravar o Rockbox no seu {0}. Leia cada um destes pontos e marque-o, e depois mantenha premido para assinar.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= O rockslop e o port do Rockbox para este leitor foram feitos 100% com vibe coding: nenhum humano alguma vez olhou para o código. Foram testados em leitores reais, e mais nada.
+THIS CAN BRICK YOUR PLAYER
+= ISTO PODE MATAR O SEU LEITOR
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= O Rockbox neste leitor não é oficial e é experimental. Uma gravação que corra mal (um cabo solto, um crash, um erro nosso) pode deixar o leitor morto, e pode não haver forma de o recuperar. O rockslop guarda uma cópia do firmware original, mas uma cópia não consegue salvar todos os leitores. O risco é só seu.
+YOUR WARRANTY IS VOID
+= PERDE A GARANTIA
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Gravar um firmware que não foi escrito pelo fabricante anula a garantia. Tudo o que acontecer a este leitor a partir de agora é problema seu: sem reparação, sem substituição, sem reembolso. Voltar ao original não muda isso.
+DON'T TAKE IT BACK
+= NÃO O DEVOLVA
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Nunca devolva um leitor reprogramado, não acione a garantia nem se queixe dele ao vendedor ou ao fabricante. O Rockbox funciona nestes leitores porque ninguém os bloqueou. Se os leitores reprogramados começarem a voltar, o próximo lote virá bloqueado, e acaba-se o Rockbox neles para toda a gente. Se o seu avariar, fale com o rockslop, nunca com a loja.
+I UNDERSTAND
+= COMPREENDO
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Li os três. Se morrer, o problema é meu. A garantia foi-se. Nunca volta ao vendedor. Sem volta atrás.
+HOLD TO SIGN
+= PRIMA PARA ASSINAR
+KEEP HOLDING
+= CONTINUE A PREMIR
+SIGNED
+= ASSINADO
+NOT NOW
+= AGORA NÃO
+tick all three boxes first
+= marque primeiro as três caixas
+Signing is final. rockslop won't ask again on this computer.
+= Assinar é definitivo. O rockslop não volta a perguntar neste computador.
+NO BACKSIES
+= SEM VOLTA ATRÁS
+waiver signed: rockslop won't ask again on this computer
+= termo de responsabilidade assinado: o rockslop não volta a perguntar neste computador
+waiver signed (demo: not saved)
+= termo de responsabilidade assinado (demo: não guardado)
+could not save the waiver: {0}
+= não foi possível guardar o termo de responsabilidade: {0}

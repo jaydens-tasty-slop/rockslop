@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} bevat geen firmware (dat deel is leeg)
 {0} has Rockbox in it: it is not stock firmware
 = {0} bevat Rockbox: het is geen originele firmware
+BEFORE THE FIRST FLASH
+= VOOR DE EERSTE FLASH
+POINT OF NO RETURN
+= GEEN WEG TERUG
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop gaat Rockbox naar je {0} schrijven. Lees elk punt en vink het aan, en houd dan de knop ingedrukt om te tekenen.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop en de Rockbox-port van deze speler zijn 100% vibe-coded: nog nooit heeft een mens naar de code gekeken. Het is op echte spelers getest, maar daar blijft het bij.
+THIS CAN BRICK YOUR PLAYER
+= DIT KAN JE SPELER BRICKEN
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox op deze speler is onofficieel en experimenteel. Loopt een flash mis (een losse kabel, een crash, een bug van ons), dan kan de speler dood zijn, en misschien krijg je hem nooit meer aan de praat. rockslop houdt een backup van de originele firmware bij, maar een backup kan niet elke speler redden. Het risico is helemaal voor jou.
+YOUR WARRANTY IS VOID
+= JE GARANTIE VERVALT
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Wie firmware flasht die niet van de fabrikant komt, verliest de garantie. Wat er vanaf nu met deze speler gebeurt, is jouw zaak: geen herstelling, geen vervanging, geen terugbetaling. Terugkeren naar de originele firmware verandert daar niets aan.
+DON'T TAKE IT BACK
+= NIET TERUGBRENGEN
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Breng een geflashte speler nooit terug, doe er nooit een beroep op de garantie voor en klaag er nooit over bij de verkoper of de fabrikant. Rockbox draait op deze spelers omdat niemand ze vergrendeld heeft. Beginnen geflashte spelers terug te komen, dan wordt de volgende reeks vergrendeld, en dan is het voor iedereen gedaan met Rockbox op deze spelers. Gaat de jouwe kapot, kom er dan mee naar rockslop, nooit naar de winkel.
+I UNDERSTAND
+= IK BEGRIJP HET
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Ik heb ze alle drie gelezen. Gaat hij dood, dan is dat mijn eigen verantwoordelijkheid. De garantie is weg. Hij gaat nooit terug naar de verkoper. Afspraak is afspraak.
+HOLD TO SIGN
+= HOUD VAST OM TE TEKENEN
+KEEP HOLDING
+= BLIJF VASTHOUDEN
+SIGNED
+= GETEKEND
+NOT NOW
+= NU NIET
+tick all three boxes first
+= vink eerst alle drie de vakjes aan
+Signing is final. rockslop won't ask again on this computer.
+= Tekenen is definitief. rockslop vraagt het op deze computer niet meer.
+NO BACKSIES
+= AFSPRAAK IS AFSPRAAK
+waiver signed: rockslop won't ask again on this computer
+= verklaring getekend: rockslop vraagt het op deze computer niet meer
+waiver signed (demo: not saved)
+= verklaring getekend (demo: niet bewaard)
+could not save the waiver: {0}
+= kon de verklaring niet bewaren: {0}

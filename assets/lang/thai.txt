@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} ไม่มีเฟิร์มแวร์อยู่ข้างใน (ส่วนนั้นว่างเปล่า)
 {0} has Rockbox in it: it is not stock firmware
 = {0} มี Rockbox อยู่ข้างใน: ไม่ใช่เฟิร์มแวร์ต้นฉบับ
+BEFORE THE FIRST FLASH
+= ก่อนแฟลชครั้งแรก
+POINT OF NO RETURN
+= จุดที่ย้อนกลับไม่ได้
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop กำลังจะเขียน Rockbox ลงใน {0} ของคุณ อ่านทีละข้อแล้วติ๊กถูก จากนั้นกดค้างไว้เพื่อลงนาม
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop และพอร์ต Rockbox ของเครื่องรุ่นนี้เป็น vibe-coded 100%: ไม่เคยมีมนุษย์คนไหนอ่านโค้ดเลย ผ่านการทดสอบบนเครื่องจริงมาแล้ว แต่ก็มีแค่นั้น
+THIS CAN BRICK YOUR PLAYER
+= เครื่องของคุณอาจพังถาวร
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox บนเครื่องนี้ไม่เป็นทางการและยังอยู่ในขั้นทดลอง การแฟลชที่ผิดพลาด (สายหลวม ระบบแครช หรือบั๊กของเราเอง) อาจทำให้เครื่องตายสนิท และอาจไม่มีทางกู้กลับมาได้อีก rockslop เก็บสำรองเฟิร์มแวร์ต้นฉบับไว้ แต่ไฟล์สำรองไม่สามารถช่วยได้ทุกเครื่อง ความเสี่ยงเป็นของคุณคนเดียว
+YOUR WARRANTY IS VOID
+= ประกันของคุณขาด
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= การแฟลชเฟิร์มแวร์ที่ผู้ผลิตไม่ได้เขียนทำให้ประกันขาด ต่อจากนี้ไม่ว่าเครื่องนี้จะเป็นอะไร คุณต้องรับผิดชอบเอง: ไม่มีซ่อม ไม่มีเปลี่ยน ไม่มีคืนเงิน การกลับไปใช้เฟิร์มแวร์ต้นฉบับก็ไม่ได้ทำให้เรื่องนี้เปลี่ยนไป
+DON'T TAKE IT BACK
+= ห้ามนำไปคืน
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= ห้ามนำเครื่องที่แฟลชแล้วไปคืน เคลม หรือร้องเรียนกับผู้ขายหรือผู้ผลิตเด็ดขาด Rockbox รันบนเครื่องเหล่านี้ได้เพราะยังไม่มีใครล็อกมันไว้ ถ้าเครื่องที่แฟลชแล้วเริ่มถูกส่งคืน ล็อตต่อไปจะถูกล็อก และนั่นคือจุดจบของ Rockbox บนเครื่องเหล่านี้สำหรับทุกคน ถ้าเครื่องของคุณเสีย ให้มาที่ rockslop ห้ามไปที่ร้านเด็ดขาด
+I UNDERSTAND
+= ฉันเข้าใจ
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= ฉันอ่านครบทั้งสามข้อแล้ว ถ้าเครื่องพัง ฉันรับผิดชอบเอง ประกันขาดแล้ว จะไม่เอาไปคืนผู้ขายเด็ดขาด ห้ามคืนคำ
+HOLD TO SIGN
+= กดค้างเพื่อลงนาม
+KEEP HOLDING
+= กดค้างไว้
+SIGNED
+= ลงนามแล้ว
+NOT NOW
+= ไว้ทีหลัง
+tick all three boxes first
+= ติ๊กให้ครบทั้งสามช่องก่อน
+Signing is final. rockslop won't ask again on this computer.
+= การลงนามถือเป็นที่สิ้นสุด rockslop จะไม่ถามอีกในคอมพิวเตอร์เครื่องนี้
+NO BACKSIES
+= ห้ามคืนคำ
+waiver signed: rockslop won't ask again on this computer
+= ลงนามในหนังสือสละสิทธิ์แล้ว: rockslop จะไม่ถามอีกในคอมพิวเตอร์เครื่องนี้
+waiver signed (demo: not saved)
+= ลงนามในหนังสือสละสิทธิ์แล้ว (เดโม: ไม่ได้บันทึก)
+could not save the waiver: {0}
+= บันทึกหนังสือสละสิทธิ์ไม่ได้: {0}

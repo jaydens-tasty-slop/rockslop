@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} няма фърмуер в себе си (тази част е празна)
 {0} has Rockbox in it: it is not stock firmware
 = {0} съдържа Rockbox: не е заводски фърмуер
+BEFORE THE FIRST FLASH
+= ПРЕДИ ПЪРВОТО ФЛАШВАНЕ
+POINT OF NO RETURN
+= ТОЧКА БЕЗ ВРЪЩАНЕ
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop сега ще запише Rockbox на твоя плеър {0}. Прочети всяка от тези точки и я отметни, после задръж, за да подпишеш.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop и портът на Rockbox за този плеър са написани 100% чрез vibe coding: никой човек никога не е поглеждал кода. Тествани са на истински плеъри, но това е всичко.
+THIS CAN BRICK YOUR PLAYER
+= ТОВА МОЖЕ ДА УНИЩОЖИ ПЛЕЪРА ТИ
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox на този плеър е неофициален и експериментален. Ако флашването се обърка (разхлабен кабел, срив, грешка в нашия код), плеърът може да остане мъртъв и може да няма начин да бъде съживен. rockslop пази резервно копие на заводския фърмуер, но копието не може да спаси всеки плеър. Рискът е изцяло твой.
+YOUR WARRANTY IS VOID
+= ГАРАНЦИЯТА ТИ ОТПАДА
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Флашването на фърмуер, който не е писан от производителя, анулира гаранцията. Каквото и да се случи с този плеър оттук нататък, е твоя грижа: без ремонт, без замяна, без връщане на парите. Връщането към заводския фърмуер не променя това.
+DON'T TAKE IT BACK
+= НЕ ГО ВРЪЩАЙ
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Никога не връщай флашнат плеър, не подавай рекламация за него и не се оплаквай от него на продавача или производителя. Rockbox работи на тези плеъри, защото никой не ги е заключил. Ако флашнати плеъри започнат да се връщат, следващата партида ще бъде заключена и това е краят на Rockbox на тях за всички. Ако твоят се повреди, обърни се към rockslop, никога към магазина.
+I UNDERSTAND
+= РАЗБИРАМ
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Прочетох и трите. Ако плеърът умре, отговорността е моя. Гаранцията вече я няма. Никога не се връща при продавача. Няма връщане назад.
+HOLD TO SIGN
+= ЗАДРЪЖ ЗА ПОДПИС
+KEEP HOLDING
+= НЕ ПУСКАЙ
+SIGNED
+= ПОДПИСАНО
+NOT NOW
+= НЕ СЕГА
+tick all three boxes first
+= първо отметни и трите полета
+Signing is final. rockslop won't ask again on this computer.
+= Подписът е окончателен. rockslop няма да пита отново на този компютър.
+NO BACKSIES
+= НЯМА ВРЪЩАНЕ
+waiver signed: rockslop won't ask again on this computer
+= декларацията е подписана: rockslop няма да пита отново на този компютър
+waiver signed (demo: not saved)
+= декларацията е подписана (демо: не е запазена)
+could not save the waiver: {0}
+= декларацията не можа да се запази: {0}

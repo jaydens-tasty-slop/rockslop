@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} nesatur firmware (šī daļa ir tukša)
 {0} has Rockbox in it: it is not stock firmware
 = {0} satur Rockbox: tas nav rūpnīcas firmware
+BEFORE THE FIRST FLASH
+= PIRMS PIRMĀS IEFLEŠOŠANAS
+POINT OF NO RETURN
+= ATPAKAĻCEĻA NAV
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop tūlīt ierakstīs Rockbox tavā {0} atskaņotājā. Izlasi katru punktu un atzīmē to, tad turi pogu, lai parakstītu.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop un šī atskaņotāja Rockbox ports ir 100% vibe-coded: neviens cilvēks nekad nav ielūkojies kodā. Tie ir pārbaudīti īstos atskaņotājos, bet tas arī viss.
+THIS CAN BRICK YOUR PLAYER
+= TAS VAR SABOJĀT TAVU ATSKAŅOTĀJU
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox šajā atskaņotājā ir neoficiāls un eksperimentāls. Neveiksmīga ieflešošana (vaļīgs kabelis, avārija, kļūda mūsu kodā) var atstāt atskaņotāju nedzīvu, un var nebūt nekādas iespējas to atdzīvināt. rockslop glabā rūpnīcas firmware kopiju, bet kopija nevar izglābt katru atskaņotāju. Risks ir tikai tavs.
+YOUR WARRANTY IS VOID
+= TAVA GARANTIJA ZAUDĒ SPĒKU
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Ja ieflešo firmware, ko nav rakstījis ražotājs, garantija zaudē spēku. Lai kas ar šo atskaņotāju turpmāk notiktu, tā ir tava problēma: ne remonta, ne nomaiņas, ne naudas atmaksas. Atgriešanās pie rūpnīcas firmware to nemaina.
+DON'T TAKE IT BACK
+= NENES TO ATPAKAĻ
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Nekad neatgriez ieflešotu atskaņotāju, nepiesaki garantijas prasību un nesūdzies par to pārdevējam vai ražotājam. Rockbox darbojas šajos atskaņotājos tāpēc, ka neviens tos nav nobloķējis. Ja ieflešoti atskaņotāji sāks nākt atpakaļ, nākamā partija tiks nobloķēta, un tas būs Rockbox gals šajos atskaņotājos visiem. Ja tavējais saplīst, vērsies pie rockslop, nekad ne veikalā.
+I UNDERSTAND
+= SAPROTU
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Visi trīs punkti ir izlasīti. Ja tas sabojājas, tā ir mana atbildība. Garantijas vairs nav. Tas nekad neatgriezīsies pie pārdevēja. Atpakaļ neņem.
+HOLD TO SIGN
+= TURI, LAI PARAKSTĪTU
+KEEP HOLDING
+= TURPINI TURĒT
+SIGNED
+= PARAKSTĪTS
+NOT NOW
+= NE TAGAD
+tick all three boxes first
+= vispirms atzīmē visas trīs rūtiņas
+Signing is final. rockslop won't ask again on this computer.
+= Paraksts ir galīgs. rockslop šajā datorā vairs nejautās.
+NO BACKSIES
+= ATPAKAĻ NEŅEM
+waiver signed: rockslop won't ask again on this computer
+= apliecinājums parakstīts: rockslop šajā datorā vairs nejautās
+waiver signed (demo: not saved)
+= apliecinājums parakstīts (demo: nav saglabāts)
+could not save the waiver: {0}
+= neizdevās saglabāt apliecinājumu: {0}

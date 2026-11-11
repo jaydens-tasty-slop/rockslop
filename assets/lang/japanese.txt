@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} にはファームウェアが入っていません（その部分は空です）
 {0} has Rockbox in it: it is not stock firmware
 = {0} には Rockbox が入っています：標準ファームウェアではありません
+BEFORE THE FIRST FLASH
+= 初回書き込みの前に
+POINT OF NO RETURN
+= 後戻りはできない
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop はこれから {0} に Rockbox を書き込みます。以下の各項目を読んでチェックを入れ、長押しして署名してください。
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop と、このプレーヤー用の Rockbox 移植版は 100% バイブコーディングで作られています：コードを人間が見たことは一度もありません。実機でテストはしていますが、それだけです。
+THIS CAN BRICK YOUR PLAYER
+= プレーヤーが文鎮化する恐れあり
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= このプレーヤーの Rockbox は非公式で、実験的なものです。書き込みに失敗すると（ケーブルの緩み、クラッシュ、私たちのバグなど）、プレーヤーが動かなくなり、元に戻す方法がないこともあります。rockslop は標準ファームウェアのバックアップを取っておきますが、バックアップですべてのプレーヤーを救えるわけではありません。リスクを負うのはあなただけです。
+YOUR WARRANTY IS VOID
+= 保証は無効
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= メーカーが作ったものではないファームウェアを書き込むと、保証は無効になります。今後このプレーヤーに何が起きても、自分で対処するしかありません：修理も、交換も、返金もありません。標準に戻しても、それは変わりません。
+DON'T TAKE IT BACK
+= 返品しないこと
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= 書き込み済みのプレーヤーを返品したり、保証を請求したり、販売店やメーカーに苦情を言ったりは絶対にしないでください。これらのプレーヤーで Rockbox が動くのは、誰もロックをかけていないからです。書き込み済みのプレーヤーが返品され始めたら、次のロットからはロックされ、誰にとってもこのプレーヤーでの Rockbox はおしまいです。壊れたら rockslop に持ち込んでください。店には絶対に持ち込まないでください。
+I UNDERSTAND
+= 理解しました
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= 三つとも読みました。文鎮化しても自己責任です。保証はもうありません。販売店には絶対に返しません。待ったなし。
+HOLD TO SIGN
+= 長押しで署名
+KEEP HOLDING
+= そのまま長押し
+SIGNED
+= 署名済み
+NOT NOW
+= 今はしない
+tick all three boxes first
+= 先に三つすべてにチェック
+Signing is final. rockslop won't ask again on this computer.
+= 署名は取り消せません。このコンピューターで rockslop が再び確認することはありません。
+NO BACKSIES
+= 待ったなし
+waiver signed: rockslop won't ask again on this computer
+= 同意書に署名済み：このコンピューターでは rockslop は再確認しません
+waiver signed (demo: not saved)
+= 同意書に署名済み（デモ：未保存）
+could not save the waiver: {0}
+= 同意書を保存できませんでした：{0}

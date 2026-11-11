@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} không có firmware (phần đó trống)
 {0} has Rockbox in it: it is not stock firmware
 = {0} có Rockbox bên trong: không phải firmware gốc
+BEFORE THE FIRST FLASH
+= TRƯỚC LẦN FLASH ĐẦU TIÊN
+POINT OF NO RETURN
+= KHÔNG CÒN ĐƯỜNG LUI
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop sắp ghi Rockbox vào {0} của bạn. Hãy đọc từng mục và đánh dấu, rồi nhấn giữ để ký.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop và bản port Rockbox cho máy này được viết 100% bằng vibe coding: chưa từng có ai nhìn vào mã nguồn. Chúng đã được thử trên máy thật, nhưng chỉ có vậy.
+THIS CAN BRICK YOUR PLAYER
+= MÁY CỦA BẠN CÓ THỂ CHẾT HẲN
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox trên máy này là không chính thức và còn thử nghiệm. Một lần flash gặp trục trặc (cáp lỏng, chương trình bị sập, lỗi của chúng tôi) có thể khiến máy chết hẳn, và có thể không còn cách nào cứu lại. rockslop có giữ bản sao lưu firmware gốc, nhưng bản sao lưu không cứu được mọi máy. Rủi ro hoàn toàn do bạn chịu.
+YOUR WARRANTY IS VOID
+= BẠN MẤT BẢO HÀNH
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Flash firmware không do nhà sản xuất viết sẽ làm mất bảo hành. Từ giờ trở đi, mọi chuyện xảy ra với máy này là việc của bạn: không sửa, không đổi, không hoàn tiền. Quay về firmware gốc cũng không thay đổi được điều đó.
+DON'T TAKE IT BACK
+= ĐỪNG MANG TRẢ LẠI
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Đừng bao giờ trả lại máy đã flash, đòi bảo hành, hay khiếu nại với người bán hoặc nhà sản xuất về nó. Rockbox chạy được trên các máy này vì chưa ai khóa chúng lại. Nếu máy đã flash bắt đầu bị trả về, lô tiếp theo sẽ bị khóa, và đó là dấu chấm hết cho Rockbox trên các máy này với tất cả mọi người. Nếu máy của bạn hỏng, hãy mang đến rockslop, đừng bao giờ mang ra cửa hàng.
+I UNDERSTAND
+= TÔI HIỂU
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Tôi đã đọc cả ba. Nếu máy chết hẳn, tôi tự chịu. Bảo hành đã mất. Máy sẽ không bao giờ quay về tay người bán. Cấm đổi ý.
+HOLD TO SIGN
+= NHẤN GIỮ ĐỂ KÝ
+KEEP HOLDING
+= CỨ GIỮ NGUYÊN
+SIGNED
+= ĐÃ KÝ
+NOT NOW
+= ĐỂ SAU
+tick all three boxes first
+= hãy đánh dấu cả ba ô trước
+Signing is final. rockslop won't ask again on this computer.
+= Đã ký là không rút lại được. rockslop sẽ không hỏi lại trên máy tính này.
+NO BACKSIES
+= CẤM ĐỔI Ý
+waiver signed: rockslop won't ask again on this computer
+= đã ký bản cam kết: rockslop sẽ không hỏi lại trên máy tính này
+waiver signed (demo: not saved)
+= đã ký bản cam kết (demo: không lưu)
+could not save the waiver: {0}
+= không lưu được bản cam kết: {0}

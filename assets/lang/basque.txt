@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0}(e)k ez du firmwarerik barruan (zati hori hutsik dago)
 {0} has Rockbox in it: it is not stock firmware
 = {0}(e)k Rockbox du barruan: ez da firmware jatorrizkoa
+BEFORE THE FIRST FLASH
+= LEHENENGOZ FLASHATU AURRETIK
+POINT OF NO RETURN
+= ITZULERARIK GABEKO PUNTUA
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop Rockbox idaztera doa zure {0} erreproduzitzailean. Irakurri hauetako bakoitza eta markatu, eta gero eutsi sakatuta sinatzeko.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop eta erreproduzitzaile honetarako Rockbox-en egokitzapena % 100 vibe-coding bidez egin dira: inongo gizakik ez du inoiz kodea begiratu. Benetako erreproduzitzaileetan probatu da, baina hori da dena.
+THIS CAN BRICK YOUR PLAYER
+= ERREPRODUZITZAILEA HIL DAITEKE
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Erreproduzitzaile honetako Rockbox ez-ofiziala eta esperimentala da. Gaizki ateratzen den flashatze batek (kable solte bat, kraskadura bat, gure akats bat) erreproduzitzailea hilda utz dezake, eta baliteke hura berpizteko modurik ez egotea. rockslop-ek firmware jatorrizkoaren babeskopia bat gordetzen du, baina babeskopia batek ezin ditu erreproduzitzaile guztiak salbatu. Arriskua zurea da, zurea bakarrik.
+YOUR WARRANTY IS VOID
+= BERMEA BALIOGABETUTA
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Fabrikatzaileak idatzi ez duen firmware bat flashatzeak bermea baliogabetzen du. Hemendik aurrera erreproduzitzaile honi gertatzen zaion guztia zure kontua da: ez konponketarik, ez ordezkorik, ez diru-itzulketarik. Jatorrizkora itzultzeak ez du hori aldatzen.
+DON'T TAKE IT BACK
+= EZ ITZULI DENDARA
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Ez itzuli inoiz flashatutako erreproduzitzaile bat, ez erreklamatu haren bermea, eta ez kexatu horregatik saltzaileari edo fabrikatzaileari. Rockbox erreproduzitzaile hauetan dabil inork ez dituelako blokeatu. Flashatutako erreproduzitzaileak itzultzen hasten badira, hurrengo sorta blokeatuta etorriko da, eta Rockbox amaitu egingo da haietan guztiontzat. Zurea hausten bada, jo rockslop-era, inoiz ez dendara.
+I UNDERSTAND
+= ULERTZEN DUT
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Hirurak irakurri ditut. Hiltzen bada, nire erantzukizuna da. Bermea galdu da. Ez da inoiz saltzailearengana itzuliko. Atzera bueltarik ez.
+HOLD TO SIGN
+= EUTSI SINATZEKO
+KEEP HOLDING
+= JARRAITU ESTUTZEN
+SIGNED
+= SINATUTA
+NOT NOW
+= ORAIN EZ
+tick all three boxes first
+= markatu lehenik hiru laukiak
+Signing is final. rockslop won't ask again on this computer.
+= Sinadura behin betikoa da. rockslop-ek ez du berriro galdetuko ordenagailu honetan.
+NO BACKSIES
+= ATZERA BUELTARIK EZ
+waiver signed: rockslop won't ask again on this computer
+= adostasun-agiria sinatuta: rockslop-ek ez du berriro galdetuko ordenagailu honetan
+waiver signed (demo: not saved)
+= adostasun-agiria sinatuta (demoa: ez da gorde)
+could not save the waiver: {0}
+= ezin izan da adostasun-agiria gorde: {0}

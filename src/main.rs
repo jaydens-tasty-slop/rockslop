@@ -31,6 +31,7 @@ mod i18n;
 mod nowplaying;
 mod picker;
 mod ui;
+mod waiver;
 
 use app::{App, Opts};
 use audio::Audio;

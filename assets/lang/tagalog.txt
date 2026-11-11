@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = walang firmware ang {0} (blangko ang bahaging iyon)
 {0} has Rockbox in it: it is not stock firmware
 = may Rockbox ang {0}: hindi ito stock firmware
+BEFORE THE FIRST FLASH
+= BAGO ANG UNANG FLASH
+POINT OF NO RETURN
+= WALANG ATRASAN
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= Isusulat na ng rockslop ang Rockbox sa {0} mo. Basahin ang bawat isa at lagyan ng tsek, tapos pindutin nang matagal para pumirma.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= Ang rockslop at ang Rockbox port para sa player na ito ay 100% vibe-coded: wala pang taong tumingin sa code kahit kailan. Nasubukan na ito sa mga totoong player, pero hanggang doon lang.
+THIS CAN BRICK YOUR PLAYER
+= PUWEDENG MA-BRICK ANG PLAYER MO
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Hindi opisyal at eksperimental ang Rockbox sa player na ito. Kapag pumalpak ang flash (maluwag na cable, crash, bug namin), puwedeng mamatay ang player, at baka wala nang paraan para buhayin ito. May backup ang rockslop ng stock firmware, pero hindi kayang iligtas ng backup ang bawat player. Sa iyo lang ang panganib.
+YOUR WARRANTY IS VOID
+= WALA NANG BISA ANG WARRANTY MO
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Nawawalan ng bisa ang warranty kapag nag-flash ka ng firmware na hindi gawa ng manufacturer. Anuman ang mangyari sa player na ito mula ngayon, ikaw na ang bahala: walang repair, walang kapalit, walang refund. Hindi iyon mababago ng pagbalik sa stock.
+DON'T TAKE IT BACK
+= HUWAG ITONG IBALIK
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Huwag kailanman ibalik ang na-flash na player, mag-claim dito, o magreklamo tungkol dito sa seller o sa manufacturer. Tumatakbo ang Rockbox sa mga player na ito dahil walang nag-lock sa kanila. Kapag nagsimulang bumalik ang mga na-flash na player, naka-lock na ang susunod na batch, at iyon na ang katapusan ng Rockbox sa kanila para sa lahat. Kapag nasira ang sa iyo, dalhin ito sa rockslop, hindi kailanman sa tindahan.
+I UNDERSTAND
+= NAIINTINDIHAN KO
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Nabasa ko na ang tatlo. Kapag na-brick ito, sagot ko iyon. Wala na ang warranty. Hindi na ito babalik sa seller kahit kailan. Walang bawian.
+HOLD TO SIGN
+= HAWAKAN PARA PUMIRMA
+KEEP HOLDING
+= HUWAG BITAWAN
+SIGNED
+= PIRMADO NA
+NOT NOW
+= HINDI MUNA
+tick all three boxes first
+= lagyan muna ng tsek ang tatlong kahon
+Signing is final. rockslop won't ask again on this computer.
+= Pinal na ang pagpirma. Hindi na magtatanong ulit ang rockslop sa computer na ito.
+NO BACKSIES
+= WALANG BAWIAN
+waiver signed: rockslop won't ask again on this computer
+= pirmado na ang waiver: hindi na magtatanong ulit ang rockslop sa computer na ito
+waiver signed (demo: not saved)
+= pirmado na ang waiver (demo: hindi na-save)
+could not save the waiver: {0}
+= hindi ma-save ang waiver: {0}

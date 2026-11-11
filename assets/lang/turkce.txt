@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} içinde firmware yok (o kısım boş)
 {0} has Rockbox in it: it is not stock firmware
 = {0} içinde Rockbox var: orijinal firmware değil
+BEFORE THE FIRST FLASH
+= İLK FLASH'TAN ÖNCE
+POINT OF NO RETURN
+= DÖNÜŞÜ OLMAYAN NOKTA
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop, {0} çalarına Rockbox yazmak üzere. Bunların her birini oku ve işaretle, sonra imzalamak için basılı tut.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop ve bu çaların Rockbox portu %100 vibe-coding ile yazıldı: koda hiçbir insan bakmadı. Gerçek çalarlarda test edildi, ama hepsi bu.
+THIS CAN BRICK YOUR PLAYER
+= BU, ÇALARINI ÖLDÜREBİLİR
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Bu çalardaki Rockbox resmi değil ve deneysel. Ters giden bir flash (gevşek bir kablo, bir çökme, bizim bir hatamız) çaları ölü bırakabilir ve onu geri getirmenin hiçbir yolu olmayabilir. rockslop orijinal firmware'in bir yedeğini tutar, ama bir yedek her çaları kurtaramaz. Risk tamamen sana ait.
+YOUR WARRANTY IS VOID
+= GARANTİN GEÇERSİZ KALIR
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Üreticinin yazmadığı bir firmware'i flashlamak garantiyi geçersiz kılar. Bundan sonra bu çalara ne olursa senin sorunun: tamir yok, değişim yok, para iadesi yok. Orijinale dönmek bunu değiştirmez.
+DON'T TAKE IT BACK
+= GERİ GÖTÜRME
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Flashlanmış bir çaları asla iade etme, onun için garanti talep etme, onu satıcıya ya da üreticiye şikâyet etme. Rockbox bu çalarlarda çalışıyor çünkü kimse onları kilitlemedi. Flashlanmış çalarlar geri gelmeye başlarsa sonraki parti kilitli gelir ve bu, herkes için bu çalarlarda Rockbox'ın sonu olur. Seninki bozulursa rockslop'a getir, asla mağazaya değil.
+I UNDERSTAND
+= ANLADIM
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Üçünü de okudum. Çalar ölürse suç bende. Garanti gitti. Asla satıcıya geri gitmeyecek. Caymak yok.
+HOLD TO SIGN
+= İMZA İÇİN BASILI TUT
+KEEP HOLDING
+= BASILI TUTMAYA DEVAM
+SIGNED
+= İMZALANDI
+NOT NOW
+= ŞİMDİ DEĞİL
+tick all three boxes first
+= önce üç kutuyu da işaretle
+Signing is final. rockslop won't ask again on this computer.
+= İmza kesindir. rockslop bu bilgisayarda bir daha sormayacak.
+NO BACKSIES
+= CAYMAK YOK
+waiver signed: rockslop won't ask again on this computer
+= feragatname imzalandı: rockslop bu bilgisayarda bir daha sormayacak
+waiver signed (demo: not saved)
+= feragatname imzalandı (demo: kaydedilmedi)
+could not save the waiver: {0}
+= feragatname kaydedilemedi: {0}

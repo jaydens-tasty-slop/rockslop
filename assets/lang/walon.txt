@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} n' a nén di firmware dvins (ç' tchén-la est vude)
 {0} has Rockbox in it: it is not stock firmware
 = {0} a Rockbox dvins: ç' n' est nén do firmware d' oridjine
+BEFORE THE FIRST FLASH
+= DIVANT L' PRUMÎ FLASH
+POINT OF NO RETURN
+= PUS MOYÉN D' RIVNI
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop va scrire Rockbox so vosse {0}. Lijhoz tchaeke pont eyet cotchîz-l, puis tinez l' boton po siner.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop eyet l' port Rockbox di cist aparey ci sont 100% vibe-coded: nolu n' a måy rwaitî l' côde. Il a stî sayî so des vraiys apareys, mins c' est tot.
+THIS CAN BRICK YOUR PLAYER
+= ÇOULA POUT TOUWER VOSSE APAREY
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox so cist aparey ci n' est nén ofiçiel, c' est co esperimintå. On flash ki toûne mal (on cåbe ki n' tént nén bén, on crash, ene aroke da nosse) pout touwer l' aparey, et i gn a ptete pus nou moyén del fé rivni. rockslop wåde ene schape do firmware d' oridjine, mins ene schape ni pout nén sôver tos les apareys. Li risse, c' est vos tot seu ki l' prind.
+YOUR WARRANTY IS VOID
+= VOSSE GARANTEYE EST PERDOWE
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Flashî on firmware ki l' fabricant n' a nén scrit fwait piede li garanteye. Tot çou ki va ariver a cist aparey ci a pårti d' asteure, c' est vosse afwaire: nou rapontiaedje, nou ôte aparey, nou rindaedje des cwårs. Rivni å firmware d' oridjine ni candje rén a ça.
+DON'T TAKE IT BACK
+= NEL RAPORTEZ NÉN
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Ni rinvoyîz måy èn aparey flashî, ni fjhoz måy nole rclamåcion so lu, et ni vs plindoz måy å vindeu ni å fabricant. Rockbox va so ces apareys la pask' nolu nes a clawé. Si des apareys flashîs cmincèt a rivni, li lot shuvant serè clawé, et c' serè l' fén di Rockbox so zels po tot l' monde. Si l' vosse ni va pus, apoirtez-l a rockslop, måy al botike.
+I UNDERSTAND
+= DJI COMPRIND
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Dj' a lijhou les troes. S' i mourt, c' est por mi. Li garanteye est evoye. I n' rirè måy å vindeu. Çou k' est dit est dit.
+HOLD TO SIGN
+= TINEZ PO SINER
+KEEP HOLDING
+= CONTINOUWEZ A TINRE
+SIGNED
+= SINÉ
+NOT NOW
+= NÉN ASTEURE
+tick all three boxes first
+= cotchîz les troes boesses d' abord
+Signing is final. rockslop won't ask again on this computer.
+= Siner, c' est po todi. rockslop ni dmandrè pus rén so ç' copiutrece-ci.
+NO BACKSIES
+= ÇOU K' EST DIT EST DIT
+waiver signed: rockslop won't ask again on this computer
+= declaråcion sinêye: rockslop ni dmandrè pus rén so ç' copiutrece-ci
+waiver signed (demo: not saved)
+= declaråcion sinêye (demo: nén wårdêye)
+could not save the waiver: {0}
+= dji n' a savou wårder l' declaråcion: {0}

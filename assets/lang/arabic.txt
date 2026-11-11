@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} لا يحتوي على برنامج (هذا الجزء فارغ)
 {0} has Rockbox in it: it is not stock firmware
 = {0} يحتوي على Rockbox: ليس برنامجًا أصليًا
+BEFORE THE FIRST FLASH
+= قبل أول فلاش
+POINT OF NO RETURN
+= نقطة اللاعودة
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop على وشك كتابة Rockbox على مشغلك {0}. اقرأ كل بند وضع علامة عليه، ثم اضغط مطولًا للتوقيع.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop ونسخة Rockbox الخاصة بهذا المشغل مكتوبان بنسبة 100% بأسلوب vibe-coding: لم ينظر أي إنسان إلى الكود قط. اختُبرا على مشغلات حقيقية، وهذا كل شيء.
+THIS CAN BRICK YOUR PLAYER
+= قد يُعطّل هذا مشغلك نهائيًا
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox على هذا المشغل غير رسمي وتجريبي. إذا تعثرت عملية الفلاش (كابل غير محكم، أو انهيار، أو خطأ برمجي من عندنا) فقد يموت المشغل، وقد لا توجد أي طريقة لإعادته. يحتفظ rockslop بنسخة احتياطية من البرنامج الأصلي، لكن النسخة الاحتياطية لا تنقذ كل مشغل. المخاطرة عليك وحدك.
+YOUR WARRANTY IS VOID
+= يسقط ضمانك
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= كتابة برنامج لم تكتبه الشركة المصنعة على المشغل تُسقط الضمان. كل ما يحدث لهذا المشغل من الآن فصاعدًا مسؤوليتك أنت: لا إصلاح، ولا استبدال، ولا استرداد للمال. والعودة إلى البرنامج الأصلي لا تغيّر ذلك.
+DON'T TAKE IT BACK
+= لا تُرجعه
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= لا تُرجع أبدًا مشغلًا أُعيدت كتابة برنامجه، ولا تطالب بضمانه، ولا تشتكِ منه إلى البائع أو الشركة المصنعة. يعمل Rockbox على هذه المشغلات لأن أحدًا لم يقفلها. إذا بدأت هذه المشغلات تعود، فستأتي الدفعة التالية مقفلة، وستكون تلك نهاية Rockbox عليها للجميع. إذا تعطل مشغلك، فتوجّه إلى rockslop، وليس إلى المتجر أبدًا.
+I UNDERSTAND
+= أفهم ذلك
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= قرأت البنود الثلاثة. إن تعطّل نهائيًا، فالمسؤولية عليّ. الضمان ضاع. لن يعود إلى البائع أبدًا. لا تراجع.
+HOLD TO SIGN
+= اضغط مطولًا للتوقيع
+KEEP HOLDING
+= استمر بالضغط
+SIGNED
+= تم التوقيع
+NOT NOW
+= ليس الآن
+tick all three boxes first
+= ضع علامة على المربعات الثلاثة أولًا
+Signing is final. rockslop won't ask again on this computer.
+= التوقيع نهائي. لن يسأل rockslop مجددًا على هذا الكمبيوتر.
+NO BACKSIES
+= لا تراجع
+waiver signed: rockslop won't ask again on this computer
+= وُقّع إقرار التنازل: لن يسأل rockslop مجددًا على هذا الكمبيوتر
+waiver signed (demo: not saved)
+= وُقّع إقرار التنازل (عرض تجريبي: لم يُحفظ)
+could not save the waiver: {0}
+= تعذّر حفظ إقرار التنازل: {0}

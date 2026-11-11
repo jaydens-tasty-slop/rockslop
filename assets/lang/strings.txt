@@ -171,6 +171,46 @@ It has Rockbox in it, so it isn't stock firmware.
 Flash it only if you're sure it came from a {0}.
 FLASH ANYWAY
 
+## The waiver: the first FLASH on a computer (every one in the demo) opens
+# it. It must be read as a warning, plainly and seriously: no jokes, no
+# softening. "No backsies" is a child's phrase for "no taking it back": use
+# the language's own playground equivalent if it has one, else "no take-
+# backs" / "no going back".
+# small heading over the title
+BEFORE THE FIRST FLASH
+POINT OF NO RETURN
+# {0} = a player name
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+# how rockslop was made: keep it blunt. "vibe-coded" = written entirely by
+# an AI from prompts; keep the English word if the language has no
+# established one
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+# the three clauses: a heading, then what it means
+THIS CAN BRICK YOUR PLAYER
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+YOUR WARRANTY IS VOID
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+DON'T TAKE IT BACK
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+# a box ticked beside each clause
+I UNDERSTAND
+# what signing says, in the first person
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+# the sign button: held down for a few seconds
+HOLD TO SIGN
+KEEP HOLDING
+SIGNED
+NOT NOW
+# under the sign button
+tick all three boxes first
+Signing is final. rockslop won't ask again on this computer.
+# the rubber stamp once signed
+NO BACKSIES
+# log lines
+waiver signed: rockslop won't ask again on this computer
+waiver signed (demo: not saved)
+could not save the waiver: {0}
+
 ## Execute: the phases of a flash (short chips in a strip)
 PROBE
 VERIFY

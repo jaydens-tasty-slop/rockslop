@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} nem tartalmaz firmware-t (ez a rész üres)
 {0} has Rockbox in it: it is not stock firmware
 = {0} Rockboxot tartalmaz: nem gyári firmware
+BEFORE THE FIRST FLASH
+= AZ ELSŐ FELÍRÁS ELŐTT
+POINT OF NO RETURN
+= NINCS VISSZAÚT
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= A rockslop mindjárt felírja a Rockboxot a(z) {0} lejátszódra. Olvasd el mindegyik pontot, és pipáld ki, aztán tartsd nyomva a gombot az aláíráshoz.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= A rockslop és ennek a lejátszónak a Rockbox portja 100%-ban vibe-kódolt: ember soha nem nézett bele a kódba. Valódi lejátszókon tesztelték, de ennyi az egész.
+THIS CAN BRICK YOUR PLAYER
+= EZ TÖNKRETEHETI A LEJÁTSZÓDAT
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= A Rockbox ezen a lejátszón nem hivatalos és kísérleti. Egy félresikerült felírás (laza kábel, összeomlás, egy hiba a kódunkban) után a lejátszó halott maradhat, és lehet, hogy nincs mód feléleszteni. A rockslop megőrzi a gyári firmware mentését, de nem minden lejátszó hozható vissza mentésből. A kockázat egyedül a tiéd.
+YOUR WARRANTY IS VOID
+= A GARANCIÁD ELVÉSZ
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Ha olyan firmware-t írsz fel, amelyet nem a gyártó írt, elvész a garancia. Bármi történik ezzel a lejátszóval mostantól, az a te gondod: nincs javítás, nincs csere, nincs pénzvisszatérítés. A gyári firmware-re való visszatérés ezen nem változtat.
+DON'T TAKE IT BACK
+= NE VIDD VISSZA
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Soha ne vigyél vissza felírt lejátszót, ne érvényesíts rá garanciát, és ne panaszkodj miatta az eladónak vagy a gyártónak. A Rockbox azért fut ezeken a lejátszókon, mert senki nem zárta le őket. Ha a felírt lejátszók elkezdenek visszaérkezni, a következő szériát lezárják, és akkor a Rockboxnak vége rajtuk, mindenkinek. Ha a tiéd elromlik, a rockslophoz fordulj, soha ne a bolthoz.
+I UNDERSTAND
+= MEGÉRTETTEM
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Mindhármat elolvastam. Ha tönkremegy, az az én felelősségem. A garanciának annyi. Soha nem kerül vissza az eladóhoz. Visszaszívni nem ér.
+HOLD TO SIGN
+= TARTSD AZ ALÁÍRÁSHOZ
+KEEP HOLDING
+= TARTSD TOVÁBB
+SIGNED
+= ALÁÍRVA
+NOT NOW
+= MOST NEM
+tick all three boxes first
+= előbb pipáld ki mind a három négyzetet
+Signing is final. rockslop won't ask again on this computer.
+= Az aláírás végleges. A rockslop ezen a számítógépen nem kérdez rá újra.
+NO BACKSIES
+= VISSZASZÍVNI NEM ÉR
+waiver signed: rockslop won't ask again on this computer
+= nyilatkozat aláírva: a rockslop ezen a számítógépen nem kérdez rá újra
+waiver signed (demo: not saved)
+= nyilatkozat aláírva (demó: nincs mentve)
+could not save the waiver: {0}
+= a nyilatkozat mentése nem sikerült: {0}

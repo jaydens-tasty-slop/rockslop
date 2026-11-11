@@ -5,6 +5,7 @@
 /// (build.rs).
 pub const VERSION: &str = env!("ROCKSLOP_VERSION");
 
+pub mod consent;
 pub mod device;
 pub mod log;
 pub mod pkg;

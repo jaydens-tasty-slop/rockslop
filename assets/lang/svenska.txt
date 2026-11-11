@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} har ingen firmware i sig (den delen är tom)
 {0} has Rockbox in it: it is not stock firmware
 = {0} innehåller Rockbox: det är inte originalfirmware
+BEFORE THE FIRST FLASH
+= INNAN FÖRSTA FLASHEN
+POINT OF NO RETURN
+= INGEN VÄG TILLBAKA
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop är på väg att skriva Rockbox till din {0}. Läs varje punkt och kryssa i den, och håll sedan knappen intryckt för att signera.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop och Rockbox-porten för den här spelaren är 100 % vibe-kodade: ingen människa har någonsin tittat på koden. Det har testats på riktiga spelare, men det är allt.
+THIS CAN BRICK YOUR PLAYER
+= DET HÄR KAN FÖRSTÖRA DIN SPELARE
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox på den här spelaren är inofficiellt och experimentellt. Går en flashning fel (en glappande kabel, en krasch, en bugg hos oss) kan spelaren dö, och det kanske inte går att få liv i den igen. rockslop sparar en backup av originalfirmware, men en backup kan inte rädda varje spelare. Risken är helt och hållet din.
+YOUR WARRANTY IS VOID
+= DIN GARANTI UPPHÖR
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Om du flashar firmware som tillverkaren inte har skrivit upphör garantin. Allt som händer med den här spelaren från och med nu är ditt problem: ingen reparation, inget utbyte, inga pengar tillbaka. Att gå tillbaka till originalfirmware ändrar inte på det.
+DON'T TAKE IT BACK
+= LÄMNA INTE TILLBAKA
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Lämna aldrig tillbaka en flashad spelare, reklamera den aldrig och klaga aldrig på den hos säljaren eller tillverkaren. Rockbox fungerar på de här spelarna för att ingen har låst dem. Om flashade spelare börjar komma tillbaka blir nästa parti låst, och då är det slut med Rockbox på dem för alla. Om din går sönder, vänd dig till rockslop, aldrig till butiken.
+I UNDERSTAND
+= JAG FÖRSTÅR
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Jag har läst alla tre. Om den dör är det mitt ansvar. Garantin är borta. Den går aldrig tillbaka till säljaren. Byta byta, aldrig ta tillbaka.
+HOLD TO SIGN
+= HÅLL FÖR ATT SIGNERA
+KEEP HOLDING
+= HÅLL KVAR
+SIGNED
+= SIGNERAT
+NOT NOW
+= INTE NU
+tick all three boxes first
+= kryssa i alla tre rutorna först
+Signing is final. rockslop won't ask again on this computer.
+= Signeringen är slutgiltig. rockslop frågar inte igen på den här datorn.
+NO BACKSIES
+= ALDRIG TA TILLBAKA
+waiver signed: rockslop won't ask again on this computer
+= friskrivning signerad: rockslop frågar inte igen på den här datorn
+waiver signed (demo: not saved)
+= friskrivning signerad (demo: inte sparad)
+could not save the waiver: {0}
+= kunde inte spara friskrivningen: {0}

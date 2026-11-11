@@ -10,9 +10,17 @@
 //!   rockslop-cli card                     where Rockbox's USB disk is mounted
 //!
 //! Options: --yes (don't ask), --wait SECS (how long to wait for the
-//! player, default 300), --demo (a simulated player; touches nothing).
+//! player, default 300), --demo (a simulated player; touches nothing),
+//! --no-backsies (sign the first flash's waiver without typing it: --yes
+//! doesn't).
+//!
+//! The first flash on a computer shows the waiver (the player can be
+//! bricked, the warranty is void, it never goes back to the seller) and
+//! needs it signed: NO BACKSIES typed at the prompt, or --no-backsies. The
+//! GUI shares the signature.
 
 use rockslop::device::sdcard::{self, Look};
+use rockslop::consent;
 use rockslop::device::{backup, real::Real, sim::Sim, Cmd, Event, Hub, Kind, Lvl, Mode, Phase};
 use rockslop::err;
 use rockslop::pkg::Package;
@@ -25,13 +33,14 @@ struct Opts {
     yes: bool,
     wait: Duration,
     demo: bool,
+    no_backsies: bool,
 }
 
 fn usage() -> ExitCode {
     eprintln!(
         "usage: rockslop-cli status | check PACKAGE | probe yp3|ts17 | flash PACKAGE |\n       \
          restore yp3|ts17 [IMAGE] | backups [yp3|ts17] | card\n\
-         options: --yes  --wait SECS  --demo  --version"
+         options: --yes  --wait SECS  --demo  --no-backsies  --version"
     );
     ExitCode::from(2)
 }
@@ -46,7 +55,7 @@ fn kind_arg(s: Option<&String>) -> Option<Kind> {
 
 fn main() -> ExitCode {
     let mut args: Vec<String> = std::env::args().skip(1).collect();
-    let mut o = Opts { yes: false, wait: Duration::from_secs(300), demo: false };
+    let mut o = Opts { yes: false, wait: Duration::from_secs(300), demo: false, no_backsies: false };
     let mut i = 0;
     while i < args.len() {
         match args[i].as_str() {
@@ -56,6 +65,10 @@ fn main() -> ExitCode {
             }
             "--demo" => {
                 o.demo = true;
+                args.remove(i);
+            }
+            "--no-backsies" => {
+                o.no_backsies = true;
                 args.remove(i);
             }
             "--wait" if i + 1 < args.len() => {
@@ -159,6 +172,15 @@ fn check(path: &Path) -> Result<Package, String> {
     Ok(p)
 }
 
+/// A line typed at the terminal after `prompt`.
+fn ask(prompt: &str) -> Result<String, String> {
+    print!("{prompt}");
+    let _ = std::io::stdout().flush();
+    let mut s = String::new();
+    std::io::stdin().read_line(&mut s).map_err(|e| err!(E803, "{e}"))?;
+    Ok(s)
+}
+
 fn confirm(o: &Opts, what: &str) -> Result<(), String> {
     if o.yes {
         return Ok(());
@@ -166,15 +188,77 @@ fn confirm(o: &Opts, what: &str) -> Result<(), String> {
     if !std::io::stdin().is_terminal() {
         return Err(err!(E802, "{what}: pass --yes to confirm when not on a terminal"));
     }
-    print!("{what}? [y/N] ");
-    let _ = std::io::stdout().flush();
-    let mut s = String::new();
-    std::io::stdin().read_line(&mut s).map_err(|e| err!(E803, "{e}"))?;
-    if matches!(s.trim(), "y" | "Y" | "yes") {
+    if matches!(ask(&format!("{what}? [y/N] "))?.trim(), "y" | "Y" | "yes") {
         Ok(())
     } else {
         Err(err!(E801, "cancelled"))
     }
+}
+
+/// Words wrapped to lines of at most `width` characters.
+fn wrap(s: &str, width: usize) -> Vec<String> {
+    let mut out: Vec<String> = Vec::new();
+    let mut cur = String::new();
+    for w in s.split(' ') {
+        if !cur.is_empty() && cur.chars().count() + 1 + w.chars().count() > width {
+            out.push(std::mem::take(&mut cur));
+        }
+        if !cur.is_empty() {
+            cur.push(' ');
+        }
+        cur.push_str(w);
+    }
+    out.push(cur);
+    out
+}
+
+/// The first flash on this computer (every one in the demo): the waiver,
+/// read and signed, by typing NO BACKSIES or with --no-backsies.
+fn waiver(o: &Opts) -> Result<(), String> {
+    if !o.demo && consent::signed() {
+        return Ok(());
+    }
+    println!();
+    println!("  POINT OF NO RETURN: before the first flash");
+    println!();
+    for l in wrap(consent::VIBES, 74) {
+        println!("  {l}");
+    }
+    println!();
+    for (k, (head, body)) in consent::CLAUSES.iter().enumerate() {
+        println!("  {:02}  {head}", k + 1);
+        for l in wrap(body, 68) {
+            println!("      {l}");
+        }
+        println!();
+    }
+    for l in wrap(consent::STATEMENT, 74) {
+        println!("  {l}");
+    }
+    println!();
+    let how = if o.no_backsies {
+        println!("signed with --no-backsies");
+        "rockslop-cli --no-backsies"
+    } else if std::io::stdin().is_terminal() {
+        let s = ask("Type NO BACKSIES to sign (anything else stops here): ")?;
+        if !s.split_whitespace().collect::<Vec<_>>().join(" ").eq_ignore_ascii_case("no backsies") {
+            return Err(err!(E804, "the waiver was not signed: nothing was flashed"));
+        }
+        "rockslop-cli, typed"
+    } else {
+        return Err(err!(E805, "the first flash needs the waiver signed: run this on a terminal and type NO BACKSIES, or pass --no-backsies"));
+    };
+    if o.demo {
+        println!("(demo: the signature isn't saved)");
+        return Ok(());
+    }
+    rockslop::log::line("WAIVER", &format!("signed (version {}), {how}", consent::VERSION));
+    match consent::sign(how) {
+        Ok(()) => println!("signed: rockslop won't ask again on this computer"),
+        Err(e) => eprintln!("could not save the waiver ({e}): it will be asked for again next time"),
+    }
+    println!();
+    Ok(())
 }
 
 /// Wait for `kind` in download mode, explaining how to get it there and
@@ -254,6 +338,7 @@ fn flash(o: &Opts, path: &Path) -> Result<(), String> {
         Some("ts17") => Kind::Ts17,
         t => return Err(err!(E151, "package target {t:?} is not a supported player")),
     };
+    waiver(o)?;
     if !pkg.files.is_empty() {
         println!("put a microSD card in the player before flashing: Rockbox needs it");
     }

@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} er ekki með neitt firmware (sá hluti er auður)
 {0} has Rockbox in it: it is not stock firmware
 = {0} er með Rockbox í sér: það er ekki upprunalegt firmware
+BEFORE THE FIRST FLASH
+= FYRIR FYRSTA FLASHIÐ
+POINT OF NO RETURN
+= ENGIN LEIÐ TIL BAKA
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop er í þann mund að skrifa Rockbox á spilarann þinn ({0}). Lestu hvert atriði og hakaðu við það, haltu svo hnappinum inni til að undirrita.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop og Rockbox útgáfan fyrir þennan spilara eru 100% vibe-coded: engin manneskja hefur nokkurn tíma skoðað kóðann. Þetta hefur verið prófað á alvöru spilurum, en meira er það ekki.
+THIS CAN BRICK YOUR PLAYER
+= ÞETTA GETUR EYÐILAGT SPILARANN ÞINN
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox á þessum spilara er óopinbert og á tilraunastigi. Flash sem fer úrskeiðis (laus snúra, hrun, villa hjá okkur) getur drepið spilarann, og ef til vill er engin leið að lífga hann við. rockslop geymir afrit af upprunalega firmware, en afrit getur ekki bjargað öllum spilurum. Áhættan er þín og þín ein.
+YOUR WARRANTY IS VOID
+= ÁBYRGÐIN FELLUR ÚR GILDI
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Ef þú flashar firmware sem framleiðandinn skrifaði ekki fellur ábyrgðin úr gildi. Hvað sem verður um þennan spilara héðan í frá er þitt mál: engin viðgerð, engin skipti, engin endurgreiðsla. Það breytir engu að fara aftur í upprunalega firmware.
+DON'T TAKE IT BACK
+= EKKI SKILA HONUM
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Skilaðu aldrei flashuðum spilara, gerðu aldrei kröfu vegna hans og kvartaðu aldrei yfir honum við seljandann eða framleiðandann. Rockbox keyrir á þessum spilurum af því að enginn hefur læst þeim. Ef flashaðir spilarar fara að koma til baka verður næsta sending læst, og þá er úti um Rockbox á þeim fyrir alla. Ef þinn bilar, leitaðu þá til rockslop, aldrei til búðarinnar.
+I UNDERSTAND
+= ÉG SKIL
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Ég hef lesið öll þrjú. Ef hann deyr er það mér að kenna. Ábyrgðin er fallin úr gildi. Hann fer aldrei aftur til seljandans. Enginn skilaréttur.
+HOLD TO SIGN
+= HALDA TIL AÐ UNDIRRITA
+KEEP HOLDING
+= HALTU ÁFRAM
+SIGNED
+= UNDIRRITAÐ
+NOT NOW
+= EKKI NÚNA
+tick all three boxes first
+= hakaðu fyrst við alla þrjá reitina
+Signing is final. rockslop won't ask again on this computer.
+= Undirritunin er endanleg. rockslop spyr ekki aftur á þessari tölvu.
+NO BACKSIES
+= ENGINN SKILARÉTTUR
+waiver signed: rockslop won't ask again on this computer
+= yfirlýsing undirrituð: rockslop spyr ekki aftur á þessari tölvu
+waiver signed (demo: not saved)
+= yfirlýsing undirrituð (demo: ekki vistuð)
+could not save the waiver: {0}
+= tókst ekki að vista yfirlýsinguna: {0}

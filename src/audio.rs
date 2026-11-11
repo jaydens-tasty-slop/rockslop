@@ -3,7 +3,8 @@
 //! xmrsplayer, so the binary carries kilobytes, not megabytes of audio);
 //! a voice line at the end, picked at random; and a tape-stop when a job
 //! fails. Before the music starts, the interface has sounds of its own
-//! (the music takes over from them). A follower on the kick drum gives the
+//! (the music takes over from them), and the waiver's HOLD TO SIGN has a
+//! riser, synthesized live, that climbs while it is held. A follower on the kick drum gives the
 //! visuals something to pulse with. Silent, never fatal, when there is no
 //! audio device.
 
@@ -133,6 +134,16 @@ const VOICES: &[&[u8]] = &[
     include_bytes!("../assets/audio/voice/johnnyray_british.wav"),
 ];
 
+/// The riser's state: climbing with a hold, winding down when let go, or
+/// stopped dead.
+#[derive(Clone, Copy, PartialEq, Eq, Debug)]
+pub enum Rise {
+    /// (also the start: Ctl's default)
+    Cut = 0,
+    Hold = 1,
+    Let = 2,
+}
+
 /// The interface's sounds.
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Sfx {
@@ -177,6 +188,9 @@ struct Ctl {
     /// the track playing (index + 1, 0 for none), and a count of track starts
     track: AtomicU32,
     starts: AtomicU32,
+    /// the riser: how far the hold has got (f32 bits), and its `Rise`
+    rise_to: AtomicU32,
+    rise: AtomicU32,
 }
 
 /// The modules, unpacked and parsed on a thread of their own the first time
@@ -391,6 +405,71 @@ struct Mixer {
     fast: f32,
     slow: f32,
     tick: u32,
+    riser: Riser,
+}
+
+/// The waiver's riser, made from nothing: two detuned saws (one a side)
+/// and a sine an octave under them, climbing three octaves (55 to 440 Hz)
+/// with the hold and opening up as they go, hiss rising over them, and a
+/// throb that quickens from 3 to 18 a second. Let go, it follows the hold
+/// down as that drains, fading; cut, it stops at once.
+struct Riser {
+    p: f32,
+    amp: f32,
+    ph: [f32; 3],
+    lp: [f32; 4],
+    throb: f32,
+    noise: u32,
+    hiss: f32,
+}
+
+impl Riser {
+    fn new() -> Riser {
+        Riser { p: 0.0, amp: 0.0, ph: [0.0; 3], lp: [0.0; 4], throb: 0.0, noise: 0x9E37_79B9, hiss: 0.0 }
+    }
+
+    fn frame(&mut self, to: f32, rise: u32, rate: u32) -> (f32, f32) {
+        let dt = 1.0 / rate as f32;
+        let (goal, tau) = match rise {
+            1 => (1.0, 0.04),
+            2 => (0.0, 0.3),
+            _ => (0.0, 0.003),
+        };
+        self.amp += (goal - self.amp) * (dt / tau).min(1.0);
+        if goal == 0.0 && self.amp < 1e-4 {
+            self.amp = 0.0;
+            self.p = 0.0;
+            return (0.0, 0.0);
+        }
+        // the hold arrives once a video frame: glide between
+        self.p += (to.clamp(0.0, 1.0) - self.p) * (dt / 0.03).min(1.0);
+        let p = self.p;
+        let f = 55.0 * 2f32.powf(3.0 * p);
+        let mut saw = |i: usize, f: f32| {
+            self.ph[i] = (self.ph[i] + f * dt).fract();
+            2.0 * self.ph[i] - 1.0
+        };
+        let (l, r) = (saw(0, f * 0.995), saw(1, f * 1.005));
+        self.ph[2] = (self.ph[2] + 0.5 * f * dt).fract();
+        let sub = (self.ph[2] * TAU).sin();
+        // two one-poles, 350 Hz to 7 kHz: brighter as it climbs
+        let k = 1.0 - (-TAU * 350.0 * 20f32.powf(p) * dt).exp();
+        self.lp[0] += (l - self.lp[0]) * k;
+        self.lp[1] += (self.lp[0] - self.lp[1]) * k;
+        self.lp[2] += (r - self.lp[2]) * k;
+        self.lp[3] += (self.lp[2] - self.lp[3]) * k;
+        // xorshift32 noise, low-passed by a cutoff that climbs too
+        self.noise ^= self.noise << 13;
+        self.noise ^= self.noise >> 17;
+        self.noise ^= self.noise << 5;
+        let n = self.noise as f32 / u32::MAX as f32 * 2.0 - 1.0;
+        self.hiss += (n - self.hiss) * (1.0 - (-TAU * (900.0 + 8000.0 * p * p) * dt).exp());
+        let h = self.hiss * 0.8 * p * p;
+        self.throb = (self.throb + (3.0 + 15.0 * p * p) * dt).fract();
+        let throb = 1.0 - 0.5 * (0.5 + 0.5 * (self.throb * TAU).cos());
+        let g = self.amp * (0.06 + 0.2 * p.powf(1.5)) * throb;
+        ((self.lp[1] * 0.7 + sub * 0.5 + h) * g, (self.lp[3] * 0.7 + sub * 0.5 + h) * g)
+    }
 }
 
 impl Mixer {
@@ -426,6 +505,7 @@ impl Mixer {
             fast: 0.0,
             slow: 0.0,
             tick: 0,
+            riser: Riser::new(),
         }
     }
 
@@ -605,6 +685,9 @@ impl Mixer {
             });
             out = (out.0 + fx * room, out.1 + fx * room);
         }
+        let (to, rise) = (f32::from_bits(self.ctl.rise_to.load(Ordering::Relaxed)), self.ctl.rise.load(Ordering::Relaxed));
+        let (rl, rr) = self.riser.frame(to, rise, self.rate);
+        out = (out.0 + rl, out.1 + rr);
         if muted {
             return (0.0, 0.0);
         }
@@ -716,6 +799,13 @@ impl Audio {
         self.ctl.sfx[s as usize].fetch_add(1, Ordering::Relaxed);
         // after the sound's own count, so the mixer sees that too
         self.ctl.sfx_any.fetch_add(1, Ordering::Release);
+    }
+
+    /// The riser: how far HOLD TO SIGN has got (0..1), and whether it is
+    /// held, let go or cut off. Set every frame; `Cut` when there's none.
+    pub fn riser(&self, to: f32, rise: Rise) {
+        self.ctl.rise_to.store(to.to_bits(), Ordering::Relaxed);
+        self.ctl.rise.store(rise as u32, Ordering::Relaxed);
     }
 
     pub fn toggle_mute(&self) -> bool {
@@ -835,6 +925,26 @@ mod tests {
             let (x, y) = (m.frame(), quiet.frame());
             assert!((x.0 - y.0).abs() < 1e-3, "sounds play over the music");
         }
+    }
+
+    #[test]
+    fn riser_climbs_winds_down_and_cuts() {
+        let (a, mut m) = mixer();
+        a.riser(0.0, Rise::Cut);
+        assert_eq!(rms(&mut m, 0.1).0, 0.0, "silent until held");
+        a.riser(0.1, Rise::Hold);
+        let low = rms(&mut m, 0.3).0;
+        a.riser(0.95, Rise::Hold);
+        let high = rms(&mut m, 0.3).0;
+        assert!(low > 0.005 && high > 2.0 * low, "it climbs: {low} then {high}");
+        a.riser(0.5, Rise::Let);
+        rms(&mut m, 1.5);
+        assert!(rms(&mut m, 0.1).0 < 0.002, "let go, it dies away");
+        a.riser(0.9, Rise::Hold);
+        rms(&mut m, 0.3);
+        a.riser(1.0, Rise::Cut);
+        rms(&mut m, 0.03);
+        assert_eq!(rms(&mut m, 0.1).0, 0.0, "cut, it stops at once");
     }
 
     #[test]

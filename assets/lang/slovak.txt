@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} neobsahuje firmware (táto časť je prázdna)
 {0} has Rockbox in it: it is not stock firmware
 = {0} obsahuje Rockbox: nie je to pôvodný firmware
+BEFORE THE FIRST FLASH
+= PRED PRVÝM FLASHOVANÍM
+POINT OF NO RETURN
+= NIET CESTY SPÄŤ
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop sa chystá zapísať Rockbox do tvojho prehrávača {0}. Prečítaj si každý bod a zaškrtni ho, potom podpíš podržaním tlačidla.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop aj port Rockboxu pre tento prehrávač vznikli na 100 % vibe codingom: do kódu sa nikdy nepozrel žiadny človek. Boli otestované na skutočných prehrávačoch, ale to je všetko.
+THIS CAN BRICK YOUR PLAYER
+= TOTO MÔŽE ZNIČIŤ TVOJ PREHRÁVAČ
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox na tomto prehrávači je neoficiálny a experimentálny. Nevydarené flashovanie (uvoľnený kábel, pád, chyba v našom kóde) môže prehrávač zabiť a nemusí existovať spôsob, ako ho oživiť. rockslop uchováva zálohu pôvodného firmware, ale záloha nezachráni každý prehrávač. Riziko nesieš len ty.
+YOUR WARRANTY IS VOID
+= PRICHÁDZAŠ O ZÁRUKU
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Flashovaním firmware, ktorý nenapísal výrobca, prichádzaš o záruku. Nech sa s týmto prehrávačom odteraz stane čokoľvek, je to tvoja starosť: žiadna oprava, žiadna výmena, žiadne vrátenie peňazí. Návrat k pôvodnému firmware na tom nič nemení.
+DON'T TAKE IT BACK
+= NEVRACAJ HO
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Flashovaný prehrávač nikdy nevracaj, nereklamuj a nesťažuj sa naň predajcovi ani výrobcovi. Rockbox na týchto prehrávačoch beží, lebo ich nikto nezamkol. Ak sa flashované prehrávače začnú vracať, ďalšia várka bude zamknutá a Rockbox na nich skončí pre všetkých. Ak sa ten tvoj pokazí, obráť sa na rockslop, nikdy nie na obchod.
+I UNDERSTAND
+= ROZUMIEM
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Všetky tri body mám prečítané. Ak sa zničí, beriem to na seba. Záruka je preč. Nikdy sa nevráti predajcovi. Žiadne cúvanie.
+HOLD TO SIGN
+= PODRŽ NA PODPIS
+KEEP HOLDING
+= DRŽ ĎALEJ
+SIGNED
+= PODPÍSANÉ
+NOT NOW
+= TERAZ NIE
+tick all three boxes first
+= najprv zaškrtni všetky tri políčka
+Signing is final. rockslop won't ask again on this computer.
+= Podpis je konečný. rockslop sa na tomto počítači už znova nespýta.
+NO BACKSIES
+= ŽIADNE CÚVANIE
+waiver signed: rockslop won't ask again on this computer
+= vyhlásenie podpísané: rockslop sa na tomto počítači už znova nespýta
+waiver signed (demo: not saved)
+= vyhlásenie podpísané (demo: neuložené)
+could not save the waiver: {0}
+= vyhlásenie sa nepodarilo uložiť: {0}

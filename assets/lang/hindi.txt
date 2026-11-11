@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} में कोई फ़र्मवेयर नहीं है (वह हिस्सा ख़ाली है)
 {0} has Rockbox in it: it is not stock firmware
 = {0} में Rockbox है: यह स्टॉक फ़र्मवेयर नहीं है
+BEFORE THE FIRST FLASH
+= पहली बार फ़्लैश करने से पहले
+POINT OF NO RETURN
+= यहाँ से वापसी नहीं
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop आपके {0} पर Rockbox लिखने वाला है। इनमें से हर एक को पढ़ें और उस पर टिक करें, फिर हस्ताक्षर करने के लिए दबाए रखें।
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop और इस प्लेयर का Rockbox पोर्ट 100% vibe-coded हैं: किसी इंसान ने कभी इनका कोड नहीं देखा। इन्हें असली प्लेयरों पर टेस्ट किया गया है, पर बस इतना ही।
+THIS CAN BRICK YOUR PLAYER
+= इससे आपका प्लेयर डेड हो सकता है
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= इस प्लेयर पर Rockbox आधिकारिक नहीं है और प्रायोगिक है। अगर फ़्लैश में गड़बड़ हो जाए (ढीली केबल, क्रैश, हमारा कोई बग), तो प्लेयर डेड हो सकता है, और हो सकता है उसे वापस ठीक करने का कोई तरीका न हो। rockslop स्टॉक फ़र्मवेयर का बैकअप रखता है, पर बैकअप हर प्लेयर को नहीं बचा सकता। जोखिम सिर्फ़ आपका है।
+YOUR WARRANTY IS VOID
+= आपकी वारंटी रद्द
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= ऐसा फ़र्मवेयर फ़्लैश करने से, जो निर्माता ने नहीं लिखा, वारंटी रद्द हो जाती है। अब से इस प्लेयर के साथ जो भी हो, उसकी ज़िम्मेदारी आपकी है: न रिपेयर, न रिप्लेसमेंट, न रिफ़ंड। स्टॉक पर लौटने से यह नहीं बदलता।
+DON'T TAKE IT BACK
+= इसे वापस न करें
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= फ़्लैश किया हुआ प्लेयर कभी वापस न करें, उस पर वारंटी क्लेम न करें, और उसकी शिकायत विक्रेता या निर्माता से न करें। Rockbox इन प्लेयरों पर इसीलिए चलता है क्योंकि किसी ने इन्हें लॉक नहीं किया है। अगर फ़्लैश किए हुए प्लेयर वापस आने लगे, तो अगला बैच लॉक होकर आएगा, और तब सबके लिए इन पर Rockbox खत्म। अगर आपका प्लेयर खराब हो जाए, तो उसे rockslop के पास लाएँ, दुकान पर कभी नहीं।
+I UNDERSTAND
+= मैंने समझ लिया
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= मैंने तीनों पढ़ लिए हैं। अगर यह डेड हुआ, तो ज़िम्मेदारी मेरी। वारंटी गई। यह कभी विक्रेता के पास वापस नहीं जाएगा। अब कोई वापसी नहीं।
+HOLD TO SIGN
+= हस्ताक्षर के लिए दबाए रखें
+KEEP HOLDING
+= दबाए रखें
+SIGNED
+= हस्ताक्षर हो गए
+NOT NOW
+= अभी नहीं
+tick all three boxes first
+= पहले तीनों बॉक्स पर टिक करें
+Signing is final. rockslop won't ask again on this computer.
+= हस्ताक्षर अंतिम है। rockslop इस कंप्यूटर पर दोबारा नहीं पूछेगा।
+NO BACKSIES
+= कोई वापसी नहीं
+waiver signed: rockslop won't ask again on this computer
+= वेवर पर हस्ताक्षर हो गए: rockslop इस कंप्यूटर पर दोबारा नहीं पूछेगा
+waiver signed (demo: not saved)
+= वेवर पर हस्ताक्षर हो गए (डेमो: सहेजा नहीं गया)
+could not save the waiver: {0}
+= वेवर सहेजा नहीं जा सका: {0}

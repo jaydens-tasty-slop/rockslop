@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = το {0} δεν περιέχει firmware (αυτό το τμήμα είναι κενό)
 {0} has Rockbox in it: it is not stock firmware
 = το {0} περιέχει Rockbox: δεν είναι εργοστασιακό firmware
+BEFORE THE FIRST FLASH
+= ΠΡΙΝ ΤΟ ΠΡΩΤΟ FLASH
+POINT OF NO RETURN
+= ΣΗΜΕΙΟ ΧΩΡΙΣ ΕΠΙΣΤΡΟΦΗ
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= Το rockslop ετοιμάζεται να γράψει το Rockbox στο {0} σου. Διάβασε το καθένα από τα παρακάτω και σημείωσέ το, μετά κράτα πατημένο για να υπογράψεις.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= Το rockslop και το port του Rockbox για αυτή τη συσκευή είναι 100% vibe-coded: κανένας άνθρωπος δεν έχει κοιτάξει ποτέ τον κώδικα. Έχουν δοκιμαστεί σε πραγματικές συσκευές, αλλά μέχρι εκεί.
+THIS CAN BRICK YOUR PLAYER
+= ΜΠΟΡΕΙ ΝΑ ΚΑΤΑΣΤΡΕΨΕΙ ΤΗ ΣΥΣΚΕΥΗ ΣΟΥ
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Το Rockbox σε αυτή τη συσκευή είναι ανεπίσημο και πειραματικό. Ένα flash που θα πάει στραβά (ένα χαλαρό καλώδιο, μια κατάρρευση, ένα δικό μας σφάλμα) μπορεί να αφήσει τη συσκευή νεκρή, και ίσως να μην υπάρχει τρόπος να επανέλθει. Το rockslop κρατά αντίγραφο του εργοστασιακού firmware, αλλά ένα αντίγραφο δεν μπορεί να σώσει κάθε συσκευή. Ο κίνδυνος είναι αποκλειστικά δικός σου.
+YOUR WARRANTY IS VOID
+= Η ΕΓΓΥΗΣΗ ΣΟΥ ΑΚΥΡΩΝΕΤΑΙ
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Αν κάνεις flash firmware που δεν έγραψε ο κατασκευαστής, η εγγύηση ακυρώνεται. Ό,τι συμβεί σε αυτή τη συσκευή από εδώ και πέρα είναι δικό σου πρόβλημα: καμία επισκευή, καμία αντικατάσταση, καμία επιστροφή χρημάτων. Η επιστροφή στο εργοστασιακό firmware δεν το αλλάζει αυτό.
+DON'T TAKE IT BACK
+= ΜΗΝ ΤΗΝ ΕΠΙΣΤΡΕΨΕΙΣ
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Ποτέ μην επιστρέψεις συσκευή στην οποία έχει γίνει flash, μη ζητήσεις εγγύηση γι' αυτήν και μην παραπονεθείς γι' αυτήν στον πωλητή ή στον κατασκευαστή. Το Rockbox τρέχει σε αυτές τις συσκευές επειδή κανείς δεν τις έχει κλειδώσει. Αν τέτοιες συσκευές αρχίσουν να επιστρέφονται, η επόμενη παρτίδα θα είναι κλειδωμένη, και αυτό θα είναι το τέλος του Rockbox σε αυτές για όλους. Αν χαλάσει η δική σου, απευθύνσου στο rockslop, ποτέ στο κατάστημα.
+I UNDERSTAND
+= ΚΑΤΑΛΑΒΑΙΝΩ
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Τα διάβασα και τα τρία. Αν καταστραφεί, φταίω εγώ. Η εγγύηση χάθηκε. Δεν επιστρέφεται ποτέ στον πωλητή. Χωρίς πισωγυρίσματα.
+HOLD TO SIGN
+= ΚΡΑΤΑ ΓΙΑ ΥΠΟΓΡΑΦΗ
+KEEP HOLDING
+= ΣΥΝΕΧΙΣΕ ΝΑ ΚΡΑΤΑΣ
+SIGNED
+= ΥΠΟΓΡΑΦΗΚΕ
+NOT NOW
+= ΟΧΙ ΤΩΡΑ
+tick all three boxes first
+= σημείωσε πρώτα και τα τρία κουτάκια
+Signing is final. rockslop won't ask again on this computer.
+= Η υπογραφή είναι οριστική. Το rockslop δεν θα ξαναρωτήσει σε αυτόν τον υπολογιστή.
+NO BACKSIES
+= ΧΩΡΙΣ ΠΙΣΩΓΥΡΙΣΜΑΤΑ
+waiver signed: rockslop won't ask again on this computer
+= η δήλωση ευθύνης υπογράφηκε: το rockslop δεν θα ξαναρωτήσει σε αυτόν τον υπολογιστή
+waiver signed (demo: not saved)
+= η δήλωση ευθύνης υπογράφηκε (demo: δεν αποθηκεύτηκε)
+could not save the waiver: {0}
+= αδυναμία αποθήκευσης της δήλωσης ευθύνης: {0}

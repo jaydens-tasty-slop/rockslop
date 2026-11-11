@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} neobsahuje firmware (tato část je prázdná)
 {0} has Rockbox in it: it is not stock firmware
 = {0} obsahuje Rockbox: není to originální firmware
+BEFORE THE FIRST FLASH
+= PŘED PRVNÍM NAHRÁNÍM
+POINT OF NO RETURN
+= NENÍ CESTY ZPĚT
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop se chystá nahrát Rockbox do tvého přehrávače {0}. Přečti si každý bod a zaškrtni ho, pak podepiš podržením tlačítka.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop i port Rockboxu pro tento přehrávač vznikly ze 100 % vibe codingem: do kódu se nikdy nepodíval žádný člověk. Byly otestovány na skutečných přehrávačích, ale to je všechno.
+THIS CAN BRICK YOUR PLAYER
+= TOHLE MŮŽE ZNIČIT TVŮJ PŘEHRÁVAČ
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox na tomto přehrávači je neoficiální a experimentální. Nepovedené nahrání (uvolněný kabel, pád, chyba v našem kódu) může přehrávač zabít a nemusí existovat způsob, jak ho oživit. rockslop uchovává zálohu originálního firmwaru, ale záloha nezachrání každý přehrávač. Riziko neseš jen ty.
+YOUR WARRANTY IS VOID
+= PŘICHÁZÍŠ O ZÁRUKU
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Nahráním firmwaru, který nenapsal výrobce, přicházíš o záruku. Ať se s tímto přehrávačem od teď stane cokoli, je to tvoje starost: žádná oprava, žádná výměna, žádné vrácení peněz. Návrat k originálnímu firmwaru na tom nic nemění.
+DON'T TAKE IT BACK
+= NEVRACEJ HO
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Přehrávač s nahraným Rockboxem nikdy nevracej, nereklamuj a nestěžuj si na něj prodejci ani výrobci. Rockbox na těchto přehrávačích běží, protože je nikdo nezamkl. Pokud se přehrávače s Rockboxem začnou vracet, další várka bude zamčená a Rockbox na nich skončí pro všechny. Když se ten tvůj rozbije, obrať se na rockslop, nikdy na obchod.
+I UNDERSTAND
+= ROZUMÍM
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Všechny tři body mám přečtené. Když se zničí, jde to za mnou. Záruka je pryč. Nikdy se nevrátí prodejci. Žádné couvání.
+HOLD TO SIGN
+= DRŽ PRO PODPIS
+KEEP HOLDING
+= DRŽ DÁL
+SIGNED
+= PODEPSÁNO
+NOT NOW
+= TEĎ NE
+tick all three boxes first
+= nejdřív zaškrtni všechna tři políčka
+Signing is final. rockslop won't ask again on this computer.
+= Podpis je konečný. rockslop se na tomto počítači už znovu nezeptá.
+NO BACKSIES
+= ŽÁDNÉ COUVÁNÍ
+waiver signed: rockslop won't ask again on this computer
+= prohlášení podepsáno: rockslop se na tomto počítači už znovu nezeptá
+waiver signed (demo: not saved)
+= prohlášení podepsáno (demo: neuloženo)
+could not save the waiver: {0}
+= prohlášení se nepodařilo uložit: {0}

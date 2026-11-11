@@ -121,6 +121,9 @@ with a fade-out, peak-normalised to -1 dB and made mono 44.1 kHz
 - **Select, Granted 01** by LilMati [CC0 1.0] <https://freesound.org/people/LilMati/sounds/404151/>
   A package checks out (`drop.wav`).
 
+The waiver's HOLD TO SIGN riser isn't a recording: it is synthesized as it
+plays (`src/audio.rs`).
+
 ## Fonts
 
 Licence texts in `assets/fonts/` (`OFL-*.txt`). The interface's own fonts cover Latin;

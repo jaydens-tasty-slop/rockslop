@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} ne enhavas programaron (tiu parto estas malplena)
 {0} has Rockbox in it: it is not stock firmware
 = {0} enhavas Rockbox: ĝi ne estas fabrika programaro
+BEFORE THE FIRST FLASH
+= ANTAŬ LA UNUA FLASH-SKRIBO
+POINT OF NO RETURN
+= PUNKTO SEN REVENO
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop tuj skribos Rockbox en vian ludilon {0}. Legu ĉiun el ĉi tiuj kaj marku ĝin, poste tenu por subskribi.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop kaj la Rockbox-adapto por ĉi tiu ludilo estas 100% «vibe-coded»: neniu homo iam ajn rigardis la kodon. Ili estis testitaj sur veraj ludiloj, sed nenio pli.
+THIS CAN BRICK YOUR PLAYER
+= TIO POVAS MORTIGI VIAN LUDILON
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox sur ĉi tiu ludilo estas neoficiala kaj eksperimenta. Flash-skribo, kiu misiras (loza kablo, kraŝo, nia cimo), povas lasi la ludilon morta, kaj eble ne ekzistos maniero revivigi ĝin. rockslop konservas sekurkopion de la fabrika programaro, sed sekurkopio ne povas savi ĉiun ludilon. La risko estas nur via.
+YOUR WARRANTY IS VOID
+= VIA GARANTIO NULIĜAS
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Flash-skribi programaron, kiun la fabrikanto ne verkis, nuligas la garantion. Kio ajn okazos al ĉi tiu ludilo de nun, tio estas via afero: neniu riparo, neniu anstataŭigo, neniu repago. Reveno al la fabrika programaro ne ŝanĝas tion.
+DON'T TAKE IT BACK
+= NE REDONU ĜIN
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Neniam redonu flash-skribitan ludilon, neniam postulu garantion pri ĝi, kaj neniam plendu pri ĝi al la vendisto aŭ al la fabrikanto. Rockbox funkcias sur ĉi tiuj ludiloj, ĉar neniu ŝlosis ilin. Se flash-skribitaj ludiloj komencos reveni, la sekva aro estos ŝlosita, kaj tio estos la fino de Rockbox sur ili por ĉiuj. Se via rompiĝos, turnu vin al rockslop, neniam al la vendejo.
+I UNDERSTAND
+= MI KOMPRENAS
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Mi legis ĉiujn tri. Se ĝi mortos, tio estas mia respondeco. La garantio estas for. Ĝi neniam reiros al la vendisto. Sen repreno.
+HOLD TO SIGN
+= TENU POR SUBSKRIBI
+KEEP HOLDING
+= DAŬRE TENU
+SIGNED
+= SUBSKRIBITA
+NOT NOW
+= NE NUN
+tick all three boxes first
+= unue marku ĉiujn tri skatolojn
+Signing is final. rockslop won't ask again on this computer.
+= La subskribo estas definitiva. rockslop ne plu demandos en ĉi tiu komputilo.
+NO BACKSIES
+= SEN REPRENO
+waiver signed: rockslop won't ask again on this computer
+= rezigna deklaro subskribita: rockslop ne plu demandos en ĉi tiu komputilo
+waiver signed (demo: not saved)
+= rezigna deklaro subskribita (demo: ne konservita)
+could not save the waiver: {0}
+= ne eblis konservi la rezignan deklaron: {0}

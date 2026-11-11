@@ -40,6 +40,27 @@ pub mod pal {
 }
 
 
+/// A 2D camera with a matrix of its own (`Gfx::set_2d_warped`).
+struct Warped {
+    m: Mat4,
+    rt: RenderTarget,
+}
+
+impl Camera for Warped {
+    fn matrix(&self) -> Mat4 {
+        self.m
+    }
+    fn depth_enabled(&self) -> bool {
+        false
+    }
+    fn render_pass(&self) -> Option<RenderPass> {
+        Some(self.rt.render_pass.clone())
+    }
+    fn viewport(&self) -> Option<(i32, i32, i32, i32)> {
+        None
+    }
+}
+
 /// Post effect knobs, animated by the app every frame.
 #[derive(Clone, Copy)]
 pub struct Post {
@@ -479,6 +500,14 @@ impl Gfx {
             render_target: Some(self.scene.clone()),
             ..Default::default()
         });
+    }
+
+    /// HUD space, with `m` (in logical px) applied to what is drawn first:
+    /// a stamp struck at an angle, a panel squashed flat. `set_2d` undoes it.
+    pub fn set_2d_warped(&self, m: Mat4) {
+        let s = self.size();
+        let hud = Camera2D { zoom: vec2(2.0 / s.x, -2.0 / s.y), target: s / 2.0, render_target: Some(self.scene.clone()), ..Default::default() };
+        set_camera(&Warped { m: hud.matrix() * m, rt: self.scene.clone() });
     }
 
     pub fn view_proj(&self) -> Mat4 {

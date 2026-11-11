@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = אין קושחה ב-{0} (החלק הזה ריק)
 {0} has Rockbox in it: it is not stock firmware
 = יש Rockbox ב-{0}: זו לא קושחה מקורית
+BEFORE THE FIRST FLASH
+= לפני הצריבה הראשונה
+POINT OF NO RETURN
+= נקודת אל-חזור
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop עומד לצרוב את Rockbox על נגן ה-{0} שלך. קרא כל אחד מהסעיפים וסמן אותו, ואז החזק כדי לחתום.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop והפורט של Rockbox לנגן הזה נכתבו 100% ב-vibe coding: אף אדם מעולם לא הסתכל על הקוד. הם נבדקו על נגנים אמיתיים, אבל זה הכול.
+THIS CAN BRICK YOUR PLAYER
+= זה עלול להרוס את הנגן שלך
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox על הנגן הזה אינו רשמי והוא ניסיוני. צריבה שמשתבשת (כבל רופף, קריסה, באג שלנו) עלולה להשאיר את הנגן מת, וייתכן שלא תהיה שום דרך להחזיר אותו. rockslop שומר גיבוי של הקושחה המקורית, אבל גיבוי לא יכול להציל כל נגן. הסיכון הוא שלך בלבד.
+YOUR WARRANTY IS VOID
+= האחריות שלך מבוטלת
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= צריבת קושחה שהיצרן לא כתב מבטלת את האחריות. כל מה שיקרה לנגן הזה מעכשיו והלאה הוא הבעיה שלך: בלי תיקון, בלי החלפה, בלי החזר כספי. חזרה לקושחה המקורית לא משנה את זה.
+DON'T TAKE IT BACK
+= אל תחזיר אותו
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= לעולם אל תחזיר נגן צרוב, אל תתבע עליו אחריות ואל תתלונן עליו בפני המוכר או היצרן. Rockbox רץ על הנגנים האלה כי אף אחד לא נעל אותם. אם נגנים צרובים יתחילו לחזור, סדרת הייצור הבאה תהיה נעולה, וזה הסוף של Rockbox עליהם בשביל כולם. אם שלך מתקלקל, פנה ל-rockslop, אף פעם לא לחנות.
+I UNDERSTAND
+= הבנתי
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= קראתי את שלושתם. אם הוא נהרס, זה עליי. האחריות אבדה. הוא לעולם לא חוזר למוכר. אין התחרטויות.
+HOLD TO SIGN
+= החזק כדי לחתום
+KEEP HOLDING
+= המשך להחזיק
+SIGNED
+= נחתם
+NOT NOW
+= לא עכשיו
+tick all three boxes first
+= סמן קודם את שלוש התיבות
+Signing is final. rockslop won't ask again on this computer.
+= החתימה סופית. rockslop לא ישאל שוב במחשב הזה.
+NO BACKSIES
+= אין התחרטויות
+waiver signed: rockslop won't ask again on this computer
+= כתב הוויתור נחתם: rockslop לא ישאל שוב במחשב הזה
+waiver signed (demo: not saved)
+= כתב הוויתור נחתם (דמו: לא נשמר)
+could not save the waiver: {0}
+= לא ניתן היה לשמור את כתב הוויתור: {0}

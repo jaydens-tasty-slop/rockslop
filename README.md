@@ -16,6 +16,30 @@ publishes one, named after its commit's time (UTC) and hash, e.g.
 `rockslop-cli --version` prints it. Linux binaries need `chmod +x` after
 downloading.
 
+## Before the first flash
+
+The first time **FLASH** is pressed on a computer, rockslop asks you to
+sign a waiver before it writes anything. It starts by saying how this
+software was made: rockslop and the Rockbox ports are 100% vibe-coded, no
+human has ever looked at the code, and testing on real players is all the
+checking it has had. Then come three points:
+
+- **This can brick your player.** Rockbox on these players is unofficial
+  and experimental, and a flash that goes wrong can leave a player dead
+  for good.
+- **Your warranty is void.** Treat the player as yours to fix from then on.
+- **Don't take it back.** Never return a flashed player, claim on it, or
+  complain to the seller or the maker. If flashed players come back, the
+  next batch gets locked down, and that's the end of Rockbox on them for
+  everyone.
+
+You tick each point, then hold **HOLD TO SIGN**. There are no backsies.
+The signature is kept in rockslop's data folder (`waiver`, beside
+`backups/`). `rockslop-cli flash` asks too: you type `NO BACKSIES`, or
+pass `--no-backsies`. `--yes` doesn't sign the waiver. The demo shows the
+waiver on every flash and never saves the signature. Returning to stock
+never asks.
+
 ## What a flash does
 
 1. **Link.** Put the player in download mode (below). The flasher finds it,
@@ -64,6 +88,7 @@ rockslop-cli restore yp3|ts17 [IMAGE]   # default: a stock backup here, or on Ro
 rockslop-cli backups [yp3|ts17]
 rockslop-cli card                # where Rockbox's USB disk is mounted
     --yes  (don't ask)  --wait SECS  (default 300)  --demo
+    --no-backsies  (sign the first flash's waiver without typing it)
 ```
 
 **DEMO** at the bottom of the first screen switches the GUI to the

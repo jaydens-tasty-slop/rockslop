@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0}에 펌웨어가 들어 있지 않음 (그 부분이 비어 있음)
 {0} has Rockbox in it: it is not stock firmware
 = {0}에 Rockbox가 들어 있음: 정품 펌웨어가 아님
+BEFORE THE FIRST FLASH
+= 첫 플래시 전에
+POINT OF NO RETURN
+= 돌이킬 수 없는 지점
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop이 이제 {0}에 Rockbox를 기록합니다. 아래 항목을 하나씩 읽고 체크한 다음, 길게 눌러 서명하세요.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop과 이 플레이어용 Rockbox 포팅은 100% 바이브 코딩으로 만들어졌습니다: 사람이 코드를 들여다본 적은 한 번도 없습니다. 실제 플레이어에서 테스트는 했지만, 그게 전부입니다.
+THIS CAN BRICK YOUR PLAYER
+= 플레이어가 벽돌이 될 수 있음
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= 이 플레이어의 Rockbox는 비공식이며 실험적입니다. 플래시가 잘못되면 (헐거운 케이블, 크래시, 저희 쪽 버그 등) 플레이어가 먹통이 될 수 있고, 되살릴 방법이 없을 수도 있습니다. rockslop은 정품 펌웨어를 백업해 두지만, 백업으로 모든 플레이어를 살릴 수는 없습니다. 위험은 전적으로 본인 몫입니다.
+YOUR WARRANTY IS VOID
+= 보증이 무효가 됨
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= 제조사가 만들지 않은 펌웨어를 플래시하면 보증이 무효가 됩니다. 이제부터 이 플레이어에 무슨 일이 생기든 본인이 감당해야 합니다: 수리도, 교환도, 환불도 없습니다. 정품으로 되돌려도 달라지지 않습니다.
+DON'T TAKE IT BACK
+= 반품 금지
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= 플래시한 플레이어를 반품하거나, 보증을 청구하거나, 판매자나 제조사에 항의하는 일은 절대 하지 마세요. 이 플레이어에서 Rockbox가 돌아가는 것은 아무도 잠가 두지 않았기 때문입니다. 플래시한 플레이어가 돌아오기 시작하면 다음 생산분은 잠기게 되고, 그러면 모두에게 이 플레이어의 Rockbox는 끝입니다. 고장 나면 rockslop으로 가져오세요. 절대 가게로 가져가지 마세요.
+I UNDERSTAND
+= 이해했습니다
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= 세 가지 모두 읽었습니다. 벽돌이 되면 제 책임입니다. 보증은 사라졌습니다. 판매자에게 절대 돌려보내지 않습니다. 무르기 없기.
+HOLD TO SIGN
+= 길게 눌러 서명
+KEEP HOLDING
+= 계속 누르기
+SIGNED
+= 서명 완료
+NOT NOW
+= 나중에
+tick all three boxes first
+= 먼저 세 항목 모두 체크
+Signing is final. rockslop won't ask again on this computer.
+= 서명은 되돌릴 수 없습니다. rockslop은 이 컴퓨터에서 다시 묻지 않습니다.
+NO BACKSIES
+= 무르기 없기
+waiver signed: rockslop won't ask again on this computer
+= 동의서 서명됨: rockslop은 이 컴퓨터에서 다시 묻지 않음
+waiver signed (demo: not saved)
+= 동의서 서명됨 (데모: 저장 안 됨)
+could not save the waiver: {0}
+= 동의서를 저장할 수 없음: {0}

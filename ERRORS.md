@@ -111,5 +111,7 @@ To report one, press **COPY REPORT** on the error screen: it puts the error and 
 | E801 | CLI: you said no. | Nothing to do. |
 | E802 | CLI: not on a terminal, so nobody could confirm. | Pass `--yes`. |
 | E803 | CLI: the answer could not be read. | Pass `--yes`. |
+| E804 | CLI: the first flash's waiver was not signed (anything but NO BACKSIES was typed). | Read it, then type `NO BACKSIES`, or don't flash. |
+| E805 | CLI: the first flash's waiver needs signing, and nobody is at a terminal to type it. | Run it on a terminal, or pass `--no-backsies` to sign. |
 | E901 | The flasher crashed. A bug. | Report it with the message. |
 | E902 | TS17: an internal command list is too long. A bug. | Report it. |

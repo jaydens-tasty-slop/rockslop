@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} 中沒有韌體（該部分是空白的）
 {0} has Rockbox in it: it is not stock firmware
 = {0} 中含有 Rockbox：不是原廠韌體
+BEFORE THE FIRST FLASH
+= 首次刷寫之前
+POINT OF NO RETURN
+= 沒有回頭路
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop 即將把 Rockbox 寫入您的 {0}。請逐條閱讀並勾選，然後長按簽署。
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop 和這台播放器的 Rockbox 移植版 100% 以 vibe coding（氛圍編程）寫成：從來沒有人看過這些程式碼。它在真實的播放器上測試過，僅此而已。
+THIS CAN BRICK YOUR PLAYER
+= 播放器可能變磚
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= 這台播放器上的 Rockbox 是非官方的、實驗性的。刷寫一旦出錯（傳輸線鬆脫、程式當機、我們自己的 bug），播放器可能徹底報廢，而且可能再也救不回來。rockslop 會保留一份原廠韌體備份，但備份救不了每一台播放器。風險全由您一人承擔。
+YOUR WARRANTY IS VOID
+= 保固失效
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= 刷寫並非製造商所寫的韌體，保固就會失效。從現在起，這台播放器發生任何事都得由您自己處理：不維修、不換貨、不退款。還原原廠也改變不了這一點。
+DON'T TAKE IT BACK
+= 不要退貨
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= 絕對不要退回刷寫過的播放器，不要拿它申請保固或求償，也不要為此向賣家或製造商投訴。Rockbox 之所以能在這些播放器上運行，是因為沒有人把它們鎖起來。如果刷寫過的播放器開始被退回，下一批就會被鎖死，所有人都再也不能在這些播放器上使用 Rockbox。如果您的壞了，請找 rockslop，絕對不要找店家。
+I UNDERSTAND
+= 我明白
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= 三條我都讀過了。變磚了責任在我。保固沒了。絕不退回給賣家。不准反悔。
+HOLD TO SIGN
+= 長按簽署
+KEEP HOLDING
+= 持續按住
+SIGNED
+= 已簽署
+NOT NOW
+= 以後再說
+tick all three boxes first
+= 請先勾選全部三項
+Signing is final. rockslop won't ask again on this computer.
+= 簽署後無法撤回。rockslop 不會在此電腦上再次詢問。
+NO BACKSIES
+= 不准反悔
+waiver signed: rockslop won't ask again on this computer
+= 切結書已簽署：rockslop 不會在此電腦上再次詢問
+waiver signed (demo: not saved)
+= 切結書已簽署（示範：未儲存）
+could not save the waiver: {0}
+= 無法儲存切結書：{0}

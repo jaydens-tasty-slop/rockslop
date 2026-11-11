@@ -3,7 +3,7 @@
 //! springs, so every transition is a continuous move, never a cut.
 
 use crate::anim::{approach, clamp01, ease_in_out_cubic, ease_out_back, ease_out_cubic, ease_out_expo, window, Spring, Spring3};
-use crate::audio::{Audio, Sfx};
+use crate::audio::{Audio, Rise, Sfx};
 use crate::clippy::{self, Clippy, Say, Tip};
 use crate::gfx::model::{self, Cable, Feature, Kind, Player, Style};
 use crate::gfx::scene::World;
@@ -14,7 +14,9 @@ use crate::i18n::{self, tr, tf};
 use crate::nowplaying::NowPlaying;
 use crate::picker::Picker;
 use crate::ui::{self, Tone, Ui};
+use crate::waiver::{self, Waiver};
 use macroquad::prelude::*;
+use rockslop::consent;
 use rockslop::device::backup::{self, Backup};
 use rockslop::device::{real::Real, sim::Sim, Cmd, Event, Hub, Lvl, Mode, Outcome, Phase, Sect};
 use rockslop::pkg::Package;
@@ -341,6 +343,10 @@ pub struct App {
     /// stays on the credits
     encore: Option<(f32, bool)>,
     encored: bool,
+    /// the first flash's waiver, while it's up
+    waiver: Option<Waiver>,
+    /// signed in this session (if saving it failed, it isn't asked again)
+    waived: bool,
 }
 
 /// Muted with the sound badge (or M) last time: rockslop starts muted.
@@ -483,6 +489,8 @@ impl App {
             spun: false,
             encore: None,
             encored: false,
+            waiver: None,
+            waived: false,
         }
     }
 
@@ -535,6 +543,10 @@ impl App {
         self.screen_t = 0.0;
         self.encore = None;
         self.kick = self.kick.max(0.55);
+        // the player went away under the waiver, say
+        if let Some(w) = &mut self.waiver {
+            w.cancel(self.time);
+        }
         if matches!(s, Screen::Select | Screen::Link | Screen::Payload) {
             self.audio.music(false);
         }
@@ -645,6 +657,8 @@ impl App {
             }
         }
         self.logic();
+        let (to, rise) = self.waiver.as_ref().map(|w| w.riser(self.time)).unwrap_or((0.0, Rise::Cut));
+        self.audio.riser(to, rise);
         self.pose(dt);
         let say = self.tip();
         if self.clippy.update(self.time, dt, say) {
@@ -679,6 +693,9 @@ impl App {
             }
             Screen::Fail => pal::RED,
         };
+        // the waiver reddens the room
+        let (dread, held) = self.waiver.as_ref().map(|w| (w.presence(self.time), w.tension(self.time))).unwrap_or((0.0, 0.0));
+        let wt = pal::mix(wt, pal::RED, 0.85 * dread);
         self.tint = pal::mix(self.tint, wt, 1.0 - (-2.5 * dt).exp());
         self.world.tint = self.tint;
         let base_speed = match self.screen {
@@ -688,7 +705,13 @@ impl App {
             Screen::Fail => 0.8,
             _ => 3.0,
         };
-        self.world.speed = approach(self.world.speed, base_speed, 1.2, dt);
+        // it stalls under the waiver, and races while HOLD TO SIGN is held
+        let base_speed = base_speed + (0.6 + 24.0 * held * held - base_speed) * dread;
+        if dread > 0.0 {
+            let a = &mut self.actors[self.sel];
+            a.shake = a.shake.max(held * held * 0.7);
+        }
+        self.world.speed = approach(self.world.speed, base_speed, 1.2 + 3.0 * held, dt);
         let wi = if self.screen == Screen::Boot { clamp01((self.screen_t - 1.3) / 1.2) } else { 1.0 };
         self.world.intensity = approach(self.world.intensity, wi, 6.0, dt);
         self.world.update(dt);
@@ -885,6 +908,9 @@ impl App {
             // the picker has the keys and the pointer
             return;
         }
+        if let Some(w) = &mut self.waiver {
+            w.keys(self.time);
+        }
         if is_key_pressed(KeyCode::L) && self.lang_ok() {
             self.open_picker();
             return;
@@ -977,7 +1003,8 @@ impl App {
                 }
             }
             Screen::Payload => {
-                if is_key_pressed(KeyCode::Escape) {
+                // (under the waiver, Escape is the waiver's)
+                if is_key_pressed(KeyCode::Escape) && self.waiver.is_none() {
                     self.go(Screen::Select);
                     return;
                 }
@@ -986,8 +1013,8 @@ impl App {
                         let p = self.opts.package.clone().unwrap_or_else(|| self.demo_package());
                         self.load_package(p);
                     }
-                    if matches!(self.pkg.as_ref().map(|p| &p.state), Some(PkgState::Ok)) && self.screen_t > 4.2 {
-                        self.start_flash();
+                    if matches!(self.pkg.as_ref().map(|p| &p.state), Some(PkgState::Ok)) && self.screen_t > 4.2 && self.waiver.is_none() {
+                        self.flash_pressed();
                     }
                 }
                 // lost the link: back to the instructions
@@ -1631,6 +1658,53 @@ impl App {
         self.job = Job { restoring, started: self.time, ..Default::default() };
     }
 
+    /// FLASH: the first time on this computer (and every time in the
+    /// demo) the waiver comes first.
+    fn flash_pressed(&mut self) {
+        if self.opts.demo || !(self.waived || consent::signed()) {
+            // --auto signs it only for the simulated player: never for real
+            self.waiver = Some(Waiver::open(self.time, self.kind().name(), self.opts.demo, self.opts.auto && self.opts.demo));
+            self.kick = self.kick.max(0.6);
+            self.flash = 0.35;
+            self.flash_col = pal::RED;
+        } else {
+            self.start_flash();
+        }
+    }
+
+    fn waiver_did(&mut self, e: waiver::Out) {
+        match e {
+            waiver::Out::Signed => {
+                self.waived = true;
+                if self.opts.demo {
+                    self.say(Lvl::Info, tr("waiver signed (demo: not saved)"));
+                    return;
+                }
+                rockslop::log::line("WAIVER", &format!("signed (version {})", consent::VERSION));
+                match consent::sign("rockslop") {
+                    Ok(()) => self.say(Lvl::Ok, tr("waiver signed: rockslop won't ask again on this computer")),
+                    Err(e) => self.say(Lvl::Warn, tf("could not save the waiver: {0}", &[&e])),
+                }
+            }
+            waiver::Out::Landed => {
+                self.audio.sfx(Sfx::Confirm);
+                self.kick = 1.3;
+                self.flash = 0.8;
+                self.flash_col = pal::RED;
+                self.world.speed = 40.0;
+                self.actors[self.sel].shake = 1.0;
+            }
+            waiver::Out::Done => self.start_flash(),
+            waiver::Out::Flare => {
+                self.kick = 1.1;
+                self.flash = 0.7;
+                self.flash_col = pal::WHITE;
+                self.world.speed = 48.0;
+            }
+            waiver::Out::Cancelled => {}
+        }
+    }
+
     fn start_flash(&mut self) {
         let Some(p) = &self.pkg else { return };
         let path = p.path.clone();
@@ -1674,8 +1748,9 @@ impl App {
         self.hud();
         // post
         let fail = if self.screen == Screen::Fail { 0.06 + 0.1 * (1.0 - window(self.screen_t, 0.0, 1.5)) } else { 0.0 };
-        self.post.glitch = 0.012 + self.kick * 0.9 + fail;
-        self.post.aberration = 0.85 + self.kick * 2.5 + self.beat * 0.7;
+        let held = self.waiver.as_ref().map(|w| w.tension(self.time)).unwrap_or(0.0);
+        self.post.glitch = 0.012 + self.kick * 0.9 + fail + held * held * 0.1;
+        self.post.aberration = 0.85 + self.kick * 2.5 + self.beat * 0.7 + held * 2.5;
         self.post.flash = self.flash * 0.55;
         self.post.flash_color = self.flash_col;
         self.post.fade = if self.screen == Screen::Boot {
@@ -2152,7 +2227,7 @@ impl App {
         let s = self.screen;
         // under the picker, nothing sees the pointer
         let input = (self.ui.mouse, self.ui.pressed, self.ui.released);
-        if self.picker.is_some() {
+        if self.picker.is_some() || self.waiver.is_some() {
             self.ui.hide_pointer();
         }
         if s != Screen::Boot {
@@ -2176,6 +2251,14 @@ impl App {
         let feet = vec2(92.0, self.g.size().y - 118.0);
         self.clippy.draw(&mut self.ui, &self.g, feet, self.time);
         (self.ui.mouse, self.ui.pressed, self.ui.released) = input;
+        if let Some(w) = &mut self.waiver {
+            for e in w.draw(&mut self.ui, &self.g) {
+                self.waiver_did(e);
+            }
+        }
+        if self.waiver.as_ref().is_some_and(|w| w.gone(self.time)) {
+            self.waiver = None;
+        }
         if let Some(p) = &mut self.picker {
             p.draw(&mut self.ui, &self.g);
         }
@@ -2186,7 +2269,7 @@ impl App {
 
     /// The language can change here (not mid-flash).
     fn lang_ok(&self) -> bool {
-        !matches!(self.screen, Screen::Boot | Screen::Execute)
+        !matches!(self.screen, Screen::Boot | Screen::Execute) && self.waiver.is_none()
     }
 
     fn open_picker(&mut self) {
@@ -3095,7 +3178,7 @@ impl App {
         let fb = Rect::new(panel.x + 26.0, panel.y + panel.h - 82.0, panel.w - 52.0, 58.0);
         let fa = if flash_ok { window(st, 0.2, 0.5) } else { 0.0 };
         if flash_ok && ui::button(&mut self.ui, &self.g, fb, tr("FLASH"), Tone::Primary, fa, true) {
-            self.start_flash();
+            self.flash_pressed();
         }
         if let Some(path) = anyway {
             if ui::button(&mut self.ui, &self.g, fb, tr("FLASH ANYWAY"), Tone::Primary, ap, true) {

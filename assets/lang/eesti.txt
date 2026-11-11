@@ -570,3 +570,47 @@ rockslop does not recognise this firmware
 = {0} sees pole firmware'i (see osa on tühi)
 {0} has Rockbox in it: it is not stock firmware
 = {0} sees on Rockbox: see pole tehase firmware
+BEFORE THE FIRST FLASH
+= ENNE ESIMEST FLASHIMIST
+POINT OF NO RETURN
+= TAGASITEED POLE
+rockslop is about to write Rockbox to your {0}. Read each of these and tick it, then hold to sign.
+= rockslop kirjutab kohe Rockboxi sinu {0}-mängijasse. Loe iga punkt läbi ja märgi see, siis hoia nuppu all, et allkirjastada.
+rockslop and this player's Rockbox port are 100% vibe-coded: no human has ever looked at the code. It has been tested on real players, but that's all.
+= rockslop ja selle mängija Rockboxi port on 100% vibe-coded: ükski inimene pole koodi kunagi vaadanud. Neid on testitud päris mängijatel, aga see on ka kõik.
+THIS CAN BRICK YOUR PLAYER
+= SEE VÕIB SU MÄNGIJA RIKKUDA
+Rockbox on this player is unofficial and experimental. A flash that goes wrong (a loose cable, a crash, a bug of ours) can leave the player dead, and there may be no way to bring it back. rockslop keeps a backup of the stock firmware, but a backup can't save every player. The risk is yours alone.
+= Rockbox on sellel mängijal mitteametlik ja eksperimentaalne. Ebaõnnestunud flashimine (lahtine kaabel, krahh, viga meie koodis) võib jätta mängija surnuks ja võib-olla ei saa seda enam kuidagi ellu äratada. rockslop hoiab tehase firmware'i varukoopiat alles, aga varukoopia ei päästa iga mängijat. Risk on ainult sinu.
+YOUR WARRANTY IS VOID
+= SU GARANTII KAOB
+Flashing firmware the maker didn't write voids the warranty. Whatever happens to this player from now on is yours to deal with: no repair, no replacement, no refund. Going back to stock doesn't change that.
+= Kui flashid firmware'i, mida tootja pole kirjutanud, kaob garantii. Mis selle mängijaga nüüdsest ka ei juhtuks, on sinu mure: ei remonti, ei asendust, ei raha tagasi. Tehase firmware'i juurde naasmine seda ei muuda.
+DON'T TAKE IT BACK
+= ÄRA VII SEDA TAGASI
+Never return a flashed player, claim on it, or complain to the seller or the maker about it. Rockbox runs on these players because nobody has locked them down. If flashed players start coming back, the next batch will be locked, and that's the end of Rockbox on them for everyone. If yours breaks, bring it to rockslop, never to the shop.
+= Ära kunagi vii flashitud mängijat tagasi, ära esita selle kohta garantiinõuet ega kaeba selle üle müüjale või tootjale. Rockbox töötab nendel mängijatel, sest keegi pole neid lukustanud. Kui flashitud mängijad hakkavad tagasi tulema, lukustatakse järgmine partii ja siis on Rockbox neil kõigi jaoks läbi. Kui sinu oma läheb katki, pöördu rockslopi poole, mitte kunagi poe poole.
+I UNDERSTAND
+= SAAN ARU
+I've read all three. If it bricks, that's on me. The warranty is gone. It never goes back to the seller. No backsies.
+= Olen kõik kolm läbi lugenud. Kui mängija läheb rikki, vastutan mina. Garantii on läinud. See ei lähe kunagi müüjale tagasi. Tagasi ei võeta.
+HOLD TO SIGN
+= HOIA ALLKIRJASTAMISEKS
+KEEP HOLDING
+= HOIA EDASI
+SIGNED
+= ALLKIRJASTATUD
+NOT NOW
+= MITTE PRAEGU
+tick all three boxes first
+= märgi kõigepealt kõik kolm kasti
+Signing is final. rockslop won't ask again on this computer.
+= Allkiri on lõplik. rockslop ei küsi sellel arvutil enam.
+NO BACKSIES
+= TAGASI EI VÕETA
+waiver signed: rockslop won't ask again on this computer
+= loobumisavaldus allkirjastatud: rockslop ei küsi sellel arvutil enam
+waiver signed (demo: not saved)
+= loobumisavaldus allkirjastatud (demo: ei salvestatud)
+could not save the waiver: {0}
+= loobumisavaldust ei saanud salvestada: {0}

@@ -527,7 +527,7 @@ mod tests {
     #[test]
     fn source_strings_are_keys() {
         let keys: std::collections::HashSet<&str> = keys().into_iter().collect();
-        let srcs = [include_str!("app.rs"), include_str!("clippy.rs"), include_str!("ui.rs"), include_str!("credits.rs"), include_str!("main.rs"), include_str!("picker.rs"), include_str!("nowplaying.rs")];
+        let srcs = [include_str!("app.rs"), include_str!("clippy.rs"), include_str!("ui.rs"), include_str!("credits.rs"), include_str!("main.rs"), include_str!("picker.rs"), include_str!("nowplaying.rs"), include_str!("waiver.rs")];
         let mut missing = Vec::new();
         for src in srcs {
             for pat in ["tr(\"", "tf(\""] {
@@ -545,6 +545,13 @@ mod tests {
                     }
                 }
             }
+        }
+        // the waiver's terms live in the library, for the CLI too
+        for (head, body) in rockslop::consent::CLAUSES {
+            missing.extend([head, body].into_iter().filter(|s| !keys.contains(s)).map(String::from));
+        }
+        if !keys.contains(rockslop::consent::STATEMENT) {
+            missing.push(rockslop::consent::STATEMENT.into());
         }
         assert!(missing.is_empty(), "not in strings.txt: {missing:?}");
     }
