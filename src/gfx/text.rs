@@ -571,7 +571,23 @@ pub fn ellipsize(g: &Gfx, f: Face, text: &str, size: f32, spacing: f32, max_w: f
 /// between characters for a word too long for a line (CJK and Thai have
 /// no spaces).
 pub fn wrap(g: &Gfx, f: Face, text: &str, size: f32, width: f32) -> Vec<String> {
-    let fits = |s: &str| measure(g, f, s, size).x <= width;
+    wrap_by(text, |s| measure(g, f, s, size).x <= width)
+}
+
+/// Chinese and Japanese: written without spaces, so a run of them breaks
+/// between any two characters.
+fn cjk(c: char) -> bool {
+    matches!(c as u32, 0x3000..=0x30FF | 0x3400..=0x4DBF | 0x4E00..=0x9FFF | 0xF900..=0xFAFF | 0xFF00..=0xFFEF)
+}
+
+/// Punctuation that never starts a line (it hangs at the end of the one
+/// before instead).
+fn closing(c: char) -> bool {
+    "、。，．・：；？！）」』】〕〉》ー々ぁぃぅぇぉっゃゅょァィゥェォッャュョ".contains(c) || matches!(c, ',' | '.' | ':' | ';' | '!' | '?' | ')')
+}
+
+/// `wrap`, given what fits on a line.
+fn wrap_by(text: &str, fits: impl Fn(&str) -> bool) -> Vec<String> {
     let mut out = Vec::new();
     for para in text.split('\n') {
         let mut cur = String::new();
@@ -582,21 +598,21 @@ pub fn wrap(g: &Gfx, f: Face, text: &str, size: f32, width: f32) -> Vec<String> 
                 continue;
             }
             if !cur.is_empty() {
-                if fits(word) {
-                    // it goes whole on the next line
+                // a word goes whole on the next line; a run of CJK fills
+                // this one first
+                if fits(word) && !word.chars().any(cjk) {
                     out.push(std::mem::take(&mut cur));
                     cur = word.to_string();
                     continue;
                 }
-                // too long for any line (a run of CJK, say): it starts here
+                // (a word too long for any line breaks where it must)
                 cur.push(' ');
             }
-            // break the word itself where it must
             for c in word.chars() {
                 let mut t = cur.clone();
                 t.push(c);
-                if !fits(&t) && !cur.is_empty() && !matches!(bidi_class(c), BidiClass::NSM) {
-                    out.push(std::mem::take(&mut cur));
+                if !fits(&t) && !cur.trim().is_empty() && !matches!(bidi_class(c), BidiClass::NSM) && !closing(c) {
+                    out.push(std::mem::take(&mut cur).trim_end().to_string());
                     cur.push(c);
                 } else {
                     cur = t;
@@ -796,6 +812,19 @@ mod tests {
 
     /// Arabic comes out joined (contextual forms, not the isolated ones)
     /// and right to left; Devanagari forms conjuncts.
+    #[test]
+    fn wrapping() {
+        let by = |n: usize| move |s: &str| s.chars().count() <= n;
+        assert_eq!(wrap_by("one two three four", by(9)), ["one two", "three", "four"]);
+        // a run of CJK fills the line it starts on, and breaks anywhere
+        assert_eq!(wrap_by("壊れたら rockslop に持ち込んでください", by(14)), ["壊れたら rockslop", "に持ち込んでください"]);
+        assert_eq!(wrap_by("rockslop と、この移植版は", by(12)), ["rockslop と、こ", "の移植版は"]);
+        // closing punctuation hangs rather than start a line
+        assert_eq!(wrap_by("あいうえお。かきくけこ", by(5)), ["あいうえお。", "かきくけこ"]);
+        // a word longer than any line starts where it is, and breaks
+        assert_eq!(wrap_by("ab abcdefgh", by(5)), ["ab ab", "cdefg", "h"]);
+    }
+
     #[test]
     fn shaping() {
         let f = fonts();
