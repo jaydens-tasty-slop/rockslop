@@ -128,9 +128,11 @@ impl Picker {
             return;
         }
         let x = p.x + 30.0;
-        text::glitch_title(
+        text::glitch_reveal(
             g,
-            &text::decode(tr("LANGUAGE"), st * 2.5, t, 5),
+            tr("LANGUAGE"),
+            st * 2.5,
+            5,
             vec2(x, p.y + 54.0),
             28.0,
             pal::alpha(pal::ICE, a),

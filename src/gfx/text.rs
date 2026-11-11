@@ -692,25 +692,65 @@ pub fn decode(text: &str, t: f32, time: f32, seed: u32) -> String {
         .collect()
 }
 
+/// `draw_spaced_fit` of a `decode` reveal (0..1), sized and placed by the
+/// final text: the scrambling glyphs, narrower or wider than the letters
+/// they stand for, neither move it nor resize it. Returns the final width.
+#[allow(clippy::too_many_arguments)]
+pub fn draw_reveal(g: &Gfx, f: Face, text: &str, reveal: f32, time: f32, seed: u32, pos: Vec2, size: f32, color: Color, align: Align, spacing: f32, max_w: f32) -> f32 {
+    let (size, spacing) = fit(g, f, text, size, spacing, max_w);
+    let text = ellipsize(g, f, text, size, spacing, max_w + 0.5);
+    let w = spaced_width(g, f, &text, size, spacing);
+    draw_spaced(g, f, &decode(&text, reveal, time, seed), vec2(x_for(align, pos.x, w), pos.y), size, color, Align::Left, spacing);
+    w
+}
+
 /// Big glitchy title: RGB split ghosts, slice offsets and a bright core.
 /// Shrinks to fit `max_w`.
 #[allow(clippy::too_many_arguments)]
 pub fn glitch_title(g: &Gfx, text: &str, pos: Vec2, size: f32, color: Color, align: Align, amount: f32, time: f32, spacing: f32, max_w: f32) {
+    glitch_reveal(g, text, 1.0, 0, pos, size, color, align, amount, time, spacing, max_w);
+}
+
+/// `glitch_title` with a `decode` reveal, sized and placed by the final
+/// text (as `draw_reveal`).
+#[allow(clippy::too_many_arguments)]
+pub fn glitch_reveal(g: &Gfx, text: &str, reveal: f32, seed: u32, pos: Vec2, size: f32, color: Color, align: Align, amount: f32, time: f32, spacing: f32, max_w: f32) {
     let (size, spacing) = fit(g, Face::Display, text, size, spacing, max_w);
-    let text = &ellipsize(g, Face::Display, text, size, spacing, max_w);
+    let text = ellipsize(g, Face::Display, text, size, spacing, max_w);
+    let w = spaced_width(g, Face::Display, &text, size, spacing);
+    let shown = decode(&text, reveal, time, seed);
+    glitch_at(vec2(x_for(align, pos.x, w), pos.y), w, size, color, amount, time, |p, c| {
+        draw_spaced(g, Face::Display, &shown, p, size, c, Align::Left, spacing);
+    });
+}
+
+/// A glitchy number on a fixed advance per digit (`draw_tabular`): a
+/// counter that holds still as it runs. Returns its width.
+#[allow(clippy::too_many_arguments)]
+pub fn glitch_tabular(g: &Gfx, text: &str, pos: Vec2, size: f32, color: Color, align: Align, amount: f32, time: f32, cell: f32) -> f32 {
+    let w = cell * text.chars().count() as f32;
+    glitch_at(vec2(x_for(align, pos.x, w), pos.y), w, size, color, amount, time, |p, c| {
+        draw_tabular(g, Face::Display, text, p, size, c, cell);
+    });
+    w
+}
+
+/// The glitch around what `paint` draws from a left edge: two colour ghosts
+/// either side, the core, and now and then a tear across its width `w`.
+#[allow(clippy::too_many_arguments)]
+fn glitch_at(pos: Vec2, w: f32, size: f32, color: Color, amount: f32, time: f32, paint: impl Fn(Vec2, Color)) {
     let tick = (time * 18.0) as u32;
     let h = hash(tick ^ 0xA11CE);
     let burst = (h % 1000) as f32 / 1000.0 < 0.08 + amount * 0.6;
     let off = if burst { ((h >> 10) % 9) as f32 - 4.0 } else { 0.0 } * (0.5 + amount);
     let split = 1.5 + amount * 5.0 + if burst { 3.0 } else { 0.0 };
-    draw_spaced(g, Face::Display, text, pos + vec2(-split + off, 0.0), size, pal::alpha(pal::MAGENTA, 0.55 * color.a), align, spacing);
-    draw_spaced(g, Face::Display, text, pos + vec2(split - off * 0.5, 0.0), size, pal::alpha(pal::CYAN, 0.55 * color.a), align, spacing);
-    let w = draw_spaced(g, Face::Display, text, pos, size, color, align, spacing);
+    paint(pos + vec2(-split + off, 0.0), pal::alpha(pal::MAGENTA, 0.55 * color.a));
+    paint(pos + vec2(split - off * 0.5, 0.0), pal::alpha(pal::CYAN, 0.55 * color.a));
+    paint(pos, color);
     if burst && amount > 0.05 {
         // a stray horizontal tear across the title
-        let x0 = x_for(align, pos.x, w);
         let y = pos.y - size * (0.2 + ((h >> 4) % 60) as f32 / 100.0);
-        draw_rectangle(x0 + off * 3.0, y, w, 2.0 + (h % 4) as f32, pal::alpha(pal::ICE, 0.5 * color.a));
+        draw_rectangle(pos.x + off * 3.0, y, w, 2.0 + (h % 4) as f32, pal::alpha(pal::ICE, 0.5 * color.a));
     }
 }
 

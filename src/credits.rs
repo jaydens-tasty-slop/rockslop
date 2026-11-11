@@ -228,11 +228,13 @@ impl Roll {
                         let ty = top + 30.0;
                         let c = pal::mix(pal::MAGENTA, pal::CYAN, 0.5 + 0.5 * (t * 0.8 + *n as f32).sin());
                         let nw = text::draw(g, Face::Mono, &format!("{n:02}"), vec2(view.x, ty), 11.0, pal::alpha(pal::DIM, fade), Align::Left);
-                        let label = text::decode(tr(h), reveal, t, seed);
-                        let w = text::draw_spaced_fit(
+                        let w = text::draw_reveal(
                             g,
                             Face::Semi,
-                            &label,
+                            tr(h),
+                            reveal,
+                            t,
+                            seed,
                             vec2(view.x + nw + 10.0, ty),
                             15.0,
                             pal::alpha(pal::mix(c, pal::WHITE, 0.25 + 0.4 * beat), fade),
@@ -250,8 +252,7 @@ impl Roll {
                         // chevron
                         let cx = view.x + 4.0;
                         draw_triangle(vec2(cx, ly - 9.0), vec2(cx + 5.0, ly - 5.0), vec2(cx, ly - 1.0), pal::alpha(pal::MAGENTA, fade));
-                        let title = text::decode(e.title, reveal, t, seed);
-                        text::draw_spaced_fit(g, Face::Semi, &title, vec2(view.x + 16.0, ly), 14.0, pal::alpha(pal::ICE, fade), Align::Left, 1.0, view.w - 16.0);
+                        text::draw_reveal(g, Face::Semi, e.title, reveal, t, seed, vec2(view.x + 16.0, ly), 14.0, pal::alpha(pal::ICE, fade), Align::Left, 1.0, view.w - 16.0);
                         if e.by.is_some() || e.licence.is_some() {
                             ly += 16.0;
                             let mut lw = 0.0;

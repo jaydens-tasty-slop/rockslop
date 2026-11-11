@@ -116,8 +116,7 @@ impl NowPlaying {
         let tw = r.w - 80.0 - 16.0;
         let reveal = clamp01((age - 0.15) * 2.5);
         text::draw_spaced_fit(g, Face::Semi, tr("NOW PLAYING"), vec2(tx, r.y + 19.0), 9.5, pal::alpha(pal::MAGENTA, k), Align::Left, 2.5, tw);
-        let title = text::decode(tr_.title, reveal, t, 77);
-        text::draw_spaced_fit(g, Face::Semi, &title, vec2(tx, r.y + 39.0), 16.0, pal::alpha(pal::WHITE, k), Align::Left, 1.0, tw);
+        text::draw_reveal(g, Face::Semi, tr_.title, reveal, t, 77, vec2(tx, r.y + 39.0), 16.0, pal::alpha(pal::WHITE, k), Align::Left, 1.0, tw);
         let by = format!("{}  \u{b7}  {}", tr_.artist, tr_.licence);
         text::draw_fit(g, Face::Mono, &text::decode(&by, reveal, t, 78), vec2(tx, r.y + 56.0), 11.5, pal::alpha(pal::scale(pal::CYAN, 0.85), k), Align::Left, tw);
         // the link

@@ -192,9 +192,8 @@ pub fn panel(r: Rect, accent: Color, appear: f32) {
 
 /// Panel title strip: a small label with a rule.
 pub fn header(g: &Gfx, pos: Vec2, w: f32, label: &str, c: Color, appear: f32, time: f32) {
-    let s = text::decode(label, appear * 1.6, time, hash_str(label) as u32);
     // the label keeps at least a stub of rule after it
-    let tw = text::draw_spaced_fit(g, Face::Semi, &s, pos, 11.0, pal::alpha(c, appear), Align::Left, 2.5, w - 24.0);
+    let tw = text::draw_reveal(g, Face::Semi, label, appear * 1.6, time, hash_str(label) as u32, pos, 11.0, pal::alpha(c, appear), Align::Left, 2.5, w - 24.0);
     let y = pos.y - 4.0;
     line(
         vec2(pos.x + tw + 10.0, y),
@@ -259,10 +258,10 @@ pub fn button(ui: &mut Ui, g: &Gfx, r: Rect, label: &str, tone: Tone, appear: f3
     let room = r.w - 2.0 * (size * 0.32 + 18.0);
     let (size, spacing) = text::fit(g, Face::Semi, label, size, size * 0.22, room);
     let label = text::ellipsize(g, Face::Semi, label, size, spacing, room);
-    let s = text::decode(&label, appear * 1.4, t, hash_str(&label) as u32);
     let col = pal::mix(pal::scale(base, 1.1), pal::WHITE, 0.35 + 0.45 * h);
     let cy = rr.y + rr.h / 2.0 + size * 0.38;
-    text::draw_spaced(g, Face::Semi, &s, vec2(rr.x + rr.w / 2.0 + 8.0, cy), size, pal::alpha(col, appear), Align::Center, spacing);
+    let seed = hash_str(&label) as u32;
+    text::draw_reveal(g, Face::Semi, &label, appear * 1.4, t, seed, vec2(rr.x + rr.w / 2.0 + 8.0, cy), size, pal::alpha(col, appear), Align::Center, spacing, f32::INFINITY);
     let tw = text::spaced_width(g, Face::Semi, &label, size, spacing);
     let ax = rr.x + rr.w / 2.0 - tw / 2.0 - 8.0 + (t * 6.0).sin() * 2.0 * h;
     let ay = rr.y + rr.h / 2.0;
