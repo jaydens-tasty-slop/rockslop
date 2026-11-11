@@ -1707,7 +1707,7 @@ impl App {
         let bottom = pal::mix(bottom, pal::RED, red);
         let hl = self.highlights(i);
         let dims = a.p.dims;
-        let fill_level = if chosen && self.screen == Screen::Execute && !self.job.restoring {
+        let fill_level = if chosen && self.screen == Screen::Execute {
             -dims.y / 2.0 - 0.15 + self.job.shown * (dims.y + 0.3)
         } else if chosen && self.screen == Screen::Complete {
             dims.y
@@ -3356,10 +3356,22 @@ impl App {
         let nw = text::measure(&self.g, Face::Display, &num, 78.0).x + num.len() as f32 * 4.0;
         text::glitch_title(&self.g, &num, vec2(cx - 12.0, cy), 78.0, pal::alpha(col, ca), Align::Center, 0.05 + self.kick * 0.3, t, 4.0, plate.w);
         text::draw(&self.g, Face::Display, "%", vec2(cx - 12.0 + nw / 2.0 + 8.0, cy), 30.0, pal::alpha(pal::MAGENTA, ca), Align::Left);
+        // phase  //  clock: the clock on a fixed advance (Orbitron's digits
+        // are proportional), so the line only moves when the phase changes
         let label = tr(job.phase.map(|p| p.label()).unwrap_or("LINK"));
         let el = job.ended.unwrap_or(t) - job.started;
-        let sub = format!("{}  //  {:02}:{:05.2}", label, (el / 60.0) as u32, el % 60.0);
-        text::draw_spaced_fit(&self.g, Face::Semi, &sub, vec2(cx, cy + 30.0), 12.0, pal::alpha(pal::CYAN, ca), Align::Center, 3.0, plate.w - 40.0);
+        let head = format!("{label}  //");
+        let clock = format!("{:02}:{:05.2}", (el / 60.0) as u32, el % 60.0);
+        let (size, sp) = (12.0, 3.0);
+        let cell = text::measure(&self.g, Face::Semi, "0", size).x + sp;
+        let gap = text::measure(&self.g, Face::Semi, "  ", size).x + 2.0 * sp;
+        let hw = text::spaced_width(&self.g, Face::Semi, &head, size, sp) + gap;
+        let full = hw + cell * clock.len() as f32;
+        let k = ((plate.w - 40.0) / full).min(1.0);
+        let x = cx - full * k / 2.0;
+        let sc = pal::alpha(pal::CYAN, ca);
+        text::draw_spaced(&self.g, Face::Semi, &head, vec2(x, cy + 30.0), size * k, sc, Align::Left, sp * k);
+        text::draw_tabular(&self.g, Face::Semi, &clock, vec2(x + hw * k, cy + 30.0), size * k, sc, cell * k);
         ui::segbar(Rect::new(cx - 160.0, cy + 44.0, 320.0, 6.0), job.shown, if job.need_card { pal::AMBER } else { pal::ACID }, ca);
         // need card
         if job.need_card {

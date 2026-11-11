@@ -632,6 +632,17 @@ pub fn draw_spaced(g: &Gfx, f: Face, text: &str, pos: Vec2, size: f32, color: Co
     w
 }
 
+/// Text on a fixed advance per character, each centred in its cell, from
+/// `pos` rightwards: a running clock in a proportional face then holds
+/// still. Returns the width.
+pub fn draw_tabular(g: &Gfx, f: Face, text: &str, pos: Vec2, size: f32, color: Color, cell: f32) -> f32 {
+    let mut buf = [0u8; 4];
+    for (k, c) in text.chars().enumerate() {
+        draw(g, f, c.encode_utf8(&mut buf), vec2(pos.x + (k as f32 + 0.5) * cell, pos.y), size, color, Align::Center);
+    }
+    text.chars().count() as f32 * cell
+}
+
 /// `draw`, shrunk (then cut short) to fit `max_w`.
 #[allow(clippy::too_many_arguments)]
 pub fn draw_fit(g: &Gfx, f: Face, text: &str, pos: Vec2, size: f32, color: Color, align: Align, max_w: f32) -> f32 {
