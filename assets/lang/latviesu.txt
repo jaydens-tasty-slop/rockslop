@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = apliecinājums parakstīts (demo: nav saglabāts)
 could not save the waiver: {0}
 = neizdevās saglabāt apliecinājumu: {0}
+EPILEPSY WARNING
+= BRĪDINĀJUMS PAR EPILEPSIJU
+It's a flasher. It flashes.
+= Tas ir flešotājs. Tas mirgo.

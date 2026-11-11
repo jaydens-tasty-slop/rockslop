@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = liberatoria firmata (demo: non salvata)
 could not save the waiver: {0}
 = impossibile salvare la liberatoria: {0}
+EPILEPSY WARNING
+= AVVISO SULL'EPILESSIA
+It's a flasher. It flashes.
+= È un flasher. Lampeggia.

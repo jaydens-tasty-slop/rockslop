@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = η δήλωση ευθύνης υπογράφηκε (demo: δεν αποθηκεύτηκε)
 could not save the waiver: {0}
 = αδυναμία αποθήκευσης της δήλωσης ευθύνης: {0}
+EPILEPSY WARNING
+= ΠΡΟΕΙΔΟΠΟΙΗΣΗ ΓΙΑ ΕΠΙΛΗΨΙΑ
+It's a flasher. It flashes.
+= Είναι flasher. Αναβοσβήνει.

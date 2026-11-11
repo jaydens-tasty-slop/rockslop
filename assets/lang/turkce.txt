@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = feragatname imzalandı (demo: kaydedilmedi)
 could not save the waiver: {0}
 = feragatname kaydedilemedi: {0}
+EPILEPSY WARNING
+= EPİLEPSİ UYARISI
+It's a flasher. It flashes.
+= Adı üstünde: flaş çakıyor.

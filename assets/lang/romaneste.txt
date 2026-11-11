@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = declarație semnată (demo: nesalvată)
 could not save the waiver: {0}
 = nu s-a putut salva declarația: {0}
+EPILEPSY WARNING
+= AVERTISMENT PRIVIND EPILEPSIA
+It's a flasher. It flashes.
+= E un flasher. Clipește.

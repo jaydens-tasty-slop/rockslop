@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = adostasun-agiria sinatuta (demoa: ez da gorde)
 could not save the waiver: {0}
 = ezin izan da adostasun-agiria gorde: {0}
+EPILEPSY WARNING
+= EPILEPSIA-ABISUA
+It's a flasher. It flashes.
+= Flasher bat da. Distiraka dabil.

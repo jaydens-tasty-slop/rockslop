@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = loobumisavaldus allkirjastatud (demo: ei salvestatud)
 could not save the waiver: {0}
 = loobumisavaldust ei saanud salvestada: {0}
+EPILEPSY WARNING
+= EPILEPSIAHOIATUS
+It's a flasher. It flashes.
+= See on flasher. See vilgub.

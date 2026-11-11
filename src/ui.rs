@@ -166,6 +166,27 @@ pub fn brackets(r: Rect, len: f32, w: f32, c: Color) {
     polyline(&[vec2(x0 + l, y1), vec2(x0, y1), vec2(x0, y1 - l)], w, c, false);
 }
 
+/// Black and amber hazard stripes across `r`, sliding by `off` px.
+pub fn hazard(r: Rect, off: f32, a: f32) {
+    draw_rectangle(r.x, r.y, r.w, r.h, Color::new(0.0, 0.0, 0.0, 0.6 * a));
+    let sw = 17.0;
+    let mut sx = r.x - r.h - 2.0 * sw + off.rem_euclid(2.0 * sw);
+    while sx < r.x + r.w {
+        let q = [vec2(sx, r.y + r.h), vec2(sx + r.h, r.y), vec2(sx + r.h + sw, r.y), vec2(sx + sw, r.y + r.h)];
+        let q = q.map(|p| vec2(p.x.clamp(r.x, r.x + r.w), p.y));
+        fill_convex(&q, pal::alpha(pal::AMBER, 0.8 * a));
+        sx += 2.0 * sw;
+    }
+}
+
+/// A warning sign: a triangle with an exclamation mark, `h` tall.
+pub fn warning(c: Vec2, h: f32, col: Color) {
+    let w = h * 1.15;
+    polyline(&[vec2(c.x, c.y - h / 2.0), vec2(c.x + w / 2.0, c.y + h / 2.0), vec2(c.x - w / 2.0, c.y + h / 2.0)], 2.0, col, true);
+    line(vec2(c.x, c.y - h * 0.15), vec2(c.x, c.y + h * 0.2), 2.4, col);
+    draw_rectangle(c.x - 1.2, c.y + h * 0.29, 2.4, 2.4, col);
+}
+
 pub fn ring(c: Vec2, r: f32, w: f32, col: Color, segs: usize) {
     let pts: Vec<Vec2> = (0..segs).map(|i| c + Vec2::from_angle(i as f32 / segs as f32 * std::f32::consts::TAU) * r).collect();
     polyline(&pts, w, col, true);

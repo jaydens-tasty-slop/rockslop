@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = 免责协议已签署（演示：未保存）
 could not save the waiver: {0}
 = 无法保存免责协议：{0}
+EPILEPSY WARNING
+= 癫痫警告
+It's a flasher. It flashes.
+= 闪存工具，当然会闪。

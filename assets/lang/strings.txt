@@ -46,6 +46,14 @@ flash maps
 payloads
 glyph cache
 
+## Boot screen: the epilepsy warning, a small box under the title
+# the warning's heading: say it the way video games do in your language
+EPILEPSY WARNING
+# under it, a joke: "flasher" is what rockslop is (it flashes firmware),
+# and the screen flashes too. Keep the pun if your language can, else say
+# something like "It flashes firmware. And your eyes."
+It's a flasher. It flashes.
+
 ## Select screen
 SELECT TARGET
 # the player is in its boot ROM's download mode

@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = rezigna deklaro subskribita (demo: ne konservita)
 could not save the waiver: {0}
 = ne eblis konservi la rezignan deklaron: {0}
+EPILEPSY WARNING
+= AVERTO PRI EPILEPSIO
+It's a flasher. It flashes.
+= Ĝi estas flaŝilo. Ĝi flagras.

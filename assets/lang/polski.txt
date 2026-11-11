@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = oświadczenie podpisane (demo: nie zapisano)
 could not save the waiver: {0}
 = nie udało się zapisać oświadczenia: {0}
+EPILEPSY WARNING
+= OSTRZEŻENIE O EPILEPSJI
+It's a flasher. It flashes.
+= To flasher. Błyska.

@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = đã ký bản cam kết (demo: không lưu)
 could not save the waiver: {0}
 = không lưu được bản cam kết: {0}
+EPILEPSY WARNING
+= CẢNH BÁO ĐỘNG KINH
+It's a flasher. It flashes.
+= Nó là flasher. Nó nhấp nháy.

@@ -263,14 +263,14 @@ impl Waiver {
         ui.sfx.append(&mut self.sfx);
         let x = p.x + 32.0;
         let speed = 26.0 + 160.0 * self.hold;
-        hazard(Rect::new(p.x + 16.0, p.y + 13.0, pw - 32.0, 11.0), t * speed, a);
-        hazard(Rect::new(p.x + 16.0, p.y + ph - 24.0, pw - 32.0, 11.0), -t * speed, a);
+        ui::hazard(Rect::new(p.x + 16.0, p.y + 13.0, pw - 32.0, 11.0), t * speed, a);
+        ui::hazard(Rect::new(p.x + 16.0, p.y + ph - 24.0, pw - 32.0, 11.0), -t * speed, a);
 
         // title
         ui::header(g, vec2(x + 10.0, p.y + 46.0), iw - 10.0, tr("BEFORE THE FIRST FLASH"), pal::AMBER, a, t);
         let ty = p.y + 86.0;
         text::glitch_reveal(g, tr("POINT OF NO RETURN"), st * 1.6 - 0.2, 31, vec2(x, ty), 30.0, pal::alpha(pal::RED, a), Align::Left, 0.07 + self.hold * 0.6, t, 5.0, iw - 64.0);
-        warning(vec2(x + iw - 22.0, ty - 12.0), 20.0, pal::alpha(pal::AMBER, a * (0.65 + 0.35 * (t * 5.0).sin().abs())));
+        ui::warning(vec2(x + iw - 22.0, ty - 12.0), 20.0, pal::alpha(pal::AMBER, a * (0.65 + 0.35 * (t * 5.0).sin().abs())));
         let mut y = ty + 28.0;
         for l in &intro_l {
             text::draw(g, Face::Mono, l, vec2(x, y), size, pal::alpha(pal::scale(pal::ICE, 0.8), a), Align::Left);
@@ -566,27 +566,6 @@ fn crt(o: f32, c: Vec2) -> Mat4 {
     let sy = 1.0 - 0.996 * flat;
     let sx = (1.0 + 0.08 * flat) * (1.0 - ease_in(clamp01((o - FLAT) / (DOT - FLAT))));
     Mat4::from_translation(c.extend(0.0)) * Mat4::from_scale(vec3(sx.max(0.0), sy, 1.0)) * Mat4::from_translation(-c.extend(0.0))
-}
-
-/// Black and amber hazard stripes across `r`, sliding by `off` px.
-fn hazard(r: Rect, off: f32, a: f32) {
-    draw_rectangle(r.x, r.y, r.w, r.h, Color::new(0.0, 0.0, 0.0, 0.6 * a));
-    let sw = 17.0;
-    let mut sx = r.x - r.h - 2.0 * sw + off.rem_euclid(2.0 * sw);
-    while sx < r.x + r.w {
-        let q = [vec2(sx, r.y + r.h), vec2(sx + r.h, r.y), vec2(sx + r.h + sw, r.y), vec2(sx + sw, r.y + r.h)];
-        let q = q.map(|p| vec2(p.x.clamp(r.x, r.x + r.w), p.y));
-        ui::fill_convex(&q, pal::alpha(pal::AMBER, 0.8 * a));
-        sx += 2.0 * sw;
-    }
-}
-
-/// A warning sign: a triangle with an exclamation mark, `h` tall.
-fn warning(c: Vec2, h: f32, col: Color) {
-    let w = h * 1.15;
-    ui::polyline(&[vec2(c.x, c.y - h / 2.0), vec2(c.x + w / 2.0, c.y + h / 2.0), vec2(c.x - w / 2.0, c.y + h / 2.0)], 2.0, col, true);
-    ui::line(vec2(c.x, c.y - h * 0.15), vec2(c.x, c.y + h * 0.2), 2.4, col);
-    draw_rectangle(c.x - 1.2, c.y + h * 0.29, 2.4, 2.4, col);
 }
 
 /// A redaction bar over `r`, burnt away from the left as `reveal` goes 0..1.

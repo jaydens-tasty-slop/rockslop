@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = sitoumus allekirjoitettu (demo: ei tallennettu)
 could not save the waiver: {0}
 = sitoumusta ei voitu tallentaa: {0}
+EPILEPSY WARNING
+= EPILEPSIAVAROITUS
+It's a flasher. It flashes.
+= Se on flashaaja. Se välkkyy.

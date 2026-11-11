@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = декларацията е подписана (демо: не е запазена)
 could not save the waiver: {0}
 = декларацията не можа да се запази: {0}
+EPILEPSY WARNING
+= ПРЕДУПРЕЖДЕНИЕ ЗА ЕПИЛЕПСИЯ
+It's a flasher. It flashes.
+= Флашър е. Святка.

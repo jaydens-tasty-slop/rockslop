@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = 동의서 서명됨 (데모: 저장 안 됨)
 could not save the waiver: {0}
 = 동의서를 저장할 수 없음: {0}
+EPILEPSY WARNING
+= 광과민성 발작 경고
+It's a flasher. It flashes.
+= 플래셔잖아요. 번쩍거려요.

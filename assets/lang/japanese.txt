@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = 同意書に署名済み（デモ：未保存）
 could not save the waiver: {0}
 = 同意書を保存できませんでした：{0}
+EPILEPSY WARNING
+= てんかん発作に関する注意
+It's a flasher. It flashes.
+= フラッシャーだもの。そりゃ光る。

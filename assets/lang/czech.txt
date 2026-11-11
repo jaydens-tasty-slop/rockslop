@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = prohlášení podepsáno (demo: neuloženo)
 could not save the waiver: {0}
 = prohlášení se nepodařilo uložit: {0}
+EPILEPSY WARNING
+= UPOZORNĚNÍ NA EPILEPSII
+It's a flasher. It flashes.
+= Je to flasher. Bliká.

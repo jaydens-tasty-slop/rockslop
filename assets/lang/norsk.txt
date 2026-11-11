@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = erklæring signert (demo: ikke lagret)
 could not save the waiver: {0}
 = kunne ikke lagre erklæringen: {0}
+EPILEPSY WARNING
+= EPILEPSIADVARSEL
+It's a flasher. It flashes.
+= Det er en flasher. Den blinker.

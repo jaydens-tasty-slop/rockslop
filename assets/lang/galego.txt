@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = exención de responsabilidade asinada (demo: non gardada)
 could not save the waiver: {0}
 = non se puido gardar a exención de responsabilidade: {0}
+EPILEPSY WARNING
+= AVISO SOBRE A EPILEPSIA
+It's a flasher. It flashes.
+= É un flasheador. E flashea.

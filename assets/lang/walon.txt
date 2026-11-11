@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = declaråcion sinêye (demo: nén wårdêye)
 could not save the waiver: {0}
 = dji n' a savou wårder l' declaråcion: {0}
+EPILEPSY WARNING
+= AVERTIXHMINT SO L' EPILEPSEYE
+It's a flasher. It flashes.
+= C' est on flasheu. I flashe.

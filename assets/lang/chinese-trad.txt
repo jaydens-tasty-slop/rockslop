@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = 切結書已簽署（示範：未儲存）
 could not save the waiver: {0}
 = 無法儲存切結書：{0}
+EPILEPSY WARNING
+= 癲癇警告
+It's a flasher. It flashes.
+= 快閃工具，當然會閃。

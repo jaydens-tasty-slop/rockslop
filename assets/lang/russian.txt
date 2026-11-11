@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = расписка подписана (демо: не сохранена)
 could not save the waiver: {0}
 = не удалось сохранить расписку: {0}
+EPILEPSY WARNING
+= ПРЕДУПРЕЖДЕНИЕ ОБ ЭПИЛЕПСИИ
+It's a flasher. It flashes.
+= Он прошивает. И мигает.

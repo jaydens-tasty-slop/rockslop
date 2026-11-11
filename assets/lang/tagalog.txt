@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = pirmado na ang waiver (demo: hindi na-save)
 could not save the waiver: {0}
 = hindi ma-save ang waiver: {0}
+EPILEPSY WARNING
+= BABALA SA EPILEPSY
+It's a flasher. It flashes.
+= Flasher ito. Kumikislap.

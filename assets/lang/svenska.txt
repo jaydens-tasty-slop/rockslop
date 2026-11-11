@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = friskrivning signerad (demo: inte sparad)
 could not save the waiver: {0}
 = kunde inte spara friskrivningen: {0}
+EPILEPSY WARNING
+= EPILEPSIVARNING
+It's a flasher. It flashes.
+= Det är en flasher. Den blinkar.

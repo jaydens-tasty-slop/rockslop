@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = yfirlýsing undirrituð (demo: ekki vistuð)
 could not save the waiver: {0}
 = tókst ekki að vista yfirlýsinguna: {0}
+EPILEPSY WARNING
+= VIÐVÖRUN UM FLOGAVEIKI
+It's a flasher. It flashes.
+= Þetta er flassari. Hann blikkar.

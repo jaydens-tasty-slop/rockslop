@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = ลงนามในหนังสือสละสิทธิ์แล้ว (เดโม: ไม่ได้บันทึก)
 could not save the waiver: {0}
 = บันทึกหนังสือสละสิทธิ์ไม่ได้: {0}
+EPILEPSY WARNING
+= คำเตือนโรคลมชัก
+It's a flasher. It flashes.
+= ก็มันคือแฟลชเชอร์ มันก็ต้องแฟลชสิ

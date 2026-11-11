@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = Verzichtserklärung unterschrieben (Demo: nicht gespeichert)
 could not save the waiver: {0}
 = Verzichtserklärung konnte nicht gespeichert werden: {0}
+EPILEPSY WARNING
+= EPILEPSIEWARNUNG
+It's a flasher. It flashes.
+= Es ist ein Flasher. Es blitzt.

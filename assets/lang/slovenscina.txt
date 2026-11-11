@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = izjava podpisana (demo: ni shranjena)
 could not save the waiver: {0}
 = izjave ni bilo mogoče shraniti: {0}
+EPILEPSY WARNING
+= OPOZORILO GLEDE EPILEPSIJE
+It's a flasher. It flashes.
+= To je flasher. Utripa.

@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = nyilatkozat aláírva (demó: nincs mentve)
 could not save the waiver: {0}
 = a nyilatkozat mentése nem sikerült: {0}
+EPILEPSY WARNING
+= EPILEPSZIA-FIGYELMEZTETÉS
+It's a flasher. It flashes.
+= Ez egy flasher. Villog.

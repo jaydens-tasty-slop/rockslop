@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = כתב הוויתור נחתם (דמו: לא נשמר)
 could not save the waiver: {0}
 = לא ניתן היה לשמור את כתב הוויתור: {0}
+EPILEPSY WARNING
+= אזהרת אפילפסיה
+It's a flasher. It flashes.
+= זה פלאשר. הוא מהבהב.

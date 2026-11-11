@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = verklaring getekend (demo: niet bewaard)
 could not save the waiver: {0}
 = kon de verklaring niet bewaren: {0}
+EPILEPSY WARNING
+= EPILEPSIEWAARSCHUWING
+It's a flasher. It flashes.
+= Het is een flasher. Hij flitst.

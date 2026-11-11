@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = वेवर पर हस्ताक्षर हो गए (डेमो: सहेजा नहीं गया)
 could not save the waiver: {0}
 = वेवर सहेजा नहीं जा सका: {0}
+EPILEPSY WARNING
+= मिर्गी चेतावनी
+It's a flasher. It flashes.
+= यह फ़्लैशर है। यह चमकता है।

@@ -2632,6 +2632,7 @@ impl App {
                 );
             }
         }
+        epilepsy(g, sz, ease_out_cubic(window(st, 0.5, 0.6)) * a);
     }
 
     fn hud_select(&mut self) {
@@ -4083,6 +4084,34 @@ fn aim_at(an: model::Anchor, cur: f32) -> (f32, f32) {
         (if n.x.abs() > 0.5 { full * 0.62 } else { full }, 0.12)
     };
     (yaw + ((cur - yaw) / TAU).round() * TAU, pitch)
+}
+
+/// The epilepsy warning, under the players' feet on the boot screen. It
+/// holds still: no decoding, no glitch, stripes that don't slide.
+fn epilepsy(g: &Gfx, sz: Vec2, a: f32) {
+    if a <= 0.0 {
+        return;
+    }
+    let (head, joke) = (tr("EPILEPSY WARNING"), tr("It's a flasher. It flashes."));
+    let room = sz.x - 440.0;
+    let (hs, hsp) = text::fit(g, Face::Semi, head, 15.0, 3.0, room - 64.0);
+    let hw = text::spaced_width(g, Face::Semi, head, hs, hsp) + 30.0;
+    let (js, jsp) = text::fit(g, Face::Mono, joke, 12.5, 1.0, room - 34.0);
+    let jw = text::spaced_width(g, Face::Mono, joke, js, jsp);
+    let w = hw.max(jw) + 34.0;
+    let r = ui::unfold(Rect::new((sz.x - w) / 2.0, sz.y - 106.0, w, 80.0), a);
+    let pts = ui::chamfer(r, 10.0);
+    ui::fill_convex(&pts, Color::new(0.012, 0.01, 0.03, 0.86 * a));
+    ui::polyline(&pts, 1.2, pal::alpha(pal::scale(pal::AMBER, 0.7), a), true);
+    ui::hazard(Rect::new(r.x + 12.0, r.y + 7.0, r.w - 19.0, 6.0), 0.0, a * 0.8);
+    // the words come once the box is open
+    let a = a * a;
+    let x = r.x + (r.w - hw) / 2.0;
+    ui::warning(vec2(x + 9.0, r.y + 33.0), 16.0, pal::alpha(pal::AMBER, a));
+    text::draw_spaced(g, Face::Semi, head, vec2(x + 30.0, r.y + 39.0), hs, pal::alpha(pal::AMBER, a), Align::Left, hsp);
+    // magenta with some green in it, so it holds together in the colour split
+    let jc = pal::mix(pal::MAGENTA, pal::ICE, 0.45);
+    text::draw_spaced(g, Face::Mono, joke, vec2(r.x + r.w / 2.0, r.y + 64.0), js, pal::alpha(jc, a), Align::Center, jsp);
 }
 
 /// A mouse pointer drawn in the scene, its tip at `p`: ringed while it

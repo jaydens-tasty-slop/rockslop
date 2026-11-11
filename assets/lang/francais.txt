@@ -614,3 +614,7 @@ waiver signed (demo: not saved)
 = décharge signée (démo : non enregistrée)
 could not save the waiver: {0}
 = impossible d'enregistrer la décharge : {0}
+EPILEPSY WARNING
+= AVERTISSEMENT SUR L'ÉPILEPSIE
+It's a flasher. It flashes.
+= C'est un flasheur. Ça flashe.
