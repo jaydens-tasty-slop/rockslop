@@ -343,8 +343,10 @@ removed {0}: the firmware is in flash, not on the card
 = eliminado {0}: o firmware está na flash, non na tarxeta
 {0} files written
 = {0} ficheiros escritos
-reading every file back from the card
-= relendo cada ficheiro desde a tarxeta
+{0} files already on the card match the package: left as they are
+= {0} ficheiros da tarxeta xa coinciden co paquete: déixanse como están
+reading the written files back from the card
+= relendo os ficheiros escritos desde a tarxeta
 {0} files read back: sha256 OK
 = {0} ficheiros relidos: sha256 OK
 card ejected

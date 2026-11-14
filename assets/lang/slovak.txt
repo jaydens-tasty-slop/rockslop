@@ -343,8 +343,10 @@ removed {0}: the firmware is in flash, not on the card
 = odstránené {0}: firmware je vo flash pamäti, nie na karte
 {0} files written
 = zapísané súbory: {0}
-reading every file back from the card
-= čítam každý súbor z karty späť
+{0} files already on the card match the package: left as they are
+= súbory na karte už zhodné s balíkom: {0}, ponechané bez zmeny
+reading the written files back from the card
+= čítam zapísané súbory z karty späť
 {0} files read back: sha256 OK
 = súbory prečítané späť: {0}: sha256 OK
 card ejected

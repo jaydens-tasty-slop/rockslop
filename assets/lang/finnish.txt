@@ -343,8 +343,10 @@ removed {0}: the firmware is in flash, not on the card
 = poistettu {0}: firmware on flashissa, ei kortilla
 {0} files written
 = tiedostoja kirjoitettu: {0}
-reading every file back from the card
-= luetaan jokainen tiedosto takaisin kortilta
+{0} files already on the card match the package: left as they are
+= kortilla jo paketin mukaisia tiedostoja: {0}, jätetään ennalleen
+reading the written files back from the card
+= luetaan kirjoitetut tiedostot takaisin kortilta
 {0} files read back: sha256 OK
 = tiedostoja luettu takaisin: {0}: sha256 OK
 card ejected

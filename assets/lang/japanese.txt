@@ -343,8 +343,10 @@ removed {0}: the firmware is in flash, not on the card
 = {0} を削除：ファームウェアはカードではなくフラッシュにあります
 {0} files written
 = {0} ファイルを書き込み
-reading every file back from the card
-= カードから全ファイルを読み戻し中
+{0} files already on the card match the package: left as they are
+= カード上の {0} ファイルはすでにパッケージと同じ：そのまま
+reading the written files back from the card
+= 書き込んだファイルをカードから読み戻し中
 {0} files read back: sha256 OK
 = {0} ファイルを読み戻し：sha256 OK
 card ejected

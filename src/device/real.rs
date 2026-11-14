@@ -15,8 +15,11 @@ use super::yp3::{self, crc32, Yp3};
 use super::*;
 use crate::err;
 use crate::pkg::{hex, sha256, Package};
+use std::cell::Cell;
 use std::collections::HashMap;
 use std::io::Write;
+use std::path::PathBuf;
+use std::rc::Rc;
 use std::time::Instant;
 
 const ROCKBOX_VID: u16 = 0x1209;
@@ -665,7 +668,8 @@ impl Real {
     }
 }
 
-/// Copy the package's card tree onto the player's card and read it back;
+/// Copy the package's card tree onto the player's card (a file it holds
+/// already, unchanged, stays as it is) and read what was written back;
 /// then put the stock backup there too, or take it from there when this
 /// computer has none.
 fn sync_card(kind: Kind, pkg: &Package, stock: Option<&Backup>, ev: &Sink) -> Result<(usize, u64), String> {
@@ -719,39 +723,37 @@ fn sync_card(kind: Kind, pkg: &Package, stock: Option<&Backup>, ev: &Sink) -> Re
     for dir in &pkg.dirs {
         let _ = std::fs::create_dir_all(card.mount.join(dir));
     }
+    // A file the card already holds as the package has it stays as it is:
+    // reading it is much quicker than writing it, and checks it as well.
+    // Only the files written are read back afterwards.
     let mut done = 0u64;
     let mut sums: Vec<(String, [u8; 32])> = Vec::new();
+    let (mut same, mut same_bytes) = (0usize, 0u64);
+    let wrote = Rc::new(Cell::new(false));
     let mount = card.mount.clone();
     pkg.for_each_card_file(
         |rel, size| {
-            let p = mount.join(rel);
-            if let Some(parent) = p.parent() {
-                std::fs::create_dir_all(parent).map_err(|e| err!(E520, "{}: {e}", parent.display()))?;
-            }
-            let f = std::fs::File::create(&p).map_err(|e| err!(E521, "{}: {e}", p.display()))?;
-            let mut w = std::io::BufWriter::with_capacity(256 << 10, f);
-            ev.send(Event::File(rel.to_string(), size));
-            let mut left = size;
-            Ok(Box::new(move |chunk: &[u8]| {
-                let write_err = |e: std::io::Error| err!(E522, "card write: {e}");
-                w.write_all(chunk).map_err(write_err)?;
-                left = left.saturating_sub(chunk.len() as u64);
-                if left == 0 {
-                    w.flush().map_err(write_err)?;
-                    sdcard::sync_file(w.get_ref()).map_err(|e| err!(E523, "card sync: {e}"))?;
-                }
-                Ok(())
-            }))
+            let (ev, name) = (ev.clone(), rel.to_string());
+            card_file(mount.join(rel), size, wrote.clone(), move || ev.send(Event::File(name.clone(), size)))
         },
         |rel, sum| {
             let size = pkg.files.iter().find(|f| f.path == rel).map(|f| f.size).unwrap_or(0);
             done += size;
             ev.progress(done as f32 / total.max(1) as f32 * 0.7);
-            sums.push((rel.to_string(), sum));
+            if wrote.get() {
+                sums.push((rel.to_string(), sum));
+            } else {
+                same += 1;
+                same_bytes += size;
+                ev.send(Event::Unchanged(rel.to_string(), size));
+            }
             Ok(())
         },
     )?;
     ev.ok(format!("{} files written", sums.len()));
+    if same > 0 {
+        ev.ok(format!("{same} files already on the card match the package: left as they are"));
+    }
     let stock_copy = match stock.map(|b| stock_to_card(&card, b, ev)) {
         Some(Err(e)) => {
             ev.warn(format!("could not copy the stock firmware to the card: {e}"));
@@ -760,9 +762,14 @@ fn sync_card(kind: Kind, pkg: &Package, stock: Option<&Backup>, ev: &Sink) -> Re
         Some(Ok(c)) => c,
         None => None,
     };
-    ev.info("reading every file back from the card");
-    sdcard::drop_cache(&mut card)?;
-    let mut checked = 0u64;
+    if !sums.is_empty() || stock_copy.is_some() {
+        sdcard::drop_cache(&mut card)?;
+    }
+    if !sums.is_empty() {
+        ev.info("reading the written files back from the card");
+    }
+    // the files left as they were are checked already
+    let mut checked = same_bytes;
     for (k, (rel, sum)) in sums.iter().enumerate() {
         let data = sdcard::read_back(&card.mount.join(rel)).map_err(|e| err!(E540, "{rel}: {e}"))?;
         if sha256(&data) != *sum {
@@ -774,7 +781,9 @@ fn sync_card(kind: Kind, pkg: &Package, stock: Option<&Backup>, ev: &Sink) -> Re
         }
         ev.progress(0.7 + 0.3 * checked as f32 / total.max(1) as f32);
     }
-    ev.ok(format!("{} files read back: sha256 OK", sums.len()));
+    if !sums.is_empty() {
+        ev.ok(format!("{} files read back: sha256 OK", sums.len()));
+    }
     if let Some((rel, img)) = stock_copy {
         let p = card.mount.join(&rel);
         if sdcard::read_back(&p).is_ok_and(|d| d == img) {
@@ -795,7 +804,70 @@ fn sync_card(kind: Kind, pkg: &Package, stock: Option<&Backup>, ev: &Sink) -> Re
         Ok(()) => ev.ok("card ejected"),
         Err(e) => ev.warn(format!("could not eject the card ({e}); eject it before unplugging")),
     }
-    Ok((sums.len(), total))
+    Ok((sums.len() + same, total))
+}
+
+type Chunks = Box<dyn FnMut(&[u8]) -> Result<(), String>>;
+
+/// Where one card file's bytes go. Where the card holds a file of the same
+/// size, they are compared with it as they come and written only from the
+/// first difference on (a rebuilt plugin differs in its first few KiB, so
+/// that costs little); otherwise the file is written whole. `wrote` says
+/// whether anything was written; `writing` runs as the first write starts.
+fn card_file(p: PathBuf, size: u64, wrote: Rc<Cell<bool>>, mut writing: impl FnMut() + 'static) -> Result<Chunks, String> {
+    use std::io::{BufReader, BufWriter, Read, Seek, SeekFrom};
+    // at 0 the file is made afresh; past 0, written over from there
+    fn open_at(p: &Path, at: u64) -> Result<BufWriter<std::fs::File>, String> {
+        if at == 0 {
+            if let Some(parent) = p.parent() {
+                std::fs::create_dir_all(parent).map_err(|e| err!(E520, "{}: {e}", parent.display()))?;
+            }
+        }
+        let f = if at == 0 {
+            std::fs::File::create(p)
+        } else {
+            std::fs::OpenOptions::new().write(true).open(p).and_then(|mut f| f.seek(SeekFrom::Start(at)).map(|_| f))
+        };
+        Ok(BufWriter::with_capacity(256 << 10, f.map_err(|e| err!(E521, "{}: {e}", p.display()))?))
+    }
+    enum To {
+        /// the card's copy, how far it matches, a buffer for its bytes
+        Compare(BufReader<std::fs::File>, u64, Vec<u8>),
+        Write(BufWriter<std::fs::File>),
+    }
+    let same_size = std::fs::metadata(&p).is_ok_and(|m| m.is_file() && m.len() == size);
+    let mut to = match same_size.then(|| sdcard::open_back(&p).ok()).flatten() {
+        Some(f) => To::Compare(BufReader::with_capacity(256 << 10, f), 0, Vec::new()),
+        None => {
+            writing();
+            To::Write(open_at(&p, 0)?)
+        }
+    };
+    wrote.set(matches!(to, To::Write(_)));
+    let mut left = size;
+    Ok(Box::new(move |chunk: &[u8]| {
+        if let To::Compare(card, at, buf) = &mut to {
+            buf.resize(chunk.len(), 0);
+            if card.read_exact(buf).is_ok() && buf[..] == *chunk {
+                *at += chunk.len() as u64;
+            } else {
+                let at = *at;
+                writing();
+                wrote.set(true);
+                to = To::Write(open_at(&p, at)?);
+            }
+        }
+        if let To::Write(w) = &mut to {
+            let write_err = |e: std::io::Error| err!(E522, "card write: {e}");
+            w.write_all(chunk).map_err(write_err)?;
+            left = left.saturating_sub(chunk.len() as u64);
+            if left == 0 {
+                w.flush().map_err(write_err)?;
+                sdcard::sync_file(w.get_ref()).map_err(|e| err!(E523, "card sync: {e}"))?;
+            }
+        }
+        Ok(())
+    }))
 }
 
 /// Write a copy of the stock backup to the card (`.rockbox/<its name>`,
@@ -859,4 +931,53 @@ fn prune(mount: &Path, keep: &std::collections::HashSet<&str>) -> usize {
         walk(mount, &mount.join(sub), keep, &mut n);
     }
     n
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    /// Feeds `chunks` to a card file at `p` the way a sync does; says
+    /// whether it wrote and how often `writing` ran.
+    fn feed(p: &Path, chunks: &[&[u8]]) -> (bool, usize) {
+        let wrote = Rc::new(Cell::new(false));
+        let starts = Rc::new(Cell::new(0));
+        let s = starts.clone();
+        let size = chunks.iter().map(|c| c.len() as u64).sum();
+        let mut sink = card_file(p.to_path_buf(), size, wrote.clone(), move || s.set(s.get() + 1)).unwrap();
+        for c in chunks {
+            sink(c).unwrap();
+        }
+        drop(sink);
+        (wrote.get(), starts.get())
+    }
+
+    #[test]
+    fn a_card_file_is_written_only_from_where_it_differs() {
+        let dir = std::env::temp_dir().join(format!("rockslop-test-cardfile-{}", std::process::id()));
+        let p = dir.join(".rockbox/rocks/x.rock");
+        let chunks: [&[u8]; 3] = [b"abcd", b"efgh", b"ij"];
+        // missing, directory and all: made
+        assert_eq!(feed(&p, &chunks), (true, 1));
+        assert_eq!(std::fs::read(&p).unwrap(), b"abcdefghij");
+        // as the package has it: left alone
+        assert_eq!(feed(&p, &chunks), (false, 0));
+        assert_eq!(std::fs::read(&p).unwrap(), b"abcdefghij");
+        // the same size, different in the second chunk: written from there
+        std::fs::write(&p, b"abcdeXghij").unwrap();
+        assert_eq!(feed(&p, &chunks), (true, 1));
+        assert_eq!(std::fs::read(&p).unwrap(), b"abcdefghij");
+        // different only in the last byte
+        std::fs::write(&p, b"abcdefghiJ").unwrap();
+        assert_eq!(feed(&p, &chunks), (true, 1));
+        assert_eq!(std::fs::read(&p).unwrap(), b"abcdefghij");
+        // longer or shorter: written afresh
+        std::fs::write(&p, b"abcdefghijkl").unwrap();
+        assert_eq!(feed(&p, &chunks), (true, 1));
+        assert_eq!(std::fs::read(&p).unwrap(), b"abcdefghij");
+        std::fs::write(&p, b"abcd").unwrap();
+        assert_eq!(feed(&p, &chunks), (true, 1));
+        assert_eq!(std::fs::read(&p).unwrap(), b"abcdefghij");
+        std::fs::remove_dir_all(&dir).unwrap();
+    }
 }

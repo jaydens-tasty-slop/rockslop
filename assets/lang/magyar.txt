@@ -343,8 +343,10 @@ removed {0}: the firmware is in flash, not on the card
 = {0} törölve: a firmware a flashben van, nem a kártyán
 {0} files written
 = kiírt fájlok: {0}
-reading every file back from the card
-= minden fájl visszaolvasása a kártyáról
+{0} files already on the card match the package: left as they are
+= a kártyán már a csomaggal egyező fájlok: {0}, változatlanul maradnak
+reading the written files back from the card
+= a kiírt fájlok visszaolvasása a kártyáról
 {0} files read back: sha256 OK
 = visszaolvasott fájlok: {0}: sha256 OK
 card ejected

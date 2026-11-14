@@ -157,6 +157,9 @@ pub enum Event {
     Hex(u32, Vec<u8>),
     /// a card file is being written: its path under the card root, and size
     File(String, u64),
+    /// a card file the card already holds as the package has it (read and
+    /// hashed): left as it is
+    Unchanged(String, u64),
     /// a card file read back and hashed (some of them: the UI only samples)
     ReadBack(String, u64),
     NeedCard(bool),

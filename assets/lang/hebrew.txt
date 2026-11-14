@@ -343,8 +343,10 @@ removed {0}: the firmware is in flash, not on the card
 = הוסר {0}: הקושחה נמצאת בפלאש, לא בכרטיס
 {0} files written
 = נכתבו {0} קבצים
-reading every file back from the card
-= קורא חזרה כל קובץ מהכרטיס
+{0} files already on the card match the package: left as they are
+= {0} קבצים בכרטיס כבר תואמים לחבילה: נשארים כמו שהם
+reading the written files back from the card
+= קורא חזרה מהכרטיס את הקבצים שנכתבו
 {0} files read back: sha256 OK
 = נקראו חזרה {0} קבצים: sha256 תקין
 card ejected

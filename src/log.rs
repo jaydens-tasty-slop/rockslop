@@ -81,7 +81,7 @@ pub fn event(e: &Event) {
         Event::Ready => line("READY", ""),
         Event::Done(o) => line("DONE", &format!("{o:?}")),
         Event::Failed(e) => line("FAIL", e),
-        Event::Progress(_) | Event::Layout { .. } | Event::Sector(..) | Event::Hex(..) | Event::File(..) | Event::ReadBack(..) => {}
+        Event::Progress(_) | Event::Layout { .. } | Event::Sector(..) | Event::Hex(..) | Event::File(..) | Event::Unchanged(..) | Event::ReadBack(..) => {}
     }
 }
 

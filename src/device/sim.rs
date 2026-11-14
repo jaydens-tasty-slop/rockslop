@@ -27,6 +27,9 @@ pub struct Sim {
     pub rockbox: bool,
     /// the TS17 has the rescue stub (since its first flash here)
     rescue: bool,
+    /// the card holds a package already (since the first sync here): most
+    /// files are left as they are next time
+    synced: bool,
 }
 
 impl Sim {
@@ -42,6 +45,7 @@ impl Sim {
             fail: false,
             rockbox: false,
             rescue: false,
+            synced: false,
         }
     }
 
@@ -300,25 +304,41 @@ impl Sim {
                 Some(p) if !p.files.is_empty() => p.files.iter().map(|f| (f.path.clone(), f.size)).collect(),
                 _ => demo_card(),
             };
-            // as the real sync: write everything (0..0.7), then read it all
-            // back (0.7..1). Writes go at ~250 KB/s, read-back at ~1 MB/s.
+            // as the real sync: write what the card lacks, reading the rest
+            // in place of writing it (0..0.7), then read the written files
+            // back (0.7..1). Writes go at ~250 KB/s, reads at ~1 MB/s. After
+            // a first sync here, all but every ninth file is there already.
             let total: u64 = names.iter().map(|x| x.1).sum::<u64>().max(1);
-            let mut done = 0;
-            for (n, sz) in &names {
-                ev.send(Event::File(n.clone(), *sz));
-                self.nap(4 + *sz / 250);
+            let synced = self.synced;
+            let kept = |k: usize| synced && k % 9 != 0;
+            let (mut done, mut same, mut same_bytes) = (0, 0, 0);
+            for (k, (n, sz)) in names.iter().enumerate() {
+                if kept(k) {
+                    ev.send(Event::Unchanged(n.clone(), *sz));
+                    self.nap(2 + *sz / 1000);
+                    same += 1;
+                    same_bytes += sz;
+                } else {
+                    ev.send(Event::File(n.clone(), *sz));
+                    self.nap(4 + *sz / 250);
+                }
                 done += sz;
                 ev.progress(done as f32 / total as f32 * 0.7);
             }
-            ev.ok(format!("{} files written", names.len()));
+            ev.ok(format!("{} files written", names.len() - same));
+            if same > 0 {
+                ev.ok(format!("{same} files already on the card match the package: left as they are"));
+            }
             // the way back, kept on the card
             let stock = format!(".rockbox/{}-3fa9c21e-20261106-231500-stock.bin", kind.id());
             let size = (sectors * sector_size) as u64;
             ev.send(Event::File(stock.clone(), size));
             self.nap(1200);
-            ev.info("reading every file back from the card");
-            done = 0;
-            for (k, (n, sz)) in names.iter().enumerate() {
+            if same < names.len() {
+                ev.info("reading the written files back from the card");
+            }
+            done = same_bytes;
+            for (k, (n, sz)) in names.iter().enumerate().filter(|(k, _)| !kept(*k)) {
                 done += sz;
                 if k % 4 == 0 {
                     ev.send(Event::ReadBack(n.clone(), *sz));
@@ -326,7 +346,10 @@ impl Sim {
                 }
                 ev.progress(0.7 + 0.3 * done as f32 / total as f32);
             }
-            ev.ok(format!("{} files read back: sha256 OK", names.len()));
+            if same < names.len() {
+                ev.ok(format!("{} files read back: sha256 OK", names.len() - same));
+            }
+            self.synced = true;
             ev.send(Event::ReadBack(stock.clone(), size));
             self.nap(400);
             ev.ok(format!("stock firmware copied to the card: {stock}"));

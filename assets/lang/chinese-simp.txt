@@ -343,8 +343,10 @@ removed {0}: the firmware is in flash, not on the card
 = 已删除 {0}：固件位于闪存中，而非存储卡上
 {0} files written
 = 已写入 {0} 个文件
-reading every file back from the card
-= 正在从存储卡回读所有文件
+{0} files already on the card match the package: left as they are
+= 存储卡上已有 {0} 个文件与安装包一致：保持不变
+reading the written files back from the card
+= 正在从存储卡回读已写入的文件
 {0} files read back: sha256 OK
 = 已回读 {0} 个文件：sha256 正常
 card ejected

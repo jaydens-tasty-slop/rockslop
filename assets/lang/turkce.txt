@@ -343,8 +343,10 @@ removed {0}: the firmware is in flash, not on the card
 = {0} kaldırıldı: firmware kartta değil, flash bellekte
 {0} files written
 = yazılan dosya: {0}
-reading every file back from the card
-= tüm dosyalar karttan geri okunuyor
+{0} files already on the card match the package: left as they are
+= kartta zaten paketle aynı olan dosya: {0}, olduğu gibi bırakıldı
+reading the written files back from the card
+= yazılan dosyalar karttan geri okunuyor
 {0} files read back: sha256 OK
 = geri okunan dosya: {0}: sha256 OK
 card ejected

@@ -101,9 +101,17 @@ pub fn drop_cache(card: &mut Card) -> Result<(), String> {
     imp::drop_cache(card)
 }
 
+/// Open a file to read it as the card holds it: after drop_cache, or one
+/// this run hasn't written.
+pub fn open_back(path: &Path) -> std::io::Result<std::fs::File> {
+    imp::open_uncached(path)
+}
+
 /// Read a file as the card holds it (after drop_cache).
 pub fn read_back(path: &Path) -> std::io::Result<Vec<u8>> {
-    imp::read_uncached(path)
+    let mut data = Vec::new();
+    std::io::Read::read_to_end(&mut open_back(path)?, &mut data)?;
+    Ok(data)
 }
 
 /// The error is a plain reason, without a number: callers only log it.
@@ -212,16 +220,16 @@ mod imp {
     }
 
     pub fn drop_cache(_card: &mut Card) -> Result<(), String> {
-        Ok(()) // per file, in read_uncached
+        Ok(()) // per file, in open_uncached
     }
 
-    pub fn read_uncached(path: &Path) -> std::io::Result<Vec<u8>> {
+    pub fn open_uncached(path: &Path) -> std::io::Result<std::fs::File> {
         let f = std::fs::File::open(path)?;
         // Written pages are clean once synced; DONTNEED drops them, so the
-        // read below goes to the card.
+        // reads that follow go to the card.
         f.sync_all()?;
         unsafe { libc::posix_fadvise(f.as_raw_fd(), 0, 0, libc::POSIX_FADV_DONTNEED) };
-        std::fs::read(path)
+        Ok(f)
     }
 
     pub fn eject(card: &Card) -> Result<(), String> {
@@ -327,8 +335,8 @@ mod imp {
         Ok(())
     }
 
-    pub fn read_uncached(path: &Path) -> std::io::Result<Vec<u8>> {
-        std::fs::read(path)
+    pub fn open_uncached(path: &Path) -> std::io::Result<std::fs::File> {
+        std::fs::File::open(path)
     }
 
     pub fn eject(card: &Card) -> Result<(), String> {
@@ -452,8 +460,8 @@ mod imp {
         Ok(())
     }
 
-    pub fn read_uncached(path: &Path) -> std::io::Result<Vec<u8>> {
-        std::fs::read(path)
+    pub fn open_uncached(path: &Path) -> std::io::Result<std::fs::File> {
+        std::fs::File::open(path)
     }
 
     pub fn eject(card: &Card) -> Result<(), String> {

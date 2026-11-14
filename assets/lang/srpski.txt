@@ -343,8 +343,10 @@ removed {0}: the firmware is in flash, not on the card
 = уклоњен {0}: фирмвер је у флешу, не на картици
 {0} files written
 = уписано фајлова: {0}
-reading every file back from the card
-= поновно читање свих фајлова са картице
+{0} files already on the card match the package: left as they are
+= фајлова на картици већ истих као у пакету: {0}, остављени какви јесу
+reading the written files back from the card
+= поновно читање уписаних фајлова са картице
 {0} files read back: sha256 OK
 = поново прочитано фајлова: {0}: sha256 OK
 card ejected

@@ -343,8 +343,10 @@ removed {0}: the firmware is in flash, not on the card
 = {0} 삭제됨: 펌웨어는 카드가 아니라 플래시에 있음
 {0} files written
 = 파일 {0}개 기록됨
-reading every file back from the card
-= 카드에서 모든 파일 다시 읽는 중
+{0} files already on the card match the package: left as they are
+= 카드에 이미 패키지와 같은 파일 {0}개: 그대로 둠
+reading the written files back from the card
+= 기록한 파일을 카드에서 다시 읽는 중
 {0} files read back: sha256 OK
 = 파일 {0}개 다시 읽음: sha256 OK
 card ejected

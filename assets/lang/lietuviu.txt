@@ -343,8 +343,10 @@ removed {0}: the firmware is in flash, not on the card
 = pašalinta {0}: firmware yra flash atmintyje, ne kortelėje
 {0} files written
 = įrašyta failų: {0}
-reading every file back from the card
-= visi failai skaitomi atgal iš kortelės
+{0} files already on the card match the package: left as they are
+= kortelėje jau yra paketą atitinkančių failų: {0}, paliekami kaip yra
+reading the written files back from the card
+= įrašyti failai skaitomi atgal iš kortelės
 {0} files read back: sha256 OK
 = perskaityta failų: {0}: sha256 OK
 card ejected

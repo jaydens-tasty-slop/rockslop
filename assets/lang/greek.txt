@@ -343,8 +343,10 @@ removed {0}: the firmware is in flash, not on the card
 = αφαιρέθηκε το {0}: το firmware είναι στη flash, όχι στην κάρτα
 {0} files written
 = αρχεία που γράφτηκαν: {0}
-reading every file back from the card
-= επανανάγνωση όλων των αρχείων από την κάρτα
+{0} files already on the card match the package: left as they are
+= αρχεία ήδη στην κάρτα όπως στο πακέτο: {0}, μένουν ως έχουν
+reading the written files back from the card
+= επανανάγνωση των αρχείων που γράφτηκαν από την κάρτα
 {0} files read back: sha256 OK
 = αρχεία που διαβάστηκαν: {0}: sha256 OK
 card ejected

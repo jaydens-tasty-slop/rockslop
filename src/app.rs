@@ -198,6 +198,8 @@ struct SyncView {
     /// when the first file went over
     started: Option<f32>,
     written: usize,
+    /// files the card already held as the package has them: left as they are
+    same: usize,
     readback: bool,
     /// when the last file event came: the card's contacts flash on it
     last: f32,
@@ -795,6 +797,17 @@ impl App {
                         }
                     }
                     self.job.files.push((n, s, self.time, false));
+                    if self.job.files.len() > 120 {
+                        self.job.files.drain(..40);
+                    }
+                }
+                // read and hashed in place of writing it: listed as checked
+                Event::Unchanged(n, s) => {
+                    let sv = &mut self.job.sync;
+                    sv.started.get_or_insert(self.time);
+                    sv.last = self.time;
+                    sv.same += 1;
+                    self.job.files.push((n, s, self.time, true));
                     if self.job.files.len() > 120 {
                         self.job.files.drain(..40);
                     }
@@ -3551,7 +3564,7 @@ impl App {
         let job = &self.job;
         let sv = &job.sync;
         let (files, bytes) = self.pkg.as_ref().map(|p| (p.files, p.card)).unwrap_or((0, 0));
-        let files = files.max(sv.written);
+        let files = files.max(sv.written + sv.same);
         let done = matches!(job.phase, Some(Phase::Eject | Phase::Done));
         let verified = if done {
             1.0
@@ -3702,7 +3715,7 @@ impl App {
             }
             _ => "--:--".to_string(),
         };
-        let shown_files = if sv.readback || done { (verified * files as f32).round() as usize } else { sv.written };
+        let shown_files = if sv.readback || done { (verified * files as f32).round() as usize } else { sv.written + sv.same };
         let rows = [
             (if sv.readback || done { tr("CHECKED") } else { tr("FILES") }, format!("{shown_files} / {files}")),
             (tr("DATA"), format!("{} / {}", mib((bytes as f32 * sv.level) as u64), mib(bytes))),

@@ -54,7 +54,10 @@ never asks.
    sector is checksummed on the device afterwards.
 5. **Reboot** into Rockbox. When its USB disk appears, **Sync** copies the
    card files onto the microSD card, reads each one back against its
-   SHA-256, and ejects the disk. If there is no card, the flasher waits
+   SHA-256, and ejects the disk. A file the card already holds as the
+   package has it is only read and compared, not written again, and one
+   that differs is written from its first difference on, so a reflash
+   copies just what changed. If there is no card, the flasher waits
    and asks for one. A copy of the stock backup goes onto the card too, as
    `.rockbox/{player}-{unit}-{time}-stock.bin` (see *Backups*).
 

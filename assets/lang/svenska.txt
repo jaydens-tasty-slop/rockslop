@@ -343,8 +343,10 @@ removed {0}: the firmware is in flash, not on the card
 = tog bort {0}: firmwaren ligger i flash, inte på kortet
 {0} files written
 = {0} filer skrivna
-reading every file back from the card
-= läser tillbaka varje fil från kortet
+{0} files already on the card match the package: left as they are
+= {0} filer på kortet stämmer redan med paketet: lämnas som de är
+reading the written files back from the card
+= läser tillbaka de skrivna filerna från kortet
 {0} files read back: sha256 OK
 = {0} filer återlästa: sha256 OK
 card ejected
