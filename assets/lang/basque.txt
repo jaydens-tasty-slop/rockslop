@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = flasha partzialki berridatzi da: babeskopia seguru dago diskoan
 nothing was written
 = ez da ezer idatzi
+the flash was rewritten: a backup is safe on disk
+= flasha berridatzi da: babeskopia seguru dago diskoan
+the firmware is in flash and checked; the card was not fully updated
+= firmwarea flashean dago, egiaztatuta; txartela ez da osorik eguneratu
 FAULT
 = HUTSEGITEA
 COPY REPORT

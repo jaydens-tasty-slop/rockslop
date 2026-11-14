@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = flashi kirjutati osaliselt üle: varukoopia on kettal turvas
 nothing was written
 = midagi ei kirjutatud
+the flash was rewritten: a backup is safe on disk
+= flash kirjutati üle: varukoopia on kettal turvas
+the firmware is in flash and checked; the card was not fully updated
+= firmware on välkmälus ja kontrollitud; kaarti ei uuendatud lõpuni
 FAULT
 = RIKE
 COPY REPORT

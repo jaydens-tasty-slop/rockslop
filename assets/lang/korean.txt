@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = 플래시가 일부 다시 쓰였습니다: 디스크에 백업이 안전하게 있습니다
 nothing was written
 = 아무것도 기록되지 않았습니다
+the flash was rewritten: a backup is safe on disk
+= 플래시가 다시 쓰였습니다: 디스크에 백업이 안전하게 있습니다
+the firmware is in flash and checked; the card was not fully updated
+= 펌웨어는 플래시에 있고 확인됨; 카드는 완전히 업데이트되지 않음
 FAULT
 = 오류
 COPY REPORT

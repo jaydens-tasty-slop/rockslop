@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = bahagyang naisulat muli ang flash: ligtas ang backup sa disk
 nothing was written
 = walang naisulat
+the flash was rewritten: a backup is safe on disk
+= naisulat muli ang flash: ligtas ang backup sa disk
+the firmware is in flash and checked; the card was not fully updated
+= nasa flash ang firmware at nasuri na; hindi lubusang na-update ang card
 FAULT
 = ERROR
 COPY REPORT

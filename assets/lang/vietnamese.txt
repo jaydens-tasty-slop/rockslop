@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = flash đã ghi lại một phần: bản sao lưu an toàn trên đĩa
 nothing was written
 = chưa ghi gì cả
+the flash was rewritten: a backup is safe on disk
+= flash đã được ghi lại: bản sao lưu an toàn trên đĩa
+the firmware is in flash and checked; the card was not fully updated
+= firmware đã nằm trong flash và được kiểm tra; thẻ chưa được cập nhật hết
 FAULT
 = LỖI
 COPY REPORT

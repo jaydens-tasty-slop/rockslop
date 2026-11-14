@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = flash var að hluta endurskrifað: afrit er öruggt á diskinum
 nothing was written
 = engu var skrifað
+the flash was rewritten: a backup is safe on disk
+= flash var endurskrifað: afrit er öruggt á diskinum
+the firmware is in flash and checked; the card was not fully updated
+= firmware er í flash-minni og yfirfarið; kortið var ekki uppfært að fullu
 FAULT
 = BILUN
 COPY REPORT

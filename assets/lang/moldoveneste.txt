@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = flash-ul a fost rescris parțial: o copie de siguranță e pe disc
 nothing was written
 = nu s-a scris nimic
+the flash was rewritten: a backup is safe on disk
+= flash-ul a fost rescris: o copie de siguranță e pe disc
+the firmware is in flash and checked; the card was not fully updated
+= firmware-ul e în flash și verificat; cardul nu a fost actualizat complet
 FAULT
 = EROARE
 COPY REPORT

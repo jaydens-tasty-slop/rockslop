@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = флашът е презаписан частично: копие е запазено на диска
 nothing was written
 = нищо не е записано
+the flash was rewritten: a backup is safe on disk
+= флашът е презаписан: копие е запазено на диска
+the firmware is in flash and checked; the card was not fully updated
+= фърмуерът е във флаш паметта и е проверен; картата не е обновена докрай
 FAULT
 = ГРЕШКА
 COPY REPORT

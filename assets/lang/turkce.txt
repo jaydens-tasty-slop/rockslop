@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = flash kısmen yeniden yazıldı: yedek diskte güvende
 nothing was written
 = hiçbir şey yazılmadı
+the flash was rewritten: a backup is safe on disk
+= flash yeniden yazıldı: yedek diskte güvende
+the firmware is in flash and checked; the card was not fully updated
+= firmware flash bellekte ve denetlendi; kart tamamen güncellenmedi
 FAULT
 = HATA
 COPY REPORT

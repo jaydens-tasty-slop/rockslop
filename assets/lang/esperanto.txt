@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = la flash estis parte reskribita: sekurkopio restas sur la disko
 nothing was written
 = nenio estis skribita
+the flash was rewritten: a backup is safe on disk
+= la flash estis reskribita: sekurkopio restas sur la disko
+the firmware is in flash and checked; the card was not fully updated
+= la programaro estas en la fulmmemoro kaj kontrolita; la karto ne estis plene ĝisdatigita
 FAULT
 = ERARO
 COPY REPORT

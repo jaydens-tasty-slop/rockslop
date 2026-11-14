@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = flash iš dalies perrašytas: atsarginė kopija saugi diske
 nothing was written
 = nieko neįrašyta
+the flash was rewritten: a backup is safe on disk
+= flash perrašytas: atsarginė kopija saugi diske
+the firmware is in flash and checked; the card was not fully updated
+= firmware yra flash atmintyje ir patikrinta; kortelė atnaujinta ne iki galo
 FAULT
 = KLAIDA
 COPY REPORT

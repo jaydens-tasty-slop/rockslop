@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = แฟลชถูกเขียนใหม่บางส่วน: ไฟล์สำรองปลอดภัยอยู่ในดิสก์
 nothing was written
 = ยังไม่ได้เขียนอะไร
+the flash was rewritten: a backup is safe on disk
+= แฟลชถูกเขียนใหม่แล้ว: ไฟล์สำรองปลอดภัยอยู่ในดิสก์
+the firmware is in flash and checked; the card was not fully updated
+= เฟิร์มแวร์อยู่ในแฟลชและตรวจแล้ว; การ์ดยังอัปเดตไม่ครบ
 FAULT
 = ข้อผิดพลาด
 COPY REPORT

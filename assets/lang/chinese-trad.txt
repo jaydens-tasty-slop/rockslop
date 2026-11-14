@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = 快閃記憶體已被部分重寫：磁碟上有安全備份
 nothing was written
 = 未寫入任何資料
+the flash was rewritten: a backup is safe on disk
+= 快閃記憶體已被重寫：磁碟上有安全備份
+the firmware is in flash and checked; the card was not fully updated
+= 韌體已在快閃記憶體中並通過校驗；記憶卡未完全更新
 FAULT
 = 故障
 COPY REPORT

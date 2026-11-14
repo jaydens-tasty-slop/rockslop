@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = flashia kirjoitettiin osittain uudelleen: varmuuskopio on turvassa levyllä
 nothing was written
 = mitään ei kirjoitettu
+the flash was rewritten: a backup is safe on disk
+= flash kirjoitettiin uudelleen: varmuuskopio on turvassa levyllä
+the firmware is in flash and checked; the card was not fully updated
+= firmware on flashissa ja tarkistettu; korttia ei päivitetty loppuun
 FAULT
 = HÄIRIÖ
 COPY REPORT

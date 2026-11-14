@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = флеш перезаписано частково: копія збережена на диску
 nothing was written
 = нічого не записано
+the flash was rewritten: a backup is safe on disk
+= флеш перезаписано: копія збережена на диску
+the firmware is in flash and checked; the card was not fully updated
+= прошивка у флеш-пам'яті й перевірена; картку оновлено не повністю
 FAULT
 = ЗБІЙ
 COPY REPORT

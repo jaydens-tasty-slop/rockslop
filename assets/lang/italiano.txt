@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = la flash è stata riscritta in parte: un backup è al sicuro sul disco
 nothing was written
 = non è stato scritto nulla
+the flash was rewritten: a backup is safe on disk
+= la flash è stata riscritta: un backup è al sicuro sul disco
+the firmware is in flash and checked; the card was not fully updated
+= il firmware è nella flash e verificato; la scheda non è stata aggiornata del tutto
 FAULT
 = GUASTO
 COPY REPORT

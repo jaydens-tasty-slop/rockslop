@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = li flash a stî rescrit e pårteye: ene schape est e såf sol disk
 nothing was written
 = ri n' a stî scrit
+the flash was rewritten: a backup is safe on disk
+= li flash a stî rescrit: ene schape est e såf sol disk
+the firmware is in flash and checked; the card was not fully updated
+= li firmware est dins l' flash et verifyî; li carte n' a nén stî mettowe a djoû tot a fwait
 FAULT
 = BERWETE
 COPY REPORT

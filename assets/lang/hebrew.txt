@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = הפלאש נכתב מחדש חלקית: גיבוי שמור בבטחה בדיסק
 nothing was written
 = לא נכתב דבר
+the flash was rewritten: a backup is safe on disk
+= הפלאש נכתב מחדש: גיבוי שמור בבטחה בדיסק
+the firmware is in flash and checked; the card was not fully updated
+= הקושחה נמצאת בפלאש ונבדקה; הכרטיס לא עודכן במלואו
 FAULT
 = תקלה
 COPY REPORT

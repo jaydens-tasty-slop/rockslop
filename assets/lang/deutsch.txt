@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = der Flash wurde teilweise überschrieben: ein Backup liegt sicher auf der Platte
 nothing was written
 = nichts geschrieben
+the flash was rewritten: a backup is safe on disk
+= der Flash wurde überschrieben: ein Backup liegt sicher auf der Platte
+the firmware is in flash and checked; the card was not fully updated
+= die Firmware liegt im Flash und ist geprüft; die Karte wurde nicht vollständig aktualisiert
 FAULT
 = FEHLER
 COPY REPORT

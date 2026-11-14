@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = फ़्लैश आंशिक रूप से दोबारा लिखा गया: बैकअप डिस्क पर सुरक्षित है
 nothing was written
 = कुछ नहीं लिखा गया
+the flash was rewritten: a backup is safe on disk
+= फ़्लैश दोबारा लिखा गया: बैकअप डिस्क पर सुरक्षित है
+the firmware is in flash and checked; the card was not fully updated
+= फ़र्मवेयर फ़्लैश में है और जाँचा गया; कार्ड पूरी तरह अपडेट नहीं हुआ
 FAULT
 = खराबी
 COPY REPORT

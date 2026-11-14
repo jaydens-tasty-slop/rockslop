@@ -275,6 +275,9 @@ CREDITS
 ## Fail
 the flash was partly rewritten: a backup is safe on disk
 nothing was written
+the flash was rewritten: a backup is safe on disk
+# the flash job got as far as the card: the player boots the new firmware
+the firmware is in flash and checked; the card was not fully updated
 FAULT
 # a button: puts a bug report (the error and the log) on the clipboard
 COPY REPORT

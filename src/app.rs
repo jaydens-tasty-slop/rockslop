@@ -187,6 +187,8 @@ struct Job {
     started: f32,
     ended: Option<f32>,
     written: usize,
+    /// a flash sector was erased: the flash is no longer as it was
+    touched: bool,
     /// the new firmware started booting at this time: the Rockbox sign on
     /// the player's screen lights up
     booted: Option<f32>,
@@ -770,6 +772,7 @@ impl App {
                         if s == Sect::Good && *x != Sect::Good {
                             self.job.written += 1;
                         }
+                        self.job.touched |= s == Sect::Erase;
                         *x = s;
                         self.job.heat[i as usize] = 1.0;
                     }
@@ -3918,8 +3921,14 @@ impl App {
             ts * 0.18,
             sz.x - x0 - 40.0,
         );
-        let written = self.job.written > 0;
-        let sub = if written { tr("the flash was partly rewritten: a backup is safe on disk") } else { tr("nothing was written") };
+        // what the failed job changed: the flash is checked before the
+        // reboot, and the card is only reached after it
+        let sub = match self.job.phase {
+            Some(Phase::Sync | Phase::Eject) => tr("the firmware is in flash and checked; the card was not fully updated"),
+            _ if !self.job.touched => tr("nothing was written"),
+            Some(Phase::Write) => tr("the flash was partly rewritten: a backup is safe on disk"),
+            _ => tr("the flash was rewritten: a backup is safe on disk"),
+        };
         text::draw_fit(
             &self.g,
             Face::Mono,

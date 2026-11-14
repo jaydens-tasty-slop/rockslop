@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = flash byl částečně přepsán: záloha je bezpečně na disku
 nothing was written
 = nic nebylo zapsáno
+the flash was rewritten: a backup is safe on disk
+= flash byl přepsán: záloha je bezpečně na disku
+the firmware is in flash and checked; the card was not fully updated
+= firmware je ve flash paměti a zkontrolován; karta nebyla plně aktualizována
 FAULT
 = CHYBA
 COPY REPORT

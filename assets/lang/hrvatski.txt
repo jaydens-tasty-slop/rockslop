@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = flash je djelomično prepisan: sigurnosna kopija je spremljena na disk
 nothing was written
 = ništa nije zapisano
+the flash was rewritten: a backup is safe on disk
+= flash je prepisan: sigurnosna kopija je spremljena na disk
+the firmware is in flash and checked; the card was not fully updated
+= firmware je u flashu i provjeren; kartica nije potpuno ažurirana
 FAULT
 = GREŠKA
 COPY REPORT

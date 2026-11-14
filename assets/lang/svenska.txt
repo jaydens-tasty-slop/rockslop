@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = flashen skrevs delvis om: en backup finns säkert på disk
 nothing was written
 = inget skrevs
+the flash was rewritten: a backup is safe on disk
+= flashen skrevs om: en backup finns säkert på disk
+the firmware is in flash and checked; the card was not fully updated
+= firmwaren ligger i flash och är kontrollerad; kortet uppdaterades inte helt
 FAULT
 = FEL
 COPY REPORT

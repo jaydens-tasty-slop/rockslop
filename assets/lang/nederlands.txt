@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = de flash is deels herschreven: een backup staat veilig op schijf
 nothing was written
 = er is niets geschreven
+the flash was rewritten: a backup is safe on disk
+= de flash is herschreven: een backup staat veilig op schijf
+the firmware is in flash and checked; the card was not fully updated
+= de firmware staat in flash en is gecontroleerd; de kaart is niet volledig bijgewerkt
 FAULT
 = STORING
 COPY REPORT

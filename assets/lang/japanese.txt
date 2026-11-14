@@ -241,6 +241,10 @@ the flash was partly rewritten: a backup is safe on disk
 = フラッシュは一部書き換え済み：バックアップはディスクに安全に保存されています
 nothing was written
 = 何も書き込まれていません
+the flash was rewritten: a backup is safe on disk
+= フラッシュは書き換え済み：バックアップはディスクに安全に保存されています
+the firmware is in flash and checked; the card was not fully updated
+= ファームウェアはフラッシュにあり確認済み；カードの更新は完了していません
 FAULT
 = 障害
 COPY REPORT
