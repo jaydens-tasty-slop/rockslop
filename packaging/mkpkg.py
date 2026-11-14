@@ -9,14 +9,15 @@
 Usage (run from anywhere; paths are ordinary paths):
 
   YP3, from a rockbox-yp3 release build (yp3dev/distro.sh):
-    mkpkg.py yp3 --elf build/distro/build/rockbox.elf --base build/base.bin \\
+    mkpkg.py yp3 --elf build/distro/build/rockbox.elf \\
         --codecs build/distro/build/lib/rbcodec/codecs/xip/codecs.flash \\
         --card build/distro/card --version 4.0-yp3 -o rockbox-yp3-4.0.tar.xz
 
-    --base is a full 2 MiB stock flash image; its bootloader and partition
-    table are recorded as expect= lines, so the flasher refuses a player
-    whose boot sectors differ. The ELF is placed by yp3dev/package.py
-    (found next to this checkout, or pass --placer).
+    The ELF is placed into an erased image by yp3dev/package.py (found next
+    to this checkout, or pass --placer), so no stock byte goes in the
+    package. Its expect= lines are YP3_BOOT: the flasher refuses a player
+    whose bootloader or partition table differs. --base FILE (a 2 MiB flash
+    image) is optional and only checked against YP3_BOOT.
 
   TS17, from a flat binary (objcopy -O binary of rockbox.elf) or the ELF:
     mkpkg.py ts17 --bin rockbox.bin --card CARD --version V -o out.tar.xz
@@ -53,7 +54,15 @@ FORMAT = 2  # rockslop refuses formats it doesn't read (2: TS17 Rockbox at 0x150
 YP3_IMAGE = 2 * 1024 * 1024
 YP3_REGION = (0xE000, 0x150000)     # release firmware + XIP codecs
 YP3_CODECS = 0xE0000                # XIP_CODEC_AREA_START - 0xC00000
-YP3_BOOT = [(0x0, 0xD000), (0xD000, 0x1000)]   # bootloader, partition table
+# What a YP3 package expects of the player's flash: the stock bootloader,
+# and the partition table's header and FIRM entry (name, offset, length).
+# Not the FIRM CRC after them, which isn't stable: 0xdd05 in this player's
+# 2025 dump, 0xda8e in its 2026 read-back, the rest of the sector the same.
+YP3_BOOT = [
+    (0x0, 0xD000, "47fe9ad6074d83b8d2a0619bdfb66a021bd94ba4e86abdfaeda574952ed038af"),
+    (0xD000, 0x1C, "3b8c6abe37c52ede4ade536275ee0cb772b68861ed78b27246c7728fefc66661"),
+]
+YP3_FIRM_HEADER = 0x30              # the FIRM header's first word: its size
 TS17_SYS = 0x14000                  # fw0_sys: the rescue stub, then Rockbox
 TS17_SYS_MAX = 0x1A7000
 TS17_STUB = 0x1000                  # the stub's sector
@@ -84,13 +93,22 @@ def yp3_flash(a):
     placer = Path(a.placer) if a.placer else HERE.parent.parent / "yp3dev" / "package.py"
     if not placer.exists():
         die(f"{placer} not found; pass --placer path/to/yp3dev/package.py")
-    base = Path(a.base).read_bytes()
-    if len(base) != YP3_IMAGE:
-        die("--base must be a full 2 MiB flash image")
+    if a.base:
+        base = Path(a.base).read_bytes()
+        if len(base) != YP3_IMAGE:
+            die("--base must be a full 2 MiB flash image")
+        for off, n, h in YP3_BOOT:
+            if sha(base[off:off + n]) != h:
+                die(f"--base differs from the YP3 this package expects at {off:#x}+{n:#x}: "
+                    "the flasher would refuse that player")
     with tempfile.TemporaryDirectory() as tmp:
-        out = Path(tmp) / "image.bin"
-        subprocess.run([sys.executable, str(placer), a.elf, a.base, str(out)], check=True)
+        erased, out = Path(tmp) / "erased.bin", Path(tmp) / "image.bin"
+        erased.write_bytes(b"\xff" * YP3_IMAGE)
+        subprocess.run([sys.executable, str(placer), a.elf, str(erased), str(out)], check=True)
         img = bytearray(out.read_bytes())
+    # an older placer kept the base's header, and an erased one has none
+    if struct.unpack_from("<I", img, YP3_REGION[0])[0] != YP3_FIRM_HEADER:
+        die(f"{placer} wrote no FIRM header at {YP3_REGION[0]:#x}: it predates erased bases")
     if a.codecs:
         c = Path(a.codecs).read_bytes()
         if YP3_CODECS + len(c) > YP3_REGION[1]:
@@ -99,8 +117,7 @@ def yp3_flash(a):
     lo, hi = YP3_REGION
     region = bytes(img[lo:hi]).rstrip(b"\xff")
     region += b"\xff" * (-len(region) % 4096)
-    expect = [(off, n, sha(base[off:off + n])) for off, n in YP3_BOOT]
-    return [(lo, region)], expect
+    return [(lo, region)], YP3_BOOT
 
 
 def ts17_flash(a):
@@ -153,7 +170,7 @@ def main():
     p.add_argument("--fast", action="store_true")
     p.add_argument("--elf")
     p.add_argument("--bin")
-    p.add_argument("--base")
+    p.add_argument("--base", help="yp3: a 2 MiB flash image, checked against YP3_BOOT")
     p.add_argument("--codecs")
     p.add_argument("--placer")
     p.add_argument("--target", choices=("yp3", "ts17"))
@@ -162,8 +179,8 @@ def main():
     a = p.parse_args()
 
     if a.kind == "yp3":
-        if not (a.elf and a.base):
-            die("yp3 needs --elf and --base")
+        if not a.elf:
+            die("yp3 needs --elf")
         target, (segs, expect) = "yp3", yp3_flash(a)
     elif a.kind == "ts17":
         if bool(a.elf) == bool(a.bin):

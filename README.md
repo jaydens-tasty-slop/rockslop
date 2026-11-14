@@ -220,7 +220,7 @@ comes from rockslop itself, never from a package.
 and gives reproducible output under `SOURCE_DATE_EPOCH`:
 
 ```
-packaging/mkpkg.py yp3 --elf rockbox.elf --base stock-2MiB.bin \
+packaging/mkpkg.py yp3 --elf rockbox.elf \
     --codecs codecs.flash --card CARD --version 4.0-yp3 -o rockbox-yp3-4.0.tar.xz
 packaging/mkpkg.py ts17 --bin rockbox.bin --card CARD --version 4.0-ts17 -o rockbox-ts17-4.0.tar.xz
 packaging/mkpkg.py --help
