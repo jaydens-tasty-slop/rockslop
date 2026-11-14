@@ -9,8 +9,10 @@
 //! writes, polls and calls into the ROM's own SPI-NOR routines.
 
 use super::bot::{Bot, Data};
+use super::rdm::{Rdm, XIP_RUN};
 use super::usb::Link;
 use crate::err;
+use crate::pkg::{hex, sha256};
 use std::time::{Duration, Instant};
 
 pub const VID: u16 = 0x10d6;
@@ -26,6 +28,71 @@ pub const SECTOR: u32 = 0x1000;
 pub const SYS: u32 = 0x14000;
 pub const WRITABLE: (u32, u32) = (0x14000, 0x1BB000);
 pub const CHIP: u16 = 0x2351;
+
+/// Rockbox's rescue stub, fw0_sys's first sector, ahead of Rockbox. At
+/// every boot it arms the watchdog and the download-mode word; with USB
+/// power in, Down or on/off held sends the player to download mode; and it
+/// checks Rockbox's vectors before jumping to them. It is frozen for good
+/// (v2; the user's decision, 2026-11-14): rockslop carries it
+/// (payloads/ts17/rescue.bin, from rescue-lark.S), writes it once where
+/// there is none, and never touches one that's there. Packages hold
+/// Rockbox alone, for APP.
+pub const RESCUE: u32 = SYS;
+/// Rockbox, behind the stub: where a package's TS17 image goes.
+pub const APP: u32 = SYS + SECTOR;
+/// The stub as the CPU reads it, and the sha256 it is pinned to.
+const STUB: &[u8] = include_bytes!("../../payloads/ts17/rescue.bin");
+const STUB_SHA256: &str = "aa13ea64f60a71227ae55318f91dac94d0f0e7220b6bf73f98b6067367c44f0f";
+/// "RBRS" at +8 in a stub.
+const RESCUE_MARK: &[u8] = b"RBRS";
+/// Where the stub wants Rockbox's initial stack pointer (above RAM0's
+/// base, up to its top) and reset vector (APP, as XIP maps it, onwards).
+const RAM0: (u32, u32) = (0x0100_0000, 0x24000);
+const APP_BASE: u32 = 0x1000_0000 + SECTOR;
+
+fn word(b: &[u8], o: u32) -> u32 {
+    b.get(o as usize..o as usize + 4).map_or(0, |w| u32::from_le_bytes(w.try_into().unwrap()))
+}
+
+/// What to do when the player won't start, thanks to the stub (tested on
+/// hardware, 2026-11-14). English: the GUI translates it (a key in
+/// strings.txt), the CLI prints it.
+pub const HELP: &str = "If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.";
+
+/// The frozen stub, once its bytes match the pin (checked at startup).
+pub fn stub() -> Result<&'static [u8], String> {
+    if STUB.len() == SECTOR as usize && hex(&sha256(STUB)) == STUB_SHA256 {
+        Ok(STUB)
+    } else {
+        Err(err!(E903, "rockslop's copy of the TS17 rescue stub is damaged: download rockslop again"))
+    }
+}
+
+/// The cells stored at RESCUE hold a stub, the frozen one or not: "RBRS"
+/// at +8 in their first run, decoded.
+pub fn has_stub(rdm: &Rdm, cells: &[u8]) -> bool {
+    cells.get(..XIP_RUN).is_some_and(|run| rdm.decode(run, XIP_RUN).get(8..12) == Some(RESCUE_MARK))
+}
+
+/// The cells stored at RESCUE are the frozen stub, byte for byte.
+pub fn is_frozen(rdm: &Rdm, cells: &[u8]) -> bool {
+    cells.len() == SECTOR as usize && hex(&sha256(&rdm.decode(cells, XIP_RUN))) == STUB_SHA256
+}
+
+/// Refuses Rockbox for APP (`plain`, as the CPU reads it) unless the stub
+/// would start it: else every boot ends in download mode (or off, on
+/// battery).
+pub fn check_app(plain: &[u8]) -> Result<(), String> {
+    if plain.starts_with(b"\x7fELF") {
+        return Err(err!(E154, "the TS17 image is an ELF file: the package needs its objcopy -O binary image"));
+    }
+    let (sp, reset) = (word(plain, 0), word(plain, 4));
+    let ok = plain.len() >= 8 && sp.wrapping_sub(RAM0.0 + 1) < RAM0.1 && reset & 1 == 1 && reset.wrapping_sub(APP_BASE) < WRITABLE.1 - APP;
+    if !ok {
+        return Err(err!(E155, "the rescue stub would refuse this TS17 image's vectors (SP {sp:08x}, reset {reset:08x})"));
+    }
+    Ok(())
+}
 
 /// A partition's (offset, size) in the flash's partition table: `table`
 /// starts at its `ACPT` magic (NOR 0x1000, descrambled). The header gives
@@ -441,5 +508,56 @@ mod tests {
         moved[16 + 5 * 24 + 12] = 0x10; // fw0_sys at 0x14010
         assert_ne!(partition(&moved, "fw0_sys").map(|(o, s)| (o, o + s)), Some(WRITABLE));
         assert_eq!(partition(&t[1..], "fw0_sys"), None, "no magic");
+    }
+
+    /// Rockbox for APP, as the CPU reads it: SP at RAM0's top, reset into it.
+    fn app() -> Vec<u8> {
+        let mut img = vec![0u8; 0x2000];
+        img[..4].copy_from_slice(&0x0102_4000u32.to_le_bytes());
+        img[4..8].copy_from_slice(&0x1000_1101u32.to_le_bytes());
+        img
+    }
+
+    #[test]
+    fn the_stub_is_the_frozen_one() {
+        let s = stub().unwrap();
+        assert_eq!((&s[8..12], word(s, 12)), (&b"RBRS"[..], 2), "v2");
+        let r = Rdm::new();
+        let cells = r.encode(s, XIP_RUN);
+        assert!(has_stub(&r, &cells) && is_frozen(&r, &cells));
+        let mut other = s.to_vec();
+        other[0x200] ^= 1;
+        let other = r.encode(&other, XIP_RUN);
+        assert!(has_stub(&r, &other) && !is_frozen(&r, &other), "a stub, not ours");
+        assert!(!has_stub(&r, &r.encode(&[0x5a; SECTOR as usize], XIP_RUN)), "stock");
+        assert!(!has_stub(&r, &[0xff; SECTOR as usize]), "erased");
+        assert!(!has_stub(&r, &r.encode(&app()[..SECTOR as usize], XIP_RUN)), "Rockbox from before the stub");
+    }
+
+    #[test]
+    fn images_the_stub_would_refuse_are_refused() {
+        assert_eq!(check_app(&app()), Ok(()));
+        let with = |o: usize, w: u32| {
+            let mut img = app();
+            img[o..o + 4].copy_from_slice(&w.to_le_bytes());
+            check_app(&img)
+        };
+        assert_eq!(with(0, 0x0100_0001), Ok(()), "SP just above RAM0's base");
+        assert_eq!(with(4, APP_BASE + 0x1a5fff), Ok(()), "reset at fw0_sys's last byte");
+        let mut elf = app();
+        elf[..4].copy_from_slice(b"\x7fELF");
+        assert!(check_app(&elf).unwrap_err().starts_with("E154"));
+        for (o, w, why) in [
+            (0, 0xffff_ffff, "erased"),
+            (0, 0x0100_0000, "SP at RAM0's base"),
+            (0, 0x0102_4001, "SP past RAM0"),
+            (4, 0x1000_1100, "an even reset vector"),
+            (4, 0x1000_0f01, "reset into the stub"),
+            (4, APP_BASE + 0x1a6001, "reset past fw0_sys"),
+        ] {
+            assert!(with(o, w).unwrap_err().starts_with("E155"), "{why}");
+        }
+        assert!(check_app(&app()[..6]).unwrap_err().starts_with("E155"), "no vector table");
+        assert!(check_app(&stub().unwrap()).is_err(), "the stub itself, at APP");
     }
 }

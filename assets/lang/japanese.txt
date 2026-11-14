@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = てんかん発作に関する注意
 It's a flasher. It flashes.
 = フラッシャーだもの。そりゃ光る。
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= プレーヤーが起動しないときは：十字キーの下ボタン（または電源ボタン）を押したまま USB を接続し、そのまま約 3 秒押し続けてください。画面は暗いままですが、rockslop が見つけます。電源ボタンを約 7 秒長押しするとプレーヤーが再起動します。
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= この TS17 パッケージは古い形式（{0}）で、rockslop はもう書き込みません：新しいリリースを入手してください
+new install: the rescue stub goes in first
+= 新規インストール：まずレスキューコードを書き込み
+rescue stub in place: left alone
+= レスキューコードあり：変更しない
+a rescue stub that isn't rockslop's is in place: left alone
+= rockslop のものではないレスキューコードあり：変更しない

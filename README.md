@@ -62,12 +62,21 @@ never asks.
 offer: it takes this computer's stock backup, else the one on the card of
 a player plugged in running Rockbox, else asks for the file.
 
+**TS17 rescue stub.** A new Rockbox install on a TS17 writes a 4 KiB
+rescue stub at `0x14000` first and verifies it, then writes Rockbox behind
+it at `0x15000`. Later flashes never touch it, even a stub that isn't
+rockslop's (that is logged). Returning to stock removes it; the next
+Rockbox install counts as new again. If the player won't start: hold the
+D-pad's Down button (or the power button), plug in USB, and keep holding
+about 3 seconds. The screen stays dark; rockslop will find it. Holding the
+power button about 7 seconds restarts the player.
+
 ## Download mode
 
 | player | how |
 |---|---|
 | YP3 | unplug it and power it off (hold the centre key; it won't power off on USB). Then hold **Down** (bottom of the wheel) while connecting USB, and let go once it is found. Or hold Down and tap **RESET**. |
-| TS17 | connect it, switched on. Stock firmware is kicked into download mode automatically. If Rockbox is already running, unplug it and switch it off, then hold **Power** about 4 s while connecting. Or, in Rockbox, pick System > Debug (Keep Out!) > *Reboot to USB download mode*. |
+| TS17 | connect it, switched on. Stock firmware is kicked into download mode automatically. If Rockbox is already running, or the player won't start, unplug it and switch it off, then hold **Down** on the D-pad (or **Power**) while connecting and keep holding about 3 s: the screen stays dark. Or, in Rockbox, pick System > Debug (Keep Out!) > *Reboot to USB download mode*. |
 
 The GUI shows these steps on screen. The CLI prints them.
 
@@ -185,7 +194,7 @@ Microsoft's OpenGL compatibility pack from the Microsoft Store.
 A package is a plain `.tar.xz`:
 
 ```
-MANIFEST              format=1, target=yp3|ts17, version, built, title,
+MANIFEST              format=2, target=yp3|ts17, version, built, title,
                       expect=OFFSET SIZE SHA256  (flash that must already match)
 SHA256SUMS            sha256sum format, one line per file below
 flash/0x0000e000.bin  an image, written at the offset in its name
@@ -194,7 +203,10 @@ card/.rockbox/...     copied to the root of the SD card
 
 `format` is the layout version: rockslop refuses a package in a format it
 doesn't read, and says whether rockslop or the package needs updating. A
-package is only flashed onto the player its `target` names.
+package is only flashed onto the player its `target` names. YP3 packages
+may still be format 1. A TS17 package must be format 2: one image,
+`flash/0x00015000.bin`, which is Rockbox without the rescue stub. The stub
+comes from rockslop itself, never from a package.
 
 `packaging/mkpkg.py` builds them. It uses only the Python standard library
 and gives reproducible output under `SOURCE_DATE_EPOCH`:
@@ -206,6 +218,11 @@ packaging/mkpkg.py ts17 --bin rockbox.bin --card CARD --version 4.0-ts17 -o rock
 packaging/mkpkg.py --help
 ```
 
+For the TS17, `--bin` is the Rockbox build's `rockbox.bin`, stub included.
+mkpkg.py refuses it unless its first 4 KiB is the pinned stub (sha256
+`aa13ea64…44f0f`) and the vectors behind it pass the stub's own check. It
+then drops the stub.
+
 The card tree never holds the firmware itself (`.rockbox/rockbox.yp3`,
 `.rockbox/rockbox.ts17`): the firmware is in flash, and a copy on the card
 makes Rockbox offer to reboot into it, which fails. mkpkg.py leaves it
@@ -216,7 +233,7 @@ The flasher won't write outside each player's writable window:
 | player | writable window |
 |---|---|
 | YP3 | `0xE000..0x1FC000` (not the bootloader, partition table or calibration) |
-| TS17 | `0x14000..0x1BB000` |
+| TS17 | `0x15000..0x1BB000`. The rescue stub at `0x14000..0x15000` is written only by rockslop, on a new install; a restore writes from `0x14000` |
 
 ## Building
 

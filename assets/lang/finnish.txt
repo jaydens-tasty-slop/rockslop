@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = EPILEPSIAVAROITUS
 It's a flasher. It flashes.
 = Se on flashaaja. Se välkkyy.
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= Jos soitin ei käynnisty: pidä ristiohjaimen Alas-painiketta (tai virtapainiketta) pohjassa, kytke USB ja jatka painamista noin 3 sekuntia. Näyttö pysyy pimeänä; rockslop löytää sen. Virtapainikkeen pitäminen pohjassa noin 7 sekuntia käynnistää soittimen uudelleen.
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= tämä TS17-paketti on vanhemmassa muodossa ({0}), jota rockslop ei enää flashaa: hae uudempi julkaisu
+new install: the rescue stub goes in first
+= uusi asennus: pelastuskoodi kirjoitetaan ensin
+rescue stub in place: left alone
+= pelastuskoodi paikallaan: ei kosketa
+a rescue stub that isn't rockslop's is in place: left alone
+= paikalla on pelastuskoodi, joka ei ole rockslopin: ei kosketa

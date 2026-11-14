@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = VIÐVÖRUN UM FLOGAVEIKI
 It's a flasher. It flashes.
 = Þetta er flassari. Hann blikkar.
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= Ef spilarinn fer ekki í gang: haltu Niður-hnappnum á stefnuhnappinum (eða aflhnappnum) niðri, stingdu USB í samband og haltu áfram í um 3 sekúndur. Skjárinn helst dimmur; rockslop finnur hann. Ef aflhnappnum er haldið niðri í um 7 sekúndur endurræsist spilarinn.
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= þessi TS17-pakki er á eldra sniði ({0}) sem rockslop flassar ekki lengur: náðu í nýrri útgáfu
+new install: the rescue stub goes in first
+= ný uppsetning: björgunarkóðinn fer fyrst inn
+rescue stub in place: left alone
+= björgunarkóðinn er á sínum stað: ósnertur
+a rescue stub that isn't rockslop's is in place: left alone
+= björgunarkóði sem er ekki frá rockslop er á sínum stað: ósnertur

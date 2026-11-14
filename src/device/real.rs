@@ -421,9 +421,11 @@ impl Real {
     }
 
     /// The target image: the current flash with the package's segments laid
-    /// over it. Refuses anything outside the writable window.
+    /// over it. Refuses anything outside the writable window (on the TS17,
+    /// from Rockbox's place behind the rescue stub on).
     fn compose(&self, kind: Kind, cur: &[u8], segs: &[(crate::pkg::Seg, Vec<u8>)]) -> Result<Vec<u8>, String> {
         let g = kind.geometry();
+        let lo = if kind == Kind::Ts17 { ts17::APP } else { g.writable.0 };
         let mut img = cur.to_vec();
         for (seg, data) in segs {
             let cells = match kind {
@@ -436,13 +438,8 @@ impl Real {
             };
             let start = seg.offset;
             let end = start as usize + cells.len().div_ceil(g.sector as usize) * g.sector as usize;
-            if start < g.writable.0 || end > g.writable.1 as usize || start % g.sector != 0 {
-                return Err(err!(
-                    E153,
-                    "package writes 0x{start:06x}..0x{end:06x}, outside the safe window 0x{:06x}..0x{:06x}",
-                    g.writable.0,
-                    g.writable.1
-                ));
+            if start < lo || end > g.writable.1 as usize || start % g.sector != 0 {
+                return Err(err!(E153, "package writes 0x{start:06x}..0x{end:06x}, outside the safe window 0x{lo:06x}..0x{:06x}", g.writable.1));
             }
             img[start as usize..start as usize + cells.len()].copy_from_slice(&cells);
             img[start as usize + cells.len()..end].fill(0xff);
@@ -540,6 +537,27 @@ impl Real {
         }
     }
 
+    /// TS17: Rockbox only ever goes in behind the rescue stub. A stub that's
+    /// there is never touched (one that isn't rockslop's frozen stub is
+    /// only noted). Where there's none (stock, or a Rockbox from before the
+    /// stub), rockslop's own goes into `want`: program() writes sectors in
+    /// order, so the stub is written and verified before any of Rockbox,
+    /// and a flash cut short after that leaves the stub in charge.
+    fn rescue(&self, cur: &[u8], want: &mut [u8], ev: &Sink) -> Result<(), String> {
+        let s = ts17::RESCUE as usize..(ts17::RESCUE + ts17::SECTOR) as usize;
+        if ts17::has_stub(&self.rdm, &cur[s.clone()]) {
+            if ts17::is_frozen(&self.rdm, &cur[s]) {
+                ev.ok("rescue stub in place: left alone");
+            } else {
+                ev.warn("a rescue stub that isn't rockslop's is in place: left alone");
+            }
+            return Ok(());
+        }
+        want[s].copy_from_slice(&self.rdm.encode(ts17::stub()?, XIP_RUN));
+        ev.info("new install: the rescue stub goes in first");
+        Ok(())
+    }
+
     fn flash(&mut self, kind: Kind, path: &Path, ev: &Sink) -> Result<(), String> {
         let t0 = Instant::now();
         let mut pkg = Package::open(path)?;
@@ -574,8 +592,17 @@ impl Real {
         if segs.is_empty() {
             return Err(err!(E152, "the package has no firmware image"));
         }
-        let want = self.compose(kind, &cur, &segs)?;
+        if kind == Kind::Ts17 {
+            match segs.iter().find(|(s, _)| s.offset == ts17::APP) {
+                Some((_, data)) => ts17::check_app(data)?,
+                None => return Err(err!(E157, "this TS17 package has no Rockbox image for 0x{:06x}", ts17::APP)),
+            }
+        }
+        let mut want = self.compose(kind, &cur, &segs)?;
         ev.ok(format!("{} image(s), {} KiB, sha256 verified", segs.len(), segs.iter().map(|s| s.1.len()).sum::<usize>() / 1024));
+        if kind == Kind::Ts17 {
+            self.rescue(&cur, &mut want, ev)?;
+        }
 
         let written = self.program(&mut d, kind, &cur, &want, ev)?;
         ev.dim(format!("{written} sectors rewritten"));

@@ -25,6 +25,8 @@ pub struct Sim {
     /// the player first turns up running Rockbox, is unplugged, and comes
     /// back in download mode
     pub rockbox: bool,
+    /// the TS17 has the rescue stub (since its first flash here)
+    rescue: bool,
 }
 
 impl Sim {
@@ -39,6 +41,7 @@ impl Sim {
             base: Instant::now(),
             fail: false,
             rockbox: false,
+            rescue: false,
         }
     }
 
@@ -240,6 +243,9 @@ impl Sim {
             }
             ev.ok("backup verified: 512/512 sectors match");
             ev.probe("BOOTLOADER", "sha256 7c1e..9a04 KNOWN", Some(true));
+            if kind == Kind::Ts17 {
+                ev.log(if self.rescue { Lvl::Ok } else { Lvl::Info }, if self.rescue { "rescue stub in place: left alone" } else { "new install: the rescue stub goes in first" });
+            }
         }
         ev.phase(Phase::Write);
         let n_write = if kind == Kind::Yp3 { 168 } else { 210 };
@@ -277,6 +283,10 @@ impl Sim {
         self.watch = None;
         self.nap(1500);
         let mut out = Outcome { restored: restoring, ..Default::default() };
+        if kind == Kind::Ts17 {
+            // stock's own fw0_sys back in place takes the stub with it
+            self.rescue = !restoring;
+        }
         if !restoring {
             ev.phase(Phase::Sync);
             ev.info("waiting for Rockbox USB mass storage");

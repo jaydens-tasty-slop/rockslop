@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = BRĪDINĀJUMS PAR EPILEPSIJU
 It's a flasher. It flashes.
 = Tas ir flešotājs. Tas mirgo.
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= Ja atskaņotājs neieslēdzas: turi nospiestu virzienu pogas Lejup taustiņu (vai ieslēgšanas pogu), pievieno USB un turi vēl apmēram 3 sekundes. Ekrāns paliek tumšs; rockslop to atradīs. Turot ieslēgšanas pogu apmēram 7 sekundes, atskaņotājs pārstartējas.
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= šī TS17 pakotne ir vecākā formātā ({0}), ko rockslop vairs neieflešo: iegūsti jaunāku laidienu
+new install: the rescue stub goes in first
+= jauna instalācija: vispirms tiek ierakstīts glābšanas kods
+rescue stub in place: left alone
+= glābšanas kods vietā: neaiztikts
+a rescue stub that isn't rockslop's is in place: left alone
+= vietā ir glābšanas kods, kas nav no rockslop: neaiztikts

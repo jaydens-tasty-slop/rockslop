@@ -60,6 +60,11 @@ assets/lang/strings.txt, so that they translate. -->
   sequences (`adfu.py`, `norprobe.py`, `stock.py`) that
   `src/device/ts17.rs` ports, and the NOR data randomizer model
   (`rdm.py`) that `src/device/rdm.rs` ports.
+- **TS17 rescue stub** from the Rockbox Lark port [GPL-2.0-or-later]
+  `payloads/ts17/rescue-lark.S` is `firmware/target/arm/lark/rescue-lark.S`
+  from the rockbox-yp3 ts17 branch, frozen at commit 539a8e54 and copied
+  unchanged. `payloads/ts17/rescue.bin` is its 4 KiB build from that tree,
+  pinned by sha256; rockslop writes it in front of Rockbox on a new install.
 - **Rockbox** by the Rockbox contributors [GPL-2.0-or-later] <https://www.rockbox.org>
   The firmware this tool installs, and the SL6801 / Actions target ports
   it comes from. Its credits list (`docs/CREDITS`) is copied unchanged to

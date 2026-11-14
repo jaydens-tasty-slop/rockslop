@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = AVERTIXHMINT SO L' EPILEPSEYE
 It's a flasher. It flashes.
 = C' est on flasheu. I flashe.
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= Si l' aparey ni s' enonde nén: tinoz l' boton Dizo del crou (ou l' boton d' aloumaedje), metoz l' USB et tinoz co 3 segondes a pô près. L' waitroûle dimeure noere; rockslop l' trovrè. Tni l' boton d' aloumaedje 7 segondes a pô près rlance l' aparey.
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= ci paket TS17 la est dins on vî format ({0}) ki rockslop ni scrît pus: prindoz ene pus novele modêye
+new install: the rescue stub goes in first
+= novele astalaedje: li côde di rsauvaedje dabôrd
+rescue stub in place: left alone
+= côde di rsauvaedje en plaece: nén toûtchî
+a rescue stub that isn't rockslop's is in place: left alone
+= on côde di rsauvaedje ki n' est nén d' rockslop est en plaece: nén toûtchî

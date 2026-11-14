@@ -31,6 +31,8 @@ pub enum Tip {
     Card,
     Disk,
     Fail,
+    /// a TS17 flashed with the rescue stub: how to use it
+    Rescue,
 }
 
 /// A tip for the situation the user is in now.

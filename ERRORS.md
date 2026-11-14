@@ -19,6 +19,7 @@ To report one, press **COPY REPORT** on the error screen: it puts the error and 
 | E114 | MANIFEST has no format. | The package is broken. Build it again. |
 | E115 | MANIFEST names no player. | The package is broken. Build it again. |
 | E116 | The package is in an older format than this rockslop reads. | Get a newer release of the package. |
+| E117 | A TS17 package in format 1, from before the rescue stub. rockslop no longer flashes these. | Get a newer release of the package. |
 | E120 | No SHA256SUMS after MANIFEST. | The package is broken. Build it again. |
 | E121 | SHA256SUMS is not UTF-8. | The package is broken. Build it again. |
 | E122 | A SHA256SUMS line makes no sense. | The package is broken. Build it again. |
@@ -34,7 +35,10 @@ To report one, press **COPY REPORT** on the error screen: it puts the error and 
 | E150 | The package is for the other player. | Use the package for your player. |
 | E151 | CLI: the package names a player rockslop does not know. | Use a yp3 or ts17 package. |
 | E152 | No firmware image at the front of the package (it must come before the card files). | Build it again with the release script. |
-| E153 | The package would write over the bootloader or the player's own settings. Refused; nothing was written. | Do not use this package. |
+| E153 | The package would write outside the safe window: over the bootloader, the TS17 rescue stub or the player's own settings. Refused; nothing was written. | Do not use this package. |
+| E154 | TS17: the package's image is an ELF file, not the `objcopy -O binary` image. | Build it again with mkpkg.py. |
+| E155 | TS17: the rescue stub would refuse to start this image: its stack pointer or reset vector is out of range. Refused; nothing was written. | Do not use this package. |
+| E157 | TS17: the package has no Rockbox image for `0x15000`. | Build it again with mkpkg.py. |
 | E201 | CLI: the player did not appear in download mode in time. | Follow the steps again, or raise `--wait`. |
 | E202 | CLI: the player is there, but this user may not open it. | Linux: install the udev rule. macOS: use sudo. Windows: install WinUSB with Zadig. |
 | E205 | Another tool has the player open. | Close the other tool. |
@@ -115,3 +119,4 @@ To report one, press **COPY REPORT** on the error screen: it puts the error and 
 | E805 | CLI: the first flash's waiver needs signing, and nobody is at a terminal to type it. | Run it on a terminal, or pass `--no-backsies` to sign. |
 | E901 | The flasher crashed. A bug. | Report it with the message. |
 | E902 | TS17: an internal command list is too long. A bug. | Report it. |
+| E903 | rockslop's own copy of the TS17 rescue stub fails its checksum. rockslop won't start. | Download rockslop again. |

@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = BABALA SA EPILEPSY
 It's a flasher. It flashes.
 = Flasher ito. Kumikislap.
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= Kung ayaw mag-on ng player: pindutin nang matagal ang Down button ng D-pad (o ang power button), isaksak ang USB, at patuloy na pindutin nang mga 3 segundo. Mananatiling madilim ang screen; mahahanap ito ng rockslop. Kapag pinindot nang mga 7 segundo ang power button, magre-restart ang player.
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= ang TS17 package na ito ay nasa lumang format ({0}) na hindi na fina-flash ng rockslop: kumuha ng mas bagong release
+new install: the rescue stub goes in first
+= bagong install: unang isusulat ang rescue code
+rescue stub in place: left alone
+= nandiyan na ang rescue code: hindi ginalaw
+a rescue stub that isn't rockslop's is in place: left alone
+= may rescue code na hindi galing sa rockslop: hindi ginalaw

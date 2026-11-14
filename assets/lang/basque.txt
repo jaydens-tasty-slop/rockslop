@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = EPILEPSIA-ABISUA
 It's a flasher. It flashes.
 = Flasher bat da. Distiraka dabil.
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= Erreproduzitzailea abiarazten ez bada: eutsi sakatuta norabide-teklako Behera botoia (edo pizteko botoia), konektatu USBa eta jarraitu sakatzen 3 segundo inguru. Pantaila ilun geratzen da; rockslop-ek aurkituko du. Pizteko botoia 7 segundo inguru sakatuta edukitzeak erreproduzitzailea berrabiarazten du.
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= TS17 pakete hau formatu zaharrago batean dago ({0}), eta rockslop-ek jada ez du idazten: eskuratu bertsio berriago bat
+new install: the rescue stub goes in first
+= instalazio berria: erreskate-kodea lehenik
+rescue stub in place: left alone
+= erreskate-kodea bere lekuan: ukitu gabe
+a rescue stub that isn't rockslop's is in place: left alone
+= rockslop-ena ez den erreskate-kode bat dago: ukitu gabe

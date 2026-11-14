@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = EPİLEPSİ UYARISI
 It's a flasher. It flashes.
 = Adı üstünde: flaş çakıyor.
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= Çalar açılmıyorsa: yön tuşunun Aşağı düğmesini (ya da güç düğmesini) basılı tut, USB'yi tak ve yaklaşık 3 saniye basılı tutmaya devam et. Ekran karanlık kalır; rockslop onu bulur. Güç düğmesini yaklaşık 7 saniye basılı tutmak çaları yeniden başlatır.
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= bu TS17 paketi rockslop'un artık yazmadığı eski bir biçimde ({0}): daha yeni bir sürüm edin
+new install: the rescue stub goes in first
+= yeni kurulum: önce kurtarma kodu yazılır
+rescue stub in place: left alone
+= kurtarma kodu yerinde: dokunulmadı
+a rescue stub that isn't rockslop's is in place: left alone
+= rockslop'a ait olmayan bir kurtarma kodu yerinde: dokunulmadı

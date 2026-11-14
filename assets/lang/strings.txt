@@ -324,6 +324,9 @@ Push a microSD card all the way into the player's slot, then press RESET.
 # "USB disk": the player showing up on the computer as a USB drive
 Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.
 RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.
+# the TS17, after it has been flashed: how to reach download mode if it
+# ever won't start ("rockslop will find it": plugged in, the flasher sees it)
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
 # returning to stock: the backup is in .rockbox on the card, a folder
 # file browsers hide
 The .rockbox folder is hidden: turn on hidden files in your file browser to see it.
@@ -404,6 +407,13 @@ waiting for Rockbox USB mass storage
 no media: insert a microSD card
 syncing and ejecting card
 
+# The TS17's rescue stub: a small piece of code at the start of its
+# firmware that brings the player back to download mode when Rockbox won't
+# start. rockslop writes it once; after that it is never changed.
+new install: the rescue stub goes in first
+rescue stub in place: left alone
+a rescue stub that isn't rockslop's is in place: left alone
+
 ## Device errors (shown when something goes wrong)
 another tool holds the player ({0})
 the player did not come back in download mode
@@ -434,6 +444,8 @@ not a tar.xz release: {0}
 # {0} = a number; {1} = rockslop's version, such as 0.1.0
 this package (format {0}) needs a newer rockslop than {1}: update rockslop
 this package (format {0}) is too old for rockslop {1}: get a newer release
+# {0} = a number
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
 MANIFEST has no format
 MANIFEST names no target
 unsafe path in archive: {0}

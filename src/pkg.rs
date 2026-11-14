@@ -18,6 +18,12 @@
 //! wrong thing; keys a flasher can safely ignore don't need a bump.
 //! Everything is streamed: the flash images come before the card tree, so
 //! they can be read without decompressing the rest.
+//!
+//! Format 2: a TS17 package holds Rockbox alone, at NOR 0x15000, behind
+//! the rescue stub (which rockslop carries itself and writes once, where
+//! a player has none: device/ts17.rs). Format 1 put the stub in the
+//! package, at 0x14000; those TS17 packages are refused. YP3 packages are
+//! the same in both.
 
 use crate::err;
 use sha2::{Digest, Sha256};
@@ -27,8 +33,10 @@ use std::io::{BufReader, Read};
 use std::path::{Path, PathBuf};
 
 /// The newest package format this flasher reads, and the oldest.
-pub const FORMAT: u32 = 1;
+pub const FORMAT: u32 = 2;
 pub const OLDEST_FORMAT: u32 = 1;
+/// The oldest format a TS17 package can be.
+const OLDEST_TS17: u32 = 2;
 
 #[derive(Clone, Debug)]
 pub struct Seg {
@@ -193,16 +201,20 @@ fn parse_manifest(text: &str) -> Result<(Vec<(String, String)>, Vec<Seg>), Strin
             meta.push((k.to_string(), v.to_string()));
         }
     }
-    match get(&meta, "format").map(|f| f.parse::<u32>()) {
-        Some(Ok(f)) if (OLDEST_FORMAT..=FORMAT).contains(&f) => {}
+    let format = match get(&meta, "format").map(|f| f.parse::<u32>()) {
+        Some(Ok(f)) if (OLDEST_FORMAT..=FORMAT).contains(&f) => f,
         Some(Ok(f)) if f > FORMAT => {
             return Err(err!(E113, "this package (format {f}) needs a newer rockslop than {}: update rockslop", crate::VERSION))
         }
         Some(Ok(f)) => return Err(err!(E116, "this package (format {f}) is too old for rockslop {}: get a newer release", crate::VERSION)),
         _ => return Err(err!(E114, "MANIFEST has no format")),
-    }
-    if get(&meta, "target").is_none() {
-        return Err(err!(E115, "MANIFEST names no target"));
+    };
+    match get(&meta, "target") {
+        None => return Err(err!(E115, "MANIFEST names no target")),
+        Some("ts17") if format < OLDEST_TS17 => {
+            return Err(err!(E117, "this TS17 package is in an older format ({format}) that rockslop no longer flashes: get a newer release"))
+        }
+        _ => {}
     }
     Ok((meta, expect))
 }
@@ -442,7 +454,10 @@ mod tests {
         assert!(parse_manifest("target=yp3").unwrap_err().starts_with("E114"));
         assert!(parse_manifest("format=1").unwrap_err().starts_with("E115"));
         // a key this flasher doesn't know is metadata, not an error
-        assert!(parse_manifest("format=1\ntarget=ts17\nsomething_new=1").is_ok());
+        assert!(parse_manifest("format=2\ntarget=ts17\nsomething_new=1").is_ok());
+        // format 1 is fine for the YP3; a TS17 one carried its own stub
+        assert!(parse_manifest("format=1\ntarget=yp3").is_ok());
+        assert!(parse_manifest("format=1\ntarget=ts17").unwrap_err().starts_with("E117"));
     }
 
     #[test]

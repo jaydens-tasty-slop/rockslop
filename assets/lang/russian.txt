@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = ПРЕДУПРЕЖДЕНИЕ ОБ ЭПИЛЕПСИИ
 It's a flasher. It flashes.
 = Он прошивает. И мигает.
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= Если плеер не запускается: зажми кнопку «вниз» на крестовине (или кнопку питания), подключи USB и держи ещё около 3 секунд. Экран остаётся тёмным; rockslop его найдёт. Если держать кнопку питания около 7 секунд, плеер перезагрузится.
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= этот пакет для TS17 в старом формате ({0}), который rockslop больше не прошивает: скачай более новый выпуск
+new install: the rescue stub goes in first
+= новая установка: сначала пишется спасательный код
+rescue stub in place: left alone
+= спасательный код на месте: не трогаем
+a rescue stub that isn't rockslop's is in place: left alone
+= на месте спасательный код не от rockslop: не трогаем

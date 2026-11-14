@@ -64,6 +64,12 @@ fn arg(args: &[String], name: &str) -> Option<String> {
 
 #[macroquad::main(window_conf)]
 async fn main() {
+    // the TS17's rescue stub, which it writes once to a player: its bytes
+    // must be the frozen ones
+    if let Err(e) = rockslop::device::ts17::stub() {
+        eprintln!("{e}");
+        std::process::exit(1);
+    }
     let args: Vec<String> = std::env::args().collect();
     let has = |n: &str| args.iter().any(|a| a == n);
     let shot = arg(&args, "--shot");

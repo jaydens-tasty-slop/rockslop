@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = 광과민성 발작 경고
 It's a flasher. It flashes.
 = 플래셔잖아요. 번쩍거려요.
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= 플레이어가 켜지지 않으면: 방향 패드의 아래 버튼(또는 전원 버튼)을 누른 채로 USB를 연결하고 약 3초 동안 계속 누르세요. 화면은 꺼진 채로 있지만 rockslop이 찾아냅니다. 전원 버튼을 약 7초 동안 누르면 플레이어가 다시 시작됩니다.
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= 이 TS17 패키지는 rockslop이 더 이상 기록하지 않는 이전 형식({0})입니다: 더 새로운 릴리스를 받으세요
+new install: the rescue stub goes in first
+= 새로 설치: 구조 코드를 먼저 기록
+rescue stub in place: left alone
+= 구조 코드가 이미 있음: 건드리지 않음
+a rescue stub that isn't rockslop's is in place: left alone
+= rockslop의 것이 아닌 구조 코드가 있음: 건드리지 않음

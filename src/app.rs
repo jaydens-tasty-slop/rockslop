@@ -18,7 +18,7 @@ use crate::waiver::{self, Waiver};
 use macroquad::prelude::*;
 use rockslop::consent;
 use rockslop::device::backup::{self, Backup};
-use rockslop::device::{real::Real, sim::Sim, Cmd, Event, Hub, Lvl, Mode, Outcome, Phase, Sect};
+use rockslop::device::{real::Real, sim::Sim, ts17, Cmd, Event, Hub, Lvl, Mode, Outcome, Phase, Sect};
 use rockslop::pkg::Package;
 use std::f32::consts::{PI, TAU};
 use std::path::PathBuf;
@@ -1213,6 +1213,8 @@ impl App {
             Screen::Execute if self.job.phase == Some(Phase::Sync) && self.job.sync.started.is_none() => {
                 say(Tip::Disk, 35.0, tr("Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.").into())
             }
+            // the rescue stub is on it now: what to do if it won't start
+            Screen::Complete if self.kind() == Kind::Ts17 && !self.job.restoring => say(Tip::Rescue, 2.5, tr(ts17::HELP).into()),
             Screen::Fail => say(Tip::Fail, 4.0, tr("RETRY usually sorts it out. Still stuck? COPY REPORT puts the details on the clipboard for a bug report.").into()),
             _ => None,
         }

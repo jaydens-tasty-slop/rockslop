@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = AVERTO PRI EPILEPSIO
 It's a flasher. It flashes.
 = Ĝi estas flaŝilo. Ĝi flagras.
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= Se la ludilo ne ekfunkcias: tenu premita la Malsupren-butonon de la direktilo (aŭ la ŝaltilon), konektu USB kaj daŭre tenu ĉirkaŭ 3 sekundojn. La ekrano restas malhela; rockslop trovos ĝin. Teni la ŝaltilon ĉirkaŭ 7 sekundojn rekomencigas la ludilon.
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= ĉi tiu TS17-pakaĵo estas en pli malnova formato ({0}), kiun rockslop ne plu skribas: akiru pli novan eldonon
+new install: the rescue stub goes in first
+= nova instalo: unue la savkodo
+rescue stub in place: left alone
+= savkodo jam en loko: netuŝita
+a rescue stub that isn't rockslop's is in place: left alone
+= estas savkodo, kiu ne estas de rockslop: netuŝita

@@ -550,8 +550,10 @@ mod tests {
         for (head, body) in rockslop::consent::CLAUSES {
             missing.extend([head, body].into_iter().filter(|s| !keys.contains(s)).map(String::from));
         }
-        if !keys.contains(rockslop::consent::STATEMENT) {
-            missing.push(rockslop::consent::STATEMENT.into());
+        for s in [rockslop::consent::STATEMENT, rockslop::device::ts17::HELP] {
+            if !keys.contains(s) {
+                missing.push(s.into());
+            }
         }
         assert!(missing.is_empty(), "not in strings.txt: {missing:?}");
     }

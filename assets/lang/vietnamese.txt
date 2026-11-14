@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = CẢNH BÁO ĐỘNG KINH
 It's a flasher. It flashes.
 = Nó là flasher. Nó nhấp nháy.
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= Nếu máy không khởi động: giữ nút Xuống của phím điều hướng (hoặc nút nguồn), cắm USB và tiếp tục giữ khoảng 3 giây. Màn hình vẫn tối; rockslop sẽ tìm thấy máy. Giữ nút nguồn khoảng 7 giây sẽ khởi động lại máy.
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= gói TS17 này ở định dạng cũ ({0}) mà rockslop không còn flash nữa: hãy lấy bản phát hành mới hơn
+new install: the rescue stub goes in first
+= cài đặt mới: ghi mã cứu hộ trước
+rescue stub in place: left alone
+= mã cứu hộ đã có sẵn: không động vào
+a rescue stub that isn't rockslop's is in place: left alone
+= có mã cứu hộ không phải của rockslop: không động vào

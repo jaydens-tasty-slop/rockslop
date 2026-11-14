@@ -22,6 +22,11 @@ Usage (run from anywhere; paths are ordinary paths):
     mkpkg.py ts17 --bin rockbox.bin --card CARD --version V -o out.tar.xz
     mkpkg.py ts17 --elf rockbox.elf --card CARD --version V -o out.tar.xz
 
+    The image's first sector is the rescue stub, frozen for good: it must
+    hash to TS17_RESCUE_SHA256, and is left out (rockslop carries its own
+    copy and writes it once, where a player has none). The package holds
+    Rockbox alone, at NOR 0x15000, with vectors the stub accepts.
+
   Anything else:
     mkpkg.py raw --target yp3 --flash 0xE000:image.bin [--flash ...] \\
         [--expect 0:0xE000:base.bin] [--card DIR] --version V -o out.tar.xz
@@ -34,6 +39,7 @@ import hashlib
 import io
 import lzma
 import os
+import struct
 import subprocess
 import sys
 import tarfile
@@ -43,14 +49,22 @@ from pathlib import Path
 HERE = Path(__file__).resolve().parent
 # The package layout's version (rockslop's pkg::FORMAT): bump both together
 # when a flasher that ignored a change would do the wrong thing.
-FORMAT = 1  # rockslop refuses formats it doesn't read
+FORMAT = 2  # rockslop refuses formats it doesn't read (2: TS17 Rockbox at 0x15000, no stub)
 YP3_IMAGE = 2 * 1024 * 1024
 YP3_REGION = (0xE000, 0x150000)     # release firmware + XIP codecs
 YP3_CODECS = 0xE0000                # XIP_CODEC_AREA_START - 0xC00000
 YP3_BOOT = [(0x0, 0xD000), (0xD000, 0x1000)]   # bootloader, partition table
-TS17_SYS = 0x14000                  # fw0_sys
+TS17_SYS = 0x14000                  # fw0_sys: the rescue stub, then Rockbox
 TS17_SYS_MAX = 0x1A7000
-WRITABLE = {"yp3": (0xE000, 0x1FC000), "ts17": (0x14000, 0x1BB000)}
+TS17_STUB = 0x1000                  # the stub's sector
+TS17_APP = TS17_SYS + TS17_STUB     # Rockbox, behind the stub
+# The rescue stub as the CPU reads it, frozen (v2, 2026-11-14); rockslop
+# pins the same hash (src/device/ts17.rs).
+TS17_RESCUE_SHA256 = "aa13ea64f60a71227ae55318f91dac94d0f0e7220b6bf73f98b6067367c44f0f"
+TS17_RAM0 = (0x01000000, 0x24000)   # Rockbox's initial SP: above the base, up to the top
+TS17_APP_BASE = 0x10001000          # TS17_APP as XIP maps it
+# package flash goes here; the TS17's stub sector is rockslop's alone
+WRITABLE = {"yp3": (0xE000, 0x1FC000), "ts17": (TS17_APP, 0x1BB000)}
 BOOTFILES = {".rockbox/rockbox.yp3", ".rockbox/rockbox.ts17"}   # Rockbox's BOOTFILE
 
 
@@ -98,9 +112,19 @@ def ts17_flash(a):
             data = out.read_bytes()
     else:
         data = Path(a.bin).read_bytes()
-    if len(data) > TS17_SYS_MAX:
-        die(f"image is {len(data)} bytes; fw0_sys holds {TS17_SYS_MAX}")
-    return [(TS17_SYS, data)], []
+    if data[:4] == b"\x7fELF":
+        die(f"{a.bin} is an ELF file: pass it as --elf, or its objcopy -O binary image as --bin")
+    if sha(data[:TS17_STUB]) != TS17_RESCUE_SHA256:
+        die("the image's first sector is not the frozen rescue stub "
+            f"(sha256 {TS17_RESCUE_SHA256[:12]}...): rescue-lark.S must never change")
+    app = data[TS17_STUB:]
+    if len(app) > TS17_SYS_MAX - TS17_STUB:
+        die(f"Rockbox is {len(app)} bytes; fw0_sys holds {TS17_SYS_MAX - TS17_STUB} after the stub")
+    sp, reset = struct.unpack_from("<II", app) if len(app) >= 8 else (0, 0)
+    if ((sp - TS17_RAM0[0] - 1) & 0xFFFFFFFF >= TS17_RAM0[1] or not reset & 1
+            or (reset - TS17_APP_BASE) & 0xFFFFFFFF >= TS17_SYS_MAX - TS17_STUB):
+        die(f"the rescue stub would refuse Rockbox's vectors (SP {sp:08x}, reset {reset:08x})")
+    return [(TS17_APP, app)], []
 
 
 def raw_flash(a):

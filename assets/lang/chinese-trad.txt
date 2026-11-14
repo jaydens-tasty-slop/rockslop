@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = 癲癇警告
 It's a flasher. It flashes.
 = 快閃工具，當然會閃。
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= 如果播放器無法啟動：按住方向鍵的「下」鍵（或電源鍵），插上 USB，繼續按住約 3 秒。螢幕保持黑屏；rockslop 會找到它。按住電源鍵約 7 秒可重新啟動播放器。
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= 這個 TS17 安裝包是舊格式（{0}），rockslop 已不再刷寫：請取得更新的版本
+new install: the rescue stub goes in first
+= 全新安裝：先寫入救援程式
+rescue stub in place: left alone
+= 救援程式已存在：保持不動
+a rescue stub that isn't rockslop's is in place: left alone
+= 已有一個不是 rockslop 的救援程式：保持不動

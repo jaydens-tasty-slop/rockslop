@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = AVISO DE EPILEPSIA
 It's a flasher. It flashes.
 = Es un flasheador. Flashea.
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= Si el reproductor no arranca: mantén pulsado el botón Abajo de la cruceta (o el botón de encendido), conecta el USB y sigue pulsando unos 3 segundos. La pantalla se queda a oscuras; rockslop lo encontrará. Mantener pulsado el botón de encendido unos 7 segundos reinicia el reproductor.
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= este paquete de TS17 está en un formato antiguo ({0}) que rockslop ya no flashea: consigue una versión más nueva
+new install: the rescue stub goes in first
+= instalación nueva: primero va el código de rescate
+rescue stub in place: left alone
+= código de rescate en su sitio: no se toca
+a rescue stub that isn't rockslop's is in place: left alone
+= hay un código de rescate que no es de rockslop: no se toca

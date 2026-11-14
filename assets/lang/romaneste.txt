@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = AVERTISMENT PRIVIND EPILEPSIA
 It's a flasher. It flashes.
 = E un flasher. Clipește.
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= Dacă playerul nu pornește: ține apăsat butonul Jos al padului direcțional (sau butonul de pornire), conectează USB-ul și ține în continuare cam 3 secunde. Ecranul rămâne întunecat; rockslop îl va găsi. Dacă ții apăsat butonul de pornire cam 7 secunde, playerul repornește.
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= acest pachet TS17 are un format mai vechi ({0}), pe care rockslop nu-l mai scrie: ia o versiune mai nouă
+new install: the rescue stub goes in first
+= instalare nouă: întâi se scrie codul de salvare
+rescue stub in place: left alone
+= codul de salvare e la locul lui: neatins
+a rescue stub that isn't rockslop's is in place: left alone
+= există un cod de salvare care nu e al rockslop: neatins

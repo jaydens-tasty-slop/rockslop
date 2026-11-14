@@ -14,6 +14,11 @@
 //! --no-backsies (sign the first flash's waiver without typing it: --yes
 //! doesn't).
 //!
+//! The TS17 gets Rockbox's rescue stub ahead of Rockbox on its first flash
+//! (rockslop carries it; it's frozen, and a stub already there is never
+//! touched): with it, Down held while plugging in USB reaches download
+//! mode even when Rockbox won't start.
+//!
 //! The first flash on a computer shows the waiver (the player can be
 //! bricked, the warranty is void, it never goes back to the seller) and
 //! needs it signed: NO BACKSIES typed at the prompt, or --no-backsies. The
@@ -21,7 +26,7 @@
 
 use rockslop::device::sdcard::{self, Look};
 use rockslop::consent;
-use rockslop::device::{backup, real::Real, sim::Sim, Cmd, Event, Hub, Kind, Lvl, Mode, Phase};
+use rockslop::device::{backup, real::Real, sim::Sim, ts17, Cmd, Event, Hub, Kind, Lvl, Mode, Phase};
 use rockslop::err;
 use rockslop::pkg::Package;
 use std::io::{IsTerminal, Write};
@@ -54,6 +59,12 @@ fn kind_arg(s: Option<&String>) -> Option<Kind> {
 }
 
 fn main() -> ExitCode {
+    // the TS17's rescue stub, which it writes once to a player: its bytes
+    // must be the frozen ones
+    if let Err(e) = ts17::stub() {
+        eprintln!("{e}");
+        return ExitCode::FAILURE;
+    }
     let mut args: Vec<String> = std::env::args().skip(1).collect();
     let mut o = Opts { yes: false, wait: Duration::from_secs(300), demo: false, no_backsies: false };
     let mut i = 0;
@@ -169,6 +180,14 @@ fn check(path: &Path) -> Result<Package, String> {
     println!("flash    {} bytes in {} image(s)", p.flash_bytes(), p.flash.len());
     println!("card     {} files, {} bytes", p.files.len(), p.card_bytes());
     println!("sha256   all members match SHA256SUMS");
+    if p.get("target") == Some("ts17") {
+        for (s, data) in p.read_flash()? {
+            if s.offset == ts17::APP {
+                ts17::check_app(&data)?;
+                println!("rockbox  for 0x{:06x}, behind the rescue stub: its vectors pass the stub's check", s.offset);
+            }
+        }
+    }
     Ok(p)
 }
 
@@ -297,7 +316,7 @@ fn wait_rom(o: &Opts, h: &mut Hub, kind: Kind) -> Result<(), String> {
                 (Kind::Ts17, Some((Mode::Stock, _))) => println!("stock firmware: asking it to reboot into download mode"),
                 (Kind::Ts17, Some((m, _))) => {
                     println!(
-                        "the TS17 is running {}: unplug it and switch it off, then hold POWER about 4 s while connecting.\n  (Or in Rockbox: System > Debug > Reboot to USB download mode.)",
+                        "the TS17 is running {}: unplug it and switch it off. Then hold Down (or POWER), plug in USB and keep\n  holding about 3 s: the screen stays dark. (Or in Rockbox: System > Debug > Reboot to USB download mode.)",
                         mode_name(m)
                     )
                 }
@@ -346,7 +365,14 @@ fn flash(o: &Opts, path: &Path) -> Result<(), String> {
     wait_rom(o, &mut h, kind)?;
     confirm(o, &format!("Back up and flash {} with {}", kind.name(), path.display()))?;
     h.send(Cmd::Flash { kind, package: path.to_path_buf() });
-    run(&mut h, true).map(|_| ())
+    run(&mut h, true)?;
+    if kind == Kind::Ts17 {
+        println!();
+        for l in wrap(ts17::HELP, 74) {
+            println!("{l}");
+        }
+    }
+    Ok(())
 }
 
 fn restore(o: &Opts, kind: Kind, image: Option<PathBuf>) -> Result<(), String> {

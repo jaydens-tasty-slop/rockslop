@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = تحذير من الصرع
 It's a flasher. It flashes.
 = اسمه فلاشر، وهو يومض فعلاً.
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= إذا لم يعمل المشغل: اضغط مع الاستمرار على زر الأسفل في لوحة الاتجاهات (أو زر التشغيل)، وأوصل USB، واستمر بالضغط نحو 3 ثوانٍ. تبقى الشاشة مظلمة؛ وسيعثر عليه rockslop. الضغط على زر التشغيل نحو 7 ثوانٍ يعيد تشغيل المشغل.
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= حزمة TS17 هذه بتنسيق أقدم ({0}) لم يعد rockslop يكتبه: احصل على إصدار أحدث
+new install: the rescue stub goes in first
+= تثبيت جديد: رمز الإنقاذ يُكتب أولاً
+rescue stub in place: left alone
+= رمز الإنقاذ موجود: لم يُمس
+a rescue stub that isn't rockslop's is in place: left alone
+= رمز إنقاذ ليس من rockslop موجود: لم يُمس

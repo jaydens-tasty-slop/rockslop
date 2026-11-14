@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = मिर्गी चेतावनी
 It's a flasher. It flashes.
 = यह फ़्लैशर है। यह चमकता है।
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= अगर प्लेयर चालू न हो: डी-पैड का नीचे वाला बटन (या पावर बटन) दबाए रखें, USB लगाएँ, और लगभग 3 सेकंड तक दबाए रखें। स्क्रीन अंधेरी रहती है; rockslop उसे ढूँढ लेगा। पावर बटन को लगभग 7 सेकंड दबाए रखने से प्लेयर फिर से चालू हो जाता है।
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= यह TS17 पैकेज पुराने फ़ॉर्मैट ({0}) में है जिसे rockslop अब फ़्लैश नहीं करता: नया रिलीज़ लें
+new install: the rescue stub goes in first
+= नया इंस्टॉल: पहले रेस्क्यू कोड लिखा जाता है
+rescue stub in place: left alone
+= रेस्क्यू कोड मौजूद है: छुआ नहीं गया
+a rescue stub that isn't rockslop's is in place: left alone
+= ऐसा रेस्क्यू कोड मौजूद है जो rockslop का नहीं है: छुआ नहीं गया

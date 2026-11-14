@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = คำเตือนโรคลมชัก
 It's a flasher. It flashes.
 = ก็มันคือแฟลชเชอร์ มันก็ต้องแฟลชสิ
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= ถ้าเครื่องเปิดไม่ติด: กดปุ่มลงของปุ่มทิศทางค้างไว้ (หรือปุ่มเปิด/ปิด) เสียบ USB แล้วกดค้างต่อประมาณ 3 วินาที หน้าจอจะมืดอยู่ แต่ rockslop จะหาเครื่องเจอ กดปุ่มเปิด/ปิดค้างไว้ประมาณ 7 วินาทีจะรีสตาร์ตเครื่อง
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= แพ็กเกจ TS17 นี้เป็นรูปแบบเก่า ({0}) ที่ rockslop ไม่แฟลชแล้ว: หาเวอร์ชันที่ใหม่กว่า
+new install: the rescue stub goes in first
+= ติดตั้งใหม่: เขียนโค้ดกู้ระบบก่อน
+rescue stub in place: left alone
+= มีโค้ดกู้ระบบอยู่แล้ว: ไม่แตะต้อง
+a rescue stub that isn't rockslop's is in place: left alone
+= มีโค้ดกู้ระบบที่ไม่ใช่ของ rockslop อยู่: ไม่แตะต้อง

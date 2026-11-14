@@ -618,3 +618,13 @@ EPILEPSY WARNING
 = ĮSPĖJIMAS DĖL EPILEPSIJOS
 It's a flasher. It flashes.
 = Tai flasheris. Jis mirga.
+If the player won't start: hold the D-pad's Down button (or the power button), plug in USB, and keep holding about 3 seconds. The screen stays dark; rockslop will find it. Holding the power button about 7 seconds restarts the player.
+= Jei grotuvas neįsijungia: laikyk nuspaudęs krypčių mygtuko Žemyn klavišą (arba įjungimo mygtuką), prijunk USB ir laikyk dar maždaug 3 sekundes. Ekranas lieka tamsus; rockslop jį suras. Palaikius įjungimo mygtuką maždaug 7 sekundes, grotuvas pasileidžia iš naujo.
+this TS17 package is in an older format ({0}) that rockslop no longer flashes: get a newer release
+= šis TS17 paketas yra senesnio formato ({0}), kurio rockslop nebeįrašo: gauk naujesnę laidą
+new install: the rescue stub goes in first
+= naujas diegimas: pirmiausia įrašomas gelbėjimo kodas
+rescue stub in place: left alone
+= gelbėjimo kodas vietoje: nepaliestas
+a rescue stub that isn't rockslop's is in place: left alone
+= vietoje yra ne rockslop gelbėjimo kodas: nepaliestas
