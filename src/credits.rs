@@ -80,20 +80,39 @@ pub fn open_url(url: &str) {
     if !(url.starts_with("https://") || url.starts_with("http://")) {
         return;
     }
-    use std::process::Command;
-    let child = if cfg!(windows) {
-        // not `cmd /C start`: it splits the URL at its '&'s
-        Command::new("rundll32").args(["url.dll,FileProtocolHandler", url]).spawn()
-    } else if cfg!(target_os = "macos") {
-        Command::new("open").arg(url).spawn()
-    } else {
-        Command::new("xdg-open").arg(url).spawn()
-    };
-    match child {
-        Ok(mut c) => {
-            std::thread::spawn(move || c.wait());
+    #[cfg(windows)]
+    {
+        // ShellExecute, not `cmd /C start` (it splits the URL at its '&'s)
+        // or `rundll32 url.dll,...` (a malware trick that antivirus
+        // heuristics flag). It may be slow and wants COM on its thread.
+        use std::os::windows::ffi::OsStrExt;
+        use windows_sys::Win32::System::Com::{CoInitializeEx, CoUninitialize, COINIT_APARTMENTTHREADED, COINIT_DISABLE_OLE1DDE};
+        use windows_sys::Win32::UI::Shell::ShellExecuteW;
+        use windows_sys::Win32::UI::WindowsAndMessaging::SW_SHOWNORMAL;
+        let wide = |s: &str| std::ffi::OsStr::new(s).encode_wide().chain(Some(0)).collect::<Vec<u16>>();
+        let (verb, file) = (wide("open"), wide(url));
+        let url = url.to_string();
+        std::thread::spawn(move || unsafe {
+            let com = CoInitializeEx(std::ptr::null(), (COINIT_APARTMENTTHREADED | COINIT_DISABLE_OLE1DDE) as u32) >= 0;
+            let r = ShellExecuteW(std::ptr::null_mut(), verb.as_ptr(), file.as_ptr(), std::ptr::null(), std::ptr::null(), SW_SHOWNORMAL);
+            if com {
+                CoUninitialize();
+            }
+            // above 32 is success
+            if r as isize <= 32 {
+                eprintln!("open {url}: ShellExecute failed ({})", r as isize);
+            }
+        });
+    }
+    #[cfg(not(windows))]
+    {
+        let opener = if cfg!(target_os = "macos") { "open" } else { "xdg-open" };
+        match std::process::Command::new(opener).arg(url).spawn() {
+            Ok(mut c) => {
+                std::thread::spawn(move || c.wait());
+            }
+            Err(e) => eprintln!("open {url}: {e}"),
         }
-        Err(e) => eprintln!("open {url}: {e}"),
     }
 }
 

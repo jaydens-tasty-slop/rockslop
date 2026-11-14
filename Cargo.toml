@@ -34,9 +34,16 @@ windows-sys = { version = "0.61.2", features = [
     "Win32_Foundation",
     "Win32_Security",
     "Win32_Storage_FileSystem",
+    "Win32_System_Com",
     "Win32_System_IO",
     "Win32_System_Ioctl",
+    "Win32_UI_Shell",
+    "Win32_UI_WindowsAndMessaging",
 ] }
+
+# Windows: version info, icon and manifest in each .exe (build.rs)
+[build-dependencies]
+embed-resource = "3.0.12"
 
 [profile.release]
 opt-level = "s"

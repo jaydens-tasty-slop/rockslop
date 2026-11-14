@@ -33,9 +33,61 @@ fn version(root: &Path) -> String {
     git(&["log", "-1", "--format=%cd-%h", "--date=format-local:%Y%m%d_%H%M%S"]).unwrap_or_else(|| "dev".into())
 }
 
+/// Windows: each .exe gets version info, the icon and a manifest (run as
+/// the user, Windows 10/11). An .exe with none of them is one more thing
+/// antivirus heuristics count against it.
+fn windows_resources(root: &Path, version: &str) {
+    if std::env::var("CARGO_CFG_TARGET_OS").as_deref() != Ok("windows") {
+        return;
+    }
+    let win = root.join("packaging/windows");
+    let (icon, manifest) = (win.join("rockslop.ico"), win.join("rockslop.manifest"));
+    for f in [&icon, &manifest] {
+        println!("cargo:rerun-if-changed={}", f.display());
+    }
+    // FILEVERSION is four 16-bit numbers: 20261114_143546-1a2b3c4 is
+    // 2026,1114,1435,46 (dev is 0,0,0,0)
+    let digits: String = version.split('-').next().unwrap_or("").chars().filter(char::is_ascii_digit).collect();
+    let num = |a: usize, b: usize| digits.get(a..b).and_then(|s| s.parse::<u16>().ok()).unwrap_or(0);
+    let v = format!("{},{},{},{}", num(0, 4), num(4, 8), num(8, 12), num(12, 14));
+    let text: String = version.chars().filter(|c| c.is_ascii_alphanumeric() || "._+-".contains(*c)).collect();
+    let fwd = |p: &Path| p.display().to_string().replace('\\', "/");
+    let out = Path::new(&std::env::var("OUT_DIR").unwrap()).to_path_buf();
+    for (bin, what) in [
+        ("rockslop", "rockslop, a Rockbox flasher for the YP3 and TS17"),
+        ("rockslop-cli", "rockslop-cli, a Rockbox flasher for the YP3 and TS17 (command line)"),
+    ] {
+        // numbers, not winver.h's names, so no header is needed:
+        // 24 RT_MANIFEST, 0x40004 VOS_NT_WINDOWS32, 1 VFT_APP
+        let rc = format!(
+            "1 ICON \"{icon}\"\n1 24 \"{manifest}\"\n\
+             1 VERSIONINFO\nFILEVERSION {v}\nPRODUCTVERSION {v}\nFILEFLAGSMASK 0x3f\nFILEFLAGS 0\n\
+             FILEOS 0x40004\nFILETYPE 1\nFILESUBTYPE 0\nBEGIN\n\
+             BLOCK \"StringFileInfo\"\nBEGIN\nBLOCK \"040904b0\"\nBEGIN\n\
+             VALUE \"CompanyName\", \"rockslop\"\n\
+             VALUE \"FileDescription\", \"{what}\"\n\
+             VALUE \"FileVersion\", \"{text}\"\n\
+             VALUE \"InternalName\", \"{bin}\"\n\
+             VALUE \"LegalCopyright\", \"GPL-2.0-or-later\"\n\
+             VALUE \"OriginalFilename\", \"{bin}.exe\"\n\
+             VALUE \"ProductName\", \"rockslop\"\n\
+             VALUE \"ProductVersion\", \"{text}\"\n\
+             END\nEND\n\
+             BLOCK \"VarFileInfo\"\nBEGIN\nVALUE \"Translation\", 0x409, 1200\nEND\nEND\n",
+            icon = fwd(&icon),
+            manifest = fwd(&manifest),
+        );
+        let path = out.join(format!("{bin}.rc"));
+        std::fs::write(&path, rc).unwrap();
+        embed_resource::compile_for(&path, [bin], embed_resource::NONE).manifest_required().unwrap();
+    }
+}
+
 fn main() {
     let root = Path::new(env!("CARGO_MANIFEST_DIR"));
-    println!("cargo:rustc-env=ROCKSLOP_VERSION={}", version(root));
+    let version = version(root);
+    println!("cargo:rustc-env=ROCKSLOP_VERSION={version}");
+    windows_resources(root, &version);
     let dir = root.join("assets/lang");
     println!("cargo:rerun-if-changed={}", dir.display());
     let mut names: Vec<String> = std::fs::read_dir(&dir)

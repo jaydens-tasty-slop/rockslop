@@ -185,6 +185,11 @@ flagged, and **FLASH ANYWAY** takes it all the same.
 
 The Windows and macOS paths compile but are **untested on hardware**.
 
+The Windows `.exe` files aren't code-signed, so some antivirus products
+(Windows Defender among them) may flag them on heuristics: an unsigned,
+new file with a lot of compressed data inside. That is a false positive;
+the source is all here.
+
 The Linux arm64 binaries need glibc 2.34 or newer. On Windows on ARM,
 `rockslop-arm64.exe` needs OpenGL: if its window doesn't open, install
 Microsoft's OpenGL compatibility pack from the Microsoft Store.
