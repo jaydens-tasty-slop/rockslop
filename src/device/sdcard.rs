@@ -450,10 +450,25 @@ mod imp {
         card.volume.chars().next().unwrap_or('Z')
     }
 
+    /// The lock fails while any file on the volume is open, and Windows
+    /// Defender opens each file just written to scan it: keep trying a while.
+    fn lock(h: &H) -> bool {
+        let t0 = std::time::Instant::now();
+        loop {
+            if ioctl(h, FSCTL_LOCK_VOLUME, &[], &mut []) {
+                return true;
+            }
+            if t0.elapsed() > Duration::from_secs(20) {
+                return false;
+            }
+            std::thread::sleep(Duration::from_millis(250));
+        }
+    }
+
     /// Lock + dismount: the next access mounts it fresh, with no cache.
     pub fn drop_cache(card: &mut Card) -> Result<(), String> {
         let h = open_volume(letter(card), GENERIC_READ | GENERIC_WRITE).ok_or_else(|| err!(E533, "cannot open the card's volume"))?;
-        if !ioctl(&h, FSCTL_LOCK_VOLUME, &[], &mut []) {
+        if !lock(&h) {
             return Err(err!(E534, "the card is in use by another program"));
         }
         ioctl(&h, FSCTL_DISMOUNT_VOLUME, &[], &mut []);
@@ -466,7 +481,7 @@ mod imp {
 
     pub fn eject(card: &Card) -> Result<(), String> {
         let h = open_volume(letter(card), GENERIC_READ | GENERIC_WRITE).ok_or("cannot open the card's volume")?;
-        if !ioctl(&h, FSCTL_LOCK_VOLUME, &[], &mut []) {
+        if !lock(&h) {
             return Err("the card is in use by another program".into());
         }
         ioctl(&h, FSCTL_DISMOUNT_VOLUME, &[], &mut []);
