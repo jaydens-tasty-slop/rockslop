@@ -8,7 +8,7 @@
 //! ops gadget (payloads/ts17/ops.c) when armed: a list of register reads,
 //! writes, polls and calls into the ROM's own SPI-NOR routines.
 
-use super::bot::{Bot, Data};
+use super::bot::{Bot, Data, Pipe};
 use super::rdm::{Rdm, XIP_RUN};
 use super::usb::Link;
 use crate::err;
@@ -238,8 +238,8 @@ fn adfu_cdb(cmd: u32, len: u32, addr: u32) -> [u8; 16] {
 /// 0xcb reboots it into download mode (stock.py).
 pub fn kick_stock() -> Result<String, String> {
     let link = Link::open(VID, PID_STOCK)?;
-    let mut bot = Bot::new(link, true, false);
-    bot.link.drain();
+    let mut bot = Bot::new(Pipe::Usb(link), true, false);
+    bot.drain();
     let ident = bot.exec(&[0xcc, 0, 0, 0, 0, 0], 6, Data::In(11), Duration::from_secs(2))?;
     let ident = String::from_utf8_lossy(&ident).to_string();
     if ident != "ACTIONSUSBD" {
@@ -252,8 +252,8 @@ pub fn kick_stock() -> Result<String, String> {
 impl Ts17 {
     pub fn open() -> Result<Ts17, String> {
         let link = Link::open(VID, PID_ADFU)?;
-        let mut t = Ts17 { bot: Bot::new(link, true, false) };
-        t.bot.link.drain();
+        let mut t = Ts17 { bot: Bot::new(Pipe::Usb(link), true, false) };
+        t.bot.drain();
         Ok(t)
     }
 

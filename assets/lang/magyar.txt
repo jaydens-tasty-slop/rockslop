@@ -471,6 +471,12 @@ The device needs the WinUSB driver (Zadig).
 = {0}: az eszköz eltűnt
 {0}: timed out
 = {0}: időtúllépés
+Windows shows no disk for the player in download mode
+= A Windows nem mutat lemezt a letöltő módban lévő lejátszóhoz
+Windows refused to open the player's disk (error {0})
+= A Windows megtagadta a lejátszó lemezének megnyitását (hiba: {0})
+a command through Windows' disk driver failed (Windows error {0})
+= egy parancs a Windows lemezillesztőjén keresztül nem sikerült (Windows-hiba: {0})
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = HÚZD ÉS FORGASD

@@ -471,6 +471,12 @@ The device needs the WinUSB driver (Zadig).
 = {0}: la aparato malaperis
 {0}: timed out
 = {0}: eltempiĝis
+Windows shows no disk for the player in download mode
+= Windows montras neniun diskon por la ludilo en elŝuta modo
+Windows refused to open the player's disk (error {0})
+= Windows rifuzis malfermi la diskon de la ludilo (eraro {0})
+a command through Windows' disk driver failed (Windows error {0})
+= komando tra la diska pelilo de Windows malsukcesis (Windows-eraro {0})
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = TRENU POR TURNI

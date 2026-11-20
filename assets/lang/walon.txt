@@ -471,6 +471,12 @@ The device needs the WinUSB driver (Zadig).
 = {0}: l' aparey n' est pus la
 {0}: timed out
 = {0}: li tins est passé
+Windows shows no disk for the player in download mode
+= Windows ni mostere nole plake po l' djouweu e mode tcherdjaedje
+Windows refused to open the player's disk (error {0})
+= Windows n' a nén volou drovi l' plake do djouweu (aroke {0})
+a command through Windows' disk driver failed (Windows error {0})
+= ene comande pa l' pilote di plake di Windows a fwait berwete (aroke Windows {0})
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = SAETCHÎZ PO TOURNER

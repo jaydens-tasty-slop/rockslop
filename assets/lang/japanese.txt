@@ -471,6 +471,12 @@ The device needs the WinUSB driver (Zadig).
 = {0}：デバイスが切断されました
 {0}: timed out
 = {0}：タイムアウトしました
+Windows shows no disk for the player in download mode
+= ダウンロード モードのプレーヤーのディスクが Windows に表示されません
+Windows refused to open the player's disk (error {0})
+= Windows がプレーヤーのディスクを開くことを拒否しました（エラー {0}）
+a command through Windows' disk driver failed (Windows error {0})
+= Windows のディスク ドライバ経由のコマンドが失敗しました（Windows エラー {0}）
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = ドラッグで回転

@@ -471,6 +471,12 @@ The device needs the WinUSB driver (Zadig).
 = {0}：裝置已中斷連線
 {0}: timed out
 = {0}：逾時
+Windows shows no disk for the player in download mode
+= Windows 未顯示處於下載模式的播放器的磁碟
+Windows refused to open the player's disk (error {0})
+= Windows 拒絕開啟播放器的磁碟（錯誤 {0}）
+a command through Windows' disk driver failed (Windows error {0})
+= 透過 Windows 磁碟驅動程式傳送的命令失敗（Windows 錯誤 {0}）
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = 拖曳旋轉

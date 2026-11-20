@@ -40,11 +40,11 @@ To report one, press **COPY REPORT** on the error screen: it puts the error and 
 | E155 | TS17: the rescue stub would refuse to start this image: its stack pointer or reset vector is out of range. Refused; nothing was written. | Do not use this package. |
 | E157 | TS17: the package has no Rockbox image for `0x15000`. | Build it again with mkpkg.py. |
 | E201 | CLI: the player did not appear in download mode in time. | Follow the steps again, or raise `--wait`. |
-| E202 | CLI: the player is there, but this user may not open it. | Linux: install the udev rule. macOS: use sudo. Windows: install WinUSB with Zadig. |
+| E202 | CLI: the player is there, but this user may not open it. | Linux: install the udev rule. macOS: use sudo. Windows (TS17): install WinUSB with Zadig. |
 | E205 | Another tool has the player open. | Close the other tool. |
 | E210 | The player is not on the bus. | Reconnect it in download mode. |
 | E211 | The player is not in the expected USB mode. | Reconnect it in download mode. |
-| E212 | No permission to open the player (on Windows: it has no WinUSB driver). | Linux: install the udev rule. macOS: use sudo. Windows: install WinUSB with Zadig. |
+| E212 | No permission to open the player (on Windows: it has no WinUSB driver). | Linux: install the udev rule. macOS: use sudo. Windows (TS17): install WinUSB with Zadig. |
 | E213 | Another program is using the player. | Close it. Retry. |
 | E214 | The player dropped off USB. | Check the cable. Reconnect in download mode. Retry. |
 | E215 | The player stopped answering. | Unplug, enter download mode again, retry. |
@@ -53,6 +53,9 @@ To report one, press **COPY REPORT** on the error screen: it puts the error and 
 | E218 | The player sent an empty reply. | Reconnect in download mode. Retry. |
 | E220 | The boot ROM sent a garbled status. | Reconnect in download mode. Retry. |
 | E221 | The boot ROM rejected a command. | Reconnect in download mode. Retry. |
+| E222 | Windows: the player's download mode has no disk to send commands through. | Reconnect it in download mode. If it repeats, install WinUSB with Zadig. |
+| E223 | Windows refused to open the player's disk (another program has it, or a policy blocks removable disks). | Close other tools. If it repeats, install WinUSB with Zadig. |
+| E224 | Windows: a command through Windows' disk driver failed (Windows error follows). | Reconnect in download mode. Retry. |
 | E230 | YP3: the flasher's helper did not load into the player's RAM. | Reconnect and retry. |
 | E231 | YP3: the helper sent a garbled reply. | Reconnect and retry. |
 | E232 | YP3: the helper reported an error (operation and status follow). | Reconnect and retry. Report it if it repeats. |

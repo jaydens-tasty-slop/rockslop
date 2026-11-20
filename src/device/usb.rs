@@ -34,7 +34,8 @@ pub fn list() -> Vec<(u16, u16, bool)> {
             .iter()
             .filter_map(|d| {
                 let desc = d.device_descriptor().ok()?;
-                ours(desc.vendor_id()).then(|| (desc.vendor_id(), desc.product_id(), d.open().is_ok()))
+                let (v, p) = (desc.vendor_id(), desc.product_id());
+                ours(v).then(|| (v, p, d.open().is_ok() || via_disk(v, p)))
             })
             .collect(),
         Err(_) => Vec::new(),
@@ -51,11 +52,27 @@ pub fn present(vid: u16, pid: u16) -> bool {
     list().iter().any(|(v, p, _)| *v == vid && *p == pid)
 }
 
-/// Windows: libusb leaves out a device Windows has no driver for (Rockbox
-/// charging only, a boot ROM before Zadig); the system's own list of USB
-/// devices has it.
+/// Windows: a download mode on Windows' own disk driver, which libusb
+/// can't open, is reached through it instead (spt.rs).
 #[cfg(windows)]
+fn via_disk(vid: u16, pid: u16) -> bool {
+    super::spt::reachable(vid, pid)
+}
+
+#[cfg(not(windows))]
+fn via_disk(_: u16, _: u16) -> bool {
+    false
+}
+
+/// Windows: libusb leaves out a device Windows has no driver for (Rockbox
+/// charging only); the system's own list of USB devices has it.
 fn driverless() -> Vec<(u16, u16)> {
+    windows_ids().iter().filter_map(|id| device_ids(id)).filter(|(v, _)| ours(*v)).collect()
+}
+
+/// Windows: the instance IDs of the present USB devices.
+#[cfg(windows)]
+pub fn windows_ids() -> Vec<String> {
     use windows_sys::Win32::Devices::DeviceAndDriverInstallation::{
         CM_Get_Device_ID_ListW, CM_Get_Device_ID_List_SizeW, CM_GETIDLIST_FILTER_ENUMERATOR, CM_GETIDLIST_FILTER_PRESENT,
         CR_SUCCESS,
@@ -70,18 +87,17 @@ fn driverless() -> Vec<(u16, u16)> {
     if unsafe { CM_Get_Device_ID_ListW(filter.as_ptr(), buf.as_mut_ptr(), len, flags) } != CR_SUCCESS {
         return Vec::new();
     }
-    String::from_utf16_lossy(&buf).split('\0').filter_map(device_ids).filter(|(v, _)| ours(*v)).collect()
+    String::from_utf16_lossy(&buf).split('\0').filter(|s| !s.is_empty()).map(str::to_string).collect()
 }
 
 #[cfg(not(windows))]
-fn driverless() -> Vec<(u16, u16)> {
+fn windows_ids() -> Vec<String> {
     Vec::new()
 }
 
 /// A Windows USB device instance ID, `USB\VID_1209&PID_0001\...`: its
 /// (vid, pid). Not an interface of a composite device (`...&MI_00\...`).
-#[cfg_attr(not(windows), allow(dead_code))]
-fn device_ids(id: &str) -> Option<(u16, u16)> {
+pub fn device_ids(id: &str) -> Option<(u16, u16)> {
     let hw = id.to_ascii_uppercase();
     let hw = hw.strip_prefix("USB\\")?.split('\\').next()?;
     let mut parts = hw.split('&');

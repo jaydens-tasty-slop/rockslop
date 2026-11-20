@@ -471,6 +471,12 @@ The device needs the WinUSB driver (Zadig).
 = {0}: het apparaat is verdwenen
 {0}: timed out
 = {0}: time-out
+Windows shows no disk for the player in download mode
+= Windows toont geen schijf voor de speler in downloadmodus
+Windows refused to open the player's disk (error {0})
+= Windows weigerde de schijf van de speler te openen (fout {0})
+a command through Windows' disk driver failed (Windows error {0})
+= een opdracht via het schijfstuurprogramma van Windows is mislukt (Windows-fout {0})
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = SLEEP OM TE DRAAIEN

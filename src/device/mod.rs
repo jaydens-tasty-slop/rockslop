@@ -7,6 +7,8 @@ pub mod rdm;
 pub mod real;
 pub mod sdcard;
 pub mod sim;
+#[cfg(windows)]
+pub mod spt;
 pub mod ts17;
 pub mod usb;
 pub mod yp3;
@@ -344,6 +346,7 @@ mod tests {
             ("device/real.rs", include_str!("real.rs")),
             ("device/sdcard.rs", include_str!("sdcard.rs")),
             ("device/sim.rs", include_str!("sim.rs")),
+            ("device/spt.rs", include_str!("spt.rs")),
             ("device/ts17.rs", include_str!("ts17.rs")),
             ("device/usb.rs", include_str!("usb.rs")),
             ("device/yp3.rs", include_str!("yp3.rs")),

@@ -471,6 +471,12 @@ The device needs the WinUSB driver (Zadig).
 = {0}: laite katosi
 {0}: timed out
 = {0}: aikakatkaisu
+Windows shows no disk for the player in download mode
+= Windows ei näytä soittimelle levyä lataustilassa
+Windows refused to open the player's disk (error {0})
+= Windows kieltäytyi avaamasta soittimen levyä (virhe {0})
+a command through Windows' disk driver failed (Windows error {0})
+= komento Windowsin levyajurin kautta epäonnistui (Windows-virhe {0})
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = VEDÄ JA PYÖRITÄ

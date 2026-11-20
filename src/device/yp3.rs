@@ -6,7 +6,7 @@
 //! (payloads/yp3/svc.c, loaded at 0x806000) exactly as yp3dev/yp3.py does:
 //! the ROM's own flash commands hang in the watchdog-return ROM state.
 
-use super::bot::{Bot, Data};
+use super::bot::{Bot, Data, Pipe};
 use super::usb::Link;
 use crate::err;
 use std::time::Duration;
@@ -103,11 +103,17 @@ pub fn sector_failed(addr: u32, why: &str) -> String {
 
 impl Yp3 {
     pub fn open() -> Result<Yp3, String> {
-        let link = Link::open(VID, PID_ROM)?;
-        let serial = link.serial();
-        let mut y = Yp3 { bot: Bot::new(link, false, true), tiny_loaded: false, svc_loaded: false, serial };
-        y.bot.link.drain();
-        Ok(y)
+        let pipe = match Link::open(VID, PID_ROM) {
+            Ok(link) => Pipe::Usb(link),
+            // Windows, no WinUSB: through Windows' own disk driver
+            #[cfg(windows)]
+            Err(_) if super::spt::reachable(VID, PID_ROM) => Pipe::Disk(super::spt::Disk::open(VID, PID_ROM)?),
+            Err(e) => return Err(e),
+        };
+        let mut bot = Bot::new(pipe, false, true);
+        bot.drain();
+        let serial = bot.serial();
+        Ok(Yp3 { bot, tiny_loaded: false, svc_loaded: false, serial })
     }
 
     /// SCSI INQUIRY: vendor/product string ("SMTLINK DEVICE 2.00").

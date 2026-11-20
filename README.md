@@ -175,9 +175,11 @@ flagged, and **FLASH ANYWAY** takes it all the same.
   `sudo cp packaging/udev/70-rockslop.rules /etc/udev/rules.d/ && sudo udevadm control --reload`,
   then reconnect the player. The SD card is mounted and ejected through
   udisks (`udisksctl`).
-- **Windows**: both boot ROMs need the WinUSB driver. Use
-  [Zadig](https://zadig.akeo.ie/) on `301a:2800` (YP3) and on `10d6:10d6`
-  (TS17). Do this once per player, in download mode.
+- **Windows**: the YP3 needs no driver: rockslop sends its commands
+  through Windows' own USB disk driver, as a normal user. The TS17's boot
+  ROM still needs the WinUSB driver: use [Zadig](https://zadig.akeo.ie/)
+  on `10d6:10d6`, once per player, in download mode. (A YP3 that already
+  has WinUSB from Zadig works too.)
 - **macOS** 11 or newer, Intel or Apple Silicon (`Rockslop.app` and
   `rockslop-cli-macos` are universal). The YP3's boot ROM presents as mass
   storage, so macOS claims it. The CLI may need `sudo` to detach it. Both
@@ -186,7 +188,8 @@ flagged, and **FLASH ANYWAY** takes it all the same.
   System Settings > Privacy & Security. Or run
   `xattr -dr com.apple.quarantine Rockslop.app rockslop-cli-macos`.
 
-The Windows and macOS paths compile but are **untested on hardware**.
+The YP3 is tested on Windows 11. The TS17 on Windows, and macOS, compile
+but are **untested on hardware**.
 
 The Windows `.exe` files aren't code-signed, so some antivirus products
 (Windows Defender among them) may flag them on heuristics: an unsigned,

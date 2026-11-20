@@ -471,6 +471,12 @@ The device needs the WinUSB driver (Zadig).
 = {0}: gailua desagertu da
 {0}: timed out
 = {0}: denbora-muga gainditu da
+Windows shows no disk for the player in download mode
+= Windows-ek ez du erreproduzigailuaren diskorik erakusten deskarga moduan
+Windows refused to open the player's disk (error {0})
+= Windows-ek uko egin dio erreproduzigailuaren diskoa irekitzeari ({0} errorea)
+a command through Windows' disk driver failed (Windows error {0})
+= Windows-en disko-driverraren bidezko agindu batek huts egin du (Windows errorea {0})
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = ARRASTATU BIRATZEKO

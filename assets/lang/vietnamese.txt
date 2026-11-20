@@ -471,6 +471,12 @@ The device needs the WinUSB driver (Zadig).
 = {0}: thiết bị đã biến mất
 {0}: timed out
 = {0}: hết thời gian chờ
+Windows shows no disk for the player in download mode
+= Windows không hiện ổ đĩa nào cho máy nghe nhạc ở chế độ tải
+Windows refused to open the player's disk (error {0})
+= Windows từ chối mở ổ đĩa của máy nghe nhạc (lỗi {0})
+a command through Windows' disk driver failed (Windows error {0})
+= một lệnh qua trình điều khiển đĩa của Windows đã thất bại (lỗi Windows {0})
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = KÉO ĐỂ XOAY

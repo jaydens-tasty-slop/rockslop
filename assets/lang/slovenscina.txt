@@ -471,6 +471,12 @@ The device needs the WinUSB driver (Zadig).
 = {0}: naprava je izginila
 {0}: timed out
 = {0}: čas je potekel
+Windows shows no disk for the player in download mode
+= Windows ne prikaže diska predvajalnika v načinu prenosa
+Windows refused to open the player's disk (error {0})
+= Windows je zavrnil odpiranje diska predvajalnika (napaka {0})
+a command through Windows' disk driver failed (Windows error {0})
+= ukaz prek Windowsovega gonilnika diska ni uspel (napaka Windows {0})
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = POVLECI IN ZAVRTI

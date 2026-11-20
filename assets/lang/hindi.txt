@@ -471,6 +471,12 @@ The device needs the WinUSB driver (Zadig).
 = {0}: डिवाइस हट गया
 {0}: timed out
 = {0}: समय सीमा समाप्त
+Windows shows no disk for the player in download mode
+= Windows डाउनलोड मोड में प्लेयर के लिए कोई डिस्क नहीं दिखाता
+Windows refused to open the player's disk (error {0})
+= Windows ने प्लेयर की डिस्क खोलने से मना कर दिया (त्रुटि {0})
+a command through Windows' disk driver failed (Windows error {0})
+= Windows के डिस्क ड्राइवर से भेजा गया कमांड विफल रहा (Windows त्रुटि {0})
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = घुमाने के लिए खींचें

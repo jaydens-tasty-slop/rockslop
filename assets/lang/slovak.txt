@@ -471,6 +471,12 @@ The device needs the WinUSB driver (Zadig).
 = {0}: zariadenie zmizlo
 {0}: timed out
 = {0}: vypršal časový limit
+Windows shows no disk for the player in download mode
+= Windows neukazuje žiadny disk prehrávača v režime sťahovania
+Windows refused to open the player's disk (error {0})
+= Windows odmietol otvoriť disk prehrávača (chyba {0})
+a command through Windows' disk driver failed (Windows error {0})
+= príkaz cez diskový ovládač Windows zlyhal (chyba Windows {0})
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = ŤAHAJ A OTÁČAJ

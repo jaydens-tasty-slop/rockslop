@@ -471,6 +471,12 @@ The device needs the WinUSB driver (Zadig).
 = {0}: 장치가 사라짐
 {0}: timed out
 = {0}: 시간 초과
+Windows shows no disk for the player in download mode
+= Windows에 다운로드 모드 플레이어의 디스크가 보이지 않습니다
+Windows refused to open the player's disk (error {0})
+= Windows가 플레이어 디스크 열기를 거부했습니다 (오류 {0})
+a command through Windows' disk driver failed (Windows error {0})
+= Windows 디스크 드라이버를 통한 명령이 실패했습니다 (Windows 오류 {0})
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = 드래그하여 회전
