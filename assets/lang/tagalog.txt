@@ -251,6 +251,10 @@ COPY REPORT
 = KOPYAHIN ULAT
 REPORT COPIED
 = NAKOPYA ANG ULAT
+rockslop could not open its window. It needs OpenGL 2.1 or newer, which a virtual machine, Remote Desktop or a missing graphics driver may not offer; rockslop-cli does the same job in a terminal.
+= hindi mabuksan ng rockslop ang window nito. Kailangan nito ng OpenGL 2.1 o mas bago, na maaaring wala sa virtual machine, Remote Desktop o kapag walang graphics driver; ginagawa rin ng rockslop-cli ang parehong trabaho sa terminal.
+rockslop crashed. The log: {0}
+= nag-crash ang rockslop. Ang log: {0}
 NOW PLAYING
 = NGAYON TUMUTUGTOG
 THIS FLASHER

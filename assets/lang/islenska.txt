@@ -251,6 +251,10 @@ COPY REPORT
 = AFRITA SKÝRSLU
 REPORT COPIED
 = SKÝRSLA AFRITUÐ
+rockslop could not open its window. It needs OpenGL 2.1 or newer, which a virtual machine, Remote Desktop or a missing graphics driver may not offer; rockslop-cli does the same job in a terminal.
+= rockslop gat ekki opnað gluggann sinn. Það þarf OpenGL 2.1 eða nýrra, sem sýndarvél, fjartenging við skjáborð eða vantandi skjákortsrekill bjóða ef til vill ekki upp á; rockslop-cli vinnur sama verk í skipanalínu.
+rockslop crashed. The log: {0}
+= rockslop hrundi. Annállinn: {0}
 NOW PLAYING
 = SPILAR NÚNA
 THIS FLASHER

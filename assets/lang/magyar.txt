@@ -251,6 +251,10 @@ COPY REPORT
 = JELENTÉS MÁSOLÁSA
 REPORT COPIED
 = JELENTÉS MÁSOLVA
+rockslop could not open its window. It needs OpenGL 2.1 or newer, which a virtual machine, Remote Desktop or a missing graphics driver may not offer; rockslop-cli does the same job in a terminal.
+= a rockslop nem tudta megnyitni az ablakát. OpenGL 2.1 vagy újabb kell neki, amit egy virtuális gép, a Távoli asztal vagy egy hiányzó grafikus illesztőprogram nem biztos, hogy nyújt; a rockslop-cli ugyanezt elvégzi egy terminálban.
+rockslop crashed. The log: {0}
+= a rockslop összeomlott. A napló: {0}
 NOW PLAYING
 = MOST JÁTSZIK
 THIS FLASHER

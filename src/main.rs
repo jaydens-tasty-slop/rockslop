@@ -41,6 +41,7 @@ use rockslop::device::{
     sim::{self, Sim},
     Hub, Kind,
 };
+use std::sync::atomic::{AtomicBool, Ordering};
 
 fn window_conf() -> macroquad::conf::Conf {
     macroquad::conf::Conf {
@@ -62,8 +63,36 @@ fn arg(args: &[String], name: &str) -> Option<String> {
     args.iter().position(|a| a == name).and_then(|i| args.get(i + 1).cloned())
 }
 
-#[macroquad::main(window_conf)]
-async fn main() {
+/// The window is open: a panic from here on is a crash, not a window that
+/// failed to open.
+static WINDOW: AtomicBool = AtomicBool::new(false);
+
+/// Windows runs the release build without a console, where a panic (most
+/// often a graphics driver without OpenGL 2.1, as in a virtual machine)
+/// would vanish without a word: log it, and say so in a message box there.
+fn report_panics() {
+    let default = std::panic::take_hook();
+    std::panic::set_hook(Box::new(move |info| {
+        default(info);
+        let what = info.to_string();
+        rockslop::log::line("PANIC", &what);
+        let why = if WINDOW.load(Ordering::Relaxed) {
+            i18n::tf("rockslop crashed. The log: {0}", &[&rockslop::log::path().display()])
+        } else {
+            i18n::tr("rockslop could not open its window. It needs OpenGL 2.1 or newer, which a virtual machine, Remote Desktop or a missing graphics driver may not offer; rockslop-cli does the same job in a terminal.").to_string()
+        };
+        eprintln!("{why}");
+        #[cfg(windows)]
+        {
+            use windows_sys::Win32::UI::WindowsAndMessaging::{MessageBoxW, MB_ICONERROR, MB_OK};
+            let wide = |s: &str| s.encode_utf16().chain([0]).collect::<Vec<u16>>();
+            let (text, title) = (wide(&format!("{why}\n\n{what}")), wide("ROCKSLOP"));
+            unsafe { MessageBoxW(std::ptr::null_mut(), text.as_ptr(), title.as_ptr(), MB_OK | MB_ICONERROR) };
+        }
+    }));
+}
+
+fn main() {
     // the TS17's rescue stub, which it writes once to a player: its bytes
     // must be the frozen ones
     if let Err(e) = rockslop::device::ts17::stub() {
@@ -71,6 +100,26 @@ async fn main() {
         std::process::exit(1);
     }
     let args: Vec<String> = std::env::args().collect();
+    // the language and the log before the window, which may fail to open
+    // language: --lang, else the last choice, else the system's; the picker
+    // opens at startup unless --lang said
+    let want = arg(&args, "--lang").or_else(i18n::saved).unwrap_or_else(|| i18n::AUTO.into());
+    let id = if want == i18n::AUTO { i18n::system().unwrap_or("english") } else { &want };
+    if !i18n::set(id) {
+        let ids: Vec<&str> = i18n::LANGS.iter().map(|l| l.id).collect();
+        eprintln!("unknown language {id:?}; one of: {}, {}, {}", i18n::AUTO, ids.join(", "), i18n::PSEUDO);
+        std::process::exit(2);
+    }
+    // the log of what the flasher did to a real player (not the simulator's)
+    if !args.iter().any(|a| a == "--demo") && arg(&args, "--shot").is_none() {
+        rockslop::log::open(&format!("rockslop {}", args[1..].join(" ")));
+    }
+    report_panics();
+    macroquad::Window::from_config(window_conf(), run(args));
+}
+
+async fn run(args: Vec<String>) {
+    WINDOW.store(true, Ordering::Relaxed);
     let has = |n: &str| args.iter().any(|a| a == n);
     let shot = arg(&args, "--shot");
     let mut shot_ts: Vec<f32> = arg(&args, "--at").map(|s| s.split(',').filter_map(|t| t.parse().ok()).collect()).unwrap_or_default();
@@ -97,16 +146,6 @@ async fn main() {
         let (x, y) = s.split_once(',')?;
         Some(vec2(x.parse().ok()?, y.parse().ok()?))
     });
-    // language: --lang, else the last choice, else the system's; the picker
-    // opens at startup unless --lang said
-    let lang = arg(&args, "--lang");
-    let want = lang.clone().or_else(i18n::saved).unwrap_or_else(|| i18n::AUTO.into());
-    let id = if want == i18n::AUTO { i18n::system().unwrap_or("english") } else { &want };
-    if !i18n::set(id) {
-        let ids: Vec<&str> = i18n::LANGS.iter().map(|l| l.id).collect();
-        eprintln!("unknown language {id:?}; one of: {}, {}, {}", i18n::AUTO, ids.join(", "), i18n::PSEUDO);
-        std::process::exit(2);
-    }
     let opts = Opts {
         demo,
         auto: has("--auto"),
@@ -118,10 +157,6 @@ async fn main() {
     let audio = if shot.is_some() { Audio::silent() } else { Audio::new() };
     if has("--mute") || (shot.is_none() && app::muted_last_time()) {
         audio.toggle_mute();
-    }
-    // the log of what the flasher did to a real player (not the simulator's)
-    if !demo && shot.is_none() {
-        rockslop::log::open(&format!("rockslop {}", args[1..].join(" ")));
     }
     let mut app = App::new(hub, opts, audio);
     // screenshots render at the screen's resolution, however slowly

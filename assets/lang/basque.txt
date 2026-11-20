@@ -251,6 +251,10 @@ COPY REPORT
 = KOPIATU TXOSTENA
 REPORT COPIED
 = TXOSTENA KOPIATUTA
+rockslop could not open its window. It needs OpenGL 2.1 or newer, which a virtual machine, Remote Desktop or a missing graphics driver may not offer; rockslop-cli does the same job in a terminal.
+= rockslop-ek ezin izan du bere leihoa ireki. OpenGL 2.1 edo berriagoa behar du, eta baliteke makina birtual batek, Urruneko Mahaigainak edo grafiko-kontrolatzailerik ez izateak ez eskaintzea; rockslop-cli-k lan bera egiten du terminal batean.
+rockslop crashed. The log: {0}
+= rockslop-ek huts egin du. Erregistroa: {0}
 NOW PLAYING
 = ORAIN JOTZEN
 THIS FLASHER

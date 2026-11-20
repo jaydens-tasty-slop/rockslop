@@ -251,6 +251,10 @@ COPY REPORT
 = COPYÎ RAPOIRT
 REPORT COPIED
 = RAPOIRT COPYÎ
+rockslop could not open its window. It needs OpenGL 2.1 or newer, which a virtual machine, Remote Desktop or a missing graphics driver may not offer; rockslop-cli does the same job in a terminal.
+= rockslop n' a nén polou drovi s' finiesse. I lyi fåt OpenGL 2.1 ou pus novea, çou k' ene machene virtuwele, li Scribanne a lon ou on mancant pilote grafike polèt nén dner; rockslop-cli fwait l' minme ovraedje dins on terminå.
+rockslop crashed. The log: {0}
+= rockslop s' a spotchî. Li djournå: {0}
 NOW PLAYING
 = DJI DJOWE ASTEURE
 THIS FLASHER

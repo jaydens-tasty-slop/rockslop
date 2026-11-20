@@ -284,6 +284,11 @@ COPY REPORT
 # the same button, just after it was pressed
 REPORT COPIED
 
+## Startup: a message box when rockslop fails to start or crashes (plain
+## text; the technical error follows it). {0} is a file path.
+rockslop could not open its window. It needs OpenGL 2.1 or newer, which a virtual machine, Remote Desktop or a missing graphics driver may not offer; rockslop-cli does the same job in a terminal.
+rockslop crashed. The log: {0}
+
 ## Now playing (a pop-up naming the music track)
 NOW PLAYING
 

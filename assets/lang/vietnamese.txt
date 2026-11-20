@@ -251,6 +251,10 @@ COPY REPORT
 = CHÉP BÁO CÁO
 REPORT COPIED
 = ĐÃ CHÉP BÁO CÁO
+rockslop could not open its window. It needs OpenGL 2.1 or newer, which a virtual machine, Remote Desktop or a missing graphics driver may not offer; rockslop-cli does the same job in a terminal.
+= rockslop không mở được cửa sổ. Nó cần OpenGL 2.1 trở lên, thứ mà máy ảo, Remote Desktop hoặc máy thiếu trình điều khiển đồ họa có thể không có; rockslop-cli làm cùng việc đó trong terminal.
+rockslop crashed. The log: {0}
+= rockslop bị lỗi và đóng. Nhật ký: {0}
 NOW PLAYING
 = ĐANG PHÁT
 THIS FLASHER

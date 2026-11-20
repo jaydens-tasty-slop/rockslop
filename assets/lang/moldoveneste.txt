@@ -251,6 +251,10 @@ COPY REPORT
 = COPIAZĂ RAPORT
 REPORT COPIED
 = RAPORT COPIAT
+rockslop could not open its window. It needs OpenGL 2.1 or newer, which a virtual machine, Remote Desktop or a missing graphics driver may not offer; rockslop-cli does the same job in a terminal.
+= rockslop nu și-a putut deschide fereastra. Are nevoie de OpenGL 2.1 sau mai nou, pe care o mașină virtuală, Desktopul la distanță sau lipsa unui driver grafic s-ar putea să nu-l ofere; rockslop-cli face aceeași treabă într-un terminal.
+rockslop crashed. The log: {0}
+= rockslop s-a prăbușit. Jurnalul: {0}
 NOW PLAYING
 = ACUM ÎN REDARE
 THIS FLASHER

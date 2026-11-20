@@ -251,6 +251,10 @@ COPY REPORT
 = COPIER RAPPORT
 REPORT COPIED
 = RAPPORT COPIÉ
+rockslop could not open its window. It needs OpenGL 2.1 or newer, which a virtual machine, Remote Desktop or a missing graphics driver may not offer; rockslop-cli does the same job in a terminal.
+= rockslop n'a pas pu ouvrir sa fenêtre. Il lui faut OpenGL 2.1 ou plus récent, ce qu'une machine virtuelle, le Bureau à distance ou l'absence de pilote graphique peuvent ne pas offrir ; rockslop-cli fait le même travail dans un terminal.
+rockslop crashed. The log: {0}
+= rockslop a planté. Le journal : {0}
 NOW PLAYING
 = EN LECTURE
 THIS FLASHER

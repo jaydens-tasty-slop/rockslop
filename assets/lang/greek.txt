@@ -251,6 +251,10 @@ COPY REPORT
 = ΑΝΤΙΓΡΑΦΗ ΑΝΑΦΟΡΑΣ
 REPORT COPIED
 = ΑΝΑΦΟΡΑ ΑΝΤΙΓΡΑΦΗΚΕ
+rockslop could not open its window. It needs OpenGL 2.1 or newer, which a virtual machine, Remote Desktop or a missing graphics driver may not offer; rockslop-cli does the same job in a terminal.
+= Το rockslop δεν μπόρεσε να ανοίξει το παράθυρό του. Χρειάζεται OpenGL 2.1 ή νεότερο, που μια εικονική μηχανή, η Απομακρυσμένη επιφάνεια εργασίας ή ένα πρόγραμμα οδήγησης γραφικών που λείπει μπορεί να μην προσφέρουν· το rockslop-cli κάνει την ίδια δουλειά σε τερματικό.
+rockslop crashed. The log: {0}
+= Το rockslop κατέρρευσε. Το αρχείο καταγραφής: {0}
 NOW PLAYING
 = ΤΩΡΑ ΠΑΙΖΕΙ
 THIS FLASHER

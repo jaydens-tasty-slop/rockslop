@@ -251,6 +251,10 @@ COPY REPORT
 = KOPIRAJ IZVJEŠĆE
 REPORT COPIED
 = IZVJEŠĆE KOPIRANO
+rockslop could not open its window. It needs OpenGL 2.1 or newer, which a virtual machine, Remote Desktop or a missing graphics driver may not offer; rockslop-cli does the same job in a terminal.
+= rockslop nije mogao otvoriti svoj prozor. Treba mu OpenGL 2.1 ili noviji, što virtualni stroj, Udaljena radna površina ili nedostajući grafički upravljački program možda ne nude; rockslop-cli radi isti posao u terminalu.
+rockslop crashed. The log: {0}
+= rockslop se srušio. Zapis: {0}
 NOW PLAYING
 = SAD SVIRA
 THIS FLASHER
