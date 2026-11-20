@@ -296,6 +296,14 @@ impl Real {
                 if &head[0x1000..0x1004] != b"ACPT" {
                     return Err(err!(E264, "NOR check failed: {}", fail("NOR", "no ACPT partition table at 0x1000".into())));
                 }
+                // the TS28 has the same chip and layout: only its model name differs
+                match ts17::model(&head) {
+                    Some(m) if ts17::is_ts17(&m) => {}
+                    m => {
+                        let v = format!("model {}, not a TS17", m.as_deref().unwrap_or("unnamed"));
+                        return Err(err!(E266, "NOR check failed: {}", fail("NOR", v)));
+                    }
+                }
                 // the firmware goes in fw0_sys: refuse a player whose table
                 // puts it anywhere else (another model, another layout)
                 match ts17::partition(&head[0x1000..], "fw0_sys") {

@@ -116,6 +116,19 @@ pub fn partition(table: &[u8], name: &str) -> Option<(u32, u32)> {
 }
 pub const CPUID: u32 = 0x410F_C241;
 
+/// The model name in the flash's version block (NOR 0x1338, descrambled):
+/// "xlx_58209_TS17_01" on the TS17, "xlx_TS28" on the TS28, which has the
+/// same chip, boot chain and fw0_sys place, so nothing else tells them apart.
+pub fn model(head: &[u8]) -> Option<String> {
+    let b = head.get(0x1338..0x1358)?;
+    let b = &b[..b.iter().position(|&c| c == 0).unwrap_or(b.len())];
+    std::str::from_utf8(b).ok().filter(|s| !s.is_empty()).map(str::to_string)
+}
+
+pub fn is_ts17(model: &str) -> bool {
+    model.split('_').any(|w| w == "TS17")
+}
+
 const CMD_READRAM: u32 = 0x93;
 const CMD_WRITERAM: u32 = 0x13;
 const CMD_SWITCH: u32 = 0x20;
@@ -472,6 +485,22 @@ impl Ts17 {
 #[cfg(test)]
 mod tests {
     use super::*;
+
+    #[test]
+    fn model_names() {
+        let head = |name: &[u8]| {
+            let mut h = vec![0u8; 0x2000];
+            h[0x1338..0x1338 + name.len()].copy_from_slice(name);
+            h
+        };
+        let ts17 = model(&head(b"xlx_58209_TS17_01")).unwrap();
+        assert_eq!(ts17, "xlx_58209_TS17_01");
+        assert!(is_ts17(&ts17));
+        assert!(!is_ts17(&model(&head(b"xlx_TS28")).unwrap()));
+        assert!(!is_ts17("xlx_TS170"));
+        assert_eq!(model(&head(b"")), None);
+        assert_eq!(model(&[0u8; 0x1000]), None);
+    }
 
     /// The stock TS17's partition table, as far as fw0_sys (header and the
     /// first six entries, from a descrambled dump).
