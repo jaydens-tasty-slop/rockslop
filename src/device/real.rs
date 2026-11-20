@@ -82,7 +82,11 @@ fn seen_now() -> Vec<Seen> {
             } else {
                 continue;
             };
-            let s = Seen { kind, mode, access: ok || mode == Mode::Rockbox };
+            // only download mode is opened, and the TS17's stock firmware (to
+            // kick it there): a disk the system keeps to itself (Windows'
+            // and macOS's own storage driver) is no obstacle otherwise
+            let opened = mode == Mode::Rom || (kind == Kind::Ts17 && mode == Mode::Stock);
+            let s = Seen { kind, mode, access: ok || !opened };
             if !out.contains(&s) {
                 out.push(s);
             }

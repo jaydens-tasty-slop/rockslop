@@ -63,8 +63,11 @@ pub fn wait_for(vid: u16, pid: u16, timeout: Duration, mut tick: impl FnMut(f32)
 }
 
 fn usb_err(what: &str, e: rusb::Error) -> String {
+    // Windows opens only a device on the WinUSB driver: one on any other
+    // driver, or none, is "not supported"
+    let denied = e == rusb::Error::Access || (cfg!(windows) && e == rusb::Error::NotSupported);
     match e {
-        rusb::Error::Access => err!(
+        _ if denied => err!(
             E212,
             "{what}: permission denied. {}",
             if cfg!(target_os = "linux") {

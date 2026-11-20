@@ -44,7 +44,7 @@ To report one, press **COPY REPORT** on the error screen: it puts the error and 
 | E205 | Another tool has the player open. | Close the other tool. |
 | E210 | The player is not on the bus. | Reconnect it in download mode. |
 | E211 | The player is not in the expected USB mode. | Reconnect it in download mode. |
-| E212 | No permission to open the player. | Linux: install the udev rule. macOS: use sudo. Windows: install WinUSB with Zadig. |
+| E212 | No permission to open the player (on Windows: it has no WinUSB driver). | Linux: install the udev rule. macOS: use sudo. Windows: install WinUSB with Zadig. |
 | E213 | Another program is using the player. | Close it. Retry. |
 | E214 | The player dropped off USB. | Check the cable. Reconnect in download mode. Retry. |
 | E215 | The player stopped answering. | Unplug, enter download mode again, retry. |
