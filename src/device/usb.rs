@@ -3,7 +3,7 @@
 //! status that follows it together (both ROMs do this).
 
 use crate::err;
-use rusb::{Context, Device, DeviceHandle, Direction, TransferType, UsbContext};
+use rusb::{Context, DeviceHandle, Direction, TransferType, UsbContext};
 use std::time::{Duration, Instant};
 
 pub struct Link {
@@ -23,24 +23,84 @@ pub fn ctx() -> Context {
     CTX.with(|c| c.clone())
 }
 
+fn ours(vid: u16) -> bool {
+    matches!(vid, 0x301a | 0x10d6 | 0x1209)
+}
+
 /// Every attached (vid, pid), with whether we could open it.
-pub fn list() -> Vec<(u16, u16, bool, Device<Context>)> {
-    let Ok(devs) = ctx().devices() else { return Vec::new() };
-    devs.iter()
-        .filter_map(|d| {
-            let desc = d.device_descriptor().ok()?;
-            Some((desc.vendor_id(), desc.product_id(), d))
-        })
-        .filter(|(v, _, _)| matches!(*v, 0x301a | 0x10d6 | 0x1209))
-        .map(|(v, p, d)| {
-            let ok = d.open().is_ok();
-            (v, p, ok, d)
-        })
-        .collect()
+pub fn list() -> Vec<(u16, u16, bool)> {
+    let mut out: Vec<(u16, u16, bool)> = match ctx().devices() {
+        Ok(devs) => devs
+            .iter()
+            .filter_map(|d| {
+                let desc = d.device_descriptor().ok()?;
+                ours(desc.vendor_id()).then(|| (desc.vendor_id(), desc.product_id(), d.open().is_ok()))
+            })
+            .collect(),
+        Err(_) => Vec::new(),
+    };
+    for (v, p) in driverless() {
+        if !out.iter().any(|o| (o.0, o.1) == (v, p)) {
+            out.push((v, p, false));
+        }
+    }
+    out
 }
 
 pub fn present(vid: u16, pid: u16) -> bool {
-    list().iter().any(|(v, p, _, _)| *v == vid && *p == pid)
+    list().iter().any(|(v, p, _)| *v == vid && *p == pid)
+}
+
+/// Windows: libusb leaves out a device Windows has no driver for (Rockbox
+/// charging only, a boot ROM before Zadig); the system's own list of USB
+/// devices has it.
+#[cfg(windows)]
+fn driverless() -> Vec<(u16, u16)> {
+    use windows_sys::Win32::Devices::DeviceAndDriverInstallation::{
+        CM_Get_Device_ID_ListW, CM_Get_Device_ID_List_SizeW, CM_GETIDLIST_FILTER_ENUMERATOR, CM_GETIDLIST_FILTER_PRESENT,
+        CR_SUCCESS,
+    };
+    let filter: Vec<u16> = "USB".encode_utf16().chain([0]).collect();
+    let flags = CM_GETIDLIST_FILTER_ENUMERATOR | CM_GETIDLIST_FILTER_PRESENT;
+    let mut len = 0u32;
+    if unsafe { CM_Get_Device_ID_List_SizeW(&mut len, filter.as_ptr(), flags) } != CR_SUCCESS {
+        return Vec::new();
+    }
+    let mut buf = vec![0u16; len as usize];
+    if unsafe { CM_Get_Device_ID_ListW(filter.as_ptr(), buf.as_mut_ptr(), len, flags) } != CR_SUCCESS {
+        return Vec::new();
+    }
+    String::from_utf16_lossy(&buf).split('\0').filter_map(device_ids).filter(|(v, _)| ours(*v)).collect()
+}
+
+#[cfg(not(windows))]
+fn driverless() -> Vec<(u16, u16)> {
+    Vec::new()
+}
+
+/// A Windows USB device instance ID, `USB\VID_1209&PID_0001\...`: its
+/// (vid, pid). Not an interface of a composite device (`...&MI_00\...`).
+#[cfg_attr(not(windows), allow(dead_code))]
+fn device_ids(id: &str) -> Option<(u16, u16)> {
+    let hw = id.to_ascii_uppercase();
+    let hw = hw.strip_prefix("USB\\")?.split('\\').next()?;
+    let mut parts = hw.split('&');
+    let vid = u16::from_str_radix(parts.next()?.strip_prefix("VID_")?, 16).ok()?;
+    let pid = u16::from_str_radix(parts.next()?.strip_prefix("PID_")?, 16).ok()?;
+    parts.next().is_none().then_some((vid, pid))
+}
+
+#[cfg(test)]
+mod tests {
+    #[test]
+    fn windows_device_ids() {
+        assert_eq!(super::device_ids(r"USB\VID_1209&PID_0001\5&E57B0DF&0&7"), Some((0x1209, 0x0001)));
+        assert_eq!(super::device_ids(r"USB\VID_301A&PID_2800\20201111000001"), Some((0x301a, 0x2800)));
+        assert_eq!(super::device_ids(r"usb\vid_10d6&pid_10d6\x"), Some((0x10d6, 0x10d6)));
+        assert_eq!(super::device_ids(r"USB\VID_1209&PID_0001&MI_00\6&65CFE5F&0&0000"), None);
+        assert_eq!(super::device_ids(r"USB\ROOT_HUB30\4&1"), None);
+        assert_eq!(super::device_ids(""), None);
+    }
 }
 
 /// Wait until (vid, pid) shows up (and stays up for ~0.3 s).
@@ -48,7 +108,7 @@ pub fn wait_for(vid: u16, pid: u16, timeout: Duration, mut tick: impl FnMut(f32)
     let t0 = Instant::now();
     let mut stable = 0;
     while t0.elapsed() < timeout {
-        if list().iter().any(|(v, p, ok, _)| *v == vid && *p == pid && *ok) {
+        if list().iter().any(|(v, p, ok)| *v == vid && *p == pid && *ok) {
             stable += 1;
             if stable >= 3 {
                 return true;

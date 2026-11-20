@@ -70,7 +70,7 @@ impl Real {
 
 fn seen_now() -> Vec<Seen> {
     let mut out = Vec::new();
-    for (v, p, ok, _) in usb::list() {
+    for (v, p, ok) in usb::list() {
         for kind in [Kind::Yp3, Kind::Ts17] {
             let (vid, rom, stock, rb) = ident(kind);
             let mode = if v == vid && p == rom {
