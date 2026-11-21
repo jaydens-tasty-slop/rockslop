@@ -2441,7 +2441,7 @@ impl App {
         }
         if s != Screen::Boot {
             // top left, under the logo and the website: clear of the log and the panels
-            self.np.draw(&mut self.ui, &self.g, vec2(30.0, 132.0), self.beat);
+            self.np.draw(&mut self.ui, &self.g, vec2(30.0, 138.0), self.beat);
         }
         // bottom left, over the BACK button
         let feet = vec2(92.0, self.g.size().y - 118.0);
@@ -2554,12 +2554,13 @@ impl App {
         // logo
         text::draw_spaced(g, Face::Display, "ROCKSLOP", vec2(36.0, 50.0), 17.0, pal::alpha(pal::ICE, a), Align::Left, 3.0);
         let fw = text::draw(g, Face::Mono, "xX FLASHER Xx", vec2(37.0, 66.0), 11.0, pal::alpha(pal::MAGENTA, a), Align::Left);
-        // which build, for bug reports: ICE keeps its shape in the corner's
-        // colour split
-        text::draw_spaced(g, Face::Mono, &format!("BUILD {}", rockslop::VERSION), vec2(37.0, 84.0), 11.0, pal::alpha(pal::scale(pal::ICE, 0.85), a), Align::Left, 1.0);
-        // the website, on every screen
+        // which build, for bug reports: big enough to read through the
+        // corner's colour split, and ICE keeps its shape in it
+        text::draw_spaced(g, Face::Mono, &format!("BUILD {}", rockslop::VERSION), vec2(37.0, 88.0), 13.0, pal::alpha(pal::ICE, a), Align::Left, 1.0);
+        // the website, on every screen (the credits and the now-playing
+        // toast start below it)
         let site = rockslop::WEBSITE.trim_start_matches("https://");
-        let r = Rect::new(30.0, 96.0, ui::link_width(g, Face::Mono, site), 26.0);
+        let r = Rect::new(30.0, 100.0, ui::link_width(g, Face::Mono, site), 26.0);
         if ui::link(&mut self.ui, g, r, site, Face::Mono, pal::CYAN, a) {
             credits::open_url(rockslop::WEBSITE);
         }
@@ -3467,8 +3468,9 @@ impl App {
         if !self.to_stock {
             // the way round the downloads, for a package file: there, not pushed
             let label = if self.manual { tr("LATEST RELEASE") } else { tr("USE A FILE") };
-            let w = ui::button_width(&self.g, label, 38.0).clamp(160.0, panel.w / 2.0 - 10.0);
-            if ui::button(&mut self.ui, &self.g, Rect::new(panel.x, panel.y + panel.h + 22.0, w, 38.0), label, Tone::Secondary, window(st, 0.6, 0.4), true) {
+            let w = ui::button_width(&self.g, label, 42.0).clamp(180.0, panel.w / 2.0 - 10.0);
+            let r = Rect::new(panel.x, panel.y + panel.h + 20.0, w, 42.0);
+            if ui::button(&mut self.ui, &self.g, r, label, Tone::Bright, window(st, 0.6, 0.4), true) {
                 // a file instead, or the latest release (auto_release fetches it)
                 self.manual = !self.manual;
                 self.drop_pkg();

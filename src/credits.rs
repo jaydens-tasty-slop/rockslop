@@ -481,7 +481,8 @@ fn units(s: &str) -> Vec<String> {
 /// (left pane, right pane, wave baseline).
 pub fn layout(sz: Vec2) -> (Rect, Rect, f32) {
     let w = (sz.x * 0.34).clamp(300.0, 520.0);
-    let top = 96.0;
+    // below the website link
+    let top = 138.0;
     let h = sz.y - top - 128.0;
     (Rect::new(36.0, top, w, h), Rect::new(sz.x - 36.0 - w, top, w, h), sz.y - 70.0)
 }

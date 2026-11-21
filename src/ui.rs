@@ -274,6 +274,8 @@ pub fn link(ui: &mut Ui, g: &Gfx, r: Rect, label: &str, face: Face, c: Color, ap
 pub enum Tone {
     Primary,
     Secondary,
+    /// a secondary button that should be found: brighter, still calm
+    Bright,
 }
 
 /// A chamfered button; returns true when clicked.
@@ -290,6 +292,7 @@ pub fn button(ui: &mut Ui, g: &Gfx, r: Rect, label: &str, tone: Tone, appear: f3
     let base = match tone {
         Tone::Primary => pal::MAGENTA,
         Tone::Secondary => pal::CYAN,
+        Tone::Bright => pal::ICE,
     };
     let base = if enabled { base } else { pal::DIM };
     let t = ui.time;
