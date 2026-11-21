@@ -1,0 +1,10 @@
+Ardulem: Lemmings for Arduboy, (c) 2017 Alban Nanty, MIT (LICENSE).
+Upstream: https://github.com/Lswbanban/Ardulem at 97583673b32ab96062a9486f60d7dac13dce378e.
+The game sources are the upstream ones. The upstream bundles a modified
+Arduboy v1 library (CustomArduboy.*, Arduboy_core.*, Arduboy_audio.*,
+Arduboy_glcdfont.c): CustomArduboy and the font are kept (the AVR-asm
+fillScreen gets a C fallback and nextFrame() paces against an accumulated
+deadline); Arduboy_core.* and Arduboy_audio.* are replaced by Rockbox
+versions with the same interface (Playtune score player + voices run on the
+mixer). ardulem_rb.cpp is the Rockbox game description; Ardulem.cpp is the
+.ino with an Arduino.h include added.

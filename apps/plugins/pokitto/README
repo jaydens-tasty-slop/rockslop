@@ -1,0 +1,69 @@
+PokittoLib compatibility layer and ports of Pokitto games (Rockbox plugins).
+
+lib/        Pokitto::Core/Display/Buttons/Cookie/Sound, the Audio API, a synth
+            tone and file shim, written against PokittoLib
+            (https://github.com/pokitto/PokittoLib commit 4406a4f2, BSD-3-Clause;
+            fontTiny, fontTight, palettePico are copied from it; font3x5 and
+            font5x7 are the Gamebuino Library's, LGPL-3.0+, LICENSE.Gamebuino-fonts). One layer, built per
+            game (the screen mode comes from the game's My_settings.h).
+tools/      <game>_data.py extract sound/level/image data from the upstream
+            repository (POKITTO_UPSTREAM, default build/np/src) into the build dir;
+            pk_images.py moves image arrays out of the image (Dark Ritual);
+            fetch_upstream.sh clones the pinned upstream repositories there.
+            CARDFILES installs them under .rockbox/rocks/games/pokitto_<game>/.
+Games (rock pokitto_<game>.rock, upstream commit):
+  obs         OBS - One Button Shooter, Press-Play-On-Tape/OBS_Pokitto 7807ee08, BSD-3
+  fireworks   FireWorks, Press-Play-On-Tape/FireWorks_Pokitto a935761e, BSD-3
+  darkritual  Dark Ritual, Press-Play-On-Tape/DarkRitual_Pokitto 3eb86e5e, BSD-3
+  spacecab    Space Cab, Press-Play-On-Tape/SpaceCab_Pokitto 53380f9b, GPL-3.0
+              (level designer removed)
+  pzero       Pokitto Grand Prix, same repo, Examples/PokittoGP: code Apache-2.0,
+              graphics CC BY-NC-SA (Pharap) / CC0 (Adekto); music player not ported
+  abbaye      L'Abbaye des Morts, gitlab.com/HomineLudens/abbaye-des-morts-pokitto
+              06f6e1c5: code GPL-3.0, media CC BY 3.0
+  nvader      1nvader, Press-Play-On-Tape/1nvader_Pokitto 15be430, BSD-3 (PNG sources dropped,
+              include case fixed, debug printfs removed, WHITE=palette 7)
+  minirogue   Mini Rogue, Press-Play-On-Tape/MiniRogue_Pokitto 63cb1da, BSD-3 (PNG sources
+              dropped, min/max/swap helpers, sounds on the card)
+  astarok     Trials of Astarok, Press-Play-On-Tape/TrialsOfAstarok_Pokitto 1a7ecb0, BSD-3 (PNG
+              sources dropped, sounds on the card, theme volume fades not applied)
+  minesweeper MineSweeper, Press-Play-On-Tape/MineSweeper_Pokitto c7fbcea, BSD-3 (PNG sources
+              dropped, sounds on the card; 220x176 mode, shown scaled)
+  lightsout   Lights Out, Press-Play-On-Tape/LightsOut_Pokitto 948042e, BSD-3 (PNG sources
+              dropped; tunes and sfx converted back from C arrays to the card; 220x176 mode, scaled)
+  buttonstrail Dark Trails, Press-Play-On-Tape/ButtonsTrail_Pokitto 84b6210, BSD-3 (PNG sources
+              dropped, sounds on the card, debug dump removed; 220x176 mode, scaled)
+  ballbust    Ball Bust, github.com/Gitonym/Ball-Bust c2e3a38, Unlicense (own sin/cos/atan2,
+              Core::collide*; no sound)
+  galaxyfighter GalaxyFighter, Press-Play-On-Tape/GalaxyFighter_Pokitto ce135d5, BSD-3 (PNG sources
+              dropped; images in images.bin on the card via pk_images.py, so it takes the audio buffer;
+              sfx as files; null-enemy check in CaptureController; 220x176 mode, scaled)
+  linez       Linez (falling blocks), github.com/sbmrgd/linez aad9679, BSD-3 (CRLF/Latin-1 cleaned,
+              ilog10 instead of log10)
+  leword      LeWord (Wordle-style), Press-Play-On-Tape/LeWord_Pokitto 99e3f8e, BSD-3 (images in
+              images.bin on the card via pk_images.py; word lists as files; the three tunes
+              were removed (no author or licence upstream), so no music)
+  scrambler   Scrambler, Press-Play-On-Tape/Scrambler_Pokitto bf21d07, BSD-3 (PNG sources dropped,
+              sounds on the card; Select tap = A laser, hold = B bomb; 220x176 mode, scaled)
+  roadtrip    RoadTrip, Press-Play-On-Tape/RoadTrip_Pokitto a84e983, BSD-3 (images.bin, radio
+              sounds and sfx on the card; Select = gas, Select+Down = brake; the five tunes were
+              removed (no author or licence upstream), so no music; 110x88 mode, scaled)
+  picross     PiCross (nonograms), Press-Play-On-Tape/PiCross_Pokitto 8a08ac6, BSD-3 (PNG sources
+              dropped; the four tunes were removed (no author or licence upstream), so no music; Select tap =
+              A fill, hold = B mark, Select+Left/Right/Down drags A, two taps = C menu;
+              220x176 mode, scaled)
+  scopa       Scopa (Italian card game), Press-Play-On-Tape/Scopa_V1_Pokitto 9ffaf7f, BSD-3 (PNG
+              sources dropped; images in images.bin + title.bin on the card (title screen images
+              loaded over the others while shown), so it takes the audio buffer; music and sfx
+              on the card; Select = A, Select+Down = B; 220x176 mode, scaled)
+  rogue       Rogue (ASCII roguelike), Press-Play-On-Tape/Rogue_Pokitto 22d8424, BSD-3 (assets dir
+              and unused font files dropped; EEPROM flag byte in RAM since the upstream save is
+              commented out, debug printfs removed; text drawn white; no sound; 220x176 mode, scaled)
+  stackshift  StackShift (falling-block puzzle), Press-Play-On-Tape/StackShift_Pokitto fe472f4, GPL-3
+              (PNG sources and unused music arrays dropped; images in images.bin on the card, so it
+              takes the audio buffer; music and sfx on the card; Select = A rotate, Select+Down = B,
+              Up drops; the game's own C pause screen is unmapped; 220x176 mode, scaled)
+  noughts     Noughts and Crosses, Pharap/SimpleNoughtsAndCrosses 817ca36, Apache-2.0 (std names the
+              freestanding layer lacks provided in Compat.h, loads palettePico; two players, no
+              sound; Select = place, hold Select+Down = new game; 220x176 mode, scaled)
+Notes: fontTight (RoadTrip) is PokittoLib's tight4x7 (BSD-3). fontC64 (GalaxyFighter) is MikroElektronika's. font3x5 (Dark Ritual, Space Cab, PZero) and font5x7 (Lights Out, Dark Trails, Scrambler) are Gamebuino's, LGPL-3.0+.

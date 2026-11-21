@@ -1,0 +1,8 @@
+#include "Dice.h"
+#include "Icons.h"
+#include "HighScores.h"
+#include "Play.h"
+#include "Splash.h"
+#include "Winners.h"
+#include "ScoreSheet.h"
+#include "FireWorks.h"

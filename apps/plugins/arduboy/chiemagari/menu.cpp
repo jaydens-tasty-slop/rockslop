@@ -1,0 +1,323 @@
+#include "common.h"
+
+/*  Defines  */
+
+#define MENU_COUNT_MAX  5
+
+enum STATE_T {
+    STATE_INIT = 0,
+    STATE_TITLE,
+    STATE_PUZZLE,
+    STATE_GALLERY,
+    STATE_CREDIT,
+};
+
+/*  Typedefs  */
+
+typedef struct
+{
+    MODE_T (*func)(void);
+    const __FlashStringHelper *label;
+} ITEM_T;
+
+/*  Local Functions  */
+
+static void     setupMenuItems(void);
+static void     addMenuItem(const __FlashStringHelper *label, MODE_T (*func)(void));
+
+static MODE_T   handleButtons(void);
+static void     handleWaiting(void);
+
+static MODE_T   onContinue(void);
+static MODE_T   onPuzzle(void);
+static MODE_T   onGallery(void);
+static MODE_T   onSound(void);
+static MODE_T   onHelp(void);
+static MODE_T   onCredit(void);
+static MODE_T   onReset(void);
+
+static void     drawMenuItems(void);
+static void     drawMenuOnOff(bool on);
+static void     drawCredit(void);
+
+/*  Local Variables  */
+
+PROGMEM static const uint8_t imgTitle[512] = { // 128x32
+    0x00, 0x00, 0x80, 0xE0, 0xFE, 0x7E, 0x3E, 0xFE, 0xEC, 0xE0, 0xE0, 0x20, 0x30, 0x38, 0xB8, 0xB0,
+    0x20, 0xFC, 0xFC, 0xF8, 0xF0, 0xF0, 0x10, 0x10, 0x10, 0xF8, 0xF8, 0xF8, 0xF0, 0xF0, 0x00, 0x00,
+    0x10, 0x90, 0x90, 0x90, 0x90, 0x90, 0x90, 0xFE, 0xFE, 0xFE, 0xFE, 0xB2, 0xFC, 0xDC, 0xD8, 0x90,
+    0x90, 0x90, 0x90, 0xFE, 0xFE, 0xFE, 0xFE, 0x96, 0x90, 0xD0, 0xFC, 0xFC, 0xD8, 0x90, 0x00, 0x00,
+    0x00, 0x00, 0x80, 0x80, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00, 0xFE, 0xFE, 0xFE, 0xFC, 0x04, 0x00,
+    0x00, 0xFE, 0xFE, 0xFE, 0xFC, 0x04, 0x00, 0x00, 0x80, 0x80, 0x80, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0xFE, 0xFE, 0xFE, 0xFE, 0x84, 0xC0, 0xC0, 0x80, 0xF8, 0xF8, 0xF8,
+    0xF0, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x10, 0x18, 0x1E, 0x1E, 0x1C, 0x18, 0x10, 0x00,
+    0x02, 0x02, 0x03, 0x03, 0x82, 0xC2, 0xFA, 0xFF, 0xFF, 0x3F, 0x1F, 0x32, 0xF2, 0xF3, 0xE3, 0xE3,
+    0x83, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x20, 0x20, 0x20, 0xFF, 0xFF, 0xFF, 0x7F, 0x7F, 0x00, 0x00,
+    0x04, 0x1C, 0x1C, 0x5C, 0x4C, 0x4C, 0x4C, 0x7F, 0x7F, 0x5F, 0x5F, 0x46, 0x42, 0x42, 0x46, 0x46,
+    0x44, 0x44, 0x44, 0x5F, 0x5F, 0x5F, 0xFF, 0xF4, 0xF4, 0xE4, 0xC6, 0x87, 0x07, 0x06, 0x04, 0x00,
+    0x00, 0x00, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x02, 0x02, 0x02, 0xFF, 0xFF, 0xFF, 0xFF, 0x02, 0x02,
+    0x02, 0xFF, 0xFF, 0xFF, 0xFF, 0x02, 0x02, 0x02, 0xFF, 0xFF, 0xFF, 0xFF, 0xFE, 0x04, 0x00, 0x00,
+    0x02, 0x02, 0x02, 0x82, 0xFA, 0xFF, 0xFF, 0xFF, 0xFF, 0xC3, 0xC3, 0x83, 0x03, 0xFF, 0xFF, 0xFF,
+    0xFF, 0x18, 0xF8, 0xE8, 0x08, 0x08, 0x08, 0xE8, 0xFC, 0xFC, 0xFC, 0x78, 0x30, 0x00, 0x00, 0x00,
+    0x00, 0x04, 0x06, 0x07, 0x03, 0xFF, 0xFF, 0xFF, 0xFF, 0xFE, 0x42, 0x42, 0x42, 0x43, 0x43, 0x43,
+    0x42, 0x42, 0x42, 0x42, 0x42, 0xFF, 0xFF, 0xFF, 0xFE, 0xFE, 0x04, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x10, 0xD2, 0xD2, 0x12, 0xD2, 0xD2, 0xD2, 0xD2, 0xD2, 0x52, 0xD2, 0xD2, 0xD2,
+    0xD2, 0x92, 0x12, 0x12, 0x12, 0x92, 0xFF, 0xFF, 0xFF, 0xBF, 0x3F, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x02, 0x02, 0x02, 0xFF, 0xFF, 0xFF, 0xFF, 0x02, 0x02,
+    0x02, 0xFF, 0xFF, 0xFF, 0xFF, 0x02, 0x02, 0x02, 0xFF, 0xFF, 0xFF, 0xFF, 0xFF, 0x00, 0x00, 0x00,
+    0x40, 0x70, 0x3C, 0x1F, 0x0F, 0xFF, 0xFF, 0xFF, 0xFF, 0x07, 0x07, 0x07, 0xE7, 0xFF, 0xFF, 0x7F,
+    0x1F, 0x00, 0x03, 0x9F, 0xFF, 0xFC, 0xFE, 0xFF, 0xFF, 0x8F, 0x83, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x08, 0x08, 0x08, 0x08, 0x08, 0x08,
+    0x08, 0x08, 0x08, 0x08, 0x08, 0x1F, 0x3F, 0x3F, 0x1F, 0x1F, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,
+    0x08, 0x1C, 0x1E, 0x1F, 0x1F, 0x0F, 0x00, 0x1F, 0x3F, 0x3F, 0x3F, 0x3F, 0x38, 0x38, 0x39, 0x3B,
+    0x3B, 0x3B, 0x38, 0x3C, 0x3F, 0x3F, 0x3F, 0x18, 0x01, 0x0F, 0x1F, 0x1F, 0x1E, 0x1E, 0x00, 0x00,
+    0x00, 0x00, 0x3F, 0x3F, 0x3F, 0x3F, 0x3F, 0x08, 0x08, 0x08, 0x0F, 0x0F, 0x0F, 0x0F, 0x08, 0x08,
+    0x08, 0x0F, 0x0F, 0x0F, 0x0F, 0x08, 0x08, 0x08, 0x3F, 0x3F, 0x3F, 0x1F, 0x1F, 0x00, 0x00, 0x00,
+    0x00, 0x00, 0x00, 0x00, 0x00, 0x3F, 0x3F, 0x3F, 0x3F, 0x20, 0x38, 0x1E, 0x2F, 0x27, 0x31, 0x18,
+    0x1C, 0x0E, 0x0F, 0x07, 0x03, 0x01, 0x01, 0x03, 0x07, 0x0F, 0x1F, 0x1F, 0x1E, 0x06, 0x06, 0x00,
+};
+
+PROGMEM static const char creditText[] = "- " APP_TITLE " -\0\0" APP_RELEASED \
+        "\0PROGRAMMED BY OBONO\0\0THIS PROGRAM IS\0" "RELEASED UNDER\0" "THE MIT LICENSE.";
+
+PROGMEM static const byte soundStart[] = {
+    0x90, 72, 0, 100, 0x80, 0, 25,
+    0x90, 74, 0, 100, 0x80, 0, 25,
+    0x90, 76, 0, 100, 0x80, 0, 25,
+    0x90, 77, 0, 100, 0x80, 0, 25,
+    0x90, 79, 0, 200, 0x80, 0xF0
+};
+
+PROGMEM static const byte soundReset[] = {
+    0x90, 100, 0, 30, 0x90, 93, 0, 30, 0x90, 86, 0, 30, 0x90, 79, 0, 30, 0x90, 72, 0, 30, 0x80, 0xF0
+};
+
+static STATE_T  state = STATE_INIT;
+static bool     toDraw;
+static bool     toDrawFrame;
+static int8_t   menuCount;
+static ITEM_T   menuItemAry[MENU_COUNT_MAX];
+static int8_t   menuPos;
+
+/*---------------------------------------------------------------------------*/
+/*                              Main Functions                               */
+/*---------------------------------------------------------------------------*/
+
+void initMenu(void)
+{
+    if (state == STATE_INIT) {
+        readRecord();
+        state = STATE_TITLE;
+    }
+    setupMenuItems();
+    menuPos = 0;
+    toDraw = true;
+    toDrawFrame = true;
+}
+
+MODE_T updateMenu(void)
+{
+    MODE_T ret = MODE_MENU;
+    if (state == STATE_CREDIT) {
+        handleWaiting();
+    } else {
+        ret = handleButtons();
+    }
+    return ret;
+}
+
+void drawMenu(void)
+{
+    if (toDraw) {
+        if (state == STATE_CREDIT) {
+            drawCredit();
+        } else {
+            drawMenuItems();
+        }
+        toDraw = false;
+    }
+}
+
+/*---------------------------------------------------------------------------*/
+/*                             Control Functions                             */
+/*---------------------------------------------------------------------------*/
+
+static void setupMenuItems(void)
+{
+    menuCount = 0;
+    if (state != STATE_TITLE) {
+        addMenuItem(F("CONTINUE"), onContinue);
+    }
+    if (state != STATE_PUZZLE) {
+        addMenuItem(F("PLAY PUZZLE"), onPuzzle);
+    }
+    if (state != STATE_GALLERY && clearCount > 0) {
+        addMenuItem(F("GALLERY"), onGallery);
+    }
+    addMenuItem(F("SOUND"), onSound);
+    addMenuItem( F("SHOW HELP"), onHelp);
+    if (state == STATE_TITLE) {
+        addMenuItem(F("CREDIT"), onCredit);
+    } else if (state == STATE_PUZZLE) {
+        addMenuItem(F("RESET"), onReset);
+    }
+}
+
+static void addMenuItem(const __FlashStringHelper *label, MODE_T (*func)(void))
+{
+    ITEM_T *pItem = &menuItemAry[menuCount];
+    pItem->label = label;
+    pItem->func = func;
+    menuCount++;
+}
+
+static MODE_T handleButtons()
+{
+    MODE_T ret = MODE_MENU;
+    if (arduboy.buttonDown(UP_BUTTON) && menuPos > 0) {
+        menuPos--;
+        playSoundTick();
+        toDraw = true;
+    }
+    if (arduboy.buttonDown(DOWN_BUTTON) && menuPos < menuCount - 1) {
+        menuPos++;
+        playSoundTick();
+        toDraw = true;
+    }
+    if (arduboy.buttonDown(B_BUTTON)) {
+        ret = menuItemAry[menuPos].func();
+    } else if (arduboy.buttonDown(A_BUTTON) && state != STATE_TITLE) {
+        ret = onContinue();
+    }
+    return ret;
+}
+
+static void handleWaiting(void)
+{
+    if (arduboy.buttonDown(A_BUTTON | B_BUTTON)) {
+        playSoundClick();
+        state = STATE_TITLE;
+        toDraw = true;
+        toDrawFrame = true;
+    }
+}
+
+static MODE_T onContinue(void)
+{
+    playSoundTick();
+    return (state == STATE_PUZZLE) ? MODE_PUZZLE : MODE_GALLERY;
+}
+
+static MODE_T onPuzzle(void)
+{
+    if (state == STATE_TITLE) {
+        arduboy.playScore2(soundStart, 0);
+    } else {
+        playSoundClick();
+        if (state == STATE_GALLERY) {
+            readPieces();
+        }
+    }
+    state = STATE_PUZZLE;
+    return MODE_PUZZLE;
+}
+
+static MODE_T onGallery(void)
+{
+    playSoundClick();
+    if (isDirty) {
+        writeRecord();
+    }
+    state = STATE_GALLERY;
+    return MODE_GALLERY;
+}
+
+static MODE_T onSound(void)
+{
+    setSound(!arduboy.audio.enabled());
+    playSoundClick();
+    toDraw = true;
+    isDirty = true;
+    dprint(F("isSoundEnable="));
+    dprintln(arduboy.audio.enabled());
+    return MODE_MENU;
+}
+
+static MODE_T onHelp(void)
+{
+    playSoundClick();
+    isHelpVisible = !isHelpVisible;
+    toDraw = true;
+    isDirty = true;
+    dprint(F("isHelpVisible="));
+    dprintln(isHelpVisible);
+    return MODE_MENU;
+}
+
+static MODE_T onCredit(void)
+{
+    playSoundClick();
+    state = STATE_CREDIT;
+    toDraw = true;
+    dprintln(F("Show credit"));
+    return MODE_MENU;
+}
+
+static MODE_T onReset(void)
+{
+    arduboy.playScore2(soundReset, 2);
+    resetPieces();
+    isDirty = true;
+    state = STATE_PUZZLE;
+    return MODE_PUZZLE;
+}
+
+/*---------------------------------------------------------------------------*/
+/*                              Draw Functions                               */
+/*---------------------------------------------------------------------------*/
+
+static void drawMenuItems(void)
+{
+    /*  Clear  */
+    int8_t  menuTop = (state == STATE_TITLE) ? 34 : 32 - menuCount * 3;
+    uint8_t menuHeight = menuCount * 6;
+    if (toDrawFrame) {
+        if (state == STATE_TITLE) {
+            arduboy.clear();
+            arduboy.drawBitmap(0, 0, imgTitle, 128, 32, WHITE);
+        } else {
+            arduboy.drawRect(18, menuTop - 2, 91, menuHeight + 3, WHITE);
+        }
+        toDrawFrame = false;
+    }
+    arduboy.fillRect(19, menuTop - 1, 89, menuHeight + 1, BLACK);
+
+    /*  Menu items  */
+    ITEM_T *pItem = menuItemAry;
+    for (int i = 0; i < menuCount; i++, pItem++) {
+        arduboy.printEx(30 - (i == menuPos) * 4, i * 6 + menuTop, pItem->label);
+        if (pItem->func == onSound) {
+            drawMenuOnOff(arduboy.audio.enabled());
+        }
+        if (pItem->func == onHelp) {
+            drawMenuOnOff(isHelpVisible);
+        }
+    }
+    arduboy.fillRect2(20, menuPos * 6 + menuTop, 5, 5, WHITE);
+}
+
+static void drawMenuOnOff(bool on)
+{
+    arduboy.print((on) ? F(" ON") : F(" OFF"));
+}
+
+static void drawCredit(void)
+{
+    arduboy.clear();
+    const char *p = creditText;
+    for (int i = 0; i < 8; i++) {
+        uint8_t len = strnlen_P(p, 20);
+        arduboy.printEx(64 - len * 3, i * 6 + 8, (const __FlashStringHelper *) p);
+        p += len + 1;
+    }
+}

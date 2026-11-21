@@ -1,0 +1,9 @@
+Ard-Drivin: pseudo-3D racer for Arduboy, (c) 2018 Remi Veilleux and
+Louis-Philippe Guilbert, MIT (LICENSE).
+Upstream: https://github.com/rveilleux/ard-drivin at 78b6a0730878a622f3ca5b0c8fffd572507cd9b1.
+Game and its private Arduboy2 variant (main.cpp, ArduboyRem.*, pics/) are the
+upstream sources; the AVR asm helpers got C equivalents and nextFrame() paces
+against a 32-bit deadline. ArduboyCoreRem.* and ArduboyAudioRem.* are Rockbox
+replacements with the same interface. ardrivin_rb.cpp is the Rockbox game
+description. The original gets grey by flickering black and white; the layer
+blends successive frames (ab_game.blend) so the LCD shows true grey.

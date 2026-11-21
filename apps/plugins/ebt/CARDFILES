@@ -1,0 +1,4 @@
+# <source> <destination under .rockbox/rocks> (yp3dev/rocks.sh)
+LICENSE apps/ebt/LICENSE.txt
+songs/FRZNG_POINT.ebt apps/ebt/FRZNG_POINT.ebt
+songs/TEST.ebt apps/ebt/TEST.ebt

@@ -1,0 +1,4 @@
+# <source> <destination under .rockbox/rocks> (yp3dev/rocks.sh)
+LICENSE games/prizmracing/LICENSE.txt
+tracks/oval.trk games/prizmracing/oval.trk
+tracks/zigzag.trk games/prizmracing/zigzag.trk

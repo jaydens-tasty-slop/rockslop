@@ -1,0 +1,8 @@
+ArduGolf: 3D minigolf for Arduboy, by Tiberius Brown (original Arduboy game).
+Source used: the game/ directory of https://github.com/apfxtech/FlipperGolf
+at 5242af5e94ab2b63c41a3a87d9a6471d9df64ed4 (a Flipper Zero port whose game/
+code is the Arduboy original, host-independent). License: MPL-2.0 (LICENSE);
+the files here keep their upstream form (source files are unmodified).
+Built with ARDUGOLF_FX=0: the 18 default holes are in levels_default.hpp
+(program memory) and the score is kept in the EEPROM file, so no data file is
+needed. ardugolf_rb.cpp is the Rockbox host glue and game description.

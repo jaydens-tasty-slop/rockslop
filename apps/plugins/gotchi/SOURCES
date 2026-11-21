@@ -1,0 +1,4 @@
+gotchi.c
+gotchi_view.c
+tama/cpu.c
+tama/hw.c

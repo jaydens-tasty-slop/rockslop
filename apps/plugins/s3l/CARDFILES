@@ -1,0 +1,3 @@
+# <source> <destination under .rockbox/rocks> (yp3dev/rocks.sh)
+LICENSE.txt demos/s3l/LICENSE.txt
+tpe_LICENSE.txt demos/s3l/tpe_LICENSE.txt

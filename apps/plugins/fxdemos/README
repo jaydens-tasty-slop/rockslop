@@ -1,0 +1,22 @@
+Demos and toys for Rockbox (YP3 port): one .rock per demo, all drawing into
+the LCD framebuffer with integer maths. Shared glue: fx_main.h (start/pause
+menu with Help, About, Playback Control; input; pacing), fx_common.h (drawing,
+trig, 5x7 text), fx_sintab.h (generated sine table).
+
+demoeffects.rock   Mika Tuupola's esp_effects / sdl2_effects, MIT-0 (LICENSE-effects.txt)
+  https://github.com/tuupola/esp_effects  e107d93fdee957a889fe2e79355f856f0ff0059a
+  https://github.com/tuupola/sdl2_effects 51a753f2c3c811d8ffc498dc6680fa3a3799dc5a
+  fx_head.h: the head image from Second Reality by Future Crew, as shipped in
+  those repositories (marked Unlicense there).
+amigademo.rock     ESP32-C6 Geek Amiga Demo by mcarey42, MIT (LICENSE-amiga.txt)
+  https://github.com/mcarey42/esp32-c6-geek-amiga-demo e7760de23c31321ad195579906a5114047803638
+  All twelve scenes, rewritten in fixed point. Scene 8 streams silhouette.bin
+  (the upstream frame data, 60 x 750 bytes) from rocks/demos/amiga/ on the card
+  and is skipped when the file is missing. fx_font5x7.h: Adafruit GFX glcdfont,
+  BSD-2 (LICENSE-adafruit-font.txt). Upstream has no sound; amiga_tune.h adds
+  an original looping chiptune (CC0) on the mixer beep channel, silent while
+  music plays.
+raytrace.rock      TI-84 CE Raytracing by TheScienceElf, MIT (LICENSE-raytrace.txt)
+  https://github.com/TheScienceElf/TI-84-CE-Raytracing 254feecbafc93b1a05c8ee714e2854f2f7ed59a5
+  rt_tables.h and rt_wood.h are generated from the upstream sources by
+  rt_gen.py (gamma tables, arcsin table, 128x128 wood texture).

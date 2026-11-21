@@ -1,0 +1,344 @@
+#pragma once
+
+#include <Arduino.h>
+
+// The YP3 has no serial port: the debug traces go to the Serial shim.
+static inline void printHexToSerial( uint8_t, bool = false, bool = false ) {}
+
+
+const uint8_t  LEVEL_WIDTH               = 16;
+const uint8_t  LEVEL_HEIGHT              = 16;
+const uint16_t MAX_LEVEL_BYTES           = LEVEL_WIDTH * LEVEL_HEIGHT;
+const uint8_t  MAX_VIEW_DISTANCE         = 7;
+
+const uint8_t  MAX_MONSTERS              = 10;
+
+const uint8_t  DUNGEON_WINDOW_SIZE_X     = 96;
+const uint8_t  DUNGEON_WINDOW_CENTER_X   = DUNGEON_WINDOW_SIZE_X / 2; /* = 48 */
+const uint8_t  DUNGEON_WINDOW_SIZE_Y     = 64;
+const uint8_t  DUNGEON_WINDOW_CENTER_Y   = DUNGEON_WINDOW_SIZE_Y / 2; /* = 32 */
+
+const uint8_t  DASHBOARD_SIZE_X          = 32;
+const uint8_t  DASHBOARD_SIZE_Y          = 64;
+
+const int8_t   POTION_HITPOINT_BONUS     =  8;
+
+// rows in the dashboard
+const uint8_t  COMPASS_ROW               =  0;
+const uint8_t  SKELETON_ROW              =  3;
+const uint8_t  HIT_POINTS_ROW            =  3;
+const uint8_t  ITEMS_ROW                 =  4;
+const uint8_t  VICTORY_ROW               =  5;
+
+// icon positions for the different objects
+const uint8_t  ITEM_SWORD_POS_X          =  2;
+const uint8_t  ITEM_SHIELD_POS_X         =  8;
+const uint8_t  ITEM_AMULET_POS_X         = 14;
+const uint8_t  ITEM_RING_POS_X           = 20;
+const uint8_t  ITEM_KEY_POS_X            = 26;
+const uint8_t  ITEM_LAST_POS_X           = 31;
+const uint8_t  COMPASS_START_X           = 14;
+const uint8_t  COMPASS_SIZE_X            =  5;
+
+// possible item types
+enum
+{
+  // nutting
+  EMPTY                   = 0x00,
+  
+  // not every object should be visible from any direction
+  FLAG_LIMITED_VISIBILITY = 0x02,
+
+  // bit 2 marks an object as a "monster" 
+  FLAG_MONSTER            = 0x04,
+
+  // bit 3 is reserved for marking objects as "SOLID", making them impassable
+  FLAG_SOLID              = 0x08,
+
+  // it looks like a wall, but you can pass through it...
+  FAKE_WALL               = 0x10,
+  // unless it is solid...
+  WALL                    = FAKE_WALL | FLAG_SOLID,
+  // but even a non solid wall *looks* like a wall
+  WALL_MASK               = FAKE_WALL,
+
+  // Caution! The following objects are always rendered *on* a wall, so the wall bit must be '1'
+  DOOR                    = 0x20 | WALL,
+  SWITCH_L                = 0x40 | WALL,
+  SWITCH_R                = 0x60 | WALL,
+
+  // Caution! The following objects are *never* rendered on a wall, so the wall bit must be '0'
+  RAT                     = 0x20 | FLAG_MONSTER | FLAG_SOLID,
+  SKELETON                = 0x40 | FLAG_MONSTER | FLAG_SOLID,
+  BEHOLDER                = 0x60 | FLAG_MONSTER | FLAG_SOLID,
+  CLOSED_CHEST            = 0x80, // | FLAG_SOLID,
+  // a mimic is like a chest, but you may not pass through it
+  MIMIC                   = CLOSED_CHEST | FLAG_MONSTER | FLAG_SOLID,
+  OPEN_CHEST              = 0xA0, // | FLAG_SOLID,
+  FOUNTAIN                = 0xC0 | FLAG_SOLID,
+  BARS                    = 0xE0 | FLAG_SOLID,
+
+  OBJECT_MASK             = 0xF0 | FLAG_SOLID | FLAG_MONSTER,
+
+  // limited orientation for objects 
+  // (because objects look the same from all directions and some objects look wrong from orthognonal directions,
+  //  e.g. bars and switches)
+  E_W = FLAG_LIMITED_VISIBILITY | 0x00,
+  N_S = FLAG_LIMITED_VISIBILITY | 0x01,
+  LIMITED_VISIBILITY_MASK = 0x01
+};
+
+// orientations
+enum
+{
+  NORTH   = 0x00,   // 0b00
+  UP      = NORTH,
+  EAST    = 0x01,   // 0b01
+  RIGHT   = EAST,
+  SOUTH   = 0x02,   // 0b10
+  DOWN    = SOUTH,
+  WEST    = 0x03,
+  LEFT    = WEST,   // 0b11
+  MAX_ORIENTATION = 4,
+};
+
+// special FX types
+enum 
+{
+  TELEPORTER              = 0x01,
+  SPINNER                 = 0x02,
+};
+
+// list of items in chests or monster treasure
+enum
+{
+  ITEM_NONE    = 0x00,
+  ITEM_COMPASS = 0x01,
+  ITEM_AMULET  = 0x02,
+  ITEM_RING    = 0x04,
+  ITEM_KEY     = 0x08,
+  ITEM_POTION  = 0x10,
+  ITEM_SWORD   = 0x20,
+  ITEM_SHIELD  = 0x40,
+  ITEM_VICTORY = 0x80,
+};
+
+
+// monster stats
+// (size: 6 bytes)
+class MONSTER_STATS
+{
+  public:
+
+  // monster position (byte offset from level start)
+  uint8_t position;
+  // monster type
+  uint8_t monsterType;
+  // hit points
+  int8_t  hitpoints;
+  // damage (additional to 1D8)
+  int8_t  damageBonus;
+  // monster attacks first?
+  uint8_t attacksFirst;
+  // treasure (bit mask)
+  uint8_t treasureItemMask;
+#if !defined(__AVR_ATtiny85__)
+  void serialPrint() 
+  {
+    Serial.print( F("  position         = (") ); Serial.print( position % LEVEL_WIDTH ); Serial.print(F(", ")); Serial.print( position / LEVEL_WIDTH ); Serial.println(F(")"));
+    Serial.print( F("  monsterType      = ") ); printHexToSerial( monsterType, false );
+    Serial.print( F("  hitpoints        = ") ); Serial.println( hitpoints );
+    Serial.print( F("  damageBonus      = ") ); Serial.println( damageBonus );
+    Serial.print( F("  attacksFirst     = ") ); Serial.println( ( attacksFirst != 0 ) ? "yes" : "no" );
+    Serial.print( F("  treasureItemMask = ") ); Serial.println( treasureItemMask );
+    Serial.println();
+  }
+#endif
+};
+
+
+// DUNGEON
+// (size: 11 + 256 + 60 + 8 bytes)
+class DUNGEON
+{
+public:
+  int8_t  playerX;
+  int8_t  playerY;
+  uint8_t dir;
+  int8_t  playerHP;
+  int8_t  playerDamage;
+  int8_t  playerArmour;
+  uint8_t playerItems;
+#if !defined( __AVR_ATtiny85__ )
+  int8_t  dice;
+#endif  
+  uint8_t displayXorEffect;
+  uint8_t invertMonsterEffect;
+  uint8_t invertStatusEffect;
+  uint8_t lightingOffset;
+  uint8_t currentLevel[MAX_LEVEL_BYTES];
+  MONSTER_STATS monsterStats[MAX_MONSTERS];
+  uint8_t lineBuffer[DUNGEON_WINDOW_SIZE_Y / 8];
+
+#if !defined(__AVR_ATtiny85__)
+  void serialPrint()
+  {
+    for ( uint8_t y = 0; y < LEVEL_HEIGHT; y++ )
+    {
+      for( uint8_t x = 0; x < LEVEL_WIDTH; x++ )
+      {
+        uint8_t cellValue = currentLevel[y * LEVEL_WIDTH + x];
+        if ((x == playerX) && (y == playerY))
+        {
+          switch (dir)
+          {
+            case NORTH: Serial.print( F("@^") ); break;
+            case EAST: Serial.print( F("@>") ); break;
+            case SOUTH: Serial.print( F("@v") ); break;
+            default:
+            case WEST: Serial.print( F("<@") ); break;
+          }
+        }
+        else if ( ( cellValue & OBJECT_MASK ) == SWITCH_L ) { Serial.print( F("W>") ); }
+        else if ( ( cellValue & OBJECT_MASK ) == SWITCH_R ) { Serial.print( F("W<") ); }
+        else if ( ( cellValue & OBJECT_MASK ) == DOOR ) { Serial.print( F("D ") ); }
+        else if ( ( cellValue & WALL_MASK ) == FAKE_WALL ) { Serial.print( F("W ") ); }
+        else if ( cellValue == SKELETON ) { Serial.print( F("sk") ); }
+        else if ( cellValue == BEHOLDER ) { Serial.print( F("bh") ); }
+        else if ( cellValue == RAT ) { Serial.print( F("rt") ); }
+        else if ( cellValue == MIMIC ) { Serial.print( F("mi") ); }
+        else if ( ( cellValue & OBJECT_MASK ) == BARS ) { Serial.print( F("# ") ); }
+        else if ( ( cellValue & OBJECT_MASK ) == FOUNTAIN ) { Serial.print( F("F ") ); }
+        else if ((cellValue & OBJECT_MASK ) == CLOSED_CHEST ) { Serial.print(F("cc") ); }
+        else if ((cellValue & OBJECT_MASK ) == OPEN_CHEST ) { Serial.print(F("oc") ); }
+        else { Serial.print( F("  ") ); }
+      }
+      Serial.println();
+    }
+    Serial.println();
+
+    Serial.print( F("  playerX = ") );Serial.print( playerX );
+    Serial.print( F(", playerY = ") );Serial.print( playerY );
+    Serial.print( F(", dir = ") );Serial.print( dir );
+    Serial.print( F(", HP = ") );Serial.print( playerHP );
+    Serial.print( F(", DAM = ") );Serial.print( playerDamage );
+    Serial.print( F(", Armour = ") );Serial.print( playerArmour );
+    Serial.print( F(", Items = ") );printHexToSerial( playerItems, false, false );
+    Serial.print( F(", Keys = ") );Serial.print( ( playerItems & ITEM_KEY ) != 0 );
+    Serial.print( F(", Compass = ") );Serial.print( ( playerItems & ITEM_COMPASS ) != 0 );
+    Serial.print( F(", displayXorEffect = ") );Serial.print( displayXorEffect );
+    Serial.println();
+  }
+  #endif
+};
+
+// NON_WALL_OBJECT
+// (size: 9 bytes)
+class NON_WALL_OBJECT
+{
+  public:
+  
+  uint8_t itemType;
+  uint8_t bitmapWidth;
+  uint8_t bitmapVerticalOffsetInBits;
+  uint8_t bitmapHeightInBytes;
+  uint8_t scalingThreshold[3];
+  const uint8_t *bitmapData;
+
+#if !defined(__AVR_ATtiny85__)
+  void serialPrint() 
+  {
+    Serial.println( F("NON_WALL_OBJECT") );
+    Serial.print( F("  itemType                     = ") );Serial.println( itemType );
+    Serial.print( F("  bitmapWidth                  = ") );Serial.print( bitmapWidth );Serial.println();
+    Serial.print( F("  bitmapVerticalOffsetInBits   = ") );Serial.print( bitmapVerticalOffsetInBits );Serial.println();
+    Serial.print( F("  bitmapHeightInBytes          = ") );Serial.print( bitmapHeightInBytes );Serial.println();
+    Serial.print( F("  scalingThreshold[0]          = ") );Serial.print( scalingThreshold[0] );Serial.println();
+    Serial.print( F("  scalingThreshold[1]          = ") );Serial.print( scalingThreshold[1] );Serial.println();
+    Serial.print( F("  scalingThreshold[2]          = ") );Serial.print( scalingThreshold[2] );Serial.println();
+    Serial.println();
+  }
+#endif  
+};
+
+
+// information for single wall display
+// (size: 9 bytes)
+class SIMPLE_WALL_INFO
+{
+  public:
+	
+  // wall bitmap to use
+  const uint8_t *wallBitmap;
+  // screen start position for this bitmap
+  int8_t startPosX;
+  // screen end position for this bitmap
+  int8_t endPosX;
+  // start and end position for Y
+  int8_t posStartEndY;
+  // view distance of this object
+  int8_t viewDistance;
+  // offset to left or right
+  int8_t leftRightOffset;
+  // relative offset from left screen edge
+  int8_t relPos;
+  // width of the bitmap/offset to the next line
+  int8_t width;
+};
+
+// interaction information
+// (size: 6 bytes)
+class INTERACTION_INFO
+{
+public:
+  // position in which the dungeon is interacted with
+  uint8_t currentPosition;
+  // required status of this position
+  uint8_t currentStatus;
+  // new status if true
+  uint8_t nextStatus;
+  // bit coded item number for gained items, i.e. keys
+  uint8_t newItem;
+  // position in which the dungeon will be modified
+  uint8_t modifiedPosition;
+  // new status on modified position
+  uint8_t modifiedPositionCellValue;
+
+#if !defined(__AVR_ATtiny85__)
+  void serialPrint() 
+  {
+    Serial.println( F("INTERACTION_INFO") );
+    Serial.print( F("  currentPosition    = ") );Serial.println( currentPosition );
+    Serial.print( F("  currentStatus      = ") );printHexToSerial( currentStatus );Serial.println();
+    Serial.print( F("  nextStatus         = ") );printHexToSerial( nextStatus );Serial.println();
+    Serial.print( F("  newItem            = ") );printHexToSerial( newItem );Serial.println();
+    Serial.print( F("  modifiedPosition   = ") );Serial.println( modifiedPosition );
+    Serial.print( F("  modifiedPosValue   = ") );printHexToSerial( modifiedPositionCellValue );Serial.println();
+    Serial.println();
+  }
+#endif
+};
+
+// interaction information
+// (size: 4 bytes)
+class SPECIAL_CELL_INFO
+{
+public:
+  // cell type
+  uint8_t specialFX;
+  // combined xy-position of the effect (as byte offset from level start)
+  uint8_t position;
+  // additional parameter 1 (target position x, ...)
+  uint8_t value_1;
+  // additional parameter 2 (target position y, ...)
+  uint8_t value_2;
+
+#if !defined(__AVR_ATtiny85__)
+  void serialPrint() 
+  {
+    Serial.print( F("  specialFX    = ") );if ( specialFX == TELEPORTER ) { Serial.println( F("TELEPORTER") ); } else { Serial.println( F("SPINNER") ); }
+    Serial.print( F("  value        = (") );Serial.print( value_1 ); Serial.print( F(", ") );Serial.print( value_2 );Serial.println( F(")"));
+    Serial.println();
+  }
+#endif
+};

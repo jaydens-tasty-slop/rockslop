@@ -1,0 +1,10 @@
+EBT Tracker player (ebt.rock): https://github.com/ESPboy-edu/ESPboy_EBT_Tracker
+commit 88ee4c03215066a0a0f4bcbc2c75406eff0a6b91, by shiru8bit, WTFPL (the repo
+has no LICENSE file; the README names the WTFPL; LICENSE here is its text).
+
+upstream/ebt_synth.h and ebt_player.h are unmodified. rockbox/ebt_core.cpp is
+the song loader (after upstream ebt_load_save.h) and a C interface; ebt_view.c
+and platform.c are the Rockbox front end. Player only: the editor needs the
+ESPboy's eight buttons and is not ported. songs/ are two of the four demo songs of
+the upstream repository (data/), installed to rocks/apps/ebt/ on the card.
+Removed: EVRY_LIL_BIT and TEST1, songs authored by others (no licence).

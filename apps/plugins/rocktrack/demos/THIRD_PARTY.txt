@@ -1,0 +1,72 @@
+Third-party demo songs
+======================
+
+These modules are by other people and are shipped unmodified, exactly as
+downloaded from The Mod Archive (the MD5 sums match the archive's pages).
+Every licence below was set by the composer for that module and is shown
+on the module's page under "License". The composers' own credits are in
+the instrument and sample names inside each file; keep the files
+unmodified so those credits stay with them.
+
+If a song is changed and saved, the result is a derivative work: keep the
+credit, and for CC BY say what was changed.
+
+The full CC BY 4.0 text is LICENSE.CC-BY-4.0.txt next to this file (in
+.rockbox/licenses/apps/rocktrack/ on the card).
+
+
+drozerix_cabin_fever.xm
+    Title:    Cabin Fever!  ("Winter Chip IX", 2014)
+    Author:   Drozerix
+    Licence:  Public Domain
+              (https://creativecommons.org/licenses/publicdomain/)
+    Source:   https://modarchive.org/index.php?request=view_by_moduleid&query=174833
+    Notes:    Drozerix's profile adds: "Feel free to use my music in
+              whatever (PC game, video, program etc.) Give credit if you
+              want or not."
+              (https://modarchive.org/index.php?request=view_profile&query=84702)
+    MD5:      868d46f0cccdc4d990c628fb01358c90
+
+drozerix_wrath_of_the_djinn.xm
+    Title:    Wrath of the Djinn  (module title "Wrath_of_the_Djinn", 2012)
+    Author:   Drozerix
+    Licence:  Public Domain
+              (https://creativecommons.org/licenses/publicdomain/)
+    Source:   https://modarchive.org/index.php?request=view_by_moduleid&query=173080
+    Notes:    As above.
+    MD5:      648d0249e3286a62d6c66cb07b3c24eb
+
+ant512_something_sinister.xm
+    Title:    Something Sinister  (archive file name
+              "ant512_-_something_sinister.xm"; the module's title field is
+              empty; title-screen music from a homebrew Game Boy Advance
+              game)
+    Author:   ant512
+    Licence:  Creative Commons Attribution 4.0 International (CC BY 4.0)
+              (https://creativecommons.org/licenses/by/4.0/)
+    Source:   https://modarchive.org/index.php?request=view_by_moduleid&query=186833
+    Attribution: "Something Sinister" by ant512, CC BY 4.0,
+              https://modarchive.org/index.php?request=view_by_moduleid&query=186833
+    MD5:      4102d600206a07f4dbc7a88f1b75952e
+
+djego_flochs_fake_triplets.xm
+    Title:    Fake triplets  (2025)
+    Author:   Djego Flochs
+    Licence:  Creative Commons Attribution 4.0 International (CC BY 4.0)
+              (https://creativecommons.org/licenses/by/4.0/)
+    Source:   https://modarchive.org/index.php?request=view_by_moduleid&query=210277
+    Attribution: "Fake triplets" by Djego Flochs, CC BY 4.0,
+              https://modarchive.org/index.php?request=view_by_moduleid&query=210277
+    Notes:    The module states that all samples were made by the author.
+    MD5:      fdfca08b4dcebda8a09769ab669eee49
+
+m4kachu_actually_chiptune.mod
+    Title:    actually chiptune  (2025)
+    Author:   M4kachu (credited in the module as "m4kachu")
+    Licence:  Creative Commons Attribution 4.0 International (CC BY 4.0)
+              (https://creativecommons.org/licenses/by/4.0/)
+    Source:   https://modarchive.org/index.php?request=view_by_moduleid&query=212567
+    Attribution: "actually chiptune" by M4kachu, CC BY 4.0,
+              https://modarchive.org/index.php?request=view_by_moduleid&query=212567
+    Notes:    Three 64-byte waveforms, 192 bytes of sample data in all.
+    MD5:      422faa4ca40862c5a615065f3ea293ee

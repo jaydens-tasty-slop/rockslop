@@ -1,0 +1,6 @@
+Shroom Knight v2.00, Onebit Productions & Filmote, Matthew Bryan (2024).
+License: GPL-3.0 (LICENSE); the repository carries no separate asset licence.
+Upstream: https://github.com/TropicAnthropic/Shroom-Knight at 222b66b793bfdb0f811914354d9f1c8b85cc76b9.
+shroomKnight.cpp is the .ino with the prototypes the Arduino IDE would have
+generated; everything else is unmodified. shroom_rb.cpp is the Rockbox game
+description. Uses Tinyfont (lib/, BSD-3-Clause).

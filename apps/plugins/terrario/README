@@ -1,0 +1,18 @@
+Terrario for Rockbox (YP3 port)
+
+Upstream: https://github.com/KBD2/terrario  commit dddedf82a9a81a90f60ba9db21e2fa27f6792b59
+(Terraria rewrite for the Casio fx-9860G; code MIT, images CC BY 4.0, see
+LICENSE). The world size/memory presets follow the "smaller RAM" G35+E II
+configuration (640x250 at 0.64 world-gen scale), here chosen at run time
+from the audio buffer (240..640 wide).
+
+Modified upstream sources (src/, include/): gint includes replaced by
+rb/tr_gint.h; <math.h> by rb/tr_math.h; takeVRAMCapture removed; SELECT/
+EXIT key cases added in inventory.c, crafting.c, npc.c (five-button UI);
+cursor moves 2 px per update (update.c); MAX_CHESTS 50 -> 30 (defs.h).
+Replaced entirely: main.c, menu.c, save.c, optimise.* (calculator OS code):
+see rb/tr_main.c, rb/tr_save.c. rb/tr_gint.c is the display/key/heap layer.
+
+maketex.py turns assets-fx/ into terrario.dat (loaded from the card, put in
+rocks/games/terrario/), tr_images.c and tr_font.c. Images stay under CC BY
+4.0: the About screen credits them. No license problems.

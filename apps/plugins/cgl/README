@@ -1,0 +1,14 @@
+Crisp Game Lib Portable (native C), https://github.com/abagames/crisp-game-lib-portable
+commit 7c318dc87f1f6fb8cc03449613d8fdba73b380e9, MIT (see LICENSE), (c) 2022 ABA Games.
+
+lib/ and games/ are the upstream sources with small Rockbox changes (no libm:
+lib/cgl_math.h, rockbox/cgl_math.c; libc via the plugin API: lib/cgl_libc.h;
+the upstream selection menu is replaced by native menus; prototypes and
+sign-compare casts). rockbox/cgl.c is the machine-dependent backend; each
+game is its own plugin (cgl_<game>.rock) and cgl.rock is a launcher.
+Games not ported: none of the 16 upstream games is left out (game_Template is not a game).
+
+Controls: SELECT = the game button, arrows = directions, hold SELECT+UP for
+half a second for the menu.
+License: MIT for everything, no separate asset licenses (pixel art is in the
+game sources). Install LICENSE as rocks/games/cgl/LICENSE.txt on the card.

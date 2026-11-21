@@ -1,0 +1,6 @@
+# <source> <destination under .rockbox/rocks> <plugin> (yp3dev/rocks.sh):
+# licence texts of single-file plugins, each copied when <plugin>.rock built.
+LICENSE.CubeCoders demos/LICENSE.rock88.txt rock88
+LICENSE.CubeCoders demos/LICENSE.jetisland.txt jetisland
+LICENSE.microcity games/LICENSE.microcity.txt microcity
+LICENSE.rockcraft games/LICENSE.rockcraft.txt rockcraft

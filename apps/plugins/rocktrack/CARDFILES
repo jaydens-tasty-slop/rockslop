@@ -1,0 +1,21 @@
+# <source> <destination under .rockbox/rocks> (yp3dev/rocks.sh)
+demos/README.txt apps/rocktrack/README.txt
+demos/ode_to_joy.xm apps/rocktrack/ode_to_joy.xm
+demos/fur_elise.xm apps/rocktrack/fur_elise.xm
+demos/canon_in_d.xm apps/rocktrack/canon_in_d.xm
+demos/mountain_king.xm apps/rocktrack/mountain_king.xm
+demos/gymnopedie.xm apps/rocktrack/gymnopedie.xm
+demos/bach_prelude.xm apps/rocktrack/bach_prelude.xm
+demos/greensleeves.xm apps/rocktrack/greensleeves.xm
+demos/sparkstone.xm apps/rocktrack/sparkstone.xm
+demos/quartz_comet.xm apps/rocktrack/quartz_comet.xm
+demos/cinder_warden.xm apps/rocktrack/cinder_warden.xm
+demos/lemon_kite.xm apps/rocktrack/lemon_kite.xm
+demos/THIRD_PARTY.txt apps/rocktrack/THIRD_PARTY.txt
+demos/drozerix_cabin_fever.xm apps/rocktrack/drozerix_cabin_fever.xm
+demos/drozerix_wrath_of_the_djinn.xm apps/rocktrack/drozerix_wrath_of_the_djinn.xm
+demos/ant512_something_sinister.xm apps/rocktrack/ant512_something_sinister.xm
+demos/djego_flochs_fake_triplets.xm apps/rocktrack/djego_flochs_fake_triplets.xm
+demos/m4kachu_actually_chiptune.mod apps/rocktrack/m4kachu_actually_chiptune.mod
+demos/greensleeves.mid apps/rocktrack/greensleeves.mid
+demos/LICENSE.CC-BY-4.0 apps/rocktrack/LICENSE.CC-BY-4.0.txt

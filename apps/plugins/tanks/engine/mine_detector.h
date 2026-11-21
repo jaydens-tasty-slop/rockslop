@@ -1,0 +1,23 @@
+#ifndef TANKS_MINE_DETECTOR_H
+#define TANKS_MINE_DETECTOR_H
+
+#include <stdbool.h>
+#include "collision.h"
+#include "physicsbody.h"
+#include "fwd.h"
+
+class MineDetector: public PhysicsBody {
+public:
+    MineDetector(Mine *mine);
+
+    // Whether the tank that placed this detector has left
+    bool primed;
+
+    void process();
+    int kind() const { return KIND_DETECTOR; }
+
+    void handle_collision(PhysicsBody *other);
+    void collide(Tank *tank);
+};
+
+#endif //TANKS_MINE_DETECTOR_H
