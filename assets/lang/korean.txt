@@ -157,6 +157,28 @@ LAYOUT
 = 레이아웃
 LOCKED
 = 잠김
+VERSION
+= 버전
+DOWNLOAD
+= 다운로드
+LATEST
+= 최신
+PRE
+= 테스트
+DOWNLOAD FAILED
+= 다운로드 실패
+USE A FILE
+= 파일 사용
+LATEST RELEASE
+= 최신 릴리스
+ASKING GITHUB
+= GitHub 조회 중
+the latest {0} release
+= 최신 {0} 릴리스
+no {0} release on GitHub yet: use a package file
+= GitHub에 아직 {0} 릴리스 없음: 패키지 파일을 사용하세요
+ALL RELEASES
+= 모든 릴리스
 PROBE
 = 탐색
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows가 플레이어 디스크 열기를 거부했습니다 (오류 {0})
 a command through Windows' disk driver failed (Windows error {0})
 = Windows 디스크 드라이버를 통한 명령이 실패했습니다 (Windows 오류 {0})
+can't reach GitHub: {0}
+= GitHub에 연결할 수 없음: {0}
+GitHub answered {0}
+= GitHub 응답: {0}
+GitHub's list of releases makes no sense: {0}
+= GitHub 릴리스 목록을 이해할 수 없음: {0}
+GitHub gave the package an odd name: {0}
+= GitHub가 패키지에 이상한 이름을 붙임: {0}
+can't save the download: {0}
+= 다운로드를 저장할 수 없음: {0}
+the download stopped: {0}
+= 다운로드가 중단됨: {0}
+the download is the wrong size: {0} bytes, not {1}
+= 다운로드 크기가 맞지 않음: {0}바이트, 기대값 {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= 다운로드가 GitHub의 체크섬과 일치하지 않음: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = 드래그하여 회전

@@ -351,6 +351,7 @@ mod tests {
             ("device/usb.rs", include_str!("usb.rs")),
             ("device/yp3.rs", include_str!("yp3.rs")),
             ("pkg.rs", include_str!("../pkg.rs")),
+            ("releases.rs", include_str!("../releases.rs")),
             ("bin/rockslop-cli.rs", include_str!("../bin/rockslop-cli.rs")),
         ];
         let mut seen = std::collections::HashMap::new();

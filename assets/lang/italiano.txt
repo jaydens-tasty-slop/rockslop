@@ -157,6 +157,28 @@ LAYOUT
 = STRUTTURA
 LOCKED
 = BLOCCATO
+VERSION
+= VERSIONE
+DOWNLOAD
+= DOWNLOAD
+LATEST
+= ULTIMA
+PRE
+= PRE
+DOWNLOAD FAILED
+= DOWNLOAD FALLITO
+USE A FILE
+= USA UN FILE
+LATEST RELEASE
+= ULTIMA RELEASE
+ASKING GITHUB
+= CHIEDO A GITHUB
+the latest {0} release
+= l'ultima release per {0}
+no {0} release on GitHub yet: use a package file
+= ancora nessuna release per {0} su GitHub: usa un file di pacchetto
+ALL RELEASES
+= TUTTE LE RELEASE
 PROBE
 = SONDA
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows ha rifiutato di aprire il disco del lettore (errore {0})
 a command through Windows' disk driver failed (Windows error {0})
 = un comando tramite il driver del disco di Windows non è riuscito (errore Windows {0})
+can't reach GitHub: {0}
+= GitHub non raggiungibile: {0}
+GitHub answered {0}
+= GitHub ha risposto {0}
+GitHub's list of releases makes no sense: {0}
+= l'elenco delle release di GitHub non ha senso: {0}
+GitHub gave the package an odd name: {0}
+= GitHub ha dato al pacchetto un nome strano: {0}
+can't save the download: {0}
+= impossibile salvare il download: {0}
+the download stopped: {0}
+= il download si è interrotto: {0}
+the download is the wrong size: {0} bytes, not {1}
+= il download ha la dimensione sbagliata: {0} byte, non {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= il download non corrisponde al checksum di GitHub: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = TRASCINA PER RUOTARE

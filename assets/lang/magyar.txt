@@ -157,6 +157,28 @@ LAYOUT
 = KIOSZTÁS
 LOCKED
 = ZÁROLT
+VERSION
+= VERZIÓ
+DOWNLOAD
+= LETÖLTÉS
+LATEST
+= LEGÚJABB
+PRE
+= TESZT
+DOWNLOAD FAILED
+= LETÖLTÉSI HIBA
+USE A FILE
+= FÁJL HASZNÁLATA
+LATEST RELEASE
+= LEGÚJABB KIADÁS
+ASKING GITHUB
+= GITHUB LEKÉRDEZÉSE
+the latest {0} release
+= a legújabb {0} kiadás
+no {0} release on GitHub yet: use a package file
+= a GitHubon még nincs {0} kiadás: használj csomagfájlt
+ALL RELEASES
+= ÖSSZES KIADÁS
 PROBE
 = SZONDA
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = A Windows megtagadta a lejátszó lemezének megnyitását (hiba: {0})
 a command through Windows' disk driver failed (Windows error {0})
 = egy parancs a Windows lemezillesztőjén keresztül nem sikerült (Windows-hiba: {0})
+can't reach GitHub: {0}
+= a GitHub nem érhető el: {0}
+GitHub answered {0}
+= a GitHub válasza: {0}
+GitHub's list of releases makes no sense: {0}
+= a GitHub kiadáslistája értelmetlen: {0}
+GitHub gave the package an odd name: {0}
+= a GitHub furcsa nevet adott a csomagnak: {0}
+can't save the download: {0}
+= a letöltés nem menthető: {0}
+the download stopped: {0}
+= a letöltés megszakadt: {0}
+the download is the wrong size: {0} bytes, not {1}
+= a letöltés mérete hibás: {0} bájt, nem {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= a letöltés nem egyezik a GitHub ellenőrzőösszegével: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = HÚZD ÉS FORGASD

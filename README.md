@@ -1,5 +1,7 @@
 # rockslop
 
+**[rockslop.jayd.ml](https://rockslop.jayd.ml)**
+
 A completely normal [Rockbox](https://www.rockbox.org) flasher. It installs
 Rockbox on two cheap MP3 players, and puts them back to stock:
 
@@ -41,6 +43,14 @@ waiver on every flash and never saves the signature. Returning to stock
 never asks.
 
 ## What a flash does
+
+The firmware comes from the
+[Rockbox releases](https://github.com/jaydens-tasty-slop/rockbox/releases).
+Once a player is picked, rockslop downloads the latest release for it
+while the player is plugged in. It keeps the last three per player in its
+cache folder, so a reflash, or one offline, doesn't download again. Click
+the version to pick an older one. **USE A FILE** takes a package file
+instead, as does a file dropped on the window.
 
 1. **Link.** Put the player in download mode (below). The flasher finds it,
    kicks a TS17 from stock into its boot ROM, and probes the CPU, the flash
@@ -96,6 +106,9 @@ rockslop-cli status              # players on USB, and their mode
 rockslop-cli check  rockbox-yp3-4.0.tar.xz
 rockslop-cli probe  yp3|ts17
 rockslop-cli flash  rockbox-yp3-4.0.tar.xz
+rockslop-cli flash  yp3|ts17 [VERSION]  # the latest release (or VERSION), downloaded first
+rockslop-cli releases [yp3|ts17]        # the releases on GitHub
+rockslop-cli fetch  yp3|ts17 [VERSION]  # download one; prints where it went
 rockslop-cli restore yp3|ts17 [IMAGE]   # default: a stock backup here, or on Rockbox's card
 rockslop-cli backups [yp3|ts17]
 rockslop-cli card                # where Rockbox's USB disk is mounted
@@ -143,6 +156,18 @@ failures) to `rockslop.log` in the same data directory as the backups
 Where people tend to get stuck (telling the players apart, download mode,
 the package, the card, an error), Clippy turns up after a while with a
 tip. **GOT IT** puts that tip away for the session.
+
+### Downloads
+
+The release list comes from GitHub's API, with no account: GitHub allows
+60 requests an hour per address, and rockslop makes one when it starts
+(and again on the link screen if that was over ten minutes ago); file
+downloads don't count. Downloads go in `rockslop/firmware/` under the platform's
+cache directory (`~/.cache`, `~/Library/Caches`, `%LOCALAPPDATA%`), and
+each is checked against GitHub's SHA-256 before the package's own checks.
+When GitHub can't be reached, the list from last time stands, and
+packages already downloaded still flash. `ROCKSLOP_RELEASES=URL` reads
+another releases list (a fork's `.../releases` API URL).
 
 ### Backups
 
@@ -278,6 +303,7 @@ can't build for macOS (Apple's SDK can't go there): run `make macos` and
 ```
 src/device/    USB, both boot-ROM protocols, backups, SD sync, simulator (lib)
 src/pkg.rs     package reader and verifier (lib)
+src/releases.rs  the Rockbox releases on GitHub: list and download (lib)
 src/bin/       rockslop-cli
 src/gfx/       drawing
 src/app.rs     the GUI's screens; src/ui.rs widgets; src/audio.rs sound

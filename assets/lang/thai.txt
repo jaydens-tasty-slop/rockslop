@@ -157,6 +157,28 @@ LAYOUT
 = โครงแฟลช
 LOCKED
 = ล็อก
+VERSION
+= เวอร์ชัน
+DOWNLOAD
+= ดาวน์โหลด
+LATEST
+= ล่าสุด
+PRE
+= ทดสอบ
+DOWNLOAD FAILED
+= ดาวน์โหลดล้มเหลว
+USE A FILE
+= ใช้ไฟล์
+LATEST RELEASE
+= รีลีสล่าสุด
+ASKING GITHUB
+= กำลังถาม GitHub
+the latest {0} release
+= รีลีส {0} ล่าสุด
+no {0} release on GitHub yet: use a package file
+= ยังไม่มีรีลีส {0} บน GitHub: ใช้ไฟล์แพ็กเกจแทน
+ALL RELEASES
+= รีลีสทั้งหมด
 PROBE
 = ตรวจ
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows ปฏิเสธการเปิดดิสก์ของเครื่องเล่น (ข้อผิดพลาด {0})
 a command through Windows' disk driver failed (Windows error {0})
 = คำสั่งผ่านไดรเวอร์ดิสก์ของ Windows ล้มเหลว (ข้อผิดพลาด Windows {0})
+can't reach GitHub: {0}
+= ติดต่อ GitHub ไม่ได้: {0}
+GitHub answered {0}
+= GitHub ตอบกลับ {0}
+GitHub's list of releases makes no sense: {0}
+= รายการรีลีสจาก GitHub ไม่สมเหตุสมผล: {0}
+GitHub gave the package an odd name: {0}
+= GitHub ตั้งชื่อแพ็กเกจแปลก ๆ: {0}
+can't save the download: {0}
+= บันทึกไฟล์ที่ดาวน์โหลดไม่ได้: {0}
+the download stopped: {0}
+= การดาวน์โหลดหยุดกลางคัน: {0}
+the download is the wrong size: {0} bytes, not {1}
+= ไฟล์ที่ดาวน์โหลดขนาดผิด: {0} ไบต์ ไม่ใช่ {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= ไฟล์ที่ดาวน์โหลดไม่ตรงกับเช็กซัมของ GitHub: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = ลากเพื่อหมุน

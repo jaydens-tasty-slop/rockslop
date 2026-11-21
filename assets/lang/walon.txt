@@ -157,6 +157,28 @@ LAYOUT
 = ARANDJMINT
 LOCKED
 = CLAWÉ
+VERSION
+= MODÊYE
+DOWNLOAD
+= TCHERDJAEDJE
+LATEST
+= DIERINNE
+PRE
+= TEST
+DOWNLOAD FAILED
+= TCHERDJAEDJE BERWETE
+USE A FILE
+= EPLOYÎ ON FITCHÎ
+LATEST RELEASE
+= DIERINNE SORTÎE
+ASKING GITHUB
+= ON DMANDE A GITHUB
+the latest {0} release
+= li dierinne sortîe po {0}
+no {0} release on GitHub yet: use a package file
+= co nole sortîe po {0} so GitHub: eployîz on fitchî di pakèt
+ALL RELEASES
+= TOTES LES SORTÎES
 PROBE
 = SONDE
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows n' a nén volou drovi l' plake do djouweu (aroke {0})
 a command through Windows' disk driver failed (Windows error {0})
 = ene comande pa l' pilote di plake di Windows a fwait berwete (aroke Windows {0})
+can't reach GitHub: {0}
+= dji n' a savou djonde GitHub: {0}
+GitHub answered {0}
+= GitHub a rpondou {0}
+GitHub's list of releases makes no sense: {0}
+= li djivêye des sortîes di GitHub n' a nou sinse: {0}
+GitHub gave the package an odd name: {0}
+= GitHub a dné on drole di no å pakèt: {0}
+can't save the download: {0}
+= dji n' a savou wårder l' tcherdjaedje: {0}
+the download stopped: {0}
+= li tcherdjaedje s' a aresté: {0}
+the download is the wrong size: {0} bytes, not {1}
+= li tcherdjaedje n' a nén l' bone grandeu: {0} octets, nén {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= li tcherdjaedje ni corespond nén å checksum di GitHub: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = SAETCHÎZ PO TOURNER

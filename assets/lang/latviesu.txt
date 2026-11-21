@@ -157,6 +157,28 @@ LAYOUT
 = SHĒMA
 LOCKED
 = BLOĶĒTS
+VERSION
+= VERSIJA
+DOWNLOAD
+= LEJUPIELĀDE
+LATEST
+= JAUNĀKAIS
+PRE
+= TESTS
+DOWNLOAD FAILED
+= LEJUPIELĀDE NEIZDEVĀS
+USE A FILE
+= IZMANTOT FAILU
+LATEST RELEASE
+= JAUNĀKAIS IZLAIDUMS
+ASKING GITHUB
+= JAUTĀ GITHUB
+the latest {0} release
+= jaunākais {0} izlaidums
+no {0} release on GitHub yet: use a package file
+= GitHub vēl nav {0} izlaiduma: izmanto pakotnes failu
+ALL RELEASES
+= VISI IZLAIDUMI
 PROBE
 = ZONDĒT
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows atteicās atvērt atskaņotāja disku (kļūda {0})
 a command through Windows' disk driver failed (Windows error {0})
 = komanda caur Windows diska draiveri neizdevās (Windows kļūda {0})
+can't reach GitHub: {0}
+= nevar sazināties ar GitHub: {0}
+GitHub answered {0}
+= GitHub atbildēja {0}
+GitHub's list of releases makes no sense: {0}
+= GitHub atdeva bezjēdzīgu izlaidumu sarakstu: {0}
+GitHub gave the package an odd name: {0}
+= GitHub pakotnei devis dīvainu nosaukumu: {0}
+can't save the download: {0}
+= nevar saglabāt lejupielādi: {0}
+the download stopped: {0}
+= lejupielāde apstājās: {0}
+the download is the wrong size: {0} bytes, not {1}
+= lejupielādei nepareizs izmērs: {0} baitu, nevis {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= lejupielāde nesakrīt ar GitHub kontrolsummu: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = VELC, LAI GROZĪTU

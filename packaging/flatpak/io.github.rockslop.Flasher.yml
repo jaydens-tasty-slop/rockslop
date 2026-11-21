@@ -1,6 +1,7 @@
 # Flatpak around the portable Linux build (make linux first; make flatpak
 # does both). USB access needs --device=all; the card is mounted and
-# ejected with the host's udisksctl through flatpak-spawn.
+# ejected with the host's udisksctl through flatpak-spawn; the network
+# fetches the Rockbox releases.
 app-id: io.github.rockslop.Flasher
 runtime: org.freedesktop.Platform
 runtime-version: '25.08'
@@ -9,6 +10,7 @@ command: rockslop
 finish-args:
   - --socket=x11
   - --share=ipc
+  - --share=network
   - --device=all
   - --socket=pulseaudio
   - --filesystem=/run/media

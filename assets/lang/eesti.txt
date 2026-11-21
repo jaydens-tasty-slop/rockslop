@@ -157,6 +157,28 @@ LAYOUT
 = SKEEM
 LOCKED
 = LUKUS
+VERSION
+= VERSIOON
+DOWNLOAD
+= LAADIMINE
+LATEST
+= UUSIM
+PRE
+= TEST
+DOWNLOAD FAILED
+= LAADIMISE VIGA
+USE A FILE
+= KASUTA FAILI
+LATEST RELEASE
+= UUSIM VÄLJALASE
+ASKING GITHUB
+= KÜSIN GITHUBILT
+the latest {0} release
+= {0} uusim väljalase
+no {0} release on GitHub yet: use a package file
+= GitHubis pole veel {0} väljalaset: kasuta paketifaili
+ALL RELEASES
+= KÕIK VÄLJALASKED
 PROBE
 = SOND
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows keeldus mängija ketast avamast (viga {0})
 a command through Windows' disk driver failed (Windows error {0})
 = käsk Windowsi kettadraiveri kaudu ebaõnnestus (Windowsi viga {0})
+can't reach GitHub: {0}
+= GitHubiga ei saa ühendust: {0}
+GitHub answered {0}
+= GitHub vastas {0}
+GitHub's list of releases makes no sense: {0}
+= GitHubi väljalasete nimekiri on mõttetu: {0}
+GitHub gave the package an odd name: {0}
+= GitHub andis paketile veidra nime: {0}
+can't save the download: {0}
+= allalaadimist ei saa salvestada: {0}
+the download stopped: {0}
+= allalaadimine katkes: {0}
+the download is the wrong size: {0} bytes, not {1}
+= allalaadimine on vale suurusega: {0} baiti, mitte {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= allalaadimine ei vasta GitHubi kontrollsummale: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = LOHISTA PÖÖRAMISEKS

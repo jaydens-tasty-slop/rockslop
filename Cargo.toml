@@ -25,6 +25,9 @@ rustybuzz = "0.20"
 ab_glyph_rasterizer = "0.1"
 unicode-bidi = { version = "0.3", default-features = false, features = ["hardcoded-data", "std"] }
 sys-locale = "0.3"
+# firmware releases from GitHub: TLS in Rust (ring), Mozilla's roots built in
+ureq = { version = "3.5.2", default-features = false, features = ["rustls"] }
+serde_json = "1.0.154"
 
 [target.'cfg(unix)'.dependencies]
 libc = "0.2"

@@ -157,6 +157,28 @@ LAYOUT
 = SCHÉMA
 LOCKED
 = VERROUILLÉ
+VERSION
+= VERSION
+DOWNLOAD
+= TÉLÉCHARG.
+LATEST
+= DERNIÈRE
+PRE
+= PRÉ
+DOWNLOAD FAILED
+= TÉLÉCHARG. ÉCHOUÉ
+USE A FILE
+= UTILISER UN FICHIER
+LATEST RELEASE
+= DERNIÈRE VERSION
+ASKING GITHUB
+= INTERROGATION GITHUB
+the latest {0} release
+= la dernière version pour {0}
+no {0} release on GitHub yet: use a package file
+= pas encore de version pour {0} sur GitHub : utilisez un fichier de paquet
+ALL RELEASES
+= TOUTES LES VERSIONS
 PROBE
 = SONDE
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows a refusé d'ouvrir le disque du lecteur (erreur {0})
 a command through Windows' disk driver failed (Windows error {0})
 = une commande via le pilote de disque de Windows a échoué (erreur Windows {0})
+can't reach GitHub: {0}
+= GitHub injoignable : {0}
+GitHub answered {0}
+= GitHub a répondu {0}
+GitHub's list of releases makes no sense: {0}
+= la liste des versions de GitHub n'a aucun sens : {0}
+GitHub gave the package an odd name: {0}
+= GitHub a donné un nom bizarre au paquet : {0}
+can't save the download: {0}
+= impossible d'enregistrer le téléchargement : {0}
+the download stopped: {0}
+= le téléchargement s'est interrompu : {0}
+the download is the wrong size: {0} bytes, not {1}
+= le téléchargement n'a pas la bonne taille : {0} octets, pas {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= le téléchargement ne correspond pas au checksum de GitHub : sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = GLISSER POUR TOURNER

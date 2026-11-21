@@ -157,6 +157,28 @@ LAYOUT
 = ROZVRŽENÍ
 LOCKED
 = ZAMČENO
+VERSION
+= VERZE
+DOWNLOAD
+= STAHOVÁNÍ
+LATEST
+= POSLEDNÍ
+PRE
+= TEST
+DOWNLOAD FAILED
+= STAHOVÁNÍ SELHALO
+USE A FILE
+= POUŽÍT SOUBOR
+LATEST RELEASE
+= POSLEDNÍ VYDÁNÍ
+ASKING GITHUB
+= DOTAZ NA GITHUB
+the latest {0} release
+= poslední vydání pro {0}
+no {0} release on GitHub yet: use a package file
+= pro {0} zatím na GitHubu není žádné vydání: použij soubor s balíčkem
+ALL RELEASES
+= VŠECHNA VYDÁNÍ
 PROBE
 = SONDA
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows odmítl otevřít disk přehrávače (chyba {0})
 a command through Windows' disk driver failed (Windows error {0})
 = příkaz přes diskový ovladač Windows selhal (chyba Windows {0})
+can't reach GitHub: {0}
+= GitHub je nedostupný: {0}
+GitHub answered {0}
+= GitHub odpověděl {0}
+GitHub's list of releases makes no sense: {0}
+= seznam vydání z GitHubu nedává smysl: {0}
+GitHub gave the package an odd name: {0}
+= GitHub dal balíčku divný název: {0}
+can't save the download: {0}
+= stažený soubor nelze uložit: {0}
+the download stopped: {0}
+= stahování se přerušilo: {0}
+the download is the wrong size: {0} bytes, not {1}
+= stažený soubor má špatnou velikost: {0} bajtů, ne {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= stažený soubor nesouhlasí s kontrolním součtem z GitHubu: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = OTOČ TAŽENÍM

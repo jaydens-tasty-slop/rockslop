@@ -157,6 +157,28 @@ LAYOUT
 = التخطيط
 LOCKED
 = مقفل
+VERSION
+= الإصدار
+DOWNLOAD
+= التنزيل
+LATEST
+= الأحدث
+PRE
+= تجريبي
+DOWNLOAD FAILED
+= فشل التنزيل
+USE A FILE
+= استخدم ملفًا
+LATEST RELEASE
+= أحدث إصدار
+ASKING GITHUB
+= جارٍ سؤال GITHUB
+the latest {0} release
+= أحدث إصدار لـ {0}
+no {0} release on GitHub yet: use a package file
+= لا إصدار لـ {0} على GitHub بعد: استخدم ملف حزمة
+ALL RELEASES
+= كل الإصدارات
 PROBE
 = فحص
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = رفض Windows فتح قرص المشغّل (الخطأ {0})
 a command through Windows' disk driver failed (Windows error {0})
 = فشل أمر عبر برنامج تشغيل القرص في Windows (خطأ Windows {0})
+can't reach GitHub: {0}
+= تعذّر الوصول إلى GitHub: {0}
+GitHub answered {0}
+= ردّ GitHub بـ {0}
+GitHub's list of releases makes no sense: {0}
+= قائمة إصدارات GitHub غير مفهومة: {0}
+GitHub gave the package an odd name: {0}
+= أعطى GitHub الحزمة اسمًا غريبًا: {0}
+can't save the download: {0}
+= تعذّر حفظ التنزيل: {0}
+the download stopped: {0}
+= توقف التنزيل: {0}
+the download is the wrong size: {0} bytes, not {1}
+= حجم التنزيل خاطئ: {0} بايت لا {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= التنزيل لا يطابق مجموع التحقق لدى GitHub: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = اسحب للتدوير

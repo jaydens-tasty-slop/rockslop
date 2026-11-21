@@ -157,6 +157,28 @@ LAYOUT
 = РОЗМІТКА
 LOCKED
 = ЗАКРИТО
+VERSION
+= ВЕРСІЯ
+DOWNLOAD
+= ЗАВАНТАЖЕННЯ
+LATEST
+= НАЙНОВІША
+PRE
+= ТЕСТ
+DOWNLOAD FAILED
+= ЗБІЙ ЗАВАНТАЖЕННЯ
+USE A FILE
+= ВЗЯТИ ФАЙЛ
+LATEST RELEASE
+= НАЙНОВІШИЙ РЕЛІЗ
+ASKING GITHUB
+= ЗАПИТ ДО GITHUB
+the latest {0} release
+= найновіший реліз для {0}
+no {0} release on GitHub yet: use a package file
+= на GitHub ще нема релізу для {0}: візьми файл пакета
+ALL RELEASES
+= УСІ РЕЛІЗИ
 PROBE
 = ЗОНД
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows відмовилася відкрити диск плеєра (помилка {0})
 a command through Windows' disk driver failed (Windows error {0})
 = команда через дисковий драйвер Windows не виконалася (помилка Windows {0})
+can't reach GitHub: {0}
+= нема зв'язку з GitHub: {0}
+GitHub answered {0}
+= GitHub відповів {0}
+GitHub's list of releases makes no sense: {0}
+= список релізів від GitHub безглуздий: {0}
+GitHub gave the package an odd name: {0}
+= GitHub дав пакету дивну назву: {0}
+can't save the download: {0}
+= не вдалося зберегти завантаження: {0}
+the download stopped: {0}
+= завантаження перервалося: {0}
+the download is the wrong size: {0} bytes, not {1}
+= розмір завантаження хибний: {0} байт, а не {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= завантаження не збігається з контрольною сумою GitHub: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = ТЯГНИ Й КРУТИ

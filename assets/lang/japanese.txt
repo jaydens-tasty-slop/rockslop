@@ -157,6 +157,28 @@ LAYOUT
 = レイアウト
 LOCKED
 = ロック
+VERSION
+= バージョン
+DOWNLOAD
+= ダウンロード
+LATEST
+= 最新
+PRE
+= テスト
+DOWNLOAD FAILED
+= ダウンロード失敗
+USE A FILE
+= ファイルを使う
+LATEST RELEASE
+= 最新リリース
+ASKING GITHUB
+= GitHub に問い合わせ中
+the latest {0} release
+= 最新の {0} リリース
+no {0} release on GitHub yet: use a package file
+= GitHub にまだ {0} のリリースがありません：パッケージ ファイルを使ってください
+ALL RELEASES
+= すべてのリリース
 PROBE
 = プローブ
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows がプレーヤーのディスクを開くことを拒否しました（エラー {0}）
 a command through Windows' disk driver failed (Windows error {0})
 = Windows のディスク ドライバ経由のコマンドが失敗しました（Windows エラー {0}）
+can't reach GitHub: {0}
+= GitHub に接続できません：{0}
+GitHub answered {0}
+= GitHub が {0} を返しました
+GitHub's list of releases makes no sense: {0}
+= GitHub のリリース一覧が意味不明です：{0}
+GitHub gave the package an odd name: {0}
+= GitHub がパッケージに妙な名前を付けました：{0}
+can't save the download: {0}
+= ダウンロードを保存できません：{0}
+the download stopped: {0}
+= ダウンロードが止まりました：{0}
+the download is the wrong size: {0} bytes, not {1}
+= ダウンロードのサイズが違います：{0} バイト（正しくは {1}）
+the download doesn't match GitHub's checksum: sha256 {0}
+= ダウンロードが GitHub のチェックサムと一致しません：sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = ドラッグで回転

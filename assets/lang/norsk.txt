@@ -157,6 +157,28 @@ LAYOUT
 = LAYOUT
 LOCKED
 = LÅST
+VERSION
+= VERSJON
+DOWNLOAD
+= NEDLASTING
+LATEST
+= NYESTE
+PRE
+= TEST
+DOWNLOAD FAILED
+= NEDLASTING FEILET
+USE A FILE
+= BRUK EN FIL
+LATEST RELEASE
+= NYESTE UTGIVELSE
+ASKING GITHUB
+= SPØR GITHUB
+the latest {0} release
+= den nyeste {0}-utgivelsen
+no {0} release on GitHub yet: use a package file
+= ingen {0}-utgivelse på GitHub ennå: bruk en pakkefil
+ALL RELEASES
+= ALLE UTGIVELSER
 PROBE
 = SONDE
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows nektet å åpne spillerens disk (feil {0})
 a command through Windows' disk driver failed (Windows error {0})
 = en kommando gjennom Windows' diskdriver mislyktes (Windows-feil {0})
+can't reach GitHub: {0}
+= når ikke GitHub: {0}
+GitHub answered {0}
+= GitHub svarte {0}
+GitHub's list of releases makes no sense: {0}
+= utgivelseslisten fra GitHub gir ingen mening: {0}
+GitHub gave the package an odd name: {0}
+= GitHub ga pakken et rart navn: {0}
+can't save the download: {0}
+= kan ikke lagre nedlastingen: {0}
+the download stopped: {0}
+= nedlastingen stoppet: {0}
+the download is the wrong size: {0} bytes, not {1}
+= nedlastingen har feil størrelse: {0} byte, ikke {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= nedlastingen stemmer ikke med sjekksummen fra GitHub: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = DRA FOR Å ROTERE

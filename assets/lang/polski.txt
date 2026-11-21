@@ -157,6 +157,28 @@ LAYOUT
 = UKŁAD
 LOCKED
 = ZABLOK.
+VERSION
+= WERSJA
+DOWNLOAD
+= POBIERANIE
+LATEST
+= NAJNOWSZA
+PRE
+= TEST
+DOWNLOAD FAILED
+= BŁĄD POBIERANIA
+USE A FILE
+= UŻYJ PLIKU
+LATEST RELEASE
+= NAJNOWSZE WYDANIE
+ASKING GITHUB
+= PYTAM GITHUB
+the latest {0} release
+= najnowsze wydanie dla {0}
+no {0} release on GitHub yet: use a package file
+= GitHub nie ma jeszcze wydania dla {0}: użyj pliku paczki
+ALL RELEASES
+= WSZYSTKIE WYDANIA
 PROBE
 = SONDA
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows odmówił otwarcia dysku odtwarzacza (błąd {0})
 a command through Windows' disk driver failed (Windows error {0})
 = polecenie przez sterownik dysku Windows nie powiodło się (błąd Windows {0})
+can't reach GitHub: {0}
+= nie można połączyć się z GitHub: {0}
+GitHub answered {0}
+= GitHub odpowiedział {0}
+GitHub's list of releases makes no sense: {0}
+= GitHub zwraca bezsensowną listę wydań: {0}
+GitHub gave the package an odd name: {0}
+= GitHub nadał paczce dziwną nazwę: {0}
+can't save the download: {0}
+= nie można zapisać pobranego pliku: {0}
+the download stopped: {0}
+= pobieranie przerwane: {0}
+the download is the wrong size: {0} bytes, not {1}
+= pobrany plik ma zły rozmiar: {0} bajtów, a nie {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= pobrany plik nie zgadza się z sumą kontrolną podaną przez GitHub: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = PRZECIĄGNIJ, BY OBRÓCIĆ

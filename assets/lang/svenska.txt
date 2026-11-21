@@ -157,6 +157,28 @@ LAYOUT
 = LAYOUT
 LOCKED
 = LÅST
+VERSION
+= VERSION
+DOWNLOAD
+= NEDLADDNING
+LATEST
+= SENASTE
+PRE
+= TEST
+DOWNLOAD FAILED
+= NEDLADDNINGSFEL
+USE A FILE
+= ANVÄND FIL
+LATEST RELEASE
+= SENASTE RELEASE
+ASKING GITHUB
+= FRÅGAR GITHUB
+the latest {0} release
+= senaste releasen för {0}
+no {0} release on GitHub yet: use a package file
+= ingen release för {0} på GitHub än: använd en paketfil
+ALL RELEASES
+= ALLA RELEASER
 PROBE
 = SOND
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows vägrade öppna spelarens disk (fel {0})
 a command through Windows' disk driver failed (Windows error {0})
 = ett kommando genom Windows diskdrivrutin misslyckades (Windows-fel {0})
+can't reach GitHub: {0}
+= når inte GitHub: {0}
+GitHub answered {0}
+= GitHub svarade {0}
+GitHub's list of releases makes no sense: {0}
+= listan över releaser från GitHub är obegriplig: {0}
+GitHub gave the package an odd name: {0}
+= GitHub gav paketet ett konstigt namn: {0}
+can't save the download: {0}
+= kan inte spara nedladdningen: {0}
+the download stopped: {0}
+= nedladdningen avbröts: {0}
+the download is the wrong size: {0} bytes, not {1}
+= nedladdningen har fel storlek: {0} byte, inte {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= nedladdningen stämmer inte med checksumman från GitHub: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = DRA FÖR ATT SNURRA

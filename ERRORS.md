@@ -1,7 +1,7 @@
 # Error numbers
 
 Every error starts with a number (`E270: battery too low ...`). The number does not change between languages or versions.
-1xx package, 2xx USB link, download mode, identity checks, battery, 3xx flash write and checksum, 4xx backup and restore, 5xx SD card, 8xx command-line prompts, 9xx bugs. "CLI" marks errors only `rockslop-cli` gives.
+1xx package, 2xx USB link, download mode, identity checks, battery, 3xx flash write and checksum, 4xx backup and restore, 5xx SD card, 6xx firmware download, 8xx command-line prompts, 9xx bugs. "CLI" marks errors only `rockslop-cli` gives.
 
 To report one, press **COPY REPORT** on the error screen: it puts the error and the end of the log on the clipboard. The log is `rockslop.log` in the data directory, beside `backups/` (see the README); `rockslop-cli` prints its path when a command fails.
 
@@ -116,11 +116,21 @@ To report one, press **COPY REPORT** on the error screen: it puts the error and 
 | E534 | Windows: another program has the card open. | Close it. Flash again. |
 | E540 | A file could not be read back from the card. | Try another card. |
 | E541 | A file read back from the card is not what was written. | The card is failing or fake. Use another. |
+| E601 | GitHub could not be reached: no network, a proxy or firewall in the way, or GitHub is down. The reason follows. | Check the connection, then RETRY. Or download the package from the releases page and use **USE A FILE**. |
+| E602 | GitHub answered, but not with the list or the file. `403` or `429` means this address has used up its 60 requests an hour. | Wait an hour, or use **USE A FILE** with a package downloaded in a browser. |
+| E603 | GitHub's list of releases could not be read. | Try again later. Report it if it stays. |
+| E604 | A release's package has a file name rockslop won't save. | Report it: the release is broken. |
+| E605 | The download could not be saved: the disk is full, or the cache folder isn't writable. | Free some space. The folder is in README, *Downloads*. |
+| E606 | The download stopped partway. | RETRY: it starts again from the beginning. |
+| E607 | The download came out a different size from the one GitHub lists. | RETRY. |
+| E608 | The download doesn't match GitHub's SHA-256 for it: corrupted on the way. | RETRY. If it keeps happening, something between you and GitHub is changing the file. |
 | E801 | CLI: you said no. | Nothing to do. |
 | E802 | CLI: not on a terminal, so nobody could confirm. | Pass `--yes`. |
 | E803 | CLI: the answer could not be read. | Pass `--yes`. |
 | E804 | CLI: the first flash's waiver was not signed (anything but NO BACKSIES was typed). | Read it, then type `NO BACKSIES`, or don't flash. |
 | E805 | CLI: the first flash's waiver needs signing, and nobody is at a terminal to type it. | Run it on a terminal, or pass `--no-backsies` to sign. |
+| E806 | CLI: no release with that version has a package for the player. | `rockslop-cli releases` lists them. |
+| E807 | CLI: no release for the player on GitHub yet. | Use a package file: `rockslop-cli flash FILE`. |
 | E901 | The flasher crashed. A bug. | Report it with the message. |
 | E902 | TS17: an internal command list is too long. A bug. | Report it. |
 | E903 | rockslop's own copy of the TS17 rescue stub fails its checksum. rockslop won't start. | Download rockslop again. |

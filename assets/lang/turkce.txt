@@ -157,6 +157,28 @@ LAYOUT
 = DÜZEN
 LOCKED
 = KİLİTLİ
+VERSION
+= VERSİYON
+DOWNLOAD
+= İNDİRME
+LATEST
+= EN YENİ
+PRE
+= TEST
+DOWNLOAD FAILED
+= İNDİRME BAŞARISIZ
+USE A FILE
+= DOSYA KULLAN
+LATEST RELEASE
+= SON SÜRÜM
+ASKING GITHUB
+= GITHUB'A SORULUYOR
+the latest {0} release
+= en son {0} sürümü
+no {0} release on GitHub yet: use a package file
+= GitHub'da henüz {0} sürümü yok: bir paket dosyası kullan
+ALL RELEASES
+= TÜM SÜRÜMLER
 PROBE
 = SINA
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows oynatıcının diskini açmayı reddetti (hata {0})
 a command through Windows' disk driver failed (Windows error {0})
 = Windows disk sürücüsü üzerinden gönderilen bir komut başarısız oldu (Windows hatası {0})
+can't reach GitHub: {0}
+= GitHub'a ulaşılamıyor: {0}
+GitHub answered {0}
+= GitHub {0} yanıtını verdi
+GitHub's list of releases makes no sense: {0}
+= GitHub'ın sürüm listesi anlamsız: {0}
+GitHub gave the package an odd name: {0}
+= GitHub pakete tuhaf bir ad verdi: {0}
+can't save the download: {0}
+= indirilen dosya kaydedilemiyor: {0}
+the download stopped: {0}
+= indirme durdu: {0}
+the download is the wrong size: {0} bytes, not {1}
+= indirilen dosyanın boyutu yanlış: {0} bayt, {1} değil
+the download doesn't match GitHub's checksum: sha256 {0}
+= indirilen dosya GitHub'ın sağlamasıyla uyuşmuyor: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = SÜRÜKLE VE DÖNDÜR

@@ -157,6 +157,28 @@ LAYOUT
 = INDELING
 LOCKED
 = VERGRENDELD
+VERSION
+= VERSIE
+DOWNLOAD
+= DOWNLOAD
+LATEST
+= NIEUWSTE
+PRE
+= TEST
+DOWNLOAD FAILED
+= DOWNLOAD MISLUKT
+USE A FILE
+= GEBRUIK BESTAND
+LATEST RELEASE
+= NIEUWSTE RELEASE
+ASKING GITHUB
+= GITHUB VRAGEN
+the latest {0} release
+= de nieuwste release voor {0}
+no {0} release on GitHub yet: use a package file
+= nog geen release voor {0} op GitHub: gebruik een pakketbestand
+ALL RELEASES
+= ALLE RELEASES
 PROBE
 = SONDE
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows weigerde de schijf van de speler te openen (fout {0})
 a command through Windows' disk driver failed (Windows error {0})
 = een opdracht via het schijfstuurprogramma van Windows is mislukt (Windows-fout {0})
+can't reach GitHub: {0}
+= kan GitHub niet bereiken: {0}
+GitHub answered {0}
+= GitHub antwoordde {0}
+GitHub's list of releases makes no sense: {0}
+= de lijst met releases van GitHub slaat nergens op: {0}
+GitHub gave the package an odd name: {0}
+= GitHub gaf het pakket een rare naam: {0}
+can't save the download: {0}
+= kan de download niet bewaren: {0}
+the download stopped: {0}
+= de download is gestopt: {0}
+the download is the wrong size: {0} bytes, not {1}
+= de download heeft de verkeerde grootte: {0} bytes, niet {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= de download klopt niet met de checksum van GitHub: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = SLEEP OM TE DRAAIEN

@@ -5,7 +5,11 @@
 /// (build.rs).
 pub const VERSION: &str = env!("ROCKSLOP_VERSION");
 
+/// The project's website.
+pub const WEBSITE: &str = "https://rockslop.jayd.ml";
+
 pub mod consent;
 pub mod device;
 pub mod log;
 pub mod pkg;
+pub mod releases;

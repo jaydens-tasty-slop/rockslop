@@ -157,6 +157,28 @@ LAYOUT
 = ΔΙΑΜΟΡΦΩΣΗ
 LOCKED
 = ΚΛΕΙΔΩΜΕΝΟ
+VERSION
+= ΕΚΔΟΣΗ
+DOWNLOAD
+= ΛΗΨΗ
+LATEST
+= ΤΕΛΕΥΤΑΙΑ
+PRE
+= ΤΕΣΤ
+DOWNLOAD FAILED
+= ΑΠΟΤΥΧΙΑ ΛΗΨΗΣ
+USE A FILE
+= ΧΡΗΣΗ ΑΡΧΕΙΟΥ
+LATEST RELEASE
+= ΤΕΛΕΥΤΑΙΑ ΕΚΔΟΣΗ
+ASKING GITHUB
+= ΕΡΩΤΗΣΗ ΣΤΟ GITHUB
+the latest {0} release
+= η τελευταία έκδοση για {0}
+no {0} release on GitHub yet: use a package file
+= καμία έκδοση για {0} στο GitHub ακόμα: χρησιμοποίησε αρχείο πακέτου
+ALL RELEASES
+= ΟΛΕΣ ΟΙ ΕΚΔΟΣΕΙΣ
 PROBE
 = ΔΙΕΡΕΥΝ.
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Τα Windows αρνήθηκαν να ανοίξουν τον δίσκο της συσκευής (σφάλμα {0})
 a command through Windows' disk driver failed (Windows error {0})
 = μια εντολή μέσω του προγράμματος οδήγησης δίσκου των Windows απέτυχε (σφάλμα Windows {0})
+can't reach GitHub: {0}
+= αδύνατη η σύνδεση με το GitHub: {0}
+GitHub answered {0}
+= το GitHub απάντησε {0}
+GitHub's list of releases makes no sense: {0}
+= η λίστα εκδόσεων του GitHub δεν βγάζει νόημα: {0}
+GitHub gave the package an odd name: {0}
+= το GitHub έδωσε στο πακέτο περίεργο όνομα: {0}
+can't save the download: {0}
+= αδύνατη η αποθήκευση της λήψης: {0}
+the download stopped: {0}
+= η λήψη σταμάτησε: {0}
+the download is the wrong size: {0} bytes, not {1}
+= η λήψη έχει λάθος μέγεθος: {0} byte, όχι {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= η λήψη δεν ταιριάζει με το άθροισμα ελέγχου του GitHub: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = ΣΥΡΕ ΓΙΑ ΠΕΡΙΣΤΡΟΦΗ

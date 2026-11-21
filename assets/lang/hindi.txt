@@ -157,6 +157,28 @@ LAYOUT
 = लेआउट
 LOCKED
 = लॉक
+VERSION
+= संस्करण
+DOWNLOAD
+= डाउनलोड
+LATEST
+= नवीनतम
+PRE
+= टेस्ट
+DOWNLOAD FAILED
+= डाउनलोड विफल
+USE A FILE
+= फ़ाइल इस्तेमाल करें
+LATEST RELEASE
+= नवीनतम रिलीज़
+ASKING GITHUB
+= GITHUB से पूछताछ
+the latest {0} release
+= {0} की नवीनतम रिलीज़
+no {0} release on GitHub yet: use a package file
+= GitHub पर अभी {0} की कोई रिलीज़ नहीं: पैकेज फ़ाइल इस्तेमाल करें
+ALL RELEASES
+= सभी रिलीज़
 PROBE
 = जाँच
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows ने प्लेयर की डिस्क खोलने से मना कर दिया (त्रुटि {0})
 a command through Windows' disk driver failed (Windows error {0})
 = Windows के डिस्क ड्राइवर से भेजा गया कमांड विफल रहा (Windows त्रुटि {0})
+can't reach GitHub: {0}
+= GitHub से संपर्क नहीं हो पाया: {0}
+GitHub answered {0}
+= GitHub का जवाब: {0}
+GitHub's list of releases makes no sense: {0}
+= GitHub की रिलीज़ सूची का कोई मतलब नहीं बनता: {0}
+GitHub gave the package an odd name: {0}
+= GitHub ने पैकेज को अजीब नाम दिया: {0}
+can't save the download: {0}
+= डाउनलोड सेव नहीं हो सका: {0}
+the download stopped: {0}
+= डाउनलोड रुक गया: {0}
+the download is the wrong size: {0} bytes, not {1}
+= डाउनलोड का आकार गलत है: {0} बाइट, {1} नहीं
+the download doesn't match GitHub's checksum: sha256 {0}
+= डाउनलोड GitHub के चेकसम से मेल नहीं खाता: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = घुमाने के लिए खींचें

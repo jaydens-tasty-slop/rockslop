@@ -157,6 +157,28 @@ LAYOUT
 = IŠDĖSTYMAS
 LOCKED
 = UŽRAKINTA
+VERSION
+= VERSIJA
+DOWNLOAD
+= SIUNČIAMA
+LATEST
+= NAUJAUSIA
+PRE
+= TESTAS
+DOWNLOAD FAILED
+= ATSISIUNTIMAS NEPAVYKO
+USE A FILE
+= NAUDOTI FAILĄ
+LATEST RELEASE
+= NAUJAUSIAS LEIDIMAS
+ASKING GITHUB
+= KLAUSIAMA GITHUB
+the latest {0} release
+= naujausias {0} leidimas
+no {0} release on GitHub yet: use a package file
+= GitHub dar neturi {0} leidimo: naudok paketo failą
+ALL RELEASES
+= VISI LEIDIMAI
 PROBE
 = ZONDAS
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows atsisakė atidaryti grotuvo diską (klaida {0})
 a command through Windows' disk driver failed (Windows error {0})
 = komanda per Windows disko tvarkyklę nepavyko (Windows klaida {0})
+can't reach GitHub: {0}
+= nepavyksta pasiekti GitHub: {0}
+GitHub answered {0}
+= GitHub atsakė {0}
+GitHub's list of releases makes no sense: {0}
+= GitHub grąžino beprasmį leidimų sąrašą: {0}
+GitHub gave the package an odd name: {0}
+= GitHub paketui davė keistą pavadinimą: {0}
+can't save the download: {0}
+= nepavyksta išsaugoti atsisiuntimo: {0}
+the download stopped: {0}
+= atsisiuntimas nutrūko: {0}
+the download is the wrong size: {0} bytes, not {1}
+= atsisiuntimo dydis netinkamas: {0} baitų, ne {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= atsisiuntimas nesutampa su GitHub kontroline suma: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = VILK IR SUK

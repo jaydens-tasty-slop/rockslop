@@ -157,6 +157,28 @@ LAYOUT
 = LAYOUT
 LOCKED
 = GESPERRT
+VERSION
+= VERSION
+DOWNLOAD
+= DOWNLOAD
+LATEST
+= NEUESTE
+PRE
+= VORAB
+DOWNLOAD FAILED
+= DOWNLOAD FEHLER
+USE A FILE
+= DATEI NUTZEN
+LATEST RELEASE
+= NEUESTES RELEASE
+ASKING GITHUB
+= GITHUB-ABFRAGE
+the latest {0} release
+= das neueste {0}-Release
+no {0} release on GitHub yet: use a package file
+= noch kein {0}-Release auf GitHub: eine Paketdatei verwenden
+ALL RELEASES
+= ALLE RELEASES
 PROBE
 = SONDE
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows hat das Öffnen des Datenträgers des Players verweigert (Fehler {0})
 a command through Windows' disk driver failed (Windows error {0})
 = ein Befehl über den Datenträgertreiber von Windows ist fehlgeschlagen (Windows-Fehler {0})
+can't reach GitHub: {0}
+= GitHub nicht erreichbar: {0}
+GitHub answered {0}
+= GitHub antwortete {0}
+GitHub's list of releases makes no sense: {0}
+= GitHubs Release-Liste ergibt keinen Sinn: {0}
+GitHub gave the package an odd name: {0}
+= GitHub hat dem Paket einen seltsamen Namen gegeben: {0}
+can't save the download: {0}
+= der Download lässt sich nicht speichern: {0}
+the download stopped: {0}
+= der Download brach ab: {0}
+the download is the wrong size: {0} bytes, not {1}
+= der Download hat die falsche Größe: {0} Bytes statt {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= der Download passt nicht zur Prüfsumme von GitHub: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = ZIEHEN ZUM DREHEN

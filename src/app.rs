@@ -20,9 +20,12 @@ use rockslop::consent;
 use rockslop::device::backup::{self, Backup};
 use rockslop::device::{real::Real, sim::Sim, ts17, Cmd, Event, Hub, Lvl, Mode, Outcome, Phase, Sect};
 use rockslop::pkg::Package;
+use rockslop::releases::{self, Asset, List, Release};
 use std::f32::consts::{PI, TAU};
-use std::path::PathBuf;
-use std::sync::mpsc::{channel, Receiver};
+use std::path::{Path, PathBuf};
+use std::sync::atomic::{AtomicBool, Ordering};
+use std::sync::mpsc::{channel, Receiver, Sender};
+use std::sync::Arc;
 
 #[derive(Clone, Copy, PartialEq, Eq, Debug)]
 pub enum Screen {
@@ -134,6 +137,8 @@ struct LinkState {
 }
 
 enum PkgState {
+    /// downloading: bytes so far, of
+    Fetching(u64, u64),
     Checking(f32, String),
     Ok,
     Bad(String),
@@ -147,9 +152,35 @@ enum Find {
     Nothing,
 }
 
+/// GitHub's releases, as far as they are known.
+enum Rels {
+    Asking,
+    Ready(List),
+    Failed(String),
+}
+
+/// The release a package came from.
+#[derive(Clone)]
+struct FromRelease {
+    rel: Release,
+    asset: Asset,
+    latest: bool,
+}
+
+/// The version list, while it's open.
+struct Versions {
+    /// the first row shown (it scrolls)
+    first: usize,
+    opened: f32,
+    /// the releases already downloaded (looked at once, as it opens)
+    cached: Option<Vec<u64>>,
+}
+
 struct PkgView {
     /// the player it was loaded for: a package never carries over to the other
     kind: Kind,
+    /// downloaded from a release (else a file the user gave)
+    from: Option<FromRelease>,
     path: PathBuf,
     name: String,
     state: PkgState,
@@ -163,6 +194,9 @@ struct PkgView {
 }
 
 enum PkgMsg {
+    Fetched(u64, u64),
+    /// downloaded: where it is
+    Path(PathBuf),
     Progress(f32, String),
     Done(Result<Package, String>),
 }
@@ -302,6 +336,16 @@ pub struct App {
     link: LinkState,
     pkg: Option<PkgView>,
     pkg_rx: Option<Receiver<PkgMsg>>,
+    /// stops the download in progress
+    fetch_stop: Arc<AtomicBool>,
+    /// GitHub's releases: asked for at the start, again after a while
+    rels: Rels,
+    rels_rx: Option<Receiver<Result<List, String>>>,
+    rels_at: f32,
+    /// USE A FILE: the package is a file the user gives, not a release
+    manual: bool,
+    /// the version list, while it's open
+    versions: Option<Versions>,
     pick_rx: Option<Receiver<Option<PathBuf>>>,
     /// the image RETURN TO STOCK flashes
     stock: Option<Backup>,
@@ -442,7 +486,8 @@ impl App {
         lcd_light.texture.set_filter(FilterMode::Linear);
         let mut world = World::new();
         world.intensity = 0.0;
-        App {
+        let manual = opts.package.is_some();
+        let mut app = App {
             g: Gfx::new(),
             world,
             batch: LineBatch::new(),
@@ -468,6 +513,12 @@ impl App {
             link: LinkState::default(),
             pkg: None,
             pkg_rx: None,
+            fetch_stop: Arc::new(AtomicBool::new(false)),
+            rels: Rels::Asking,
+            rels_rx: None,
+            rels_at: 0.0,
+            manual,
+            versions: None,
             pick_rx: None,
             stock: None,
             stock_rx: None,
@@ -495,7 +546,10 @@ impl App {
             encored: false,
             waiver: None,
             waived: false,
-        }
+        };
+        // the releases, by the time a player is picked
+        app.ask_releases();
+        app
     }
 
     /// Ease the card's fill and sample the transfer rate during the SD sync.
@@ -568,14 +622,21 @@ impl App {
             Screen::Link => {
                 self.link = LinkState::default();
                 self.stock = backup::stock_for(self.kind(), None);
+                // the other player's package goes (its download too); a
+                // list that's old, or wasn't had, is asked for again
+                if self.pkg.as_ref().is_some_and(|p| p.kind != self.kind()) {
+                    self.drop_pkg();
+                }
+                if !matches!(self.rels, Rels::Ready(_)) || self.time - self.rels_at > 600.0 {
+                    self.ask_releases();
+                }
                 self.hub.send(Cmd::Watch(Some(self.kind())));
                 self.last_cycle = -1;
             }
             Screen::Payload => {
                 self.stock = backup::stock_for(self.kind(), None);
                 if self.pkg.as_ref().is_some_and(|p| p.kind != self.kind()) {
-                    self.pkg = None;
-                    self.pkg_rx = None;
+                    self.drop_pkg();
                 }
             }
             Screen::Execute => {
@@ -639,6 +700,8 @@ impl App {
         );
         self.events();
         self.package_tick();
+        self.releases_tick();
+        self.auto_release();
         for f in get_dropped_files() {
             if let Some(p) = f.path {
                 if matches!(self.screen, Screen::Payload) {
@@ -1019,15 +1082,18 @@ impl App {
                 }
             }
             Screen::Payload => {
-                // (under the waiver, Escape is the waiver's)
-                if is_key_pressed(KeyCode::Escape) && self.waiver.is_none() {
+                // (under the waiver, Escape is the waiver's; over the
+                // version list, the list's)
+                if is_key_pressed(KeyCode::Escape) && self.versions.is_some() {
+                    self.versions = None;
+                } else if is_key_pressed(KeyCode::Escape) && self.waiver.is_none() {
                     self.go(Screen::Select);
                     return;
                 }
                 if self.opts.auto && !self.to_stock {
                     if self.pkg.is_none() && self.screen_t > 1.2 {
                         let p = self.opts.package.clone().unwrap_or_else(|| self.demo_package());
-                        self.load_package(p);
+                        self.picked(p);
                     }
                     if matches!(self.pkg.as_ref().map(|p| &p.state), Some(PkgState::Ok)) && self.screen_t > 4.2 && self.waiver.is_none() {
                         self.flash_pressed();
@@ -1218,7 +1284,7 @@ impl App {
             Screen::Payload if self.to_stock => {
                 say(Tip::Stock, 12.0, tr("The .rockbox folder is hidden: turn on hidden files in your file browser to see it.").into())
             }
-            Screen::Payload if self.pkg.is_none() => say(
+            Screen::Payload if self.manual && self.pkg.is_none() => say(
                 Tip::Package,
                 15.0,
                 tf("You need the Rockbox package built for the {0}: a .tar.xz file. Click SELECT IMAGE, or drop it on the panel.", &[&self.kind().name()]),
@@ -1452,36 +1518,78 @@ impl App {
 
     // ------------------------------------------------------------ actions
 
+    /// A package file the user gave: checked in the background.
     fn load_package(&mut self, path: PathBuf) {
-        let name = path.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
+        self.drop_pkg();
         let (tx, rx) = channel();
         let demo = self.opts.demo && !path.exists();
         let kind = self.kind();
         let p = path.clone();
         std::thread::spawn(move || {
             if demo {
-                for i in 0..=30 {
-                    let _ = tx.send(PkgMsg::Progress(i as f32 / 30.0, format!("card/.rockbox/rocks/{:03}.rock", i * 7)));
-                    std::thread::sleep(std::time::Duration::from_millis(45));
+                demo_check(&tx, kind);
+            } else {
+                let _ = tx.send(PkgMsg::Done(check_package(&p, &tx)));
+            }
+        });
+        self.show_pkg(kind, path, None, PkgState::Checking(0.0, String::new()), rx);
+    }
+
+    /// Release `rel`'s package for this player: downloaded (unless it was
+    /// before), then checked, in the background.
+    fn load_release(&mut self, rel: Release, asset: Asset) {
+        self.drop_pkg();
+        let kind = self.kind();
+        let latest = matches!(&self.rels, Rels::Ready(l) if l.latest(kind.id()).is_some_and(|(r, _)| r.id == rel.id));
+        let stop = Arc::new(AtomicBool::new(false));
+        self.fetch_stop = stop.clone();
+        let (tx, rx) = channel();
+        let demo = self.opts.demo;
+        let (r, a) = (rel.clone(), asset.clone());
+        if !demo {
+            rockslop::log::line("FETCH", &format!("{} ({}, {}) from {}", a.name, r.tag, r.date, a.url));
+        }
+        std::thread::spawn(move || {
+            if demo {
+                // the simulator's releases download from nowhere, quickly
+                for i in 0..=40u64 {
+                    if stop.load(Ordering::Relaxed) {
+                        return;
+                    }
+                    let _ = tx.send(PkgMsg::Fetched(a.size * i / 40, a.size));
+                    std::thread::sleep(std::time::Duration::from_millis(30));
                 }
-                let _ = tx.send(PkgMsg::Done(Err(format!("demo:{}", kind.id()))));
+                demo_check(&tx, kind);
                 return;
             }
-            let r = (|| {
-                let mut pkg = Package::open(&p)?;
-                let tx2 = tx.clone();
-                pkg.verify(move |f, s| {
-                    let _ = tx2.send(PkgMsg::Progress(f, s.to_string()));
-                })?;
-                Ok(pkg)
-            })();
-            let _ = tx.send(PkgMsg::Done(r));
+            let tx2 = tx.clone();
+            let got = releases::fetch(&r, &a, &stop, move |n, of| {
+                let _ = tx2.send(PkgMsg::Fetched(n, of));
+            });
+            if stop.load(Ordering::Relaxed) {
+                return;
+            }
+            let res = got.and_then(|path| {
+                rockslop::log::line("FETCH", &format!("at {}", path.display()));
+                let _ = tx.send(PkgMsg::Path(path.clone()));
+                check_package(&path, &tx)
+            });
+            let _ = tx.send(PkgMsg::Done(res));
         });
+        let from = FromRelease { rel, asset, latest };
+        let path = PathBuf::from(&from.asset.name);
+        let state = PkgState::Fetching(0, from.asset.size);
+        self.show_pkg(kind, path, Some(from), state, rx);
+    }
+
+    fn show_pkg(&mut self, kind: Kind, path: PathBuf, from: Option<FromRelease>, state: PkgState, rx: Receiver<PkgMsg>) {
+        let name = path.file_name().map(|n| n.to_string_lossy().to_string()).unwrap_or_default();
         self.pkg = Some(PkgView {
             kind,
+            from,
             path,
             name,
-            state: PkgState::Checking(0.0, String::new()),
+            state,
             target: String::new(),
             version: String::new(),
             flash: 0,
@@ -1494,6 +1602,70 @@ impl App {
         self.kick = 0.3;
     }
 
+    /// Forget the package, and stop its download.
+    fn drop_pkg(&mut self) {
+        self.fetch_stop.store(true, Ordering::Relaxed);
+        self.pkg = None;
+        self.pkg_rx = None;
+        self.versions = None;
+    }
+
+    /// Ask GitHub for the releases (the simulator has its own), unless
+    /// that's under way.
+    fn ask_releases(&mut self) {
+        if self.rels_rx.is_some() {
+            return;
+        }
+        if !matches!(self.rels, Rels::Ready(_)) {
+            self.rels = Rels::Asking;
+        }
+        self.rels_at = self.time;
+        let (tx, rx) = channel();
+        let demo = self.opts.demo;
+        std::thread::spawn(move || {
+            let _ = tx.send(if demo { Ok(demo_releases()) } else { releases::list() });
+        });
+        self.rels_rx = Some(rx);
+    }
+
+    fn releases_tick(&mut self) {
+        let Some(rx) = &self.rels_rx else { return };
+        let Ok(r) = rx.try_recv() else { return };
+        self.rels_rx = None;
+        match r {
+            Ok(l) => {
+                if let Some(e) = &l.stale {
+                    rockslop::log::line("FETCH", &format!("the releases from last time: {e}"));
+                    self.say(Lvl::Warn, i18n::msg(e));
+                }
+                self.rels = Rels::Ready(l);
+            }
+            Err(e) => {
+                rockslop::log::line("FETCH", &e);
+                let e = i18n::msg(&e);
+                self.say(Lvl::Warn, e.clone());
+                // a list from earlier in this run still stands
+                if !matches!(self.rels, Rels::Ready(_)) {
+                    self.rels = Rels::Failed(e);
+                }
+            }
+        }
+    }
+
+    /// The latest release for the chosen player, fetched as soon as it is
+    /// chosen: it downloads while the player is being plugged in.
+    fn auto_release(&mut self) {
+        if self.manual || self.to_stock || self.pkg.is_some() || !matches!(self.screen, Screen::Link | Screen::Payload) {
+            return;
+        }
+        let Rels::Ready(l) = &self.rels else { return };
+        let kind = self.kind();
+        if let Some((r, a)) = l.latest(kind.id()) {
+            let (r, a) = (r.clone(), a.clone());
+            self.load_release(r, a);
+        }
+    }
+
     fn package_tick(&mut self) {
         let Some(rx) = &self.pkg_rx else { return };
         let kind = self.kind();
@@ -1501,6 +1673,8 @@ impl App {
         while let Ok(m) = rx.try_recv() {
             let Some(v) = self.pkg.as_mut() else { break };
             match m {
+                PkgMsg::Fetched(n, of) => v.state = PkgState::Fetching(n, of),
+                PkgMsg::Path(p) => v.path = p,
                 PkgMsg::Progress(f, s) => v.state = PkgState::Checking(f, s),
                 PkgMsg::Done(Ok(p)) => {
                     v.target = p.get("target").unwrap_or("?").to_uppercase();
@@ -1518,7 +1692,7 @@ impl App {
                 }
                 PkgMsg::Done(Err(e)) if e.starts_with("demo:") => {
                     v.target = e[5..].to_uppercase();
-                    v.version = format!("v4.0-{} (8d1c2f7)", kind.id());
+                    v.version = v.from.as_ref().map_or_else(|| format!("v4.0-{} (8d1c2f7)", kind.id()), |f| f.rel.tag.clone());
                     v.flash = 1_373_184;
                     let card = rockslop::device::sim::demo_card();
                     v.card = card.iter().map(|f| f.1).sum();
@@ -1555,9 +1729,12 @@ impl App {
         let backend: Box<dyn rockslop::device::Backend> = if on { Box::new(Sim::new(1.0, None)) } else { Box::new(Real::new()) };
         // the old hub's thread ends with its channel
         self.hub = Hub::start(backend);
-        // a demo package is no use to a real player, nor the other way round
-        self.pkg = None;
-        self.pkg_rx = None;
+        // a demo package is no use to a real player, nor the other way round,
+        // and the releases are the simulator's or GitHub's
+        self.drop_pkg();
+        self.rels = Rels::Asking;
+        self.rels_rx = None;
+        self.ask_releases();
         rockslop::log::line("GUI", if on { "demo: a simulated player from here on" } else { "demo off: real players again" });
     }
 
@@ -1596,6 +1773,7 @@ impl App {
         if self.to_stock {
             self.find_stock(Some(p));
         } else {
+            self.manual = true;
             self.load_package(p);
         }
     }
@@ -2262,8 +2440,8 @@ impl App {
             Screen::Fail => self.hud_fail(),
         }
         if s != Screen::Boot {
-            // top left, under the logo: clear of the log and the panels
-            self.np.draw(&mut self.ui, &self.g, vec2(30.0, 84.0), self.beat);
+            // top left, under the logo and the website: clear of the log and the panels
+            self.np.draw(&mut self.ui, &self.g, vec2(30.0, 132.0), self.beat);
         }
         // bottom left, over the BACK button
         let feet = vec2(92.0, self.g.size().y - 118.0);
@@ -2379,6 +2557,12 @@ impl App {
         // which build, for bug reports: ICE keeps its shape in the corner's
         // colour split
         text::draw_spaced(g, Face::Mono, &format!("BUILD {}", rockslop::VERSION), vec2(37.0, 84.0), 11.0, pal::alpha(pal::scale(pal::ICE, 0.85), a), Align::Left, 1.0);
+        // the website, on every screen
+        let site = rockslop::WEBSITE.trim_start_matches("https://");
+        let r = Rect::new(30.0, 96.0, ui::link_width(g, Face::Mono, site), 26.0);
+        if ui::link(&mut self.ui, g, r, site, Face::Mono, pal::CYAN, a) {
+            credits::open_url(rockslop::WEBSITE);
+        }
         if self.opts.demo {
             // a simulated player: say so on every screen
             let blink = if (t * 2.0) as i32 % 2 == 0 { 1.0 } else { 0.45 };
@@ -3004,7 +3188,15 @@ impl App {
         let ap = window(st, 0.1, 0.5);
         ui::panel(panel, pal::MAGENTA, ap);
         let title = if self.to_stock { tr("RETURN TO STOCK") } else { tr("PAYLOAD") };
-        ui::header(&self.g, vec2(panel.x + 26.0, panel.y + 30.0), panel.w - 52.0, title, pal::MAGENTA, ap, t);
+        // the releases page, on the title's line
+        let label = tr("ALL RELEASES");
+        let lw = ui::link_width(&self.g, Face::Semi, label).min(panel.w * 0.55);
+        let lr = Rect::new(panel.x + panel.w - 26.0 - lw, panel.y + 15.0, lw, 26.0);
+        if !self.to_stock && ui::link(&mut self.ui, &self.g, lr, label, Face::Semi, pal::MAGENTA, ap) {
+            credits::open_url(&releases::page());
+        }
+        let hw = if self.to_stock { panel.w - 52.0 } else { panel.w - 52.0 - lw - 14.0 };
+        ui::header(&self.g, vec2(panel.x + 26.0, panel.y + 30.0), hw, title, pal::MAGENTA, ap, t);
         // device summary
         let ident: Vec<String> = self
             .link
@@ -3028,76 +3220,88 @@ impl App {
         );
 
         let inner = Rect::new(panel.x + 26.0, panel.y + 94.0, panel.w - 52.0, panel.h - 190.0);
+        // the version list is on top: nothing under it gets the pointer
+        let listing = self.versions.is_some() && !self.to_stock && self.pkg.as_ref().is_some_and(|p| p.from.is_some());
+        let input = (self.ui.mouse, self.ui.pressed, self.ui.released);
+        if listing {
+            self.ui.hide_pointer();
+        }
         let mut flash_ok = false;
         let mut pick = false;
         let mut anyway = None;
+        let mut retry_list = false;
+        let mut retry_pkg = false;
+        let mut chip_at = None;
         match &self.pkg {
             _ if self.to_stock => (pick, anyway) = self.stock_panel(inner, st),
-            None => {
-                // drop zone
-                let a = window(st, 0.3, 0.5);
-                let dz = inner;
-                dashed(&ui::chamfer(dz, 14.0), pal::alpha(pal::scale(pal::MAGENTA, 0.7), a), t);
-                let cx = dz.x + dz.w / 2.0;
-                let cy = dz.y + dz.h / 2.0;
-                // a little archive glyph
-                let gy = cy - 70.0 + (t * 2.0).sin() * 3.0;
-                let box_ = Rect::new(cx - 22.0, gy - 26.0, 44.0, 52.0);
-                ui::polyline(&ui::chamfer(box_, 12.0), 1.5, pal::alpha(pal::MAGENTA, a), true);
-                for k in 0..4 {
-                    ui::line(
-                        vec2(cx - 12.0, gy - 10.0 + k as f32 * 8.0),
-                        vec2(cx + 12.0, gy - 10.0 + k as f32 * 8.0),
-                        1.0,
-                        pal::alpha(pal::scale(pal::MAGENTA, 0.6), a),
-                    );
-                }
-                let hint = if self.opts.demo {
-                    self.demo_package().display().to_string()
-                } else {
-                    format!("rockbox-{}-*.tar.xz", self.kind().name().to_lowercase())
-                };
-                text::draw_fit(
-                    &self.g,
-                    Face::Semi,
-                    &tf("THE {0} PACKAGE", &[&self.kind().name()]),
-                    vec2(cx, cy - 30.0),
-                    13.0,
-                    pal::alpha(pal::ICE, a),
-                    Align::Center,
-                    dz.w - 40.0,
-                );
-                text::draw_fit(&self.g, Face::Mono, &hint, vec2(cx, cy - 12.0), 11.0, pal::alpha(pal::scale(pal::ICE, 0.7), a), Align::Center, dz.w - 40.0);
-                pick = ui::button(
-                    &mut self.ui,
-                    &self.g,
-                    Rect::new(cx - 130.0, cy + 4.0, 260.0, 52.0),
-                    tr("SELECT IMAGE"),
-                    Tone::Primary,
-                    a,
-                    self.pick_rx.is_none(),
-                );
-                text::draw_fit(&self.g, Face::Mono, tr("or drop it here"), vec2(cx, cy + 82.0), 11.0, pal::alpha(pal::DIM, a), Align::Center, dz.w - 40.0);
-            }
+            None if self.manual => pick = self.drop_zone(inner, st, None),
+            None => (pick, retry_list) = self.release_wait(inner, st),
             Some(p) => {
                 let a = clamp01((t - p.t) * 3.0) * ap;
                 let mut y = inner.y + 14.0;
                 // the key column is as wide as its longest label
-                let keys = [tr("IMAGE"), "SHA-256", tr("TARGET"), tr("BUILD"), tr("FLASH"), tr("CARD"), tr("BACKUP")];
+                let keys = [tr("IMAGE"), tr("VERSION"), tr("DOWNLOAD"), "SHA-256", tr("TARGET"), tr("BUILD"), tr("FLASH"), tr("CARD"), tr("BACKUP")];
                 let kw = key_column(&self.g, &keys, 11.0, 90.0, inner.w * 0.4);
-                text::draw_fit(&self.g, Face::Mono, tr("IMAGE"), vec2(inner.x, y), 11.0, pal::alpha(pal::DIM, a), Align::Left, kw - 8.0);
-                text::draw_fit(
-                    &self.g,
-                    Face::Mono,
-                    &p.name,
-                    vec2(inner.x + kw, y),
-                    13.0,
-                    pal::alpha(pal::ICE, a),
-                    Align::Left,
-                    inner.w - kw - 112.0,
-                );
+                let key = if p.from.is_some() { tr("VERSION") } else { tr("IMAGE") };
+                text::draw_fit(&self.g, Face::Mono, key, vec2(inner.x, y), 11.0, pal::alpha(pal::DIM, a), Align::Left, kw - 8.0);
+                match &p.from {
+                    // the release, on a plate: it opens the list of the others
+                    Some(f) => {
+                        let chip = Rect::new(inner.x + kw - 10.0, y - 18.0, inner.w - kw + 10.0, 27.0);
+                        chip_at = Some(chip);
+                        let over = a > 0.6 && self.ui.over(chip);
+                        let hot = self.ui.hover("versions", over).max(listing as u8 as f32);
+                        ui::chip(chip, pal::MAGENTA, hot, a);
+                        let mut x = chip.x + 10.0;
+                        x += text::draw(&self.g, Face::Mono, &f.rel.tag, vec2(x, y), 13.0, pal::alpha(pal::ICE, a), Align::Left) + 12.0;
+                        x += text::draw(&self.g, Face::Mono, &f.rel.date, vec2(x, y), 11.0, pal::alpha(pal::DIM, a), Align::Left) + 12.0;
+                        let badge = if f.latest { Some((tr("LATEST"), pal::ACID)) } else if f.rel.prerelease { Some((tr("PRE"), pal::AMBER)) } else { None };
+                        if let Some((b, c)) = badge {
+                            text::draw_fit(&self.g, Face::Semi, b, vec2(x, y), 10.0, pal::alpha(c, a), Align::Left, (chip.x + chip.w - 26.0 - x).max(0.0));
+                        }
+                        let (cx, cy) = (chip.x + chip.w - 14.0, chip.y + chip.h / 2.0);
+                        let c = pal::alpha(pal::mix(pal::MAGENTA, pal::WHITE, 0.4 * hot), a);
+                        if listing {
+                            draw_triangle(vec2(cx - 5.0, cy + 3.0), vec2(cx + 5.0, cy + 3.0), vec2(cx, cy - 3.0), c);
+                        } else {
+                            draw_triangle(vec2(cx - 5.0, cy - 3.0), vec2(cx + 5.0, cy - 3.0), vec2(cx, cy + 3.0), c);
+                        }
+                        if self.ui.click(over, Sfx::Click) {
+                            self.versions = Some(Versions { first: 0, opened: t, cached: None });
+                        }
+                    }
+                    None => {
+                        text::draw_fit(
+                            &self.g,
+                            Face::Mono,
+                            &p.name,
+                            vec2(inner.x + kw, y),
+                            13.0,
+                            pal::alpha(pal::ICE, a),
+                            Align::Left,
+                            inner.w - kw - 112.0,
+                        );
+                    }
+                }
                 y += 26.0;
                 match &p.state {
+                    PkgState::Fetching(n, of) => {
+                        let f = *n as f32 / (*of).max(1) as f32;
+                        text::draw_fit(&self.g, Face::Mono, tr("DOWNLOAD"), vec2(inner.x, y), 11.0, pal::alpha(pal::DIM, a), Align::Left, kw - 8.0);
+                        ui::segbar(Rect::new(inner.x + kw, y - 10.0, inner.w - kw - 60.0, 10.0), f, pal::MAGENTA, a);
+                        text::draw(
+                            &self.g,
+                            Face::Mono,
+                            &format!("{:3.0}%", f * 100.0),
+                            vec2(inner.x + inner.w, y),
+                            12.0,
+                            pal::alpha(pal::MAGENTA, a),
+                            Align::Right,
+                        );
+                        y += 20.0;
+                        let from = format!("{} / {}  \u{b7}  github.com/{}", mib(*n), mib(*of), releases::REPO);
+                        text::draw_fit(&self.g, Face::Mono, &from, vec2(inner.x + kw, y), 11.0, pal::alpha(pal::scale(pal::MAGENTA, 0.7), a), Align::Left, inner.w - kw);
+                    }
                     PkgState::Checking(f, s) => {
                         text::draw(&self.g, Face::Mono, "SHA-256", vec2(inner.x, y), 11.0, pal::alpha(pal::DIM, a), Align::Left);
                         ui::segbar(Rect::new(inner.x + kw, y - 10.0, inner.w - kw - 60.0, 10.0), *f, pal::CYAN, a);
@@ -3123,9 +3327,18 @@ impl App {
                         );
                     }
                     PkgState::Bad(e) => {
-                        text::glitch_title(&self.g, tr("REJECTED"), vec2(inner.x, y + 8.0), 20.0, pal::RED, Align::Left, 0.15, t, 4.0, inner.w);
+                        // a download that failed isn't the package's fault
+                        let title = if e.starts_with("E6") { tr("DOWNLOAD FAILED") } else { tr("REJECTED") };
+                        text::glitch_title(&self.g, title, vec2(inner.x, y + 8.0), 20.0, pal::RED, Align::Left, 0.15, t, 4.0, inner.w);
                         y += 30.0;
-                        for (k, l) in ui::wrap(&self.g, Face::Mono, e, 12.0, inner.w).iter().take(5).enumerate() {
+                        let lines = ui::wrap(&self.g, Face::Mono, e, 12.0, inner.w);
+                        if p.from.is_some() {
+                            let label = tr("RETRY");
+                            let w = ui::button_width(&self.g, label, 34.0).clamp(140.0, inner.w);
+                            let by = y + lines.len().min(5) as f32 * 16.0 + 6.0;
+                            retry_pkg = ui::button(&mut self.ui, &self.g, Rect::new(inner.x, by, w, 34.0), label, Tone::Secondary, a, true);
+                        }
+                        for (k, l) in lines.iter().take(5).enumerate() {
                             text::draw(
                                 &self.g,
                                 Face::Mono,
@@ -3168,8 +3381,9 @@ impl App {
                         }
                     }
                 }
-                let busy = matches!(p.state, PkgState::Checking(..));
+                let busy = matches!(p.state, PkgState::Checking(..) | PkgState::Fetching(..));
                 if !busy
+                    && p.from.is_none()
                     && ui::button(
                         &mut self.ui,
                         &self.g,
@@ -3192,6 +3406,14 @@ impl App {
         }
         if pick {
             self.pick_file();
+        }
+        if retry_list {
+            self.ask_releases();
+        }
+        if retry_pkg {
+            if let Some(f) = self.pkg.as_ref().and_then(|p| p.from.clone()) {
+                self.load_release(f.rel, f.asset);
+            }
         }
         // FLASH (or, for an image rockslop doesn't know, FLASH ANYWAY)
         let fb = Rect::new(panel.x + 26.0, panel.y + panel.h - 82.0, panel.w - 52.0, 58.0);
@@ -3243,8 +3465,16 @@ impl App {
             }
         }
         if !self.to_stock {
+            // the way round the downloads, for a package file: there, not pushed
+            let label = if self.manual { tr("LATEST RELEASE") } else { tr("USE A FILE") };
+            let w = ui::button_width(&self.g, label, 38.0).clamp(160.0, panel.w / 2.0 - 10.0);
+            if ui::button(&mut self.ui, &self.g, Rect::new(panel.x, panel.y + panel.h + 22.0, w, 38.0), label, Tone::Secondary, window(st, 0.6, 0.4), true) {
+                // a file instead, or the latest release (auto_release fetches it)
+                self.manual = !self.manual;
+                self.drop_pkg();
+            }
             let label = tr("RETURN TO STOCK");
-            let w = ui::button_width(&self.g, label, 38.0).clamp(200.0, panel.w - 150.0);
+            let w = ui::button_width(&self.g, label, 38.0).clamp(160.0, panel.w / 2.0 - 10.0);
             if ui::button(
                 &mut self.ui,
                 &self.g,
@@ -3256,6 +3486,197 @@ impl App {
             ) {
                 self.return_to_stock();
             }
+        }
+        if listing {
+            (self.ui.mouse, self.ui.pressed, self.ui.released) = input;
+            if let Some(chip) = chip_at {
+                self.version_list(chip, inner, ap);
+            }
+        }
+    }
+
+    /// Where a package file goes: dropped on it, or SELECT IMAGE; `note`
+    /// above, when there is something to say first. Returns whether to open
+    /// the file dialog.
+    fn drop_zone(&mut self, inner: Rect, st: f32, note: Option<(Lvl, String)>) -> bool {
+        let t = self.time;
+        let a = window(st, 0.3, 0.5);
+        let dz = inner;
+        dashed(&ui::chamfer(dz, 14.0), pal::alpha(pal::scale(pal::MAGENTA, 0.7), a), t);
+        let cx = dz.x + dz.w / 2.0;
+        let note = note.map(|(l, s)| (l, ui::wrap(&self.g, Face::Mono, &s, 11.0, dz.w - 40.0).into_iter().take(4).collect::<Vec<_>>()));
+        let nh = note.as_ref().map_or(0.0, |(_, l)| l.len() as f32 * 15.0 + 10.0);
+        let cy = dz.y + (dz.h + nh) / 2.0;
+        if let Some((l, lines)) = &note {
+            let mut y = (cy - 96.0 - nh).max(dz.y + 20.0);
+            for s in lines {
+                text::draw(&self.g, Face::Mono, s, vec2(cx, y), 11.0, pal::alpha(ui::lvl_color(*l), a), Align::Center);
+                y += 15.0;
+            }
+        }
+        // a little archive glyph
+        let gy = cy - 70.0 + (t * 2.0).sin() * 3.0;
+        let box_ = Rect::new(cx - 22.0, gy - 26.0, 44.0, 52.0);
+        ui::polyline(&ui::chamfer(box_, 12.0), 1.5, pal::alpha(pal::MAGENTA, a), true);
+        for k in 0..4 {
+            ui::line(
+                vec2(cx - 12.0, gy - 10.0 + k as f32 * 8.0),
+                vec2(cx + 12.0, gy - 10.0 + k as f32 * 8.0),
+                1.0,
+                pal::alpha(pal::scale(pal::MAGENTA, 0.6), a),
+            );
+        }
+        let hint = if self.opts.demo {
+            self.demo_package().display().to_string()
+        } else {
+            format!("rockbox-{}-*.tar.xz", self.kind().name().to_lowercase())
+        };
+        text::draw_fit(
+            &self.g,
+            Face::Semi,
+            &tf("THE {0} PACKAGE", &[&self.kind().name()]),
+            vec2(cx, cy - 30.0),
+            13.0,
+            pal::alpha(pal::ICE, a),
+            Align::Center,
+            dz.w - 40.0,
+        );
+        text::draw_fit(&self.g, Face::Mono, &hint, vec2(cx, cy - 12.0), 11.0, pal::alpha(pal::scale(pal::ICE, 0.7), a), Align::Center, dz.w - 40.0);
+        let pick = ui::button(
+            &mut self.ui,
+            &self.g,
+            Rect::new(cx - 130.0, cy + 4.0, 260.0, 52.0),
+            tr("SELECT IMAGE"),
+            Tone::Primary,
+            a,
+            self.pick_rx.is_none(),
+        );
+        text::draw_fit(&self.g, Face::Mono, tr("or drop it here"), vec2(cx, cy + 82.0), 11.0, pal::alpha(pal::DIM, a), Align::Center, dz.w - 40.0);
+        pick
+    }
+
+    /// The payload panel before the release's download starts: GitHub
+    /// being asked, or why there's nothing to download (then the drop
+    /// zone). Returns whether to open the file dialog, and to ask again.
+    fn release_wait(&mut self, inner: Rect, st: f32) -> (bool, bool) {
+        let kind = self.kind();
+        let a = window(st, 0.3, 0.5);
+        match &self.rels {
+            Rels::Ready(l) if l.latest(kind.id()).is_none() => {
+                let note = tf("no {0} release on GitHub yet: use a package file", &[&kind.name()]);
+                (self.drop_zone(inner, st, Some((Lvl::Warn, note))), false)
+            }
+            Rels::Failed(e) => {
+                let note = (Lvl::Err, e.clone());
+                let pick = self.drop_zone(inner, st, Some(note));
+                let label = tr("RETRY");
+                let w = ui::button_width(&self.g, label, 28.0).clamp(104.0, inner.w / 2.0);
+                let r = Rect::new(inner.x + inner.w - w, inner.y - 6.0, w, 28.0);
+                (pick, ui::button(&mut self.ui, &self.g, r, label, Tone::Secondary, a, self.rels_rx.is_none()))
+            }
+            // asking (or the download is about to start)
+            _ => {
+                let t = self.time;
+                let c = vec2(inner.x + inner.w / 2.0, inner.y + inner.h / 2.0 - 24.0);
+                for k in 0..12 {
+                    let ang = t * 5.0 - k as f32 * TAU / 16.0;
+                    let f = 1.0 - k as f32 / 12.0;
+                    draw_circle(c.x + ang.cos() * 20.0, c.y + ang.sin() * 20.0, 1.5 + 1.5 * f, pal::alpha(pal::MAGENTA, a * f));
+                }
+                text::draw_fit(&self.g, Face::Semi, tr("ASKING GITHUB"), vec2(c.x, c.y + 52.0), 13.0, pal::alpha(pal::ICE, a), Align::Center, inner.w - 40.0);
+                let sub = tf("the latest {0} release", &[&kind.name()]);
+                text::draw_fit(&self.g, Face::Mono, &sub, vec2(c.x, c.y + 70.0), 11.0, pal::alpha(pal::DIM, a), Align::Center, inner.w - 40.0);
+                (false, false)
+            }
+        }
+    }
+
+    /// The releases with a package for this player, dropped down from the
+    /// version plate: one clicked is fetched; a click elsewhere closes it.
+    fn version_list(&mut self, chip: Rect, inner: Rect, a: f32) {
+        let kind = self.kind();
+        let Rels::Ready(l) = &self.rels else {
+            self.versions = None;
+            return;
+        };
+        let rows: Vec<(Release, Asset)> = l.for_target(kind.id()).map(|(r, a)| (r.clone(), a.clone())).collect();
+        let latest = l.latest(kind.id()).map(|(r, _)| r.id);
+        let cur = self.pkg.as_ref().and_then(|p| p.from.as_ref()).map(|f| f.rel.id);
+        let Some(v) = &mut self.versions else { return };
+        let cached = v.cached.get_or_insert_with(|| rows.iter().filter(|(r, a)| releases::cached(r, a).is_some()).map(|(r, _)| r.id).collect()).clone();
+        let t = self.time;
+        let rh = 28.0;
+        let top = chip.y + chip.h + 4.0;
+        let fit = (((inner.y + inner.h + 40.0 - top - 12.0) / rh).floor() as usize).max(1);
+        let shown = rows.len().min(fit);
+        let mut first = v.first.min(rows.len() - shown);
+        let open = ease_out_cubic(clamp01((t - v.opened) * 7.0));
+        let r = Rect::new(chip.x, top, chip.w, (shown as f32 * rh + 12.0) * open);
+        let pts = ui::chamfer(r, 8.0);
+        ui::fill_convex(&pts, Color::new(0.01, 0.015, 0.04, 0.94 * a));
+        ui::polyline(&pts, 1.2, pal::alpha(pal::MAGENTA, 0.8 * a), true);
+        let over_list = r.contains(self.ui.mouse);
+        if over_list {
+            let w = mouse_wheel().1;
+            if w != 0.0 {
+                first = (first as i32 - w.signum() as i32).clamp(0, (rows.len() - shown) as i32) as usize;
+            }
+        }
+        v.first = first;
+        let opened = v.opened;
+        let mut chosen = None;
+        for (k, (rel, asset)) in rows.iter().enumerate().skip(first).take(shown) {
+            let row = Rect::new(r.x + 6.0, r.y + 6.0 + (k - first) as f32 * rh, r.w - 12.0, rh);
+            if row.y + row.h > r.y + r.h {
+                break;
+            }
+            let over = self.ui.over(row);
+            let hot = self.ui.hover(&format!("release {}", rel.id), over);
+            let here = Some(rel.id) == cur;
+            if hot > 0.01 || here {
+                draw_rectangle(row.x, row.y, row.w, row.h, pal::alpha(pal::MAGENTA, (0.06 + 0.14 * hot) * a));
+            }
+            if here {
+                draw_rectangle(row.x, row.y + 4.0, 3.0, row.h - 8.0, pal::alpha(pal::ACID, a));
+            }
+            let y = row.y + row.h / 2.0 + 5.0;
+            let mut x = row.x + 12.0;
+            x += text::draw(&self.g, Face::Mono, &rel.tag, vec2(x, y), 13.0, pal::alpha(pal::mix(pal::ICE, pal::WHITE, hot), a), Align::Left) + 12.0;
+            x += text::draw(&self.g, Face::Mono, &rel.date, vec2(x, y), 11.0, pal::alpha(pal::DIM, a), Align::Left) + 12.0;
+            let mut right = row.x + row.w - 10.0;
+            right -= text::draw(&self.g, Face::Mono, &mib(asset.size), vec2(right, y), 11.0, pal::alpha(pal::DIM, a), Align::Right) + 10.0;
+            if cached.contains(&rel.id) {
+                check(vec2(right - 6.0, y - 4.0), pal::CYAN, a);
+                right -= 22.0;
+            }
+            let badge = if Some(rel.id) == latest { Some((tr("LATEST"), pal::ACID)) } else if rel.prerelease { Some((tr("PRE"), pal::AMBER)) } else { None };
+            if let Some((b, c)) = badge {
+                text::draw_fit(&self.g, Face::Semi, b, vec2(x, y), 10.0, pal::alpha(c, a), Align::Left, (right - x).max(0.0));
+            }
+            if self.ui.click(over, Sfx::Click) {
+                chosen = Some((rel.clone(), asset.clone()));
+            }
+        }
+        // more above or below
+        let c = pal::alpha(pal::MAGENTA, a);
+        let mx = r.x + r.w / 2.0;
+        if first > 0 {
+            draw_triangle(vec2(mx - 6.0, r.y + 6.0), vec2(mx + 6.0, r.y + 6.0), vec2(mx, r.y + 1.0), c);
+        }
+        if first + shown < rows.len() {
+            let by = r.y + r.h;
+            draw_triangle(vec2(mx - 6.0, by - 6.0), vec2(mx + 6.0, by - 6.0), vec2(mx, by - 1.0), c);
+        }
+        // the list has the pointer while it's open
+        self.ui.captured = true;
+        if let Some((rel, asset)) = chosen {
+            self.versions = None;
+            let failed = matches!(self.pkg.as_ref().map(|p| &p.state), Some(PkgState::Bad(_)));
+            if Some(rel.id) != cur || failed {
+                self.load_release(rel, asset);
+            }
+        } else if self.ui.released && !over_list && t > opened {
+            self.versions = None;
         }
     }
 
@@ -3881,7 +4302,7 @@ impl App {
         let stock_w = ui::button_width(&self.g, tr("RETURN TO STOCK"), 40.0).clamp(200.0, room);
         let by = cr.y + cr.h + 34.0;
         if ui::button(&mut self.ui, &self.g, Rect::new(x0, by, again_w, 40.0), tr("AGAIN"), Tone::Secondary, ba, true) {
-            self.pkg = None;
+            self.drop_pkg();
             self.go(Screen::Select);
         }
         let side = again_w + 20.0 + stock_w <= room;
@@ -3961,6 +4382,45 @@ impl App {
 }
 
 // ---------------------------------------------------------------- bits
+
+/// A package file opened and every member checked, with progress on `tx`.
+fn check_package(p: &Path, tx: &Sender<PkgMsg>) -> Result<Package, String> {
+    let mut pkg = Package::open(p)?;
+    let tx2 = tx.clone();
+    pkg.verify(move |f, s| {
+        let _ = tx2.send(PkgMsg::Progress(f, s.to_string()));
+    })?;
+    Ok(pkg)
+}
+
+/// The simulator's package check: a show, then `load_package`'s stand-in.
+fn demo_check(tx: &Sender<PkgMsg>, kind: Kind) {
+    for i in 0..=30 {
+        let _ = tx.send(PkgMsg::Progress(i as f32 / 30.0, format!("card/.rockbox/rocks/{:03}.rock", i * 7)));
+        std::thread::sleep(std::time::Duration::from_millis(45));
+    }
+    let _ = tx.send(PkgMsg::Done(Err(format!("demo:{}", kind.id()))));
+}
+
+/// The simulator's releases: a few for each player.
+fn demo_releases() -> List {
+    let tags = [("d0ca50f732-261121", "2026-11-21", false), ("8d1c2f7a11-261119", "2026-11-19", false), ("5e0dc34b90-261117", "2026-11-17", true), ("c04bf1f2e3-261112", "2026-11-12", false)];
+    let releases = tags
+        .iter()
+        .enumerate()
+        .map(|(i, &(tag, date, prerelease))| Release {
+            id: 100 - i as u64,
+            tag: tag.into(),
+            date: date.into(),
+            prerelease,
+            assets: ["yp3", "ts17"]
+                .iter()
+                .map(|k| Asset { name: format!("rockbox-{k}-{tag}.tar.xz"), url: String::new(), size: 34_212_864 - i as u64 * 411_000, sha256: None })
+                .collect(),
+        })
+        .collect();
+    List { releases, stale: None }
+}
 
 fn permission_hint() -> &'static str {
     if cfg!(target_os = "linux") {

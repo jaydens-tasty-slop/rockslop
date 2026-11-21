@@ -157,6 +157,28 @@ LAYOUT
 = BỐ CỤC
 LOCKED
 = ĐÃ KHÓA
+VERSION
+= PHIÊN BẢN
+DOWNLOAD
+= TẢI VỀ
+LATEST
+= MỚI NHẤT
+PRE
+= THỬ
+DOWNLOAD FAILED
+= TẢI VỀ THẤT BẠI
+USE A FILE
+= DÙNG TỆP
+LATEST RELEASE
+= BẢN MỚI NHẤT
+ASKING GITHUB
+= ĐANG HỎI GITHUB
+the latest {0} release
+= bản phát hành {0} mới nhất
+no {0} release on GitHub yet: use a package file
+= GitHub chưa có bản phát hành cho {0}: hãy dùng tệp gói
+ALL RELEASES
+= TẤT CẢ BẢN PHÁT HÀNH
 PROBE
 = DÒ
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows từ chối mở ổ đĩa của máy nghe nhạc (lỗi {0})
 a command through Windows' disk driver failed (Windows error {0})
 = một lệnh qua trình điều khiển đĩa của Windows đã thất bại (lỗi Windows {0})
+can't reach GitHub: {0}
+= không kết nối được GitHub: {0}
+GitHub answered {0}
+= GitHub trả lời {0}
+GitHub's list of releases makes no sense: {0}
+= danh sách bản phát hành của GitHub vô nghĩa: {0}
+GitHub gave the package an odd name: {0}
+= GitHub đặt cho gói một cái tên lạ: {0}
+can't save the download: {0}
+= không lưu được bản tải: {0}
+the download stopped: {0}
+= quá trình tải bị dừng: {0}
+the download is the wrong size: {0} bytes, not {1}
+= bản tải sai kích thước: {0} byte, không phải {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= bản tải không khớp với checksum của GitHub: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = KÉO ĐỂ XOAY

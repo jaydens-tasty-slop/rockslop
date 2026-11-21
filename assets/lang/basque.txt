@@ -157,6 +157,28 @@ LAYOUT
 = MAPA
 LOCKED
 = BLOKEATUTA
+VERSION
+= BERTSIOA
+DOWNLOAD
+= DESKARGA
+LATEST
+= AZKENA
+PRE
+= PROBA
+DOWNLOAD FAILED
+= DESKARGA HUTS
+USE A FILE
+= ERABILI FITXATEGIA
+LATEST RELEASE
+= AZKEN BERTSIOA
+ASKING GITHUB
+= GITHUB-I GALDETZEN
+the latest {0} release
+= {0}rako azken bertsioa
+no {0} release on GitHub yet: use a package file
+= oraindik ez dago {0}rako bertsiorik GitHub-en: erabili pakete-fitxategi bat
+ALL RELEASES
+= BERTSIO GUZTIAK
 PROBE
 = PROBA
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows-ek uko egin dio erreproduzigailuaren diskoa irekitzeari ({0} errorea)
 a command through Windows' disk driver failed (Windows error {0})
 = Windows-en disko-driverraren bidezko agindu batek huts egin du (Windows errorea {0})
+can't reach GitHub: {0}
+= ezin da GitHub-era iritsi: {0}
+GitHub answered {0}
+= GitHub-ek {0} erantzun du
+GitHub's list of releases makes no sense: {0}
+= GitHub-en bertsio-zerrendak ez du zentzurik: {0}
+GitHub gave the package an odd name: {0}
+= GitHub-ek izen arraroa eman dio paketeari: {0}
+can't save the download: {0}
+= ezin da deskarga gorde: {0}
+the download stopped: {0}
+= deskarga gelditu da: {0}
+the download is the wrong size: {0} bytes, not {1}
+= deskargaren tamaina okerra da: {0} byte, ez {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= deskarga ez dator bat GitHub-en kontrol-batukariarekin: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = ARRASTATU BIRATZEKO

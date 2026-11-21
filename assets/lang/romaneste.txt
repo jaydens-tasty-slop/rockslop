@@ -157,6 +157,28 @@ LAYOUT
 = HARTĂ
 LOCKED
 = BLOCAT
+VERSION
+= VERSIUNE
+DOWNLOAD
+= DESCĂRCARE
+LATEST
+= ULTIMA
+PRE
+= TEST
+DOWNLOAD FAILED
+= DESCĂRCARE EȘUATĂ
+USE A FILE
+= FOLOSEȘTE UN FIȘIER
+LATEST RELEASE
+= ULTIMA VERSIUNE
+ASKING GITHUB
+= ÎNTREB GITHUB
+the latest {0} release
+= ultima versiune pentru {0}
+no {0} release on GitHub yet: use a package file
+= încă nicio versiune pentru {0} pe GitHub: folosește un fișier de pachet
+ALL RELEASES
+= TOATE VERSIUNILE
 PROBE
 = SONDĂ
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows a refuzat să deschidă discul playerului (eroare {0})
 a command through Windows' disk driver failed (Windows error {0})
 = o comandă prin driverul de disc al Windows a eșuat (eroare Windows {0})
+can't reach GitHub: {0}
+= GitHub nu poate fi contactat: {0}
+GitHub answered {0}
+= GitHub a răspuns {0}
+GitHub's list of releases makes no sense: {0}
+= lista de versiuni de pe GitHub n-are sens: {0}
+GitHub gave the package an odd name: {0}
+= GitHub a dat pachetului un nume ciudat: {0}
+can't save the download: {0}
+= descărcarea nu poate fi salvată: {0}
+the download stopped: {0}
+= descărcarea s-a oprit: {0}
+the download is the wrong size: {0} bytes, not {1}
+= descărcarea are dimensiunea greșită: {0} octeți, nu {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= descărcarea nu corespunde sumei de control de pe GitHub: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = TRAGE ȘI ROTEȘTE

@@ -157,6 +157,28 @@ LAYOUT
 = РАСПОРЕД
 LOCKED
 = ЗАКЉУЧАНО
+VERSION
+= ВЕРЗИЈА
+DOWNLOAD
+= ПРЕУЗИМАЊЕ
+LATEST
+= НАЈНОВИЈА
+PRE
+= ТЕСТ
+DOWNLOAD FAILED
+= ПРЕУЗИМАЊЕ НЕУСПЕЛО
+USE A FILE
+= КОРИСТИ ФАЈЛ
+LATEST RELEASE
+= НАЈНОВИЈЕ ИЗДАЊЕ
+ASKING GITHUB
+= ПИТАМ GITHUB
+the latest {0} release
+= најновије издање за {0}
+no {0} release on GitHub yet: use a package file
+= GitHub још нема издање за {0}: користи фајл пакета
+ALL RELEASES
+= СВА ИЗДАЊА
 PROBE
 = СОНДА
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows је одбио да отвори диск плејера (грешка {0})
 a command through Windows' disk driver failed (Windows error {0})
 = команда кроз Windows драјвер диска није успела (Windows грешка {0})
+can't reach GitHub: {0}
+= GitHub није доступан: {0}
+GitHub answered {0}
+= GitHub је одговорио {0}
+GitHub's list of releases makes no sense: {0}
+= GitHub враћа бесмислен списак издања: {0}
+GitHub gave the package an odd name: {0}
+= GitHub је пакету дао чудно име: {0}
+can't save the download: {0}
+= преузимање се не може сачувати: {0}
+the download stopped: {0}
+= преузимање је прекинуто: {0}
+the download is the wrong size: {0} bytes, not {1}
+= преузимање је погрешне величине: {0} бајтова, а не {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= преузимање се не слаже са контролном сумом са GitHub-а: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = ВУЦИ И ОКРЕЋИ

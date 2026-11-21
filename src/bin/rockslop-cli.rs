@@ -4,6 +4,11 @@
 //!   rockslop-cli check PACKAGE            verify a package offline
 //!   rockslop-cli probe yp3|ts17           identify a player in download mode
 //!   rockslop-cli flash PACKAGE            back up, flash, checksum, sync card
+//!   rockslop-cli flash yp3|ts17 [VERSION] the same with a release from GitHub:
+//!                                         the latest, or VERSION
+//!   rockslop-cli releases [yp3|ts17]      the releases on GitHub
+//!   rockslop-cli fetch yp3|ts17 [VERSION] download one (the latest) and
+//!                                         print where it is
 //!   rockslop-cli restore yp3|ts17 [IMAGE] return to stock (a stock backup
 //!                                         here, else on Rockbox's card)
 //!   rockslop-cli backups [yp3|ts17]       list firmware backups
@@ -44,8 +49,11 @@ struct Opts {
 fn usage() -> ExitCode {
     eprintln!(
         "usage: rockslop-cli status | check PACKAGE | probe yp3|ts17 | flash PACKAGE |\n       \
+         flash yp3|ts17 [VERSION] | releases [yp3|ts17] | fetch yp3|ts17 [VERSION] |\n       \
          restore yp3|ts17 [IMAGE] | backups [yp3|ts17] | card\n\
-         options: --yes  --wait SECS  --demo  --no-backsies  --version"
+         options: --yes  --wait SECS  --demo  --no-backsies  --version\n\
+         {}",
+        rockslop::WEBSITE
     );
     ExitCode::from(2)
 }
@@ -96,7 +104,7 @@ fn main() -> ExitCode {
         }
     }
     // the log, for the commands that talk to a player or check a package
-    if !o.demo && matches!(args.first().map(String::as_str), Some("probe" | "flash" | "restore" | "check")) {
+    if !o.demo && matches!(args.first().map(String::as_str), Some("probe" | "flash" | "restore" | "check" | "fetch")) {
         rockslop::log::open(&format!("rockslop-cli {}", args.join(" ")));
     }
     let r = match args.first().map(String::as_str) {
@@ -106,7 +114,21 @@ fn main() -> ExitCode {
             Some(k) => probe(&o, k),
             None => return usage(),
         },
+        // a player's name, unless there's a file by that name
+        Some("flash") if args.len() <= 3 && kind_arg(args.get(1)).is_some() && !Path::new(&args[1]).exists() => {
+            let kind = kind_arg(args.get(1)).unwrap();
+            fetch(kind, args.get(2).map(String::as_str)).and_then(|p| flash(&o, &p))
+        }
         Some("flash") if args.len() == 2 => flash(&o, Path::new(&args[1])),
+        Some("releases") if args.len() == 1 => releases(None),
+        Some("releases") if args.len() == 2 => match kind_arg(args.get(1)) {
+            Some(k) => releases(Some(k)),
+            None => return usage(),
+        },
+        Some("fetch") if args.len() <= 3 => match kind_arg(args.get(1)) {
+            Some(k) => fetch(k, args.get(2).map(String::as_str)).map(|p| println!("{}", p.display())),
+            None => return usage(),
+        },
         Some("restore") => match kind_arg(args.get(1)) {
             Some(k) => restore(&o, k, args.get(2).map(PathBuf::from)),
             None => return usage(),
@@ -348,6 +370,60 @@ fn probe(o: &Opts, kind: Kind) -> Result<(), String> {
     wait_rom(o, &mut h, kind)?;
     h.send(Cmd::Probe(kind));
     run(&mut h, false).map(|_| ())
+}
+
+/// The releases on GitHub with a package for `kind` (every player's, with
+/// none), newest first.
+fn releases(kind: Option<Kind>) -> Result<(), String> {
+    let list = rockslop::releases::list()?;
+    if let Some(e) = &list.stale {
+        eprintln!("GitHub can't be asked ({e}): the list from last time");
+    }
+    let kinds = kind.map_or(vec![Kind::Yp3, Kind::Ts17], |k| vec![k]);
+    let mut any = false;
+    for k in kinds {
+        let latest = list.latest(k.id()).map(|(r, _)| r.id);
+        for (r, a) in list.for_target(k.id()) {
+            any = true;
+            let mut notes = Vec::new();
+            if Some(r.id) == latest {
+                notes.push("latest");
+            }
+            if r.prerelease {
+                notes.push("prerelease");
+            }
+            if rockslop::releases::cached(r, a).is_some() {
+                notes.push("downloaded");
+            }
+            println!("{:5} {:24} {}  {:5.1} MiB  {}", k.name(), r.tag, r.date, a.size as f64 / 1048576.0, notes.join(", "));
+        }
+    }
+    if !any {
+        println!("no releases yet: {}", rockslop::releases::page());
+    }
+    Ok(())
+}
+
+/// Release `version` (the latest without one) of `kind`'s package,
+/// downloaded unless it is here already.
+fn fetch(kind: Kind, version: Option<&str>) -> Result<PathBuf, String> {
+    let list = rockslop::releases::list()?;
+    if let Some(e) = &list.stale {
+        eprintln!("GitHub can't be asked ({e}): the list from last time");
+    }
+    let found = match version {
+        Some(v) => list.find(kind.id(), v).ok_or_else(|| err!(E806, "no release {v} with a {} package: see rockslop-cli releases", kind.name()))?,
+        None => list.latest(kind.id()).ok_or_else(|| err!(E807, "no {} release yet: {}", kind.name(), rockslop::releases::page()))?,
+    };
+    let (r, a) = found;
+    println!("{} {}, {}", kind.name(), r.tag, r.date);
+    rockslop::log::line("FETCH", &format!("{} {} from {}", a.name, r.date, a.url));
+    let mut bar = Bar::new();
+    let stop = std::sync::atomic::AtomicBool::new(false);
+    let p = rockslop::releases::fetch(r, a, &stop, |n, of| bar.set("download", n as f32 / of.max(1) as f32))?;
+    bar.done();
+    rockslop::log::line("FETCH", &format!("at {}", p.display()));
+    Ok(p)
 }
 
 fn flash(o: &Opts, path: &Path) -> Result<(), String> {

@@ -157,6 +157,28 @@ LAYOUT
 = LAYOUT
 LOCKED
 = NAKA-LOCK
+VERSION
+= BERSYON
+DOWNLOAD
+= DOWNLOAD
+LATEST
+= PINAKABAGO
+PRE
+= TEST
+DOWNLOAD FAILED
+= NABIGO ANG DOWNLOAD
+USE A FILE
+= GUMAMIT NG FILE
+LATEST RELEASE
+= PINAKABAGONG RELEASE
+ASKING GITHUB
+= TINATANONG ANG GITHUB
+the latest {0} release
+= ang pinakabagong release para sa {0}
+no {0} release on GitHub yet: use a package file
+= wala pang release para sa {0} sa GitHub: gumamit ng package file
+ALL RELEASES
+= LAHAT NG RELEASE
 PROBE
 = SUBOK
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Tumanggi ang Windows na buksan ang disk ng player (error {0})
 a command through Windows' disk driver failed (Windows error {0})
 = pumalya ang isang command sa disk driver ng Windows (Windows error {0})
+can't reach GitHub: {0}
+= hindi maabot ang GitHub: {0}
+GitHub answered {0}
+= sumagot ang GitHub ng {0}
+GitHub's list of releases makes no sense: {0}
+= walang saysay ang listahan ng release ng GitHub: {0}
+GitHub gave the package an odd name: {0}
+= kakaibang pangalan ang ibinigay ng GitHub sa package: {0}
+can't save the download: {0}
+= hindi ma-save ang download: {0}
+the download stopped: {0}
+= huminto ang download: {0}
+the download is the wrong size: {0} bytes, not {1}
+= mali ang laki ng download: {0} bytes, hindi {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= hindi tugma ang download sa checksum ng GitHub: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = I-DRAG PARA IKUTIN

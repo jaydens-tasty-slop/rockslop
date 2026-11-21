@@ -157,6 +157,28 @@ LAYOUT
 = 配置
 LOCKED
 = 已鎖定
+VERSION
+= 版本
+DOWNLOAD
+= 下載
+LATEST
+= 最新
+PRE
+= 測試
+DOWNLOAD FAILED
+= 下載失敗
+USE A FILE
+= 使用檔案
+LATEST RELEASE
+= 最新發行包
+ASKING GITHUB
+= 正在詢問 GITHUB
+the latest {0} release
+= {0} 的最新發行包
+no {0} release on GitHub yet: use a package file
+= GitHub 上還沒有 {0} 的發行包：請使用安裝包檔案
+ALL RELEASES
+= 全部發行包
 PROBE
 = 探測
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows 拒絕開啟播放器的磁碟（錯誤 {0}）
 a command through Windows' disk driver failed (Windows error {0})
 = 透過 Windows 磁碟驅動程式傳送的命令失敗（Windows 錯誤 {0}）
+can't reach GitHub: {0}
+= 無法連線至 GitHub：{0}
+GitHub answered {0}
+= GitHub 回應 {0}
+GitHub's list of releases makes no sense: {0}
+= GitHub 的發行包清單無法理解：{0}
+GitHub gave the package an odd name: {0}
+= GitHub 給安裝包取了個奇怪的名字：{0}
+can't save the download: {0}
+= 無法儲存下載：{0}
+the download stopped: {0}
+= 下載中斷：{0}
+the download is the wrong size: {0} bytes, not {1}
+= 下載大小不對：{0} 位元組，而非 {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= 下載與 GitHub 的檢查碼不符：sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = 拖曳旋轉

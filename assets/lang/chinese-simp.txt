@@ -157,6 +157,28 @@ LAYOUT
 = 布局
 LOCKED
 = 已锁定
+VERSION
+= 版本
+DOWNLOAD
+= 下载
+LATEST
+= 最新
+PRE
+= 测试
+DOWNLOAD FAILED
+= 下载失败
+USE A FILE
+= 使用文件
+LATEST RELEASE
+= 最新发行包
+ASKING GITHUB
+= 正在询问 GITHUB
+the latest {0} release
+= {0} 的最新发行包
+no {0} release on GitHub yet: use a package file
+= GitHub 上还没有 {0} 的发行包：请使用安装包文件
+ALL RELEASES
+= 全部发行包
 PROBE
 = 探测
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows 拒绝打开播放器的磁盘（错误 {0}）
 a command through Windows' disk driver failed (Windows error {0})
 = 通过 Windows 磁盘驱动发送的命令失败（Windows 错误 {0}）
+can't reach GitHub: {0}
+= 无法连接 GitHub：{0}
+GitHub answered {0}
+= GitHub 返回 {0}
+GitHub's list of releases makes no sense: {0}
+= GitHub 的发行包列表无法理解：{0}
+GitHub gave the package an odd name: {0}
+= GitHub 给安装包起了个奇怪的名字：{0}
+can't save the download: {0}
+= 无法保存下载：{0}
+the download stopped: {0}
+= 下载中断：{0}
+the download is the wrong size: {0} bytes, not {1}
+= 下载大小不对：{0} 字节，而非 {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= 下载与 GitHub 的校验和不符：sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = 拖动旋转

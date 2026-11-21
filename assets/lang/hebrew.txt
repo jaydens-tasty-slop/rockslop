@@ -157,6 +157,28 @@ LAYOUT
 = פריסה
 LOCKED
 = נעול
+VERSION
+= גרסה
+DOWNLOAD
+= הורדה
+LATEST
+= אחרון
+PRE
+= טרום
+DOWNLOAD FAILED
+= ההורדה נכשלה
+USE A FILE
+= השתמש בקובץ
+LATEST RELEASE
+= השחרור האחרון
+ASKING GITHUB
+= שואל את GITHUB
+the latest {0} release
+= השחרור האחרון של {0}
+no {0} release on GitHub yet: use a package file
+= אין עדיין שחרור של {0} ב-GitHub: השתמש בקובץ חבילה
+ALL RELEASES
+= כל השחרורים
 PROBE
 = בדיקה
 VERIFY
@@ -477,6 +499,22 @@ Windows refused to open the player's disk (error {0})
 = Windows סירב לפתוח את הדיסק של הנגן (שגיאה {0})
 a command through Windows' disk driver failed (Windows error {0})
 = פקודה דרך מנהל ההתקן של הדיסק ב-Windows נכשלה (שגיאת Windows {0})
+can't reach GitHub: {0}
+= אין גישה ל-GitHub: {0}
+GitHub answered {0}
+= GitHub ענה {0}
+GitHub's list of releases makes no sense: {0}
+= רשימת השחרורים של GitHub לא הגיונית: {0}
+GitHub gave the package an odd name: {0}
+= GitHub נתן לחבילה שם מוזר: {0}
+can't save the download: {0}
+= לא ניתן לשמור את ההורדה: {0}
+the download stopped: {0}
+= ההורדה נעצרה: {0}
+the download is the wrong size: {0} bytes, not {1}
+= גודל ההורדה שגוי: {0} בתים, לא {1}
+the download doesn't match GitHub's checksum: sha256 {0}
+= ההורדה לא תואמת לסכום הביקורת של GitHub: sha256 {0}
 # Clippy, and the new download-mode steps
 DRAG TO SPIN
 = גרור לסיבוב

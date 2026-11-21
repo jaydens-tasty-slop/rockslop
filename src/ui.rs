@@ -225,6 +225,49 @@ pub fn header(g: &Gfx, pos: Vec2, w: f32, label: &str, c: Color, appear: f32, ti
     draw_rectangle(pos.x - 10.0, pos.y - 9.0, 4.0, 4.0, pal::alpha(c, appear));
 }
 
+// ---------------------------------------------------------------- link
+
+/// The size of a `link`'s label.
+const LINK_SIZE: f32 = 12.0;
+
+fn link_spacing(face: Face) -> f32 {
+    if face == Face::Semi {
+        1.5
+    } else {
+        0.0
+    }
+}
+
+/// The width a `link` needs for `label`, its arrow included.
+pub fn link_width(g: &Gfx, face: Face, label: &str) -> f32 {
+    text::spaced_width(g, face, label, LINK_SIZE, link_spacing(face)) + 38.0
+}
+
+/// A web link on a small plate, with an arrow pointing out of the app;
+/// returns true when clicked.
+pub fn link(ui: &mut Ui, g: &Gfx, r: Rect, label: &str, face: Face, c: Color, appear: f32) -> bool {
+    if appear <= 0.01 {
+        return false;
+    }
+    let over = appear > 0.6 && r.contains(ui.mouse);
+    let h = ui.hover(label, over);
+    if over {
+        ui.cursor_hand = true;
+        ui.captured = true;
+    }
+    chip(r, c, 0.25 + 0.75 * h, appear);
+    let col = pal::alpha(pal::mix(c, pal::WHITE, 0.3 + 0.5 * h), appear);
+    let y = r.y + r.h / 2.0 + LINK_SIZE * 0.36;
+    text::draw_spaced_fit(g, face, label, vec2(r.x + 11.0, y), LINK_SIZE, col, Align::Left, link_spacing(face), r.w - 38.0);
+    // the arrow out, nudged on hover
+    let n = 1.5 * h;
+    let (ax, ay) = (r.x + r.w - 15.0 + n, r.y + r.h / 2.0 - n);
+    line(vec2(ax - 4.5, ay + 4.5), vec2(ax + 4.0, ay - 4.0), 1.5, col);
+    line(vec2(ax - 1.5, ay - 4.0), vec2(ax + 4.0, ay - 4.0), 1.5, col);
+    line(vec2(ax + 4.0, ay - 4.0), vec2(ax + 4.0, ay + 1.5), 1.5, col);
+    ui.click(over, Sfx::Click)
+}
+
 // ---------------------------------------------------------------- button
 
 #[derive(Clone, Copy, PartialEq)]
