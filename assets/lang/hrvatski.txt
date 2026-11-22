@@ -215,6 +215,10 @@ BUS TAP
 = BUS TAP
 THEN PRESS RESET
 = ZATIM PRITISNI RESET
+NO USB DISK
+= NEMA USB DISKA
+SET USB MODE TO MASS STORAGE
+= POSTAVI USB MODE NA MASS STORAGE
 SD CARD
 = SD KARTICA
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = flash je prepisan: sigurnosna kopija je spremljena na disk
 the firmware is in flash and checked; the card was not fully updated
 = firmware je u flashu i provjeren; kartica nije potpuno ažurirana
+SYNC THE CARD
+= SINKRONIZIRAJ KARTICU
 FAULT
 = GREŠKA
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} se s kartice nije ispravno pročitao
 could not mount the player's card: {0}
 = nije moguće montirati karticu uređaja: {0}
-the player's card did not appear
-= kartica uređaja se nije pojavila
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox nikad nije pokazao svoj USB disk. Ako je USB Mode postavljen samo na punjenje, postavi ga na Mass Storage (Postavke > Opće postavke > Sustav > USB) ili odspoji uređaj, drži bilo koju tipku i ponovno ga spoji
 the card is in use by another program
 = karticu koristi drugi program
 cancelled

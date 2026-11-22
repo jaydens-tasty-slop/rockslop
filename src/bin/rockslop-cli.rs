@@ -9,6 +9,10 @@
 //!   rockslop-cli releases [yp3|ts17]      the releases on GitHub
 //!   rockslop-cli fetch yp3|ts17 [VERSION] download one (the latest) and
 //!                                         print where it is
+//!   rockslop-cli sync PACKAGE             only the card, for a player whose
+//!   rockslop-cli sync yp3|ts17 [VERSION]  flash holds that firmware already
+//!                                         (a flash whose card step failed):
+//!                                         Rockbox running, no Down+RESET
 //!   rockslop-cli restore yp3|ts17 [IMAGE] return to stock (a stock backup
 //!                                         here, else on Rockbox's card)
 //!   rockslop-cli backups [yp3|ts17]       list firmware backups
@@ -50,6 +54,7 @@ fn usage() -> ExitCode {
     eprintln!(
         "usage: rockslop-cli status | check PACKAGE | probe yp3|ts17 | flash PACKAGE |\n       \
          flash yp3|ts17 [VERSION] | releases [yp3|ts17] | fetch yp3|ts17 [VERSION] |\n       \
+         sync PACKAGE | sync yp3|ts17 [VERSION] |\n       \
          restore yp3|ts17 [IMAGE] | backups [yp3|ts17] | card\n\
          options: --yes  --wait SECS  --demo  --no-backsies  --version\n\
          {}",
@@ -104,7 +109,7 @@ fn main() -> ExitCode {
         }
     }
     // the log, for the commands that talk to a player or check a package
-    if !o.demo && matches!(args.first().map(String::as_str), Some("probe" | "flash" | "restore" | "check" | "fetch")) {
+    if !o.demo && matches!(args.first().map(String::as_str), Some("probe" | "flash" | "sync" | "restore" | "check" | "fetch")) {
         rockslop::log::open(&format!("rockslop-cli {}", args.join(" ")));
     }
     let r = match args.first().map(String::as_str) {
@@ -120,6 +125,11 @@ fn main() -> ExitCode {
             fetch(kind, args.get(2).map(String::as_str)).and_then(|p| flash(&o, &p))
         }
         Some("flash") if args.len() == 2 => flash(&o, Path::new(&args[1])),
+        Some("sync") if args.len() <= 3 && kind_arg(args.get(1)).is_some() && !Path::new(&args[1]).exists() => {
+            let kind = kind_arg(args.get(1)).unwrap();
+            fetch(kind, args.get(2).map(String::as_str)).and_then(|p| sync(&o, &p))
+        }
+        Some("sync") if args.len() == 2 => sync(&o, Path::new(&args[1])),
         Some("releases") if args.len() == 1 => releases(None),
         Some("releases") if args.len() == 2 => match kind_arg(args.get(1)) {
             Some(k) => releases(Some(k)),
@@ -369,7 +379,7 @@ fn probe(o: &Opts, kind: Kind) -> Result<(), String> {
     let mut h = hub(o);
     wait_rom(o, &mut h, kind)?;
     h.send(Cmd::Probe(kind));
-    run(&mut h, false).map(|_| ())
+    run(&mut h, false, None)
 }
 
 /// The releases on GitHub with a package for `kind` (every player's, with
@@ -426,13 +436,17 @@ fn fetch(kind: Kind, version: Option<&str>) -> Result<PathBuf, String> {
     Ok(p)
 }
 
+fn target(pkg: &Package) -> Result<Kind, String> {
+    match pkg.get("target") {
+        Some("yp3") => Ok(Kind::Yp3),
+        Some("ts17") => Ok(Kind::Ts17),
+        t => Err(err!(E151, "package target {t:?} is not a supported player")),
+    }
+}
+
 fn flash(o: &Opts, path: &Path) -> Result<(), String> {
     let pkg = check(path)?;
-    let kind = match pkg.get("target") {
-        Some("yp3") => Kind::Yp3,
-        Some("ts17") => Kind::Ts17,
-        t => return Err(err!(E151, "package target {t:?} is not a supported player")),
-    };
+    let kind = target(&pkg)?;
     waiver(o)?;
     if !pkg.files.is_empty() {
         println!("put a microSD card in the player before flashing: Rockbox needs it");
@@ -441,7 +455,7 @@ fn flash(o: &Opts, path: &Path) -> Result<(), String> {
     wait_rom(o, &mut h, kind)?;
     confirm(o, &format!("Back up and flash {} with {}", kind.name(), path.display()))?;
     h.send(Cmd::Flash { kind, package: path.to_path_buf() });
-    run(&mut h, true)?;
+    run(&mut h, true, Some(path))?;
     if kind == Kind::Ts17 {
         println!();
         for l in wrap(ts17::HELP, 74) {
@@ -449,6 +463,21 @@ fn flash(o: &Opts, path: &Path) -> Result<(), String> {
         }
     }
     Ok(())
+}
+
+/// Only the card: Rockbox running, with this package's firmware in flash.
+fn sync(o: &Opts, path: &Path) -> Result<(), String> {
+    let pkg = check(path)?;
+    let kind = target(&pkg)?;
+    if pkg.files.is_empty() {
+        println!("this package has nothing for the card");
+        return Ok(());
+    }
+    println!("for a {} whose flash holds this firmware already, running Rockbox and plugged in", kind.name());
+    confirm(o, &format!("Update the {}'s card from {}", kind.name(), path.display()))?;
+    let mut h = hub(o);
+    h.send(Cmd::Sync { kind, package: path.to_path_buf() });
+    run(&mut h, true, Some(path))
 }
 
 fn restore(o: &Opts, kind: Kind, image: Option<PathBuf>) -> Result<(), String> {
@@ -493,7 +522,7 @@ fn restore(o: &Opts, kind: Kind, image: Option<PathBuf>) -> Result<(), String> {
     wait_rom(o, &mut h, kind)?;
     confirm(o, &format!("Restore {} from this image", kind.name()))?;
     h.send(Cmd::Restore { kind, image });
-    run(&mut h, true).map(|_| ())
+    run(&mut h, true, None)
 }
 
 fn backups(kind: Option<Kind>) {
@@ -537,8 +566,9 @@ fn log(l: Lvl, s: &str) {
     println!("{tag}{s}");
 }
 
-/// Print a job's events until it finishes.
-fn run(h: &mut Hub, job: bool) -> Result<(), String> {
+/// Print a job's events until it finishes. A job that fails at the card
+/// says how to finish just the card, with `package`.
+fn run(h: &mut Hub, job: bool, package: Option<&Path>) -> Result<(), String> {
     let mut bar = Bar::new();
     let mut phase = None;
     loop {
@@ -569,6 +599,17 @@ fn run(h: &mut Hub, job: bool) -> Result<(), String> {
                     bar.done();
                     println!("! no microSD card in the player: insert one, then press RESET");
                 }
+                // easily missed among the progress lines: a banner, and the
+                // terminal's bell
+                Event::NeedDisk(true) => {
+                    bar.done();
+                    let bell = if std::io::stdout().is_terminal() { "\x07" } else { "" };
+                    println!("{bell}");
+                    println!("!!! NO USB DISK from Rockbox: is it set to charge only? On the player:");
+                    println!("!!! Settings > General Settings > System > USB > USB Mode: Mass Storage");
+                    println!("!!! (or unplug it, hold any key, and plug it back in)");
+                    println!();
+                }
                 Event::Ready if !job => return Ok(()),
                 Event::Done(out) => {
                     bar.done();
@@ -583,7 +624,13 @@ fn run(h: &mut Hub, job: bool) -> Result<(), String> {
                 }
                 Event::Failed(e) => {
                     bar.done();
-                    return Err(e);
+                    return Err(match package {
+                        Some(p) if matches!(phase, Some(Phase::Sync | Phase::Eject)) => format!(
+                            "{e}\nthe firmware is in flash and checked: only the card is left. Once Rockbox shows its USB disk:\n  rockslop-cli sync {}",
+                            p.display()
+                        ),
+                        _ => e,
+                    });
                 }
                 _ => {}
             }

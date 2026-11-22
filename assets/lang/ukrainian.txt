@@ -215,6 +215,10 @@ BUS TAP
 = ПЕРЕХОПЛЕННЯ
 THEN PRESS RESET
 = ПОТІМ RESET
+NO USB DISK
+= НЕМА USB-ДИСКА
+SET USB MODE TO MASS STORAGE
+= ВИБЕРИ USB РЕЖИМ: НАКОПИЧУВАЧ
 SD CARD
 = SD-КАРТА
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = флеш перезаписано: копія збережена на диску
 the firmware is in flash and checked; the card was not fully updated
 = прошивка у флеш-пам'яті й перевірена; картку оновлено не повністю
+SYNC THE CARD
+= СИНХРОНІЗУВАТИ КАРТУ
 FAULT
 = ЗБІЙ
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} невірно прочитано з картки
 could not mount the player's card: {0}
 = не вдалося змонтувати картку плеєра: {0}
-the player's card did not appear
-= картка плеєра не з'явилась
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox так і не показав свій USB-диск. Якщо вибрано лише заряджання, вибери в USB Режим пункт Накопичувач (Налаштування > Головнi Налаштування > Система > USB) або відключи плеєр, затисни будь-яку кнопку й підключи знову
 the card is in use by another program
 = картку використовує інша програма
 cancelled

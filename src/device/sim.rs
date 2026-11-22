@@ -198,6 +198,7 @@ impl Backend for Sim {
             }
             Cmd::Flash { kind, package } => self.flash(kind, Some(package), ev),
             Cmd::Restore { kind, .. } => self.flash(kind, None, ev),
+            Cmd::Sync { kind, package } => self.sync_only(kind, package, ev),
         }
     }
 }
@@ -299,70 +300,95 @@ impl Sim {
             ev.warn("no media: insert a microSD card");
             self.nap(2600);
             ev.send(Event::NeedCard(false));
-            ev.ok("card online: /run/media/user/YP3CARD");
-            let names: Vec<(String, u64)> = match &pkg {
-                Some(p) if !p.files.is_empty() => p.files.iter().map(|f| (f.path.clone(), f.size)).collect(),
-                _ => demo_card(),
-            };
-            // as the real sync: write what the card lacks, reading the rest
-            // in place of writing it (0..0.7), then read the written files
-            // back (0.7..1). Writes go at ~250 KB/s, reads at ~1 MB/s. After
-            // a first sync here, all but every ninth file is there already.
-            let total: u64 = names.iter().map(|x| x.1).sum::<u64>().max(1);
-            let synced = self.synced;
-            let kept = |k: usize| synced && k % 9 != 0;
-            let (mut done, mut same, mut same_bytes) = (0, 0, 0);
-            for (k, (n, sz)) in names.iter().enumerate() {
-                if kept(k) {
-                    ev.send(Event::Unchanged(n.clone(), *sz));
-                    self.nap(2 + *sz / 1000);
-                    same += 1;
-                    same_bytes += sz;
-                } else {
-                    ev.send(Event::File(n.clone(), *sz));
-                    self.nap(4 + *sz / 250);
-                }
-                done += sz;
-                ev.progress(done as f32 / total as f32 * 0.7);
-            }
-            ev.ok(format!("{} files written", names.len() - same));
-            if same > 0 {
-                ev.ok(format!("{same} files already on the card match the package: left as they are"));
-            }
-            // the way back, kept on the card
-            let stock = format!(".rockbox/{}-3fa9c21e-20261106-231500-stock.bin", kind.id());
-            let size = (sectors * sector_size) as u64;
-            ev.send(Event::File(stock.clone(), size));
-            self.nap(1200);
-            if same < names.len() {
-                ev.info("reading the written files back from the card");
-            }
-            done = same_bytes;
-            for (k, (n, sz)) in names.iter().enumerate().filter(|(k, _)| !kept(*k)) {
-                done += sz;
-                if k % 4 == 0 {
-                    ev.send(Event::ReadBack(n.clone(), *sz));
-                    self.nap(2 + *sz / 250);
-                }
-                ev.progress(0.7 + 0.3 * done as f32 / total as f32);
-            }
-            if same < names.len() {
-                ev.ok(format!("{} files read back: sha256 OK", names.len() - same));
-            }
-            self.synced = true;
-            ev.send(Event::ReadBack(stock.clone(), size));
-            self.nap(400);
-            ev.ok(format!("stock firmware copied to the card: {stock}"));
-            out.files = names.len();
-            out.bytes = total;
+            (out.files, out.bytes) = self.sync(kind, pkg.as_ref(), (sectors * sector_size) as u64, ev);
             out.card = true;
-            ev.phase(Phase::Eject);
-            ev.info("syncing and ejecting card");
-            self.nap(800);
             out.backup = Some(PathBuf::from("~/.local/share/rockslop/backups/yp3-3fa9c21e-20261106-stock.bin"));
         }
         ev.phase(Phase::Done);
         ev.send(Event::Done(out));
+        Ok(())
+    }
+
+    /// The card part of a flash: (files, bytes).
+    fn sync(&mut self, kind: Kind, pkg: Option<&Package>, stock_size: u64, ev: &Sink) -> (usize, u64) {
+        ev.ok("card online: /run/media/user/YP3CARD");
+        let names: Vec<(String, u64)> = match &pkg {
+            Some(p) if !p.files.is_empty() => p.files.iter().map(|f| (f.path.clone(), f.size)).collect(),
+            _ => demo_card(),
+        };
+        // as the real sync: write what the card lacks, reading the rest
+        // in place of writing it (0..0.7), then read the written files
+        // back (0.7..1). Writes go at ~250 KB/s, reads at ~1 MB/s. After
+        // a first sync here, all but every ninth file is there already.
+        let total: u64 = names.iter().map(|x| x.1).sum::<u64>().max(1);
+        let synced = self.synced;
+        let kept = |k: usize| synced && k % 9 != 0;
+        let (mut done, mut same, mut same_bytes) = (0, 0, 0);
+        for (k, (n, sz)) in names.iter().enumerate() {
+            if kept(k) {
+                ev.send(Event::Unchanged(n.clone(), *sz));
+                self.nap(2 + *sz / 1000);
+                same += 1;
+                same_bytes += sz;
+            } else {
+                ev.send(Event::File(n.clone(), *sz));
+                self.nap(4 + *sz / 250);
+            }
+            done += sz;
+            ev.progress(done as f32 / total as f32 * 0.7);
+        }
+        ev.ok(format!("{} files written", names.len() - same));
+        if same > 0 {
+            ev.ok(format!("{same} files already on the card match the package: left as they are"));
+        }
+        // the way back, kept on the card
+        let stock = format!(".rockbox/{}-3fa9c21e-20261106-231500-stock.bin", kind.id());
+        let size = stock_size;
+        ev.send(Event::File(stock.clone(), size));
+        self.nap(1200);
+        if same < names.len() {
+            ev.info("reading the written files back from the card");
+        }
+        done = same_bytes;
+        for (k, (n, sz)) in names.iter().enumerate().filter(|(k, _)| !kept(*k)) {
+            done += sz;
+            if k % 4 == 0 {
+                ev.send(Event::ReadBack(n.clone(), *sz));
+                self.nap(2 + *sz / 250);
+            }
+            ev.progress(0.7 + 0.3 * done as f32 / total as f32);
+        }
+        if same < names.len() {
+            ev.ok(format!("{} files read back: sha256 OK", names.len() - same));
+        }
+        self.synced = true;
+        ev.send(Event::ReadBack(stock.clone(), size));
+        self.nap(400);
+        ev.ok(format!("stock firmware copied to the card: {stock}"));
+        ev.phase(Phase::Eject);
+        ev.info("syncing and ejecting card");
+        self.nap(800);
+        (names.len(), total)
+    }
+
+    /// Only the card (after a flash whose card step failed): Rockbox at
+    /// first offers no disk, as when its USB Mode is Charge Only.
+    fn sync_only(&mut self, kind: Kind, package: PathBuf, ev: &Sink) -> Result<(), String> {
+        let pkg = Package::open(&package).ok();
+        ev.phase(Phase::Sync);
+        ev.info("waiting for Rockbox's USB disk");
+        self.nap(1500);
+        ev.send(Event::NeedDisk(true));
+        ev.warn("no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)");
+        self.nap(4000);
+        ev.send(Event::NeedDisk(false));
+        let size = match kind {
+            Kind::Yp3 => 512 * 4096,
+            Kind::Ts17 => 1024 * 4096,
+        };
+        let (files, bytes) = self.sync(kind, pkg.as_ref(), size, ev);
+        ev.phase(Phase::Done);
+        ev.send(Event::Done(Outcome { files, bytes, card: true, ..Default::default() }));
         Ok(())
     }
 }

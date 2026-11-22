@@ -103,7 +103,8 @@ To report one, press **COPY REPORT** on the error screen: it puts the error and 
 | E426 | The image on the player's card has Rockbox in it, so it was not taken as the stock backup. | Pick the stock backup yourself. |
 | E501 | Waiting for the card was cancelled. | Flash again. |
 | E502 | The card could not be mounted (five tries). | Mount it yourself, then flash again. Unchanged sectors are skipped. |
-| E503 | The card never appeared. | Put a microSD card in the player. Flash again. |
+| E503 | Rockbox never showed its USB disk (ten minutes). Its USB Mode is probably Charge Only. | On the player, set Settings > General Settings > System > USB > USB Mode to Mass Storage, or unplug it, hold any key and plug it back in. Then SYNC THE CARD (`rockslop-cli sync`): the firmware is in already, so no Down+RESET. |
+| E504 | Rockbox's USB disk showed, but with no microSD card in it (ten minutes). | Put a card in the player and press RESET. Then SYNC THE CARD (`rockslop-cli sync`). |
 | E510 | Not enough free space on the card. | Free some space. Flash again. |
 | E520 | A folder could not be created on the card. | Check the card is not full or locked. Flash again. |
 | E521 | A file could not be created on the card. | Check the card is not full or locked. Flash again. |

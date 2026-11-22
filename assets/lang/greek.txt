@@ -215,6 +215,10 @@ BUS TAP
 = ΔΙΑΥΛΟΣ ΖΩΝΤΑΝΑ
 THEN PRESS RESET
 = ΜΕΤΑ ΠΑΤΑ RESET
+NO USB DISK
+= ΧΩΡΙΣ ΔΙΣΚΟ USB
+SET USB MODE TO MASS STORAGE
+= ΟΡΙΣΕ ΛΕΙΤΟΥΡΓΙΑ USB ΣΕ ΕΣΩΤΕΡΙΚΗ ΜΝΗΜΗ
 SD CARD
 = ΚΑΡΤΑ SD
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = το flash ξαναγράφτηκε: υπάρχει ασφαλές αντίγραφο στον δίσκο
 the firmware is in flash and checked; the card was not fully updated
 = το firmware είναι στη flash και ελεγμένο· η κάρτα δεν ενημερώθηκε πλήρως
+SYNC THE CARD
+= ΣΥΓΧΡΟΝΙΣΜΟΣ ΚΑΡΤΑΣ
 FAULT
 = ΣΦΑΛΜΑ
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = το {0} δεν διαβάστηκε σωστά από την κάρτα
 could not mount the player's card: {0}
 = αδυναμία προσάρτησης κάρτας της συσκευής: {0}
-the player's card did not appear
-= η κάρτα της συσκευής δεν εμφανίστηκε
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Το Rockbox δεν έδειξε ποτέ τον δίσκο USB του. Αν η Λειτουργία USB είναι ρυθμισμένη μόνο για φόρτιση, όρισέ τη σε Εσωτερική μνήμη (Ρυθμίσεις > Γενικές επιλογές > Σύστημα > USB) ή αποσύνδεσε τη συσκευή, κράτα οποιοδήποτε πλήκτρο και ξανασύνδεσέ τη
 the card is in use by another program
 = η κάρτα χρησιμοποιείται από άλλο πρόγραμμα
 cancelled

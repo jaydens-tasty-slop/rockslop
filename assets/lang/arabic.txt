@@ -215,6 +215,10 @@ BUS TAP
 = تنصت الناقل
 THEN PRESS RESET
 = ثم اضغط RESET
+NO USB DISK
+= لا قرص USB
+SET USB MODE TO MASS STORAGE
+= اضبط USB Mode على Mass Storage
 SD CARD
 = بطاقة SD
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = أُعيدت كتابة الفلاش: النسخة الاحتياطية آمنة على القرص
 the firmware is in flash and checked; the card was not fully updated
 = البرنامج في ذاكرة الفلاش وتم التحقق منه؛ لم تُحدَّث البطاقة بالكامل
+SYNC THE CARD
+= زامن البطاقة
 FAULT
 = عطل
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} لم يُقرأ من البطاقة بشكل صحيح
 could not mount the player's card: {0}
 = تعذّر تركيب بطاقة المشغل: {0}
-the player's card did not appear
-= لم تظهر بطاقة المشغل
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= لم يُظهر Rockbox قرص USB الخاص به أبدًا. إن كان USB Mode مضبوطًا على الشحن فقط، فاضبطه على Mass Storage (الإعدادات > الإعدادات العامة > النظام > USB)، أو افصل المشغل، واضغط أي زر مطولًا وأعد توصيله
 the card is in use by another program
 = البطاقة قيد الاستخدام في برنامج آخر
 cancelled

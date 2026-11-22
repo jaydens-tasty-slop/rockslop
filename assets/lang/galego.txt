@@ -215,6 +215,10 @@ BUS TAP
 = ESPÍA BUS
 THEN PRESS RESET
 = DESPOIS PREME RESET
+NO USB DISK
+= SEN DISCO USB
+SET USB MODE TO MASS STORAGE
+= PON USB MODE EN MASS STORAGE
 SD CARD
 = TARXETA SD
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = o flash reescribiuse: hai unha copia a salvo no disco
 the firmware is in flash and checked; the card was not fully updated
 = o firmware está na flash e comprobado; a tarxeta non se actualizou de todo
+SYNC THE CARD
+= SINCRONIZAR TARXETA
 FAULT
 = FALLO
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} non se relou correctamente desde a tarxeta
 could not mount the player's card: {0}
 = non se puido montar a tarxeta do reprodutor: {0}
-the player's card did not appear
-= a tarxeta do reprodutor non apareceu
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox nunca mostrou o seu disco USB. Se o seu USB Mode está en só carga, pon Mass Storage (Axustes > Opcións xerais > Sistema > USB), ou desconecta o reprodutor, mantén calquera tecla e volve conectalo
 the card is in use by another program
 = a tarxeta está en uso por outro programa
 cancelled

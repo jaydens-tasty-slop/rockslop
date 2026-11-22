@@ -215,6 +215,10 @@ BUS TAP
 = ASCULTARE BUS
 THEN PRESS RESET
 = APOI APASĂ RESET
+NO USB DISK
+= FĂRĂ DISC USB
+SET USB MODE TO MASS STORAGE
+= SETEAZĂ MOD USB PE STOCARE ÎN MASĂ
 SD CARD
 = CARD SD
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = flash-ul a fost rescris: o copie de siguranță e pe disc
 the firmware is in flash and checked; the card was not fully updated
 = firmware-ul e în flash și verificat; cardul nu a fost actualizat complet
+SYNC THE CARD
+= SINCRONIZEAZĂ CARDUL
 FAULT
 = EROARE
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} nu a fost recitit corect de pe card
 could not mount the player's card: {0}
 = cardul playerului nu a putut fi montat: {0}
-the player's card did not appear
-= cardul playerului nu a apărut
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox nu și-a arătat niciodată discul USB. Dacă Mod USB e setat doar pe încărcare, setează-l pe Stocare în masă (Setări > Generale > Sistem > USB) sau deconectează playerul, ține orice tastă și conectează-l la loc
 the card is in use by another program
 = cardul este folosit de alt program
 cancelled

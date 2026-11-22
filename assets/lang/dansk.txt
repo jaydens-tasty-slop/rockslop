@@ -215,6 +215,10 @@ BUS TAP
 = BUS TAP
 THEN PRESS RESET
 = TRYK SÅ PÅ RESET
+NO USB DISK
+= INGEN USB-DISK
+SET USB MODE TO MASS STORAGE
+= SÆT USB MODE TIL MASS STORAGE
 SD CARD
 = SD-KORT
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = flashen blev omskrevet: en backup er sikker på disken
 the firmware is in flash and checked; the card was not fully updated
 = firmwaren ligger i flash og er kontrolleret; kortet blev ikke helt opdateret
+SYNC THE CARD
+= SYNKRONISÉR KORTET
 FAULT
 = FEJL
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} blev ikke læst korrekt tilbage fra kortet
 could not mount the player's card: {0}
 = kunne ikke montere afspillerens kort: {0}
-the player's card did not appear
-= afspillerens kort dukkede ikke op
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox viste aldrig sin USB-disk. Hvis USB Mode er sat til kun opladning, så sæt den til Mass Storage (Indstillinger > Generelt > System > USB), eller frakobl afspilleren, hold en vilkårlig tast nede og tilslut den igen
 the card is in use by another program
 = kortet bruges af et andet program
 cancelled

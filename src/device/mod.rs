@@ -165,6 +165,8 @@ pub enum Event {
     /// a card file read back and hashed (some of them: the UI only samples)
     ReadBack(String, u64),
     NeedCard(bool),
+    /// Rockbox is up but shows no USB disk: its USB Mode may be Charge Only
+    NeedDisk(bool),
     /// a kick (stock -> download mode) or probe finished
     Ready,
     Done(Outcome),
@@ -195,6 +197,12 @@ pub enum Cmd {
     Restore {
         kind: Kind,
         image: PathBuf,
+    },
+    /// Only the card: the player runs Rockbox, its flash already holding
+    /// this package's firmware (a flash whose card step failed)
+    Sync {
+        kind: Kind,
+        package: PathBuf,
     },
 }
 

@@ -68,8 +68,14 @@ instead, as does a file dropped on the window.
    package has it is only read and compared, not written again, and one
    that differs is written from its first difference on, so a reflash
    copies just what changed. If there is no card, the flasher waits
-   and asks for one. A copy of the stock backup goes onto the card too, as
+   and asks for one. If Rockbox shows no disk at all, its USB Mode is
+   probably Charge Only, and the flasher says where to change that. A copy
+   of the stock backup goes onto the card too, as
    `.rockbox/{player}-{unit}-{time}-stock.bin` (see *Backups*).
+
+   If only this step fails, the firmware is in already: **SYNC THE CARD**
+   on the failure screen (or `rockslop-cli sync`) does the card again with
+   the player running Rockbox, with no Down+RESET.
 
 **Return to stock** writes a backup back the same way. It is always on
 offer: it takes this computer's stock backup, else the one on the card of
@@ -109,6 +115,7 @@ rockslop-cli flash  rockbox-yp3-4.0.tar.xz
 rockslop-cli flash  yp3|ts17 [VERSION]  # the latest release (or VERSION), downloaded first
 rockslop-cli releases [yp3|ts17]        # the releases on GitHub
 rockslop-cli fetch  yp3|ts17 [VERSION]  # download one; prints where it went
+rockslop-cli sync   PACKAGE | yp3|ts17 [VERSION]  # only the card, when the flash is done (no Down+RESET)
 rockslop-cli restore yp3|ts17 [IMAGE]   # default: a stock backup here, or on Rockbox's card
 rockslop-cli backups [yp3|ts17]
 rockslop-cli card                # where Rockbox's USB disk is mounted

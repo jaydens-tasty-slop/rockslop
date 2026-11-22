@@ -215,6 +215,10 @@ BUS TAP
 = SNIFF BUS
 THEN PRESS RESET
 = POI PREMI RESET
+NO USB DISK
+= NESSUN DISCO USB
+SET USB MODE TO MASS STORAGE
+= MODALITÀ USB SU MEMORIA DI MASSA
 SD CARD
 = SCHEDA SD
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = la flash è stata riscritta: un backup è al sicuro sul disco
 the firmware is in flash and checked; the card was not fully updated
 = il firmware è nella flash e verificato; la scheda non è stata aggiornata del tutto
+SYNC THE CARD
+= SINCRONIZZA SCHEDA
 FAULT
 = GUASTO
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} non è stato riletto correttamente dalla scheda
 could not mount the player's card: {0}
 = impossibile montare la scheda del lettore: {0}
-the player's card did not appear
-= la scheda del lettore non è apparsa
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox non ha mai mostrato il suo disco USB. Se la sua Modalità USB è su solo ricarica, impostala su Memoria di massa (Impostazioni > Impostazioni generali > Sistema > USB), oppure scollega il lettore, tieni premuto un tasto qualsiasi e ricollegalo
 the card is in use by another program
 = la scheda è in uso da un altro programma
 cancelled

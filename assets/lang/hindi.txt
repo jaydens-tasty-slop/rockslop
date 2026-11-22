@@ -215,6 +215,10 @@ BUS TAP
 = बस टैप
 THEN PRESS RESET
 = फिर RESET दबाएँ
+NO USB DISK
+= USB डिस्क नहीं
+SET USB MODE TO MASS STORAGE
+= USB Mode को Mass Storage पर सेट करें
 SD CARD
 = SD कार्ड
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = फ़्लैश दोबारा लिखा गया: बैकअप डिस्क पर सुरक्षित है
 the firmware is in flash and checked; the card was not fully updated
 = फ़र्मवेयर फ़्लैश में है और जाँचा गया; कार्ड पूरी तरह अपडेट नहीं हुआ
+SYNC THE CARD
+= कार्ड सिंक करें
 FAULT
 = खराबी
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} कार्ड से सही वापस नहीं पढ़ा गया
 could not mount the player's card: {0}
 = प्लेयर का कार्ड माउंट नहीं हो सका: {0}
-the player's card did not appear
-= प्लेयर का कार्ड नहीं दिखा
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox ने कभी अपनी USB डिस्क नहीं दिखाई। अगर USB Mode सिर्फ़ चार्ज पर सेट है, तो उसे Mass Storage पर सेट करें (सेटिनगस > जनरल सेटिनगस > सिसटम > USB), या प्लेयर अनप्लग करें, कोई भी बटन दबाए रखें और फिर से लगाएँ
 the card is in use by another program
 = कार्ड दूसरे प्रोग्राम में इस्तेमाल हो रहा है
 cancelled

@@ -215,6 +215,10 @@ BUS TAP
 = ODPOSLECH
 THEN PRESS RESET
 = POTOM STLAČ RESET
+NO USB DISK
+= ŽIADNY USB DISK
+SET USB MODE TO MASS STORAGE
+= NASTAV REŽIM USB NA ÚLOŽISKO
 SD CARD
 = SD KARTA
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = flash bol prepísaný: záloha je bezpečne na disku
 the firmware is in flash and checked; the card was not fully updated
 = firmware je vo flash pamäti a skontrolovaný; karta nebola úplne aktualizovaná
+SYNC THE CARD
+= SYNCHRONIZOVAŤ KARTU
 FAULT
 = CHYBA
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} sa z karty nenačítalo správne
 could not mount the player's card: {0}
 = nepodarilo sa pripojiť kartu prehrávača: {0}
-the player's card did not appear
-= karta prehrávača sa neobjavila
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox nikdy neukázal svoj USB disk. Ak má Režim USB nastavené iba nabíjanie, nastav ho na úložisko (Nastavenia > Všeobecné nastavenia > Systém > USB) alebo odpoj prehrávač, podrž ľubovoľné tlačidlo a znova ho pripoj
 the card is in use by another program
 = kartu používa iný program
 cancelled

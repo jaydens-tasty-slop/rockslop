@@ -215,6 +215,10 @@ BUS TAP
 = BUS TAP
 THEN PRESS RESET
 = DRUK DAN OP RESET
+NO USB DISK
+= GEEN USB-SCHIJF
+SET USB MODE TO MASS STORAGE
+= ZET USB-MODUS OP MASSAOPSLAG
 SD CARD
 = SD-KAART
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = de flash is herschreven: een backup staat veilig op schijf
 the firmware is in flash and checked; the card was not fully updated
 = de firmware staat in flash en is gecontroleerd; de kaart is niet volledig bijgewerkt
+SYNC THE CARD
+= KAART SYNCHRONISEREN
 FAULT
 = STORING
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} is niet correct teruggelezen van de kaart
 could not mount the player's card: {0}
 = kon de kaart van de speler niet mounten: {0}
-the player's card did not appear
-= de kaart van de speler verscheen niet
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox heeft zijn USB-schijf nooit getoond. Staat de USB-modus op enkel opladen, zet hem dan op massaopslag (Instellingen > Algemene instellingen > Systeem > USB), of steek de speler uit, houd een willekeurige toets ingedrukt en steek hem terug in
 the card is in use by another program
 = de kaart is in gebruik door een ander programma
 cancelled

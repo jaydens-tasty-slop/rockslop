@@ -215,6 +215,10 @@ BUS TAP
 = BUS TAP
 THEN PRESS RESET
 = RỒI NHẤN RESET
+NO USB DISK
+= KHÔNG CÓ Ổ USB
+SET USB MODE TO MASS STORAGE
+= ĐẶT CHẾ ĐỘ USB THÀNH Ổ LƯU TRỮ
 SD CARD
 = THẺ SD
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = flash đã được ghi lại: bản sao lưu an toàn trên đĩa
 the firmware is in flash and checked; the card was not fully updated
 = firmware đã nằm trong flash và được kiểm tra; thẻ chưa được cập nhật hết
+SYNC THE CARD
+= ĐỒNG BỘ THẺ
 FAULT
 = LỖI
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} đọc lại từ thẻ không đúng
 could not mount the player's card: {0}
 = không gắn kết được thẻ của máy: {0}
-the player's card did not appear
-= thẻ của máy không xuất hiện
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox chưa từng hiện ổ USB. Nếu Chế độ USB đang đặt chỉ sạc, hãy đặt thành Ổ lưu trữ (Cài đặt > Cài đặt Chung > Hệ thống > USB), hoặc rút máy ra, giữ một phím bất kỳ rồi cắm lại
 the card is in use by another program
 = thẻ đang được chương trình khác dùng
 cancelled

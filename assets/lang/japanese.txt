@@ -215,6 +215,10 @@ BUS TAP
 = バス タップ
 THEN PRESS RESET
 = 次に RESET を押す
+NO USB DISK
+= USB ディスクなし
+SET USB MODE TO MASS STORAGE
+= USBモードをマス・ストレージに設定
 SD CARD
 = SD カード
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = フラッシュは書き換え済み：バックアップはディスクに安全に保存されています
 the firmware is in flash and checked; the card was not fully updated
 = ファームウェアはフラッシュにあり確認済み；カードの更新は完了していません
+SYNC THE CARD
+= カードを同期
 FAULT
 = 障害
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} をカードから正しく読み戻せませんでした
 could not mount the player's card: {0}
 = プレーヤーのカードをマウントできません：{0}
-the player's card did not appear
-= プレーヤーのカードが現れませんでした
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox は USB ディスクを一度も表示しませんでした。USBモード が 充電のみ になっている場合は、マス・ストレージ に設定する（設定 > 一般設定 > システム設定 > USB）か、プレーヤーを取り外し、いずれかのキーを押したまま再接続してください
 the card is in use by another program
 = カードは別のプログラムが使用中です
 cancelled

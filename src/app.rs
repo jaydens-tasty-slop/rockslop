@@ -216,6 +216,8 @@ struct Job {
     files: Vec<(String, u64, f32, bool)>,
     sync: SyncView,
     need_card: bool,
+    /// Rockbox is up without a USB disk (USB Mode: Charge Only?)
+    need_disk: bool,
     outcome: Option<Outcome>,
     error: Option<String>,
     started: f32,
@@ -226,6 +228,13 @@ struct Job {
     /// the new firmware started booting at this time: the Rockbox sign on
     /// the player's screen lights up
     booted: Option<f32>,
+}
+
+impl Job {
+    /// waiting on the user (a card, or the disk): amber
+    fn waiting(&self) -> bool {
+        self.need_card || self.need_disk
+    }
 }
 
 /// The SD sync as the card panel shows it.
@@ -746,7 +755,7 @@ impl App {
             Screen::Boot => pal::MAGENTA,
             Screen::Select | Screen::Link | Screen::Payload => pal::MAGENTA,
             Screen::Execute => {
-                if self.job.need_card {
+                if self.job.waiting() {
                     pal::AMBER
                 } else {
                     pal::VIOLET
@@ -894,6 +903,14 @@ impl App {
                     }
                     self.job.need_card = b;
                 }
+                Event::NeedDisk(b) => {
+                    if b && !self.job.need_disk {
+                        self.kick = 0.7;
+                        self.flash = 0.4;
+                        self.flash_col = pal::AMBER;
+                    }
+                    self.job.need_disk = b;
+                }
                 Event::Ready => {
                     if self.link.probing {
                         self.link.probing = false;
@@ -908,6 +925,7 @@ impl App {
                     self.job.outcome = Some(o);
                     self.job.ended = Some(self.time);
                     self.job.need_card = false;
+                    self.job.need_disk = false;
                 }
                 Event::Failed(e) => {
                     let e = i18n::msg(&e);
@@ -916,6 +934,7 @@ impl App {
                         self.job.error = Some(e);
                         self.job.ended = Some(self.time);
                         self.job.need_card = false;
+                        self.job.need_disk = false;
                     } else {
                         self.link.probing = false;
                         self.link.error = Some(e);
@@ -1292,8 +1311,8 @@ impl App {
             Screen::Execute if self.job.need_card => {
                 say(Tip::Card, 6.0, tr("Push a microSD card all the way into the player's slot, then press RESET.").into())
             }
-            Screen::Execute if self.job.phase == Some(Phase::Sync) && self.job.sync.started.is_none() => {
-                say(Tip::Disk, 35.0, tr("Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.").into())
+            Screen::Execute if self.job.need_disk => {
+                say(Tip::Disk, 3.0, tr("Rockbox hasn't shown its USB disk yet. If the player only charges, unplug it, hold any key and plug it back in.").into())
             }
             // the rescue stub is on it now: what to do if it won't start
             Screen::Complete if self.kind() == Kind::Ts17 && !self.job.restoring => say(Tip::Rescue, 2.5, tr(ts17::HELP).into()),
@@ -1906,6 +1925,16 @@ impl App {
         let path = p.path.clone();
         self.reset_job(false);
         self.hub.send(Cmd::Flash { kind: self.kind(), package: path });
+        self.go(Screen::Execute);
+    }
+
+    /// Only the card, after a flash whose card step failed: the firmware
+    /// is in already, and Rockbox is running, so no Down+RESET.
+    fn start_sync(&mut self) {
+        let Some(p) = &self.pkg else { return };
+        let path = p.path.clone();
+        self.reset_job(false);
+        self.hub.send(Cmd::Sync { kind: self.kind(), package: path });
         self.go(Screen::Execute);
     }
 
@@ -3872,7 +3901,7 @@ impl App {
         let ca = window(st, 0.2, 0.6);
         let col = if job.error.is_some() {
             pal::RED
-        } else if job.need_card {
+        } else if job.waiting() {
             pal::AMBER
         } else {
             pal::ICE
@@ -3901,7 +3930,7 @@ impl App {
         let sc = pal::alpha(pal::CYAN, ca);
         text::draw_spaced(&self.g, Face::Semi, &head, vec2(x, cy + 30.0), size * k, sc, Align::Left, sp * k);
         text::draw_tabular(&self.g, Face::Semi, &clock, vec2(x + hw * k, cy + 30.0), size * k, sc, cell * k);
-        ui::segbar(Rect::new(cx - 160.0, cy + 44.0, 320.0, 6.0), job.shown, if job.need_card { pal::AMBER } else { pal::ACID }, ca);
+        ui::segbar(Rect::new(cx - 160.0, cy + 44.0, 320.0, 6.0), job.shown, if job.waiting() { pal::AMBER } else { pal::ACID }, ca);
         // need card
         if job.need_card {
             let na = ease_out_cubic(clamp01(st.min(9.0)));
@@ -3924,6 +3953,27 @@ impl App {
             }
             if let Some(p) = self.anchor_px(self.sel, Feature::Reset) {
                 trace(p, vec2(r.x + r.w - 40.0, r.y + r.h), pal::AMBER, 1.0, t);
+            }
+        } else if job.need_disk {
+            // Rockbox is up and charging, but offers no disk: the setting
+            // is on the player, so say where
+            let na = ease_out_cubic(clamp01(st.min(9.0)));
+            let r = Rect::new(cx - 190.0, 150.0, 380.0, 92.0);
+            ui::panel(r, pal::AMBER, na);
+            text::glitch_title(&self.g, tr("NO USB DISK"), vec2(r.x + r.w / 2.0, r.y + 44.0), 26.0, pal::AMBER, Align::Center, 0.1, t, 5.0, r.w - 30.0);
+            text::draw_spaced_fit(
+                &self.g,
+                Face::Semi,
+                tr("SET USB MODE TO MASS STORAGE"),
+                vec2(r.x + r.w / 2.0, r.y + 72.0),
+                12.0,
+                pal::ICE,
+                Align::Center,
+                3.0,
+                r.w - 30.0,
+            );
+            if let Some(p) = self.anchor_px(self.sel, Feature::Usb) {
+                trace(p, vec2(r.x + r.w / 2.0, r.y + r.h), pal::AMBER, 1.0, t);
             }
         }
     }
@@ -4371,15 +4421,27 @@ impl App {
             text::draw(&self.g, Face::Mono, l, vec2(r.x + 22.0, r.y + 62.0 + k as f32 * 18.0), 13.0, pal::alpha(pal::ICE, pa), Align::Left);
         }
         let ba = window(st, 0.8, 0.5);
-        if ui::button(&mut self.ui, &self.g, Rect::new(x0, r.y + r.h + 30.0, 180.0, 48.0), tr("RETRY"), Tone::Primary, ba, true) {
+        // the flash is done when only the card failed: that alone again
+        let card_only = !self.job.restoring && self.pkg.is_some() && matches!(self.job.phase, Some(Phase::Sync | Phase::Eject));
+        let mut by = r.y + r.h + 30.0;
+        if card_only {
+            let sw = ui::button_width(&self.g, tr("SYNC THE CARD"), 48.0).clamp(240.0, w);
+            if ui::button(&mut self.ui, &self.g, Rect::new(x0, by, sw, 48.0), tr("SYNC THE CARD"), Tone::Primary, ba, true) {
+                self.start_sync();
+            }
+            by += 64.0;
+        }
+        let rh = if card_only { 40.0 } else { 48.0 };
+        let tone = if card_only { Tone::Secondary } else { Tone::Primary };
+        if ui::button(&mut self.ui, &self.g, Rect::new(x0, by, 180.0, rh), tr("RETRY"), tone, ba, true) {
             // the same job again: a failed restore restores
             self.to_stock = self.job.restoring;
             self.go(Screen::Link);
         }
-        if ui::button(&mut self.ui, &self.g, Rect::new(x0 + 200.0, r.y + r.h + 30.0, 140.0, 48.0), tr("BACK"), Tone::Secondary, ba, true) {
+        if ui::button(&mut self.ui, &self.g, Rect::new(x0 + 200.0, by, 140.0, rh), tr("BACK"), Tone::Secondary, ba, true) {
             self.go(Screen::Select);
         }
-        self.copy_button(Rect::new(x0, r.y + r.h + 94.0, 220.0, 38.0), &e, ba);
+        self.copy_button(Rect::new(x0, by + rh + 16.0, 220.0, 38.0), &e, ba);
     }
 }
 

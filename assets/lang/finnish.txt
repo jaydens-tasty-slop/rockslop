@@ -215,6 +215,10 @@ BUS TAP
 = VÄYLÄ
 THEN PRESS RESET
 = PAINA SITTEN RESET
+NO USB DISK
+= EI USB-LEVYÄ
+SET USB MODE TO MASS STORAGE
+= ASETA USB MODE ARVOON MASS STORAGE
 SD CARD
 = SD-KORTTI
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = flash kirjoitettiin uudelleen: varmuuskopio on turvassa levyllä
 the firmware is in flash and checked; the card was not fully updated
 = firmware on flashissa ja tarkistettu; korttia ei päivitetty loppuun
+SYNC THE CARD
+= SYNKRONOI KORTTI
 FAULT
 = HÄIRIÖ
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} ei luettu takaisin oikein kortilta
 could not mount the player's card: {0}
 = soittimen korttia ei voitu liittää: {0}
-the player's card did not appear
-= soittimen korttia ei näkynyt
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox ei koskaan näyttänyt USB-levyään. Jos sen USB Mode on asetettu vain lataamaan, aseta se arvoon Mass Storage (Asetukset > Yleiset > Järjestelmä > USB) tai irrota soitin, pidä mitä tahansa näppäintä painettuna ja liitä takaisin
 the card is in use by another program
 = toinen ohjelma käyttää korttia
 cancelled

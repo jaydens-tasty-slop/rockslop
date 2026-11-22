@@ -215,6 +215,10 @@ BUS TAP
 = ESPIA BUS
 THEN PRESS RESET
 = DESPRÉS PREM RESET
+NO USB DISK
+= SENSE DISC USB
+SET USB MODE TO MASS STORAGE
+= POSA USB MODE A MASS STORAGE
 SD CARD
 = TARGETA SD
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = el flash s'ha reescrit: hi ha una còpia segura al disc
 the firmware is in flash and checked; the card was not fully updated
 = el firmware és a la flash i comprovat; la targeta no s'ha actualitzat del tot
+SYNC THE CARD
+= SINCRONITZA TARGETA
 FAULT
 = ERROR
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} no s'ha rellegit correctament des de la targeta
 could not mount the player's card: {0}
 = no s'ha pogut muntar la targeta del reproductor: {0}
-the player's card did not appear
-= la targeta del reproductor no ha aparegut
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox no ha mostrat mai el seu disc USB. Si el seu USB Mode està configurat només per carregar, posa'l a Mass Storage (Preferències > Opcions Generals > Sistema > USB), o desconnecta el reproductor, mantén qualsevol tecla i torna'l a connectar
 the card is in use by another program
 = la targeta està en ús per un altre programa
 cancelled

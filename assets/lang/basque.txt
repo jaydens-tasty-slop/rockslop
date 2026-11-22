@@ -215,6 +215,10 @@ BUS TAP
 = BUS ENTZUN
 THEN PRESS RESET
 = GERO SAKATU RESET
+NO USB DISK
+= USB DISKORIK EZ
+SET USB MODE TO MASS STORAGE
+= JARRI USB MODE MASS STORAGE GISA
 SD CARD
 = SD TXARTELA
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = flasha berridatzi da: babeskopia seguru dago diskoan
 the firmware is in flash and checked; the card was not fully updated
 = firmwarea flashean dago, egiaztatuta; txartela ez da osorik eguneratu
+SYNC THE CARD
+= SINKRONIZATU TXARTELA
 FAULT
 = HUTSEGITEA
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} ez da ondo berrirakurri txartelean
 could not mount the player's card: {0}
 = ezin izan da erreproduzitzailearen txartela muntatu: {0}
-the player's card did not appear
-= erreproduzitzailearen txartela ez da agertu
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockboxek ez du inoiz bere USB diskoa erakutsi. USB Mode kargatu soilik moduan badago, jarri Mass Storage gisa (Aukerak > Aukera Orokorrak > Sistema > USB), edo deskonektatu erreproduzitzailea, eutsi edozein tekla eta konektatu berriro
 the card is in use by another program
 = txartela beste programa batek erabiltzen du
 cancelled

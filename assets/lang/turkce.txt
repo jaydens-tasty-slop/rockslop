@@ -215,6 +215,10 @@ BUS TAP
 = YOL İZLE
 THEN PRESS RESET
 = SONRA RESET'E BAS
+NO USB DISK
+= USB DİSK YOK
+SET USB MODE TO MASS STORAGE
+= USB MODUNU YIĞIN BELLEK YAP
 SD CARD
 = SD KART
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = flash yeniden yazıldı: yedek diskte güvende
 the firmware is in flash and checked; the card was not fully updated
 = firmware flash bellekte ve denetlendi; kart tamamen güncellenmedi
+SYNC THE CARD
+= KARTI EŞİTLE
 FAULT
 = HATA
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} karttan doğru okunamadı
 could not mount the player's card: {0}
 = çaların kartı bağlanamadı: {0}
-the player's card did not appear
-= çaların kartı görünmedi
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox USB diskini hiç göstermedi. USB Modu yalnızca şarj olarak ayarlıysa Yığın Bellek yap (Ayarlar > Genel Ayarlar > Sistem > USB) ya da çaları çıkar, herhangi bir tuşa basılı tutup yeniden tak
 the card is in use by another program
 = kart başka bir program tarafından kullanılıyor
 cancelled

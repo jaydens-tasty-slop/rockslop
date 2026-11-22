@@ -215,6 +215,10 @@ BUS TAP
 = 버스 탭
 THEN PRESS RESET
 = 그다음 RESET 누르기
+NO USB DISK
+= USB 디스크 없음
+SET USB MODE TO MASS STORAGE
+= USB 모드를 대용량 저장 장치로 설정
 SD CARD
 = SD 카드
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = 플래시가 다시 쓰였습니다: 디스크에 백업이 안전하게 있습니다
 the firmware is in flash and checked; the card was not fully updated
 = 펌웨어는 플래시에 있고 확인됨; 카드는 완전히 업데이트되지 않음
+SYNC THE CARD
+= 카드 동기화
 FAULT
 = 오류
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0}을(를) 카드에서 올바르게 다시 읽지 못함
 could not mount the player's card: {0}
 = 플레이어의 카드를 마운트할 수 없음: {0}
-the player's card did not appear
-= 플레이어의 카드가 나타나지 않음
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox가 USB 디스크를 한 번도 보여 주지 않았어요. USB 모드가 충전만으로 설정되어 있다면 대용량 저장 장치로 설정하거나(설정 > 일반 설정 > 시스템 > USB), 플레이어를 분리하고 아무 키나 누른 채 다시 연결하세요
 the card is in use by another program
 = 카드를 다른 프로그램이 사용 중
 cancelled

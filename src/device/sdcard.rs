@@ -49,6 +49,7 @@ pub fn wait_card(timeout: Duration, mut tick: impl FnMut(&Look, f32) -> bool) ->
         if !tick(&look, el) {
             return Err(err!(E501, "cancelled"));
         }
+        let no_card = matches!(look, Look::NoMedia);
         match look {
             Look::Ready(c) => return Ok(c),
             Look::Unmounted(v) => {
@@ -74,7 +75,14 @@ pub fn wait_card(timeout: Duration, mut tick: impl FnMut(&Look, f32) -> bool) ->
             _ => vol = None,
         }
         if t0.elapsed() > timeout {
-            return Err(err!(E503, "the player's card did not appear"));
+            return Err(if no_card {
+                err!(E504, "no microSD card in the player: insert one, then press RESET")
+            } else {
+                err!(
+                    E503,
+                    "Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in"
+                )
+            });
         }
         std::thread::sleep(Duration::from_millis(300));
     }

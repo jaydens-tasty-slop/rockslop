@@ -215,6 +215,10 @@ BUS TAP
 = BUSZ-LESŐ
 THEN PRESS RESET
 = MAJD RESET
+NO USB DISK
+= NINCS USB LEMEZ
+SET USB MODE TO MASS STORAGE
+= USB MÓDOT CSERÉLHETŐ LEMEZ MÓDRA
 SD CARD
 = SD KÁRTYA
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = a flash újraíródott: biztonsági mentés van a lemezen
 the firmware is in flash and checked; the card was not fully updated
 = a firmware a flashben van és ellenőrizve; a kártya nem frissült teljesen
+SYNC THE CARD
+= KÁRTYA SZINKRONIZÁLÁSA
 FAULT
 = HIBA
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} nem olvasódott vissza helyesen a kártyáról
 could not mount the player's card: {0}
 = a lejátszó kártyája nem csatolható: {0}
-the player's card did not appear
-= a lejátszó kártyája nem jelent meg
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= A Rockbox egyszer sem mutatta meg az USB lemezét. Ha az USB mód csak töltésre van állítva, állítsd erre: Cserélhető lemez mód (Beállítások > Általános beállítások > Rendszer > USB), vagy húzd ki a lejátszót, tarts lenyomva egy gombot, és csatlakoztasd újra
 the card is in use by another program
 = a kártyát másik program használja
 cancelled

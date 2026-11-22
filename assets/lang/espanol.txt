@@ -215,6 +215,10 @@ BUS TAP
 = ESPÍA BUS
 THEN PRESS RESET
 = LUEGO PULSA RESET
+NO USB DISK
+= SIN DISCO USB
+SET USB MODE TO MASS STORAGE
+= PON MODO USB EN ALMACENAMIENTO MASIVO
 SD CARD
 = TARJETA SD
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = el flash se reescribió: hay una copia a salvo en el disco
 the firmware is in flash and checked; the card was not fully updated
 = el firmware está en la flash y comprobado; la tarjeta no se actualizó del todo
+SYNC THE CARD
+= SINCRONIZAR TARJETA
 FAULT
 = FALLO
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} no se releyó correctamente desde la tarjeta
 could not mount the player's card: {0}
 = no se pudo montar la tarjeta del reproductor: {0}
-the player's card did not appear
-= la tarjeta del reproductor no apareció
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox nunca mostró su disco USB. Si su Modo USB está en solo carga, ponlo en Almacenamiento masivo (Configuración > Configuraciones generales > Sistema > USB), o desconecta el reproductor, mantén cualquier tecla y vuelve a conectarlo
 the card is in use by another program
 = la tarjeta está en uso por otro programa
 cancelled

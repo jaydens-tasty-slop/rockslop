@@ -215,6 +215,10 @@ BUS TAP
 = BUS TAP
 THEN PRESS RESET
 = TAPOS PINDUTIN ANG RESET
+NO USB DISK
+= WALANG USB DISK
+SET USB MODE TO MASS STORAGE
+= ITAKDA ANG USB MODE SA MASS STORAGE
 SD CARD
 = SD CARD
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = naisulat muli ang flash: ligtas ang backup sa disk
 the firmware is in flash and checked; the card was not fully updated
 = nasa flash ang firmware at nasuri na; hindi lubusang na-update ang card
+SYNC THE CARD
+= I-SYNC ANG CARD
 FAULT
 = ERROR
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = hindi tama ang pagkabasa ng {0} mula sa card
 could not mount the player's card: {0}
 = hindi ma-mount ang card ng player: {0}
-the player's card did not appear
-= hindi lumabas ang card ng player
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Hindi kailanman ipinakita ng Rockbox ang USB disk nito. Kung naka-set ang USB Mode sa charge lang, itakda ito sa Mass Storage (Ilagay > Heneral Tagpuan > Sistema > USB), o tanggalin ang player, hawakan ang kahit anong key at ikonek muli
 the card is in use by another program
 = ginagamit ng ibang program ang card
 cancelled

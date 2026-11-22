@@ -215,6 +215,10 @@ BUS TAP
 = KUULAN
 THEN PRESS RESET
 = SIIS VAJUTA RESET
+NO USB DISK
+= USB-KETAST POLE
+SET USB MODE TO MASS STORAGE
+= SEA USB MODE: MASS STORAGE
 SD CARD
 = SD-KAART
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = flash kirjutati üle: varukoopia on kettal turvas
 the firmware is in flash and checked; the card was not fully updated
 = firmware on välkmälus ja kontrollitud; kaarti ei uuendatud lõpuni
+SYNC THE CARD
+= SÜNKROONI KAART
 FAULT
 = RIKE
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} ei lugenud kaardilt õigesti tagasi
 could not mount the player's card: {0}
 = mängija kaarti ei saanud ühendada: {0}
-the player's card did not appear
-= mängija kaart ei ilmunud nähtavale
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox ei näidanud oma USB-ketast kordagi. Kui USB Mode on seatud ainult laadima, sea selle väärtuseks Mass Storage (Settings > Üldseaded > Süsteem > USB) või ühenda mängija lahti, hoia mõnda klahvi all ja ühenda uuesti
 the card is in use by another program
 = kaarti kasutab teine programm
 cancelled

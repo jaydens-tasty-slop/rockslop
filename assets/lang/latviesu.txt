@@ -215,6 +215,10 @@ BUS TAP
 = KOPNES PLŪSMA
 THEN PRESS RESET
 = TAD SPIED RESET
+NO USB DISK
+= NAV USB DISKA
+SET USB MODE TO MASS STORAGE
+= USB REŽĪMS: PIEKĻUVE KRĀTUVEI
 SD CARD
 = SD KARTE
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = flash pārrakstīts: dublējums droši saglabāts diskā
 the firmware is in flash and checked; the card was not fully updated
 = firmware ir zibatmiņā un pārbaudīts; karte nav pilnībā atjaunināta
+SYNC THE CARD
+= SINHRONIZĒT KARTI
 FAULT
 = KĻŪDA
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} no kartes nolasījās nepareizi
 could not mount the player's card: {0}
 = nevarēja piemontēt atskaņotāja karti: {0}
-the player's card did not appear
-= atskaņotāja karte neparādījās
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox tā arī neparādīja savu USB disku. Ja USB režīms ir tikai uzlāde, iestati to uz Piekļuve krātuvei (Iestatījumi > Vispārīgi iestatījumi > Sistēma > USB) vai atvieno atskaņotāju, turi jebkuru taustiņu un pievieno to vēlreiz
 the card is in use by another program
 = karti lieto cita programma
 cancelled

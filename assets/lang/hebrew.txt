@@ -215,6 +215,10 @@ BUS TAP
 = האזנה לפס
 THEN PRESS RESET
 = ואז לחץ RESET
+NO USB DISK
+= אין דיסק USB
+SET USB MODE TO MASS STORAGE
+= הגדר USB Mode ל-Mass Storage
 SD CARD
 = כרטיס SD
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = הפלאש נכתב מחדש: גיבוי שמור בבטחה בדיסק
 the firmware is in flash and checked; the card was not fully updated
 = הקושחה נמצאת בפלאש ונבדקה; הכרטיס לא עודכן במלואו
+SYNC THE CARD
+= סנכרן כרטיס
 FAULT
 = תקלה
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} לא נקרא חזרה כראוי מהכרטיס
 could not mount the player's card: {0}
 = עיגון כרטיס הנגן נכשל: {0}
-the player's card did not appear
-= כרטיס הנגן לא הופיע
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox מעולם לא הציג את דיסק ה-USB שלו. אם ה-USB Mode מוגדר לטעינה בלבד, הגדר אותו ל-Mass Storage (הגדרות > הגדרות כלליות > מערכת > USB), או נתק את הנגן, החזק מקש כלשהו וחבר אותו שוב
 the card is in use by another program
 = הכרטיס בשימוש תוכנה אחרת
 cancelled

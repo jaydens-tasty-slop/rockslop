@@ -215,6 +215,10 @@ BUS TAP
 = ПОДСЛУШВАНЕ
 THEN PRESS RESET
 = СЛЕД ТОВА RESET
+NO USB DISK
+= НЯМА USB ДИСК
+SET USB MODE TO MASS STORAGE
+= ЗАДАЙ USB РЕЖИМ НА МАСОВА ПАМЕТ
 SD CARD
 = SD КАРТА
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = флашът е презаписан: копие е запазено на диска
 the firmware is in flash and checked; the card was not fully updated
 = фърмуерът е във флаш паметта и е проверен; картата не е обновена докрай
+SYNC THE CARD
+= СИНХРОНИЗИРАЙ КАРТАТА
 FAULT
 = ГРЕШКА
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} не се прочете вярно от картата
 could not mount the player's card: {0}
 = картата на плеъра не може да се монтира: {0}
-the player's card did not appear
-= картата на плеъра не се появи
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox така и не показа своя USB диск. Ако USB Режим е настроен само за зареждане, задай го на Масова памет (Настройки > Общи настройки > Системни > USB) или изключи плеъра от кабела, дръж някой бутон и го свържи пак
 the card is in use by another program
 = картата се ползва от друга програма
 cancelled

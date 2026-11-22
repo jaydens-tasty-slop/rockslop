@@ -78,6 +78,7 @@ pub fn event(e: &Event) {
         Event::Phase(p) => line("PHASE", &format!("{p:?}")),
         Event::Presence(seen) => line("USB", &format!("{seen:?}")),
         Event::NeedCard(b) => line("CARD", if *b { "no card in the player" } else { "card present" }),
+        Event::NeedDisk(b) => line("CARD", if *b { "no USB disk from Rockbox" } else { "USB disk present" }),
         Event::Ready => line("READY", ""),
         Event::Done(o) => line("DONE", &format!("{o:?}")),
         Event::Failed(e) => line("FAIL", e),

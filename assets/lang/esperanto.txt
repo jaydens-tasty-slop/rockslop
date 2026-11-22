@@ -215,6 +215,10 @@ BUS TAP
 = BUSA SPIO
 THEN PRESS RESET
 = POR TIO PREMU RESET
+NO USB DISK
+= NENIU USB-DISKO
+SET USB MODE TO MASS STORAGE
+= AGORDU USB MODE AL MASS STORAGE
 SD CARD
 = SD-KARTO
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = la flash estis reskribita: sekurkopio restas sur la disko
 the firmware is in flash and checked; the card was not fully updated
 = la programaro estas en la fulmmemoro kaj kontrolita; la karto ne estis plene ĝisdatigita
+SYNC THE CARD
+= SINKRONIGI LA KARTON
 FAULT
 = ERARO
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} ne relegiĝis ĝuste el la karto
 could not mount the player's card: {0}
 = ne eblis surmeti la karton de la ludilo: {0}
-the player's card did not appear
-= la karto de la ludilo ne aperis
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox neniam montris sian USB-diskon. Se ĝia USB Mode estas agordita nur por ŝargi, agordu ĝin al Mass Storage (Settings > Ĝeneralaj Agordaĵoj > Sistemo > USB), aŭ malkonektu la ludilon, tenu iun ajn klavon kaj rekonektu ĝin
 the card is in use by another program
 = la karton uzas alia programo
 cancelled

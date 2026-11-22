@@ -215,6 +215,10 @@ BUS TAP
 = PODSLUŠ
 THEN PRESS RESET
 = NATO PRITISNI RESET
+NO USB DISK
+= BREZ USB DISKA
+SET USB MODE TO MASS STORAGE
+= NASTAVI USB MODE NA MASS STORAGE
 SD CARD
 = SD KARTICA
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = flash je bil prepisan: varnostna kopija je shranjena na disku
 the firmware is in flash and checked; the card was not fully updated
 = firmware je v pomnilniku flash in preverjen; kartica ni bila v celoti posodobljena
+SYNC THE CARD
+= SINHRONIZIRAJ KARTICO
 FAULT
 = NAPAKA
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} se s kartice ni pravilno prebral
 could not mount the player's card: {0}
 = kartice predvajalnika ni bilo mogoče priklopiti: {0}
-the player's card did not appear
-= kartica predvajalnika se ni pojavila
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox ni nikoli pokazal svojega USB diska. Če je USB Mode nastavljen samo na polnjenje, ga nastavi na Mass Storage (Settings > Splosne nastavitve > Sistem > USB) ali odklopi predvajalnik, drži katero koli tipko in ga znova priklopi
 the card is in use by another program
 = kartico uporablja drug program
 cancelled

@@ -215,6 +215,10 @@ BUS TAP
 = 匯流排監聽
 THEN PRESS RESET
 = 然後按 RESET
+NO USB DISK
+= 無 USB 磁碟
+SET USB MODE TO MASS STORAGE
+= 將 USB Mode 設為 Mass Storage
 SD CARD
 = SD 卡
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = 快閃記憶體已被重寫：磁碟上有安全備份
 the firmware is in flash and checked; the card was not fully updated
 = 韌體已在快閃記憶體中並通過校驗；記憶卡未完全更新
+SYNC THE CARD
+= 同步記憶卡
 FAULT
 = 故障
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} 未能從記憶卡正確回讀
 could not mount the player's card: {0}
 = 無法掛載播放器的記憶卡：{0}
-the player's card did not appear
-= 播放器的記憶卡未出現
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox 始終未出現 USB 磁碟。如果 USB Mode 為 僅充電，請將其設為 Mass Storage（設置 > 一般設定 > 系統設定 > USB），或拔除播放器，按住任意鍵再重新插上
 the card is in use by another program
 = 記憶卡正被其他程式佔用
 cancelled

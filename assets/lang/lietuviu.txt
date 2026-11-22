@@ -215,6 +215,10 @@ BUS TAP
 = MAGISTR. SRAUTAS
 THEN PRESS RESET
 = TADA SPAUSK RESET
+NO USB DISK
+= NĖRA USB DISKO
+SET USB MODE TO MASS STORAGE
+= NUSTATYK USB MODE Į MASS STORAGE
 SD CARD
 = SD KORTELĖ
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = flash perrašytas: atsarginė kopija saugi diske
 the firmware is in flash and checked; the card was not fully updated
 = firmware yra flash atmintyje ir patikrinta; kortelė atnaujinta ne iki galo
+SYNC THE CARD
+= SINCHRONIZUOTI KORTELĘ
 FAULT
 = KLAIDA
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} iš kortelės perskaitytas neteisingai
 could not mount the player's card: {0}
 = nepavyko prijungti grotuvo kortelės: {0}
-the player's card did not appear
-= grotuvo kortelė neatsirado
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox taip ir neparodė savo USB disko. Jei USB Mode yra tik įkrovimas, nustatyk jį į Mass Storage (Nuostatos > Bendros nuostatos > Systema > USB) arba atjunk grotuvą, laikyk bet kurį klavišą ir vėl prijunk
 the card is in use by another program
 = kortelę naudoja kita programa
 cancelled

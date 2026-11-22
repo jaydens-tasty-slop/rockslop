@@ -215,6 +215,10 @@ BUS TAP
 = BUS HLERUN
 THEN PRESS RESET
 = SVO ÝTA Á RESET
+NO USB DISK
+= ENGINN USB DISKUR
+SET USB MODE TO MASS STORAGE
+= STILLA USB MODE Á MASS STORAGE
 SD CARD
 = SD KORT
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = flash var endurskrifað: afrit er öruggt á diskinum
 the firmware is in flash and checked; the card was not fully updated
 = firmware er í flash-minni og yfirfarið; kortið var ekki uppfært að fullu
+SYNC THE CARD
+= SAMSTILLA KORTIÐ
 FAULT
 = BILUN
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} las sig ekki rétt aftur af kortinu
 could not mount the player's card: {0}
 = tókst ekki að tengja kort spilarans: {0}
-the player's card did not appear
-= kort spilarans birtist ekki
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox sýndi aldrei USB diskinn sinn. Ef USB Mode er stillt á hleðslu eingöngu, stilltu það á Mass Storage (Settings > Almennarstillingar > Kerfi > USB), eða taktu spilarann úr sambandi, haltu hvaða takka sem er og tengdu hann aftur
 the card is in use by another program
 = kortið er í notkun hjá öðru forriti
 cancelled

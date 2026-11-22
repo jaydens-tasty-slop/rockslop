@@ -60,11 +60,13 @@ fn dev_lock(_kind: Kind) -> Result<DevLock, String> {
 pub struct Real {
     guarded: HashMap<Kind, Instant>,
     rdm: Rdm,
+    /// the stock image the last flash of each player put on the card
+    stock: HashMap<Kind, Backup>,
 }
 
 impl Real {
     pub fn new() -> Real {
-        Real { guarded: HashMap::new(), rdm: Rdm::new() }
+        Real { guarded: HashMap::new(), rdm: Rdm::new(), stock: HashMap::new() }
     }
 }
 
@@ -181,6 +183,10 @@ impl Backend for Real {
                     charger_safe(kind);
                 }
                 r
+            }
+            Cmd::Sync { kind, package } => {
+                let _l = dev_lock(kind)?;
+                self.sync(kind, &package, ev)
             }
         }
     }
@@ -575,10 +581,7 @@ impl Real {
 
     fn flash(&mut self, kind: Kind, path: &Path, ev: &Sink) -> Result<(), String> {
         let t0 = Instant::now();
-        let mut pkg = Package::open(path)?;
-        if pkg.get("target") != Some(kind.id()) {
-            return Err(err!(E150, "this package is for {}, not {}", pkg.get("target").unwrap_or("?"), kind.name()));
-        }
+        let mut pkg = package_for(kind, path)?;
         ev.phase(Phase::Connect);
         let mut d = self.connect(kind, ev)?;
         let g = kind.geometry();
@@ -590,6 +593,10 @@ impl Real {
         let bk = self.keep_backup(kind, &cur, ev)?;
         // what goes on the card for the way back
         let stock = if bk.stock { Some(bk.clone()) } else { backup::stock_for(kind, Some(bk.fingerprint)) };
+        match &stock {
+            Some(b) => self.stock.insert(kind, b.clone()),
+            None => self.stock.remove(&kind),
+        };
 
         ev.phase(Phase::Verify);
         for e in &pkg.expect {
@@ -645,6 +652,19 @@ impl Real {
         Ok(())
     }
 
+    /// Only the card, for a player whose flash holds the package's firmware
+    /// already: no download mode, so no Down+RESET.
+    fn sync(&mut self, kind: Kind, path: &Path, ev: &Sink) -> Result<(), String> {
+        let t0 = Instant::now();
+        let pkg = package_for(kind, path)?;
+        let stock = self.stock.get(&kind).cloned().or_else(|| backup::stock_for(kind, None));
+        let (files, bytes) = sync_card(kind, &pkg, stock.as_ref(), ev)?;
+        ev.phase(Phase::Done);
+        ev.dim(format!("total {:.1} s", t0.elapsed().as_secs_f32()));
+        ev.send(Event::Done(Outcome { files, bytes, card: true, ..Default::default() }));
+        Ok(())
+    }
+
     fn restore(&mut self, kind: Kind, image: &Path, ev: &Sink) -> Result<(), String> {
         let g = kind.geometry();
         ev.phase(Phase::Connect);
@@ -680,6 +700,14 @@ impl Real {
     }
 }
 
+fn package_for(kind: Kind, path: &Path) -> Result<Package, String> {
+    let pkg = Package::open(path)?;
+    if pkg.get("target") != Some(kind.id()) {
+        return Err(err!(E150, "this package is for {}, not {}", pkg.get("target").unwrap_or("?"), kind.name()));
+    }
+    Ok(pkg)
+}
+
 /// Copy the package's card tree onto the player's card (a file it holds
 /// already, unchanged, stays as it is) and read what was written back;
 /// then put the stock backup there too, or take it from there when this
@@ -688,13 +716,19 @@ fn sync_card(kind: Kind, pkg: &Package, stock: Option<&Backup>, ev: &Sink) -> Re
     ev.phase(Phase::Sync);
     ev.info("waiting for Rockbox's USB disk");
     let mut asked = false;
-    let mut hinted = false;
+    let mut no_disk = false;
+    let mut hinted = 0.0;
     let mut card = sdcard::wait_card(Duration::from_secs(600), |look, el| {
         // Rockbox is up but offers no disk: the card's settings can keep
         // it to charging (USB Mode, on both players), or it missed the
-        // connect
-        if matches!(look, Look::Absent) && el > 25.0 && !hinted {
-            hinted = true;
+        // connect. Said again every two minutes: one line is easily missed.
+        let absent = matches!(look, Look::Absent) && el > 25.0;
+        if absent != no_disk {
+            no_disk = absent;
+            ev.send(Event::NeedDisk(absent));
+        }
+        if absent && el >= hinted {
+            hinted = el + 120.0;
             ev.warn("no USB disk from Rockbox yet: if it is set to charge only, unplug the player, hold any key and plug it back in (or set Settings > General Settings > System > USB > USB Mode to Mass Storage)");
         }
         let none = matches!(look, Look::NoMedia);
@@ -709,6 +743,9 @@ fn sync_card(kind: Kind, pkg: &Package, stock: Option<&Backup>, ev: &Sink) -> Re
     })?;
     if asked {
         ev.send(Event::NeedCard(false));
+    }
+    if no_disk {
+        ev.send(Event::NeedDisk(false));
     }
     ev.ok(format!("card online: {}", card.mount.display()));
     let total = pkg.card_bytes();

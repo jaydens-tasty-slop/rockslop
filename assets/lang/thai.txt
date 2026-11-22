@@ -215,6 +215,10 @@ BUS TAP
 = ดักบัส
 THEN PRESS RESET
 = แล้วกด RESET
+NO USB DISK
+= ไม่มีดิสก์ USB
+SET USB MODE TO MASS STORAGE
+= ตั้ง USB Mode เป็น Mass Storage
 SD CARD
 = การ์ด SD
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = แฟลชถูกเขียนใหม่แล้ว: ไฟล์สำรองปลอดภัยอยู่ในดิสก์
 the firmware is in flash and checked; the card was not fully updated
 = เฟิร์มแวร์อยู่ในแฟลชและตรวจแล้ว; การ์ดยังอัปเดตไม่ครบ
+SYNC THE CARD
+= ซิงก์การ์ด
 FAULT
 = ข้อผิดพลาด
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = อ่าน {0} กลับจากการ์ดไม่ถูกต้อง
 could not mount the player's card: {0}
 = เมานต์การ์ดของเครื่องไม่ได้: {0}
-the player's card did not appear
-= ไม่พบการ์ดของเครื่อง
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox ไม่เคยแสดงดิสก์ USB เลย หาก USB Mode ตั้งไว้เป็นชาร์จอย่างเดียว ให้ตั้งเป็น Mass Storage (ตั้งค่า > ตั้งค่าทั่วไป > ระบบ > USB) หรือถอดสายเครื่อง กดปุ่มใดก็ได้ค้างไว้แล้วเสียบกลับ
 the card is in use by another program
 = โปรแกรมอื่นกำลังใช้การ์ดอยู่
 cancelled

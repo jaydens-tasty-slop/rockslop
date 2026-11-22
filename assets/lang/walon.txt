@@ -215,6 +215,10 @@ BUS TAP
 = ESPION BUS
 THEN PRESS RESET
 = PUIS CLITCHÎ RESET
+NO USB DISK
+= NOU DISK USB
+SET USB MODE TO MASS STORAGE
+= METEZ USB MODE SO MASS STORAGE
 SD CARD
 = CARTE SD
 NO CARD
@@ -267,6 +271,8 @@ the flash was rewritten: a backup is safe on disk
 = li flash a stî rescrit: ene schape est e såf sol disk
 the firmware is in flash and checked; the card was not fully updated
 = li firmware est dins l' flash et verifyî; li carte n' a nén stî mettowe a djoû tot a fwait
+SYNC THE CARD
+= SINCRONIZER LI CARTE
 FAULT
 = BERWETE
 COPY REPORT
@@ -433,8 +439,8 @@ the card needs {0} MiB free; it has {1} MiB
 = {0} n' a nén stî bén rlijhou dispoy l' carte
 could not mount the player's card: {0}
 = dji n' a savou monter l' carte di l' aparey: {0}
-the player's card did not appear
-= l' carte di l' aparey n' a nén aparou
+Rockbox never showed its USB disk. If its USB Mode is Charge Only, set it to Mass Storage (Settings > General Settings > System > USB), or unplug the player, hold any key and plug it back in
+= Rockbox n' a måy mostré s' disk USB. Si s' USB Mode est apontyî po tchedjî seulmint, metez Mass Storage (Tchuzes > Apontiaedjes djenerås > Sistinme > USB), ou distchaedjîz l' aparey, tinez on boton et l' rconectez
 the card is in use by another program
 = l' carte est eployeye pa ene ôte programe
 cancelled
