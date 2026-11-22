@@ -11,6 +11,10 @@
 //! Packages download into the cache and stay there, a few per player, so a
 //! second flash (or one offline) doesn't fetch again.
 //!
+//! Editing a release on GitHub steers rockslop: a pre-release is listed
+//! but never picked by itself, and one whose title or notes say
+//! `rockslop: hide` isn't listed at all (a bad build, say).
+//!
 //! ```text
 //! <cache>/rockslop/releases.json        the last list, its ETag beside it
 //! <cache>/rockslop/firmware/<release id>/rockbox-yp3-....tar.xz
@@ -196,7 +200,7 @@ pub fn parse(body: &str) -> Result<Vec<Release>, String> {
     let v: serde_json::Value = serde_json::from_str(body).map_err(|e| bad(&e.to_string()))?;
     let mut out = Vec::new();
     for r in v.as_array().ok_or_else(|| bad("not a list"))? {
-        if r["draft"].as_bool() == Some(true) {
+        if r["draft"].as_bool() == Some(true) || hidden(r) {
             continue;
         }
         let (Some(id), Some(tag)) = (r["id"].as_u64(), r["tag_name"].as_str()) else { continue };
@@ -220,6 +224,15 @@ pub fn parse(body: &str) -> Result<Vec<Release>, String> {
         out.push(Release { id, tag: tag.to_string(), date, prerelease: r["prerelease"].as_bool() == Some(true), assets });
     }
     Ok(out)
+}
+
+/// Hidden from rockslop on GitHub: `rockslop: hide` in the release's title
+/// or notes (any case, any spacing).
+fn hidden(r: &serde_json::Value) -> bool {
+    [&r["name"], &r["body"]].iter().filter_map(|v| v.as_str()).any(|s| {
+        let s: String = s.chars().filter(|c| !c.is_whitespace()).collect::<String>().to_lowercase();
+        s.contains("rockslop:hide")
+    })
 }
 
 /// A file name GitHub gave that is safe to use as one here.
@@ -375,7 +388,13 @@ mod tests {
            "assets": [{"name": "yp3-assets-1.tar.xz", "state": "uploaded", "size": 5, "browser_download_url": "https://x"}]},
           {"id": 1, "tag_name": "1111111111-261119", "draft": false, "prerelease": false, "published_at": null,
            "created_at": "2026-11-19T10:00:00Z",
-           "assets": [{"name": "rockbox-yp3-1111111111-261119.tar.xz", "state": "starter", "size": 5, "browser_download_url": "https://x"}]}
+           "assets": [{"name": "rockbox-yp3-1111111111-261119.tar.xz", "state": "starter", "size": 5, "browser_download_url": "https://x"}]},
+          {"id": 5, "tag_name": "5555555555-261122", "name": "Rockbox (broken)", "body": "Boots to a black screen.\r\n\r\nRockslop:  Hide",
+           "draft": false, "prerelease": false, "published_at": "2026-11-22T10:00:00Z",
+           "assets": [{"name": "rockbox-yp3-5555555555-261122.tar.xz", "state": "uploaded", "size": 5, "browser_download_url": "https://x"}]},
+          {"id": 4, "tag_name": "4444444444-261122", "name": "rockslop:hide", "body": null,
+           "draft": false, "prerelease": false, "published_at": "2026-11-22T09:00:00Z",
+           "assets": [{"name": "rockbox-yp3-4444444444-261122.tar.xz", "state": "uploaded", "size": 5, "browser_download_url": "https://x"}]}
         ]"#;
         let l = List { releases: parse(body).unwrap(), stale: None };
         assert_eq!(l.releases.len(), 3);
@@ -386,6 +405,8 @@ mod tests {
         assert_eq!(l.for_target("yp3").count(), 1);
         assert_eq!(l.releases[2].date, "2026-11-19");
         assert!(l.latest("ts17").is_none());
+        // hidden on GitHub, in the notes or the title: not there
+        assert!(l.find("yp3", "5555555555-261122").is_none() && l.find("yp3", "4444444444-261122").is_none());
         assert!(parse("{\"message\": \"Not Found\"}").is_err());
     }
 }

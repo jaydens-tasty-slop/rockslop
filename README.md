@@ -169,6 +169,12 @@ When GitHub can't be reached, the list from last time stands, and
 packages already downloaded still flash. `ROCKSLOP_RELEASES=URL` reads
 another releases list (a fork's `.../releases` API URL).
 
+Releases are steered on GitHub, by editing them. A pre-release stays in
+the version list (marked PRE) but is never picked by itself. A release
+whose title or notes say `rockslop: hide` isn't listed at all (a broken
+build, say); taking the line out brings it back. rockslop sees the change
+the next time it asks for the list.
+
 ### Backups
 
 Backups go in `rockslop/backups/` under the platform's data directory:
