@@ -35,8 +35,10 @@ static const struct button_mapping wps[] = {
     { ACTION_WPS_STOPSEEK, BUTTON_LEFT|BUTTON_REL, BUTTON_LEFT|BUTTON_REPEAT },
     { ACTION_WPS_STOPSEEK, BUTTON_RIGHT|BUTTON_REL,
                            BUTTON_RIGHT|BUTTON_REPEAT },
+    /* M: released it is volume up (or back when paused, wps.c); held it
+     * repeats the volume. Keeping it on REL leaves Up+Left for the menu. */
     { ACTION_WPS_VOLUP, BUTTON_UP|BUTTON_REL, BUTTON_UP },
-    { ACTION_WPS_STOP, BUTTON_UP|BUTTON_REPEAT, BUTTON_UP },
+    { ACTION_WPS_VOLUP, BUTTON_UP|BUTTON_REPEAT, BUTTON_NONE },
     { ACTION_WPS_VOLDOWN, BUTTON_DOWN, BUTTON_NONE },
     { ACTION_WPS_VOLDOWN, BUTTON_DOWN|BUTTON_REPEAT, BUTTON_NONE },
     { ACTION_WPS_MENU, BUTTON_UP|BUTTON_LEFT, BUTTON_NONE },

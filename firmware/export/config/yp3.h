@@ -41,6 +41,10 @@
 #define TARGET_SIMULATOR_HEAP_SIZE (200 * 1024)
 #endif
 #define CONFIG_KEYPAD YP3_PAD
+/* Now Playing: M (Up) only changes the volume while music plays; paused, a
+ * press leaves the WPS for the previous browser instead. The keymap drops
+ * the hold-Up stop so that a hold repeats the volume (wps.c, keymap-yp3.c). */
+#define HAVE_WPS_M_BACK_WHEN_PAUSED
 /* The centre key's long press powers off (button-yp3.c). Plugins get it as
  * a plain key (button_set_power_hold()), and the main menu offers Shut
  * down instead. */

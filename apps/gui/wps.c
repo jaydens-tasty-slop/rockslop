@@ -873,7 +873,17 @@ long gui_wps_show(void)
                 wps_do_action(WPS_PLAYPAUSE, true);
                 break;
 
-            case ACTION_WPS_VOLUP: /* fall through */
+            case ACTION_WPS_VOLUP:
+#ifdef HAVE_WPS_M_BACK_WHEN_PAUSED
+                /* M is volume only while music plays; paused, it leaves the
+                 * WPS (playback stays paused, the playlist is kept). */
+                if (audio_status() & AUDIO_STATUS_PAUSE)
+                {
+                    gwps_leave_wps(true);
+                    return GO_TO_PREVIOUS_BROWSER;
+                }
+#endif
+                /* fall through */
             case ACTION_WPS_VOLDOWN:
                 if (button == ACTION_WPS_VOLUP)
                     adjust_volume(1);
