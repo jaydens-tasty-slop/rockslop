@@ -1,0 +1,3 @@
+# <source> <destination under .rockbox/rocks> (yp3dev/rocks.sh)
+# The Tamagotchi P1 ROM (rom.bin) is not distributable: the user adds it here.
+LICENSE games/tamagotchi/LICENSE.txt

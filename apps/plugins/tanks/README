@@ -1,0 +1,13 @@
+Tanks! CE (tanks.rock): https://github.com/commandblockguy/tanks-ce commit
+9eb79438a0ecd12cbde23be207257c650b703acb, by commandblockguy (John Cesarz), MIT.
+
+engine/ holds the original physics, shell, mine and AI code with the CE
+toolchain (graphx, keypadc, appvar I/O, eZ80 asm, 24 bit integers) replaced:
+angles are 32 bit, util.h is new, ezSTL::vector is objlist.h, new/delete come
+from a slot pool (pool.cpp), rendering was removed from the classes. The
+original's tank art is Blender renders (not in the repository), and its
+level pack (TANKSLPK appvar) is not either, so tanks_core.cpp draws simple
+shapes and levels.cpp holds ten new missions. game.cpp is the original mission
+loop as a step function. The original is a Wii Play fan clone; the upstream
+readme says the author does not own the Wii Play copyrights. No separate
+asset licenses.

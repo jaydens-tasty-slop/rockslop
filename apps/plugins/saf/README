@@ -1,0 +1,8 @@
+SAF games for Rockbox (YP3 port)
+
+Upstream: https://codeberg.org/drummyfish/SAF (mirror: gitlab.com/drummyfish/SAF),
+commit 815ac0cc6db2c4730cda275cd8728b2222b861f2. All code is CC0 1.0 (LICENSE).
+saf.h has one added platform branch (SAF_PLATFORM_ROCKBOX -> saf_rockbox.h);
+utd.h, minigames.h and tangram.h are the upstream examples with only the
+"../saf.h" include path changed. Frontend: saf_rockbox.h, saf_main.h.
+Save data (32 bytes) goes to /.rockbox/rocks/games/<name>.sav.

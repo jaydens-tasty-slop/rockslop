@@ -1,0 +1,17 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
+/* The libstdc++ <cmath> wants a full C99 libm; the layer has only a few. */
+#ifndef FLIPPER_CMATH
+#define FLIPPER_CMATH
+#ifdef SIMULATOR
+/* The host has a complete libstdc++. */
+#include_next <cmath>
+#else
+#include <furi.h>
+#include <flipper_math.h>
+namespace std {
+using ::size_t;
+using ::sin; using ::cos; using ::sqrt; using ::atan2; using ::fabs;
+using ::sinf; using ::cosf; using ::sqrtf; using ::roundf;
+}
+#endif
+#endif

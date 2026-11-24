@@ -1,0 +1,14 @@
+Tamagotchi P1 emulator (gotchi.rock): the ArduinoGotchi variant of TamaLIB,
+https://github.com/GaryZ88/ArduinoGotchi commit 900b4192c450cb692b91690aea7658d4016d563d
+(TamaLIB core by Jean-Christophe Rona, https://github.com/jcrona/tamalib).
+GPL-2.0-or-later (see LICENSE); icons.h is ArduinoGotchi's bitmaps.h.
+
+tama/ is the emulation core with Rockbox changes: ROM read from RAM, no
+PROGMEM, opcode lookup table, real HALT with idle skipping (cpu_run), readable
+display RAM, interrupt mask registers mapped as in TamaLIB, complete state
+save. gotchi.c/gotchi_view.c are the Rockbox front end (written for this port).
+
+The Tamagotchi P1 ROM is copyrighted and NOT included. The user puts
+rom.bin (12288 bytes, TamaTool format) in /.rockbox/rocks/games/tamagotchi/.
+State is saved there as state.sav. License problems: none for the code; the
+ROM must be supplied by the user.

@@ -1,0 +1,4 @@
+# <source> <destination under .rockbox/rocks> (yp3dev/rocks.sh)
+terrario.dat games/terrario/terrario.dat
+LICENSE games/terrario/LICENSE.txt
+LICENSE.CC-BY-4.0 games/terrario/LICENSE.CC-BY-4.0.txt

@@ -1,0 +1,71 @@
+/* SPDX-License-Identifier: GPL-2.0-or-later */
+/* PokittoLib audio API subset: streamed sample files and clips. Samples are
+ * unsigned 8-bit mono at PROJ_AUD_FREQ and live in files on the card
+ * (see pk_glue.h); the mixer is in pk_glue.c. */
+#pragma once
+#include "Pokitto.h"
+
+#ifndef PROJ_AUD_FREQ
+#define PROJ_AUD_FREQ PROJ_AUD_FREQ_DEFAULT
+#endif
+
+/* A sample file, opened by name below the game's data dir. */
+class File {
+public:
+    File() : fd(-1) { name[0] = 0; }
+    ~File() { close(); }
+    bool openRO(const char *path);
+    uint32_t read(void *buf, uint32_t n);
+    void seek(uint32_t pos);
+    void close();
+    const char *path() const { return name; }
+private:
+    char name[48];
+    int fd;
+};
+
+namespace Audio {
+
+/* A clip stored in a file below the game's data dir. */
+struct Clip {
+    const char *path;
+};
+
+struct Handle {
+    int voice;
+    void setLoop(bool loop);
+    bool ended() const;     /* the voice is no longer playing */
+};
+using RAWFileSource = Handle;
+
+template <int N, int FREQ> class Sink {};
+
+Handle &playVoice(int voice, const char *path, int volume, int slowdown);
+void stopVoice(int voice);
+void playNote(uint32_t note, uint8_t wave, uint16_t volume, uint32_t ms);
+
+template <int V> Handle &play(const File &f) { return playVoice(V, f.path(), 255, 1); }
+/* Volume 0..255; each sample is repeated `slowdown` times. */
+template <int V> Handle &play(const Clip &c, int volume = 255, int slowdown = 1)
+{
+    return playVoice(V, c.path, volume, slowdown);
+}
+template <int V> void stop() { stopVoice(V); }
+bool voiceActive(int voice);
+template <int V> bool isPlaying() { return voiceActive(V); }
+
+/* A synthesised note: Note(n).wave(w).duration(ms).volume(v).play(). */
+struct Note {
+    constexpr Note(uint32_t n = 25) : _note(n) {}
+    constexpr Note &wave(uint8_t v) { _wave = v; return *this; }
+    constexpr Note &volume(uint16_t v) { _volume = v; return *this; }
+    constexpr Note &duration(uint32_t ms) { _duration = ms; return *this; }
+    template <int V = 0> void play(int = 0) const { playNote(_note, _wave, _volume, _duration); }
+
+    uint32_t _note;
+    uint8_t _wave = 1;
+    uint16_t _volume = 127;
+    uint32_t _duration = 250;
+};
+
+}

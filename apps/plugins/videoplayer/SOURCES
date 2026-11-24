@@ -1,0 +1,16 @@
+videoplayer.c
+osd.c
+subs.c
+video.c
+mjpeg.c
+mpeg.c
+sound.c
+mpa.c
+worker.c
+demux.c
+avi.c
+mkv.c
+mp4.c
+#if defined(HAVE_DEVLOG) || defined(SIMULATOR) /* stats.h */
+stats.c
+#endif

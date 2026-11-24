@@ -1,0 +1,4 @@
+#define DISPLAY_MODE DISPLAY_MODE_INDEX
+#define FOLDER_NAME "Waternet"
+#define SOUND_CHANNELS 2
+#define SOUND_FREQ 44100

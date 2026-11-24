@@ -1,0 +1,5 @@
+Catacombs of the Damned, (c) 2019 James Howard, MIT (LICENSE).
+Upstream: https://github.com/jhhoward/Arduboy3D at 929db9f3429cc20a318934099d992f1219a081bd.
+The files here are the upstream Source/Arduboy3D sources; Arduboy3D.cpp is the
+unmodified .ino with an Arduino.h include added. catacombs_rb.cpp is the
+Rockbox glue (key mapping, help, credits).

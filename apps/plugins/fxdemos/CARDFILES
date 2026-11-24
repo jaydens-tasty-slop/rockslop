@@ -1,0 +1,6 @@
+# <source> <destination under .rockbox/rocks> (yp3dev/rocks.sh)
+LICENSE-effects.txt demos/demoeffects/LICENSE.txt
+LICENSE-amiga.txt demos/amiga/LICENSE.txt
+LICENSE-adafruit-font.txt demos/amiga/LICENSE-font.txt
+silhouette.bin demos/amiga/silhouette.bin
+LICENSE-raytrace.txt demos/raytrace/LICENSE.txt

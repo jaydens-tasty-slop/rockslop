@@ -1,0 +1,3 @@
+ArduRogue (MPL-2.0), https://github.com/tiberiusbrown/ardurogue
+commit 35b13869e82ab9ea449835c2d9a0658cf147390f. Game sources are in src/
+unmodified except one line each in font.cpp and sprintf.cpp (va_list init); rockbox/ holds the Rockbox platform layer. No license problems.

@@ -1,0 +1,28 @@
+RockGPT model files (.llm)
+==========================
+
+The model files RockGPT loads (rockgpt.llm, rockgpt-draft.llm) were made as
+follows.
+
+1. Pretraining: a small llama2-style transformer was trained from scratch
+   with Andrej Karpathy's llama2.c (https://github.com/karpathy/llama2.c,
+   MIT) on the TinyStories dataset (Eldan and Li, Microsoft Research;
+   Community Data License Agreement - Sharing, Version 1.0, CDLA-Sharing-1.0),
+   tokenized with a 512-token sentencepiece vocabulary.
+
+2. Fine-tuning: the model was then fine-tuned on short persona chats, mixed
+   with TinyStories, that were generated locally with Qwen3.5 9B (Alibaba
+   Cloud, Apache-2.0).
+
+3. The checkpoints were exported to the int8 .llm format that llm.c reads
+   (tools/rockgpt/export.py in the YP3 repository). The small draft model
+   was distilled from the main one.
+
+Licence: under CDLA-Sharing-1.0 a trained model is a "Result" of computational
+analysis of the data, and Results carry no obligations. The weights are
+distributed under the same terms as RockGPT itself, the GNU General Public
+License, version 2 or (at your option) any later version (see the Rockbox
+GPL text in .rockbox/docs/COPYING.txt).
+
+The model's output is generated text and may be wrong or offensive; it is
+satire, not advice.

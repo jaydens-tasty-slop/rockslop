@@ -1,0 +1,108 @@
+# YP3 release: build the firmware, codecs, plugins and card tree from
+# source with tools/yp3/release.sh and package them for the rockslop
+# flasher. A rolling release: every push to master (or a manual run)
+# publishes a release named after the version the player's boot screen
+# shows, the commit's hash and date (tools/version.sh with the commit's
+# time as SOURCE_DATE_EPOCH, as release.sh builds it). Pull requests build
+# and keep the package as a workflow artifact only.
+
+name: yp3-release
+
+on:
+  push:
+    branches: [master]
+  pull_request:
+  workflow_dispatch:
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+permissions:
+  contents: read
+
+env:
+  # rockslop's packaging/mkpkg.py makes the package (its FORMAT is the one
+  # the flasher reads): a pinned commit of its repository
+  ROCKSLOP_REF: c8d94fd1f3a7e2136ea8106cd71cc509fd08941a
+  # What is not built from source: the staged themes and RockGPT's models
+  # (release.sh, YP3_ASSETS), a release asset of this repository
+  YP3_ASSETS: ${{ github.server_url }}/${{ github.repository }}/releases/download/yp3-assets-1/yp3-assets-1.tar.xz
+  YP3_ASSETS_SHA256: da988dd1ed9f2b4e3f364326ad0f45716278e0942fad28e49492b9e3e4ed6fc4
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/checkout@v7
+        with:
+          repository: jaydens-tasty-slop/rockslop
+          ref: ${{ env.ROCKSLOP_REF }}
+          path: rockslop
+      - run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends build-essential perl python3 \
+              git curl ca-certificates bzip2 xz-utils zip
+      # the Arm toolchain tarball (release.sh checks its sha256)
+      - uses: actions/cache@v6
+        with:
+          path: ~/.cache/yp3/toolchain/*.tar.bz2
+          key: yp3-toolchain-gcc-arm-none-eabi-10.3-2021.10
+      - uses: actions/cache@v6
+        with:
+          path: ~/.cache/yp3/pokitto
+          key: yp3-pokitto-${{ hashFiles('apps/plugins/pokitto/tools/fetch_upstream.sh') }}
+          restore-keys: yp3-pokitto-
+      # the boot screen's version: release.sh builds with the commit's time
+      - id: version
+        run: |
+          v=$(SOURCE_DATE_EPOCH=$(git log -1 --format=%ct) tools/version.sh .)
+          echo "version=$v" >> "$GITHUB_OUTPUT"
+      - name: Build
+        env:
+          MKPKG: rockslop/packaging/mkpkg.py
+          VERSION: ${{ steps.version.outputs.version }}
+        run: YP3_CACHE=$HOME/.cache/yp3 tools/yp3/release.sh "$VERSION" "$RUNNER_TEMP/yp3"
+      - uses: actions/upload-artifact@v7
+        with:
+          name: rockbox-yp3-${{ steps.version.outputs.version }}
+          path: |
+            ${{ runner.temp }}/yp3/rockbox-yp3-*.tar.xz
+            ${{ runner.temp }}/yp3/rockbox-yp3-*.tar.xz.sha256
+          if-no-files-found: error
+          compression-level: 0
+      - if: failure()
+        uses: actions/upload-artifact@v7
+        with:
+          name: build-log
+          path: ${{ runner.temp }}/yp3/build.log
+          if-no-files-found: ignore
+
+  release:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/master'
+    needs: build
+    runs-on: ubuntu-24.04
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/download-artifact@v8
+        with:
+          name: rockbox-yp3-${{ needs.build.outputs.version }}
+          path: dist
+      - name: Publish
+        env:
+          GH_TOKEN: ${{ github.token }}
+          VERSION: ${{ needs.build.outputs.version }}
+        run: |
+          {
+            echo "Rockbox for the YP3, $VERSION, built from $GITHUB_SHA."
+            echo
+            echo "Flash \`rockbox-yp3-$VERSION.tar.xz\` with rockslop:"
+            echo "https://github.com/jaydens-tasty-slop/rockslop/releases"
+          } > notes.md
+          ls -l dist
+          gh release create "$VERSION" dist/* --repo "$GITHUB_REPOSITORY" --target "$GITHUB_SHA" \
+              --title "Rockbox for the YP3 $VERSION" --notes-file notes.md --latest
