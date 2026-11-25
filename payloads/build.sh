@@ -1,7 +1,9 @@
 #!/bin/sh
 # Rebuild the on-device payloads. They are committed prebuilt, so building
 # the flasher needs no ARM toolchain.
-#   yp3/svc.bin    clang + ld.lld + llvm-objcopy (as yp3dev/payload/build.sh)
+#   yp3/svc.bin    clang + ld.lld + llvm-objcopy (as yp3dev/payload/build.sh);
+#                  clang 23 fits its 0xa00-byte region, clang 18 and 19
+#                  overflow it
 #   ts17/*.bin     arm-none-eabi-gcc (as ts17dev/adfu.py), only if $TC is set:
 #                  TC=/path/to/bin/arm-none-eabi- payloads/build.sh
 set -e

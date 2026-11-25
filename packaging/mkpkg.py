@@ -15,9 +15,11 @@ Usage (run from anywhere; paths are ordinary paths):
 
     The ELF is placed into an erased image by yp3dev/package.py (found next
     to this checkout, or pass --placer), so no stock byte goes in the
-    package. Its expect= lines are YP3_BOOT: the flasher refuses a player
-    whose bootloader or partition table differs. --base FILE (a 2 MiB flash
-    image) is optional and only checked against YP3_BOOT.
+    package. Its expect= lines are YP3_BOOT[--board]: the flasher refuses a
+    player whose bootloader or partition table differs. --board picks the
+    YP3 board the build is for (gc9106, the default, or st7735s: a build
+    with YP3_BOARD_ST7735S). --base FILE (a 2 MiB flash image) is optional
+    and only checked against YP3_BOOT[--board].
 
   TS17, from a flat binary (objcopy -O binary of rockbox.elf) or the ELF:
     mkpkg.py ts17 --bin rockbox.bin --card CARD --version V -o out.tar.xz
@@ -54,14 +56,23 @@ FORMAT = 2  # rockslop refuses formats it doesn't read (2: TS17 Rockbox at 0x150
 YP3_IMAGE = 2 * 1024 * 1024
 YP3_REGION = (0xE000, 0x150000)     # release firmware + XIP codecs
 YP3_CODECS = 0xE0000                # XIP_CODEC_AREA_START - 0xC00000
-# What a YP3 package expects of the player's flash: the stock bootloader,
-# and the partition table's header and FIRM entry (name, offset, length).
-# Not the FIRM CRC after them, which isn't stable: 0xdd05 in this player's
-# 2025 dump, 0xda8e in its 2026 read-back, the rest of the sector the same.
-YP3_BOOT = [
-    (0x0, 0xD000, "47fe9ad6074d83b8d2a0619bdfb66a021bd94ba4e86abdfaeda574952ed038af"),
-    (0xD000, 0x1C, "3b8c6abe37c52ede4ade536275ee0cb772b68861ed78b27246c7728fefc66661"),
-]
+# What a YP3 package expects of the player's flash, per board: the stock
+# bootloader (the same on both), and the partition table's header and FIRM
+# entry (name, offset, length). The FIRM length tells the boards apart:
+# 0x192b18 on the GC9106 board, 0x174270 on the ST7735S board. Not the FIRM
+# CRC after them, which isn't stable: 0xdd05 in the GC9106 player's 2025
+# dump, 0xda8e in its 2026 read-back, the rest of the sector the same.
+YP3_BOOTLOADER = (0x0, 0xD000, "47fe9ad6074d83b8d2a0619bdfb66a021bd94ba4e86abdfaeda574952ed038af")
+YP3_BOOT = {
+    "gc9106": [
+        YP3_BOOTLOADER,
+        (0xD000, 0x1C, "3b8c6abe37c52ede4ade536275ee0cb772b68861ed78b27246c7728fefc66661"),
+    ],
+    "st7735s": [
+        YP3_BOOTLOADER,
+        (0xD000, 0x1C, "11fe0efc6ad6c546f3e988fd9aff10c238176ad190e7cffb7c77b98692015751"),
+    ],
+}
 YP3_FIRM_HEADER = 0x30              # the FIRM header's first word: its size
 TS17_SYS = 0x14000                  # fw0_sys: the rescue stub, then Rockbox
 TS17_SYS_MAX = 0x1A7000
@@ -93,11 +104,12 @@ def yp3_flash(a):
     placer = Path(a.placer) if a.placer else HERE.parent.parent / "yp3dev" / "package.py"
     if not placer.exists():
         die(f"{placer} not found; pass --placer path/to/yp3dev/package.py")
+    boot = YP3_BOOT[a.board]
     if a.base:
         base = Path(a.base).read_bytes()
         if len(base) != YP3_IMAGE:
             die("--base must be a full 2 MiB flash image")
-        for off, n, h in YP3_BOOT:
+        for off, n, h in boot:
             if sha(base[off:off + n]) != h:
                 die(f"--base differs from the YP3 this package expects at {off:#x}+{n:#x}: "
                     "the flasher would refuse that player")
@@ -117,7 +129,7 @@ def yp3_flash(a):
     lo, hi = YP3_REGION
     region = bytes(img[lo:hi]).rstrip(b"\xff")
     region += b"\xff" * (-len(region) % 4096)
-    return [(lo, region)], YP3_BOOT
+    return [(lo, region)], boot
 
 
 def ts17_flash(a):
@@ -170,7 +182,9 @@ def main():
     p.add_argument("--fast", action="store_true")
     p.add_argument("--elf")
     p.add_argument("--bin")
-    p.add_argument("--base", help="yp3: a 2 MiB flash image, checked against YP3_BOOT")
+    p.add_argument("--base", help="yp3: a 2 MiB flash image, checked against YP3_BOOT[--board]")
+    p.add_argument("--board", choices=sorted(YP3_BOOT), default="gc9106",
+                   help="yp3: the board the build is for (default gc9106)")
     p.add_argument("--codecs")
     p.add_argument("--placer")
     p.add_argument("--target", choices=("yp3", "ts17"))

@@ -213,6 +213,11 @@ impl Yp3 {
         Ok([b[0], b[1], b[2]])
     }
 
+    /// One 32-bit word of the player's address space.
+    pub fn read32(&mut self, addr: u32) -> Result<u32, String> {
+        Ok(self.ok(Op::Read32, [addr, 0, 0])?[3])
+    }
+
     pub fn pmu_read(&mut self, idx: u32) -> Result<u32, String> {
         Ok(self.ok(Op::PmuRead, [idx, 0, 0])?[3])
     }
@@ -221,15 +226,28 @@ impl Yp3 {
         self.ok(Op::PmuWrite, [idx, v, 0]).map(|_| ())
     }
 
-    /// Battery mV (stock method) and charge enable; charging is switched
-    /// off at CHARGE_LIMIT_MV, since nothing in ROM USB stops it.
-    pub fn battery_guard(&mut self) -> Result<(u32, bool, bool), String> {
-        let r47 = self.pmu_read(0x47)?;
+    /// Battery mV and PMU[0x2e] as read (stock method). PMU[0x47] bit 0
+    /// enables conversions and must be set, in a write of its own, before
+    /// bit 4 starts one, or PMU[0x2e] reads 0x80 (2800 mV). A power cycle
+    /// clears it on the ST7735S board; it is left set, as the stock firmware
+    /// leaves it.
+    pub fn battery_mv(&mut self) -> Result<(u32, u32), String> {
+        let mut r47 = self.pmu_read(0x47)? & 0xff;
+        if r47 & 0x01 == 0 {
+            r47 |= 0x01;
+            self.pmu_write(0x47, r47)?;
+        }
         self.pmu_write(0x47, r47 | 0x10)?;
         std::thread::sleep(Duration::from_millis(50));
-        let raw = self.pmu_read(0x2e)?;
+        let raw = self.pmu_read(0x2e)? & 0xff;
         self.pmu_write(0x47, r47 & !0x10)?;
-        let mv = (2800.0 + 14.173 * (raw & 127) as f32) as u32;
+        Ok(((2800.0 + 14.173 * (raw & 127) as f32) as u32, raw))
+    }
+
+    /// Battery mV and charge enable; charging is switched off at
+    /// CHARGE_LIMIT_MV, since nothing in ROM USB stops it.
+    pub fn battery_guard(&mut self) -> Result<(u32, bool, bool), String> {
+        let (mv, _) = self.battery_mv()?;
         let charge = self.pmu_read(0x17)?;
         let mut stopped = false;
         if charge & 4 != 0 && mv >= CHARGE_LIMIT_MV {

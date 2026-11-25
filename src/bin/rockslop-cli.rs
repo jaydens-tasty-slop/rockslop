@@ -3,6 +3,8 @@
 //!   rockslop-cli status                   players on USB
 //!   rockslop-cli check PACKAGE            verify a package offline
 //!   rockslop-cli probe yp3|ts17           identify a player in download mode
+//!   rockslop-cli pmu yp3                  dump a YP3's PMU registers and its
+//!                                         raw battery reading (download mode)
 //!   rockslop-cli flash PACKAGE            back up, flash, checksum, sync card
 //!   rockslop-cli flash yp3|ts17 [VERSION] the same with a release from GitHub:
 //!                                         the latest, or VERSION
@@ -21,7 +23,8 @@
 //! Options: --yes (don't ask), --wait SECS (how long to wait for the
 //! player, default 300), --demo (a simulated player; touches nothing),
 //! --no-backsies (sign the first flash's waiver without typing it: --yes
-//! doesn't).
+//! doesn't), --ignore-battery (flash or restore even when the battery reads
+//! below 3.3 V: a warning instead of E270).
 //!
 //! The TS17 gets Rockbox's rescue stub ahead of Rockbox on its first flash
 //! (rockslop carries it; it's frozen, and a stub already there is never
@@ -48,15 +51,16 @@ struct Opts {
     wait: Duration,
     demo: bool,
     no_backsies: bool,
+    ignore_battery: bool,
 }
 
 fn usage() -> ExitCode {
     eprintln!(
-        "usage: rockslop-cli status | check PACKAGE | probe yp3|ts17 | flash PACKAGE |\n       \
+        "usage: rockslop-cli status | check PACKAGE | probe yp3|ts17 | pmu yp3 | flash PACKAGE |\n       \
          flash yp3|ts17 [VERSION] | releases [yp3|ts17] | fetch yp3|ts17 [VERSION] |\n       \
          sync PACKAGE | sync yp3|ts17 [VERSION] |\n       \
          restore yp3|ts17 [IMAGE] | backups [yp3|ts17] | card\n\
-         options: --yes  --wait SECS  --demo  --no-backsies  --version\n\
+         options: --yes  --wait SECS  --demo  --no-backsies  --ignore-battery  --version\n\
          {}",
         rockslop::WEBSITE
     );
@@ -79,7 +83,7 @@ fn main() -> ExitCode {
         return ExitCode::FAILURE;
     }
     let mut args: Vec<String> = std::env::args().skip(1).collect();
-    let mut o = Opts { yes: false, wait: Duration::from_secs(300), demo: false, no_backsies: false };
+    let mut o = Opts { yes: false, wait: Duration::from_secs(300), demo: false, no_backsies: false, ignore_battery: false };
     let mut i = 0;
     while i < args.len() {
         match args[i].as_str() {
@@ -93,6 +97,10 @@ fn main() -> ExitCode {
             }
             "--no-backsies" => {
                 o.no_backsies = true;
+                args.remove(i);
+            }
+            "--ignore-battery" => {
+                o.ignore_battery = true;
                 args.remove(i);
             }
             "--wait" if i + 1 < args.len() => {
@@ -119,6 +127,7 @@ fn main() -> ExitCode {
             Some(k) => probe(&o, k),
             None => return usage(),
         },
+        Some("pmu") if !o.demo && kind_arg(args.get(1)) == Some(Kind::Yp3) => pmu_dump(&o),
         // a player's name, unless there's a file by that name
         Some("flash") if args.len() <= 3 && kind_arg(args.get(1)).is_some() && !Path::new(&args[1]).exists() => {
             let kind = kind_arg(args.get(1)).unwrap();
@@ -171,7 +180,7 @@ fn hub(o: &Opts) -> Hub {
     if o.demo {
         Hub::start(Box::new(Sim::new(4.0, None)))
     } else {
-        Hub::start(Box::new(Real::new()))
+        Hub::start(Box::new(Real::new().ignore_battery(o.ignore_battery)))
     }
 }
 
@@ -380,6 +389,47 @@ fn probe(o: &Opts, kind: Kind) -> Result<(), String> {
     wait_rom(o, &mut h, kind)?;
     h.send(Cmd::Probe(kind));
     run(&mut h, false, None)
+}
+
+/// A YP3 in download mode: PMU registers 0x00..0x7f, the PMU port block
+/// (0x40085000..0x400850fc), then a battery reading as the battery check
+/// makes it (which leaves PMU[0x47] bit 0 set, as the stock firmware does).
+/// Nothing else is written.
+fn pmu_dump(o: &Opts) -> Result<(), String> {
+    let t0 = Instant::now();
+    let mut y = loop {
+        match rockslop::device::yp3::Yp3::open() {
+            Ok(y) => break y,
+            Err(e) if t0.elapsed() >= o.wait => return Err(e),
+            Err(_) => std::thread::sleep(Duration::from_millis(500)),
+        }
+    };
+    println!("PMU registers (hex):");
+    for row in (0..0x80).step_by(16) {
+        let mut line = format!("  {row:02x}:");
+        for i in row..row + 16 {
+            line += &match y.pmu_read(i) {
+                Ok(v) => format!(" {:02x}", v & 0xff),
+                Err(_) => " --".into(),
+            };
+        }
+        println!("{line}");
+    }
+    // the PMU port block, up to the bridge registers at +0x100
+    println!("PMU port 0x40085000 (hex words):");
+    for row in (0..0x100u32).step_by(16) {
+        let mut line = format!("  +{row:02x}:");
+        for off in (row..row + 16).step_by(4) {
+            line += &match y.read32(0x4008_5000 + off) {
+                Ok(v) => format!(" {v:08x}"),
+                Err(_) => " --------".into(),
+            };
+        }
+        println!("{line}");
+    }
+    let (mv, raw) = y.battery_mv()?;
+    println!("battery: PMU[0x2e] = 0x{raw:02x}, code {}, {mv} mV (2800 + 14.173 * code)", raw & 0x7f);
+    Ok(())
 }
 
 /// The releases on GitHub with a package for `kind` (every player's, with

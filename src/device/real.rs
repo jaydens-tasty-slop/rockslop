@@ -62,11 +62,19 @@ pub struct Real {
     rdm: Rdm,
     /// the stock image the last flash of each player put on the card
     stock: HashMap<Kind, Backup>,
+    /// a low battery is a warning, not a refusal (rockslop-cli
+    /// --ignore-battery)
+    ignore_battery: bool,
 }
 
 impl Real {
     pub fn new() -> Real {
-        Real { guarded: HashMap::new(), rdm: Rdm::new(), stock: HashMap::new() }
+        Real { guarded: HashMap::new(), rdm: Rdm::new(), stock: HashMap::new(), ignore_battery: false }
+    }
+
+    pub fn ignore_battery(mut self, on: bool) -> Real {
+        self.ignore_battery = on;
+        self
     }
 }
 
@@ -244,7 +252,15 @@ impl Real {
             v
         };
         let cpu_fail = |id: u32| err!(E262, "CPU check failed: {}", fail("CPU", format!("CPUID {id:08x}")));
-        let low_battery = |mv: u32| err!(E270, "battery too low to flash safely ({})", mv_text(Some(mv)));
+        let ignore_battery = self.ignore_battery;
+        let low_battery = |mv: u32| -> Result<(), String> {
+            if ignore_battery {
+                ev.warn(format!("battery low ({}); flashing anyway (--ignore-battery)", mv_text(Some(mv))));
+                Ok(())
+            } else {
+                Err(err!(E270, "battery too low to flash safely ({})", mv_text(Some(mv))))
+            }
+        };
         match d {
             Dev::Yp3(y) => {
                 let inq = y.inquiry()?;
@@ -280,7 +296,7 @@ impl Real {
                 };
                 ev.probe("CELL", format!("{}  {what}", mv_text(Some(mv))), Some(mv > 3300));
                 if mv < 3300 {
-                    return Err(low_battery(mv));
+                    low_battery(mv)?;
                 }
             }
             Dev::Ts17(t) => {
@@ -333,7 +349,7 @@ impl Real {
                 };
                 ev.probe("CELL", format!("{}  {what}", mv_text(mv)), Some(mv.map(|m| m > 3300).unwrap_or(true)));
                 if let Some(m) = mv.filter(|&m| m < 3300) {
-                    return Err(low_battery(m));
+                    low_battery(m)?;
                 }
             }
         }

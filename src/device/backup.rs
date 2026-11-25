@@ -131,6 +131,7 @@ fn has_table(kind: Kind, img: &[u8]) -> bool {
 /// they turn up.
 const KNOWN: &[(Kind, &str, &str)] = &[
     (Kind::Yp3, "yp3_2.0.43", "72c3484c208998740a8f7e5e69856947b81dce7a57ade8bc55a4b6f5ac9a9d44"),
+    (Kind::Yp3, "yp3_2.0.43, ST7735S board", "45dad81483a8e69de03b7a532d19211ab51b10d6a2da5331e4696d6e53920e7c"),
     (Kind::Ts17, "TS17, 2026 units", "00d56c7165c63e1812a549b968310f978ee558bff6db5e2457615765bb9cf249"),
 ];
 
