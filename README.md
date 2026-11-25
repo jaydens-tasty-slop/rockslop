@@ -6,6 +6,11 @@ A completely normal [Rockbox](https://www.rockbox.org) flasher. It installs
 Rockbox on two cheap MP3 players, and puts them back to stock:
 
 - **YP3**: SmartLink SL6801, 2 MiB SPI NOR, 128x160 LCD, firmware `yp3_*`.
+  It comes on two boards: one with a GC9106 panel (the releases are for
+  it), and one with an ST7735S panel and all four direction keys on the
+  key ladder, which needs a Rockbox build made with `YP3_BOARD_ST7735S`
+  (see *Packages*). On that board the download-mode key is **Left**, not
+  Down.
 - **TS17**: Actions "Lark" (chip 0x2351), 4 MiB SPI NOR.
 
 `rockslop` is the graphical flasher and `rockslop-cli` is the command-line
@@ -263,9 +268,16 @@ and gives reproducible output under `SOURCE_DATE_EPOCH`:
 ```
 packaging/mkpkg.py yp3 --elf rockbox.elf \
     --codecs codecs.flash --card CARD --version 4.0-yp3 -o rockbox-yp3-4.0.tar.xz
+packaging/mkpkg.py yp3 --board st7735s ...   # a YP3_BOARD_ST7735S build
 packaging/mkpkg.py ts17 --bin rockbox.bin --card CARD --version 4.0-ts17 -o rockbox-ts17-4.0.tar.xz
 packaging/mkpkg.py --help
 ```
+
+The two YP3 boards have the same bootloader; the partition table's FIRM
+length tells them apart (`0x192b18` on the GC9106 board, `0x174270` on
+the ST7735S board), so a package's `expect=` lines only match the board
+its `--board` names. Rockbox's `tools/yp3/release.sh` takes the board from
+`YP3_BOARD=st7735s`.
 
 For the TS17, `--bin` is the Rockbox build's `rockbox.bin`, stub included.
 mkpkg.py refuses it unless its first 4 KiB is the pinned stub (sha256
