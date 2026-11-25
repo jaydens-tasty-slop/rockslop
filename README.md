@@ -59,7 +59,8 @@ instead, as does a file dropped on the window.
 
 1. **Link.** Put the player in download mode (below). The flasher finds it,
    kicks a TS17 from stock into its boot ROM, and probes the CPU, the flash
-   chip and the battery. If the battery is below 3.3 V it refuses.
+   chip and the battery. If the battery is below 3.3 V it refuses
+   (`rockslop-cli --ignore-battery` warns and goes on instead).
 2. **Backup.** The whole flash is read and saved before anything is
    written (see *Backups*). This step is never skipped.
 3. **Verify.** The package's checksums are checked. Then the player's boot
@@ -116,6 +117,7 @@ rockslop --render-scale 0.5      # render at half the screen's resolution
 rockslop-cli status              # players on USB, and their mode
 rockslop-cli check  rockbox-yp3-4.0.tar.xz
 rockslop-cli probe  yp3|ts17
+rockslop-cli pmu    yp3                # the PMU's registers and raw battery reading
 rockslop-cli flash  rockbox-yp3-4.0.tar.xz
 rockslop-cli flash  yp3|ts17 [VERSION]  # the latest release (or VERSION), downloaded first
 rockslop-cli releases [yp3|ts17]        # the releases on GitHub
@@ -126,6 +128,7 @@ rockslop-cli backups [yp3|ts17]
 rockslop-cli card                # where Rockbox's USB disk is mounted
     --yes  (don't ask)  --wait SECS  (default 300)  --demo
     --no-backsies  (sign the first flash's waiver without typing it)
+    --ignore-battery  (flash or restore below 3.3 V: a warning, not E270)
 ```
 
 **DEMO** at the bottom of the first screen switches the GUI to the

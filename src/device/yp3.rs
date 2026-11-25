@@ -213,6 +213,11 @@ impl Yp3 {
         Ok([b[0], b[1], b[2]])
     }
 
+    /// One 32-bit word of the player's address space.
+    pub fn read32(&mut self, addr: u32) -> Result<u32, String> {
+        Ok(self.ok(Op::Read32, [addr, 0, 0])?[3])
+    }
+
     pub fn pmu_read(&mut self, idx: u32) -> Result<u32, String> {
         Ok(self.ok(Op::PmuRead, [idx, 0, 0])?[3])
     }

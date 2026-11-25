@@ -75,7 +75,7 @@ To report one, press **COPY REPORT** on the error screen: it puts the error and 
 | E264 | TS17: no partition table in flash. Nothing was written. | Unexpected flash layout. Report it. |
 | E265 | TS17: the partition table does not put the firmware partition (`fw0_sys`) where the flasher writes. Nothing was written. | Unexpected flash layout. Report it. |
 | E266 | TS17: the flash's model name is not a TS17 (a TS28 has the same chip). Nothing was written. | Use a package built for that player. |
-| E270 | Battery too low to flash. | Charge it, then retry. |
+| E270 | Battery too low to flash. | Charge it, then retry. `rockslop-cli --ignore-battery` flashes anyway, at your own risk. |
 | E301 | The player's bootloader is not the one the package was built for. Nothing was written. | Use a package for this player. Report it if it should match. |
 | E310 | YP3: a write to a protected sector was refused. | Should not happen. Report it. |
 | E311 | TS17: a write to a protected sector was refused. | Should not happen. Report it. |
