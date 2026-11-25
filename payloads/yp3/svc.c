@@ -371,9 +371,12 @@ static int op_reset(int to_rom)
         (r = pmu_xfer(0x20, 0, &f20)))
         return r;
     reply[3] = f23; reply[4] = f00; reply[5] = f20;
-    /* PMU00 bits 7:6 = 2 under stock and the soft-wake board setup */
-    if ((f23 != 0 && f23 != 0xc0u) || ((f00 & ~0x80u) != 8u && (f00 & ~0x80u) != 9u) ||
-        f20 != 0x2fu)
+    /* PMU00 bits 7:6 (power state) = 2 under stock and the soft-wake board
+     * setup, 1 after a cold power-up; PMU20 = 0x2f once stock or Rockbox
+     * ran, 0x3c after a cold power-up (the ST7735S board's power switch
+     * cuts the battery, so download mode often starts cold) */
+    if ((f23 != 0 && f23 != 0xc0u) || ((f00 & ~0xc0u) != 8u && (f00 & ~0xc0u) != 9u) ||
+        (f00 & 0xc0u) == 0xc0u || (f20 != 0x2fu && f20 != 0x3cu))
         return ST_PMU_FLAGS;
     if (to_rom) {
         if ((r = pmu_write_verify(0, f00 | 1u)) ||
